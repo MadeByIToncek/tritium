@@ -3,7 +3,8 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
-	 <TargetPlatformIdentifier>windows</TargetPlatformIdentifier>
+	<EnableWindowsTargeting>true</EnableWindowsTargeting>
+	<TargetPlatformIdentifier>windows</TargetPlatformIdentifier>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>

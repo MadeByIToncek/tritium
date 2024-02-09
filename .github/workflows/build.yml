@@ -37,7 +37,6 @@ jobs:
         run: |
           cd server
           mvn clean package
-          rm server/target/original-*.jar
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.TOKEN }}"
