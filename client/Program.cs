@@ -1,8 +1,3 @@
-using Microsoft.VisualBasic.ApplicationServices;
-using MySql.Data.MySqlClient;
-using System.Runtime.Serialization;
-using Tritium.databases;
-
 namespace Tritium
 {
     internal static class Program
