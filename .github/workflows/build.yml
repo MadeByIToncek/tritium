@@ -44,7 +44,7 @@ jobs:
           prerelease: true
           title: "Server Build, created at ${{ github.event.repository.updated_at}}"
           files: |
-            server/target/original-*.jar
+            server/target/*.jar
             
   dotnet:
     name: Build and deploy client app
