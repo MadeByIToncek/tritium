@@ -9,7 +9,7 @@
 # the `language` matrix defined below to confirm you have the correct set of
 # supported CodeQL languages.
 #
-name: "CodeQL"
+name: ".net build"
 
 on:
   push:
@@ -17,35 +17,6 @@ on:
   workflow_dispatch:
 
 jobs:
-  java:
-    name: Build and deploy server app
-    runs-on: ubuntu-latest
-    permissions:
-      actions: write
-      contents: write
-      security-events: write
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-          cache: 'maven'
-          cache-dependency-path: 'server/pom.xml' # optional
-      - name: Build with Maven
-        run: |
-          cd server
-          mvn clean package
-      - uses: "marvinpinto/action-automatic-releases@latest"
-        with:
-          repo_token: "${{ secrets.TOKEN }}"
-          automatic_release_tag: "java"
-          prerelease: true
-          title: "Server Build, created at ${{ github.event.repository.updated_at}}"
-          files: |
-            server/target/*.jar
-            
   dotnet:
     name: Build and deploy client app
     runs-on: ubuntu-latest
@@ -59,19 +30,19 @@ jobs:
       - uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 8.x
-      - name: Build with Maven
+          cache: true
+      - name: Build with .net
         run: |
-          cd client
           dotnet restore --locked-mode
           dotnet publish -a x64 --os win --self-contained true -c Release
       - uses: montudor/action-zip@v1
         with:
-          args: zip -qq -r client.zip client/bin/Release/net8.0/win-x64/publish
+          args: zip -qq -r client.zip bin/Release/net8.0/win-x64/publish
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.TOKEN }}"
           automatic_release_tag: "dotnet"
           prerelease: true
-          title: "Client Build, created at ${{ github.event.repository.updated_at}}"
+          title: "Trinity Build, created at ${{ github.event.repository.updated_at}}"
           files: |
             client.zip
