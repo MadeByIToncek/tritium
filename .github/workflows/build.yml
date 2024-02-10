@@ -40,10 +40,17 @@ jobs:
       - name: Build with .net
         run: |
           dotnet restore --locked-mode
-          dotnet publish -a x64 --os win --self-contained true -c Release
+          dotnet publish -a x64 --os win --self-contained true -c Release -p:PublishReadyToRun=true
       - uses: montudor/action-zip@v1
         with:
           args: zip -qq -r client.zip bin/Release/net8.0/win-x64/publish
+      - name: Build with .net light
+        run: |
+          dotnet clean
+          dotnet publish -a x64 --os win --self-contained false -c Release 
+      - uses: montudor/action-zip@v1
+        with:
+          args: zip -qq -r client_light.zip bin/Release/net8.0/win-x64/publish
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.TOKEN }}"
@@ -52,3 +59,4 @@ jobs:
           title: "Trinity Build, created at ${{ github.event.repository.updated_at}}"
           files: |
             client.zip
+            client_light.zip
