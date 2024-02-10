@@ -1,12 +1,12 @@
 namespace Tritium
 {
-    internal static class Program
+    internal class Program
     {
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
 
-        public static SQLite lite;
+        public static DatabaseController lite;
 
         [STAThread]
         static void Main()
@@ -16,7 +16,9 @@ namespace Tritium
             ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            lite = new SQLite(Path.Combine(Environment.CurrentDirectory, "Database.db"));
+            //lite = new DatabaseController(Path.Combine(Environment.CurrentDirectory, "Database.db"));
+            lite = new DatabaseController("localhost",3306,"tritium","root","123456789");
+            //lite.LoadDemoSample();
             Application.Run(new ManagerWindow());
         }
     }
