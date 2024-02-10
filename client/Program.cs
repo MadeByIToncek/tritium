@@ -5,6 +5,9 @@ namespace Tritium
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
+
+        public static SQLite lite;
+
         [STAThread]
         static void Main()
         {
@@ -13,6 +16,7 @@ namespace Tritium
             ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            lite = new SQLite(Path.Combine(Environment.CurrentDirectory, "Database.db"));
             Application.Run(new ManagerWindow());
         }
     }
