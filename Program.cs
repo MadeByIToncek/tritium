@@ -1,4 +1,6 @@
 using Microsoft.VisualBasic.ApplicationServices;
+using Newtonsoft.Json.Linq;
+using System.Text;
 
 namespace Tritium
 {
@@ -8,7 +10,7 @@ namespace Tritium
         ///  The main entry point for the application.
         /// </summary>
 
-        public static DatabaseController lite;
+        public static DatabaseController db;
         static Form SplashScreen;
         static Form MainForm;
 
@@ -18,18 +20,65 @@ namespace Tritium
             ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            SplashScreen = new LoadingSplash();
             var splashThread = new Thread(new ThreadStart(
-                () => Application.Run(SplashScreen)));
+                () =>
+                {
+                    SplashScreen = new Splash();
+
+                    Application.Run(SplashScreen);
+                }));
             splashThread.SetApartmentState(ApartmentState.STA);
             splashThread.Start();
 
-            lite = new DatabaseController("localhost", 3306, "tritium", "root", "123456789");
+            db = LoadDatabaseConfig();
+            //db = new DatabaseController("localhost", 3306, "tritium", "root", "123456789");
             MainForm = new ManagerWindow();
-            //lite = new DatabaseController(Path.Combine(Environment.CurrentDirectory, "Database.db"));
-            //lite.LoadDemoSample();
             MainForm.Load += MainForm_LoadCompleted;
             Application.Run(MainForm);
+        }
+
+        private static DatabaseController LoadDatabaseConfig()
+        {
+            try
+            {
+                JObject filecontent;
+                using (var sr = new StreamReader(Path.Combine(Environment.CurrentDirectory, "config.json")))
+                {
+                    filecontent = JObject.Parse(sr.ReadToEnd());
+                }
+
+                bool isLocal = filecontent["isLocal"].Value<bool>();
+                if (isLocal)
+                {
+                    return new DatabaseController(filecontent["path"].Value<string>());
+                }
+                else
+                {
+                    JObject mysql = filecontent["mysql"].Value<JObject>();
+                    string address = mysql["address"].Value<string>();
+                    int port = mysql["port"].Value<int>();
+                    string database = mysql["database"].Value<string>();
+                    string user = mysql["user"].Value<string>();
+                    string password = mysql["password"].Value<string>();
+                    return new DatabaseController(address,port,database,user,password);
+                }
+            }
+            catch (FileNotFoundException)
+            {
+                JObject content = new JObject(
+                    new JProperty("isLocal", true),
+                    new JProperty("path", Path.Combine(Environment.CurrentDirectory, "Database.db")),
+                    new JProperty("mysql",  new JObject(
+                        new JProperty("address", "localhost"),
+                        new JProperty("port", 3306),
+                        new JProperty("database", "tritium"),
+                        new JProperty("user", "root"),
+                        new JProperty("password", "123456789")
+                    )));
+
+                File.WriteAllText(Path.Combine(Environment.CurrentDirectory, "config.json"), content.ToString());
+                return LoadDatabaseConfig();
+            }
         }
 
         private static void MainForm_LoadCompleted(object sender, EventArgs e)
@@ -38,7 +87,6 @@ namespace Tritium
                 SplashScreen.Invoke(new Action(() => SplashScreen.Close()));
             MainForm.TopMost = true;
             MainForm.Activate();
-            MainForm.TopMost = false;
         }
     }
 

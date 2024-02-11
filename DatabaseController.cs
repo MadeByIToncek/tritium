@@ -12,6 +12,7 @@ namespace Tritium
     public class DatabaseController
     {
         private readonly ISessionFactory _sessionFactory;
+        readonly internal bool isLocal;
 
         public DatabaseController(string path)
         {
@@ -21,6 +22,8 @@ namespace Tritium
                      m.FluentMappings.AddFromAssemblyOf<Program>())
                 .ExposeConfiguration(TreatConfiguration)
                 .BuildSessionFactory();
+            isLocal = true;
+
         }
         public DatabaseController(string server, int port, string database, string user, string password)
         {
@@ -35,6 +38,7 @@ namespace Tritium
                      m.FluentMappings.AddFromAssemblyOf<Program>())
                 .ExposeConfiguration(TreatConfiguration)
                 .BuildSessionFactory();
+            isLocal = false;
         }
 
         private static void TreatConfiguration(Configuration configuration)
@@ -56,31 +60,15 @@ namespace Tritium
             }
         }
 
-        internal void LoadDemoSample()
+        internal IList<PatogenProgram> ListPatogenPrograms()
         {
             using (var session = _sessionFactory.OpenSession())
             {
-                using (var transaction = session.BeginTransaction())
+                // retreive all stores and display them
+                using (session.BeginTransaction())
                 {
-                    var klient1 = new Klient
-                    {
-                        Jmeno = "Jméno Příjmení",
-                        DatumNarozeni = DateTime.MinValue,
-                        Telefon = "+420 123 456 789",
-                        Email = "email@domena.tld",
-                        Adresa = "Ulice 123, Město 123 45",
-                        UvodniSchuzka = DateTime.Now
-                    };
-                    var navsteva1 = new Navsteva
-                    {
-                        Client = klient1,
-                        Date = DateTime.Now
-                    };
-                    klient1.PridatNavstevu(navsteva1);
-
-                    session.SaveOrUpdate(klient1);
-
-                    transaction.Commit();
+                    return session.CreateCriteria(typeof(PatogenProgram))
+                      .List<PatogenProgram>();
                 }
             }
         }

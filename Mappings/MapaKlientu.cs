@@ -24,21 +24,25 @@ namespace Tritium.Mappings
                 .Cascade.All();
             Map(x => x.Kardiostimulator);
             Map(x => x.AktualniTehotenstvi);
-            Map(x => x.OnkologickeOnemocneni);
+            Map(x => x.OnkologickeOnemocneni)
+                .Length(10000);
             Map(x => x.Epilepsie);
-            Map(x => x.AutoimunitniOnemocneni);
-            Map(x => x.Leky);
-            Map(x => x.DlouhodobePotize);
-            Map(x => x.KrevniTlak);
-            Map(x => x.PredchazejiciNemoci);
-            Map(x => x.Homeo);
-            Map(x => x.RodinnaAnamneza);
-            Map(x => x.Strava);
-            Map(x => x.Traveni);
-            Map(x => x.SituacePrace);
-            Map(x => x.SituaceRodina);
-            Map(x => x.SituaceOstatni);
-            Map(x => x.Rozpolozeni);
+            Map(x => x.AutoimunitniOnemocneni)
+                .Length(10000);
+            Map(x => x.Leky)
+                .Length(10000);
+            Map(x => x.DlouhodobePotize)
+                .Length(10000);
+            Map(x => x.KrevniTlak).Length(10000);
+            Map(x => x.PredchazejiciNemoci).Length(10000);
+            Map(x => x.Homeo).Length(10000);
+            Map(x => x.RodinnaAnamneza).Length(10000);
+            Map(x => x.Strava).Length(10000);
+            Map(x => x.Traveni).Length(10000);
+            Map(x => x.SituacePrace).Length(10000);
+            Map(x => x.SituaceRodina).Length(10000);
+            Map(x => x.SituaceOstatni).Length(10000);
+            Map(x => x.Rozpolozeni).Length(10000);
         }
     }
 }

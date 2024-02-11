@@ -51,5 +51,4 @@ namespace Tritium.Entities
             Navstevy.Add(navsteva);
         }
     }
-
 }
