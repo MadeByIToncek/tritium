@@ -72,6 +72,15 @@
       <dsig:DigestValue>ghU8DmiDSg9A4gA4QlQpo+P5z02rvJGRtHbP5WGKFB0=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="comerr64.dll" size="26184">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>KPxWCzd/Hov0t5mhRKIatDftfMKuZYJ4D7lrMl/d9S0=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="EntityFramework.dll" size="4977744">
     <hash>
       <dsig:Transforms>
@@ -108,6 +117,15 @@
       <dsig:DigestValue>0t+d88FK0xICuYlHa9il5B9oHZnRaqbEjymsyZakR90=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="gssapi64.dll" size="400456">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>cGyEmugNm46akXgoBL7coNWxouxeS1i/Ds2ekD+AEXE=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Iesi.Collections.dll" size="15360">
     <hash>
       <dsig:Transforms>
@@ -142,6 +160,33 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>Gdc/pYwfbBLGHzDqrZGIG9BvUMr0tGKwYbwbRdCld80=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="k5sprt64.dll" size="74312">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Z44g910VSpVEAnZjj2AXIFzMsB9BFW6b8Nqk73UfQYE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="krb5_64.dll" size="1233480">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>vwT/yCqr/BB4kS4vF+9VQjrm0Pq+jAHUifvJSKDupco=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="krbcc64.dll" size="122440">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>8+H8efv8ymtBtsXyR6FYIQg/kRAu6KwVolT8ybT6178=</dsig:DigestValue>
     </hash>
   </file>
   <file name="MySql.Data.dll" size="1187328">
@@ -198,97 +243,7 @@
       <dsig:DigestValue>C2314KvggvEspMIInobRjHSsVf8eLyFdWirnTTuOwgg=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="runtimes\linux-x64\native\SQLite.Interop.dll" size="2982112">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>qhfsYWLhqfALSUyb5bdLMrmtfrwzvHQxzKqobLd1WTE=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="runtimes\osx-x64\native\SQLite.Interop.dll" size="2150084">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>2xEOqGKhZGINnPhpzXTPdGUuJvZQVIjLR03AaUVsJ9g=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll" size="954752">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>cZz9Gg6hmerzDmyxV/le8aBLyarKIsyijx+tX4HO/RE=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll" size="1023360">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>X3nAddg5BKxkUQw9x35FmA6ji4IgTjnDkTUxv/94WFs=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="runtimes\win-arm64\native\sni.dll" size="174224">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>7xhFjE3Lk/a06sB+FYnPNFC/h48t1iP1009qDxsW5Xo=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="runtimes\win-x64\native\comerr64.dll" size="26184">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>KPxWCzd/Hov0t5mhRKIatDftfMKuZYJ4D7lrMl/d9S0=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="runtimes\win-x64\native\gssapi64.dll" size="400456">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>cGyEmugNm46akXgoBL7coNWxouxeS1i/Ds2ekD+AEXE=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="runtimes\win-x64\native\k5sprt64.dll" size="74312">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>Z44g910VSpVEAnZjj2AXIFzMsB9BFW6b8Nqk73UfQYE=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="runtimes\win-x64\native\krb5_64.dll" size="1233480">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>vwT/yCqr/BB4kS4vF+9VQjrm0Pq+jAHUifvJSKDupco=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="runtimes\win-x64\native\krbcc64.dll" size="122440">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>8+H8efv8ymtBtsXyR6FYIQg/kRAu6KwVolT8ybT6178=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="runtimes\win-x64\native\sni.dll" size="160040">
+  <file name="sni.dll" size="160040">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -297,7 +252,7 @@
       <dsig:DigestValue>aHBcTvmrgY8pVqeOBfP+/OUBoUSHk7BztGEQvrSbR9Y=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="runtimes\win-x64\native\SQLite.Interop.dll" size="1829040">
+  <file name="SQLite.Interop.dll" size="1829040">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
@@ -306,31 +261,13 @@
       <dsig:DigestValue>q6Z8fmwBhWg4uLxrC6lehk4f3LN1CqfNwbxzURzqb+Q=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="runtimes\win-x86\native\sni.dll" size="136488">
+  <file name="System.Data.SqlClient.dll" size="1023360">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>FEbWsm2kmlqfNmly+J9OI2+RaVXzHdw467liF8HKzpw=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="runtimes\win-x86\native\SQLite.Interop.dll" size="1447600">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>cOSO9cFHZvNgHJdFG0eFn93L5/I34cUgDOqOenYJ2Ak=</dsig:DigestValue>
-    </hash>
-  </file>
-  <file name="System.Data.SqlClient.dll" size="267136">
-    <hash>
-      <dsig:Transforms>
-        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-      </dsig:Transforms>
-      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>DHtY+dJ7Jexc/M4jndGQiJ0Xpxdjm1ULhCAa0jng4X0=</dsig:DigestValue>
+      <dsig:DigestValue>X3nAddg5BKxkUQw9x35FmA6ji4IgTjnDkTUxv/94WFs=</dsig:DigestValue>
     </hash>
   </file>
   <file name="System.Data.SQLite.dll" size="427696">
@@ -360,31 +297,31 @@
       <dsig:DigestValue>6+E55JXedimdw1c1bDtVg4K7XuWjVWVTifH8QpfzXSY=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Tritium.deps.json" size="82733">
+  <file name="Tritium.deps.json" size="97518">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>TU+MgLxH3Cykd5hp/wLsiCsdSe6IAmOlMkHcVFQwOEY=</dsig:DigestValue>
+      <dsig:DigestValue>Gtt3t9tpMoYYrr/5jeiLyGmTtkdB6+xqXKJBVZZetYc=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Tritium.dll" size="89088">
+  <file name="Tritium.dll" size="88064">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>pL1AviddhtF73CVRYjSHPvHUXfa1ZdleRIEfvVvDiE4=</dsig:DigestValue>
+      <dsig:DigestValue>iTvvb7XuuPLGVSvyMzMKqTFLVFClXrLVfvXCBnQaK1c=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Tritium.exe" size="158720">
+  <file name="Tritium.exe" size="158208">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>aZ9Ic6p09ijgsFFocFvBLP0aozFN4iKyGlRWQkuLrOs=</dsig:DigestValue>
+      <dsig:DigestValue>iUzg25gtCt7TAOJ7L1XdGKy3oEoD1LrQNaVtd59Iqok=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Tritium.runtimeconfig.json" size="458">
