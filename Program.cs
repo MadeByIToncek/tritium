@@ -1,3 +1,5 @@
+using Microsoft.VisualBasic.ApplicationServices;
+
 namespace Tritium
 {
     internal class Program
@@ -7,19 +9,36 @@ namespace Tritium
         /// </summary>
 
         public static DatabaseController lite;
+        static Form SplashScreen;
+        static Form MainForm;
 
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            SplashScreen = new LoadingSplash();
+            var splashThread = new Thread(new ThreadStart(
+                () => Application.Run(SplashScreen)));
+            splashThread.SetApartmentState(ApartmentState.STA);
+            splashThread.Start();
+
+            lite = new DatabaseController("localhost", 3306, "tritium", "root", "123456789");
+            MainForm = new ManagerWindow();
             //lite = new DatabaseController(Path.Combine(Environment.CurrentDirectory, "Database.db"));
-            lite = new DatabaseController("localhost",3306,"tritium","root","root");
             //lite.LoadDemoSample();
-            Application.Run(new ManagerWindow());
+            MainForm.Load += MainForm_LoadCompleted;
+            Application.Run(MainForm);
+        }
+
+        private static void MainForm_LoadCompleted(object sender, EventArgs e)
+        {
+            if (SplashScreen != null && !SplashScreen.Disposing && !SplashScreen.IsDisposed)
+                SplashScreen.Invoke(new Action(() => SplashScreen.Close()));
+            MainForm.TopMost = true;
+            MainForm.Activate();
+            MainForm.TopMost = false;
         }
     }
 
