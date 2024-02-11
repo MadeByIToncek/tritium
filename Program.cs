@@ -17,7 +17,7 @@ namespace Tritium
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //lite = new DatabaseController(Path.Combine(Environment.CurrentDirectory, "Database.db"));
-            lite = new DatabaseController("localhost",3306,"tritium","root","123456789");
+            lite = new DatabaseController("localhost",3306,"tritium","root","root");
             //lite.LoadDemoSample();
             Application.Run(new ManagerWindow());
         }

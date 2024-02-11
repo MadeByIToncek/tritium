@@ -24,21 +24,21 @@ namespace Tritium.Entities
 
         public virtual bool Kardiostimulator { get; set; }
         public virtual bool AktualniTehotenstvi { get; set; }
-        public virtual bool OnkologickeOnemocneni { get; set; }
+        public virtual string OnkologickeOnemocneni { get; set; }
         public virtual bool Epilepsie { get; set; }
-        public virtual bool AutoimunitniOnemocneni { get; set; }
-        public virtual bool Leky { get; set; }
-        public virtual bool DlouhodobePotize { get; set; }
-        public virtual bool KrevniTlak { get; set; }
-        public virtual bool PredchazejiciNemoci { get; set; }
-        public virtual bool Homeo { get; set; }
-        public virtual bool RodinnaAnamneza { get; set; }
-        public virtual bool Strava { get; set; }
-        public virtual bool Traveni { get; set; }
-        public virtual bool SituacePrace { get; set; }
-        public virtual bool SituaceRodina { get; set; }
-        public virtual bool SituaceOstatni { get; set; }
-        public virtual bool Rozpolozeni { get; set; }
+        public virtual string AutoimunitniOnemocneni { get; set; }
+        public virtual string Leky { get; set; }
+        public virtual string DlouhodobePotize { get; set; }
+        public virtual string KrevniTlak { get; set; }
+        public virtual string PredchazejiciNemoci { get; set; }
+        public virtual string Homeo { get; set; }
+        public virtual string RodinnaAnamneza { get; set; }
+        public virtual string Strava { get; set; }
+        public virtual string Traveni { get; set; }
+        public virtual string SituacePrace { get; set; }
+        public virtual string SituaceRodina { get; set; }
+        public virtual string SituaceOstatni { get; set; }
+        public virtual string Rozpolozeni { get; set; }
         #endregion
 
         public Klient()
