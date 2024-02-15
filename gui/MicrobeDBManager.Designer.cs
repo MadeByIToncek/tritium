@@ -36,6 +36,9 @@ namespace Tritium
             listBox1 = new ListBox();
             groupBox1 = new GroupBox();
             real_name = new Label();
+            commit = new Button();
+            cancel = new Button();
+            name = new TextBox();
             tableLayoutPanel1.SuspendLayout();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -56,23 +59,28 @@ namespace Tritium
             // 
             // listBox1
             // 
+            listBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 25;
+            listBox1.ItemHeight = 32;
             listBox1.Location = new Point(3, 3);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(466, 704);
+            listBox1.Size = new Size(466, 708);
             listBox1.TabIndex = 0;
             listBox1.SelectedIndexChanged += listBox1_SelectedIndexChanged;
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(name);
+            groupBox1.Controls.Add(cancel);
+            groupBox1.Controls.Add(commit);
             groupBox1.Controls.Add(real_name);
+            groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBox1.Location = new Point(480, 3);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(471, 714);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Upravit mikroby";
+            groupBox1.Text = "Upravit program/mikrob";
             // 
             // real_name
             // 
@@ -82,6 +90,32 @@ namespace Tritium
             real_name.Name = "real_name";
             real_name.Size = new Size(0, 60);
             real_name.TabIndex = 0;
+            // 
+            // commit
+            // 
+            commit.Location = new Point(334, 662);
+            commit.Name = "commit";
+            commit.Size = new Size(131, 46);
+            commit.TabIndex = 1;
+            commit.Text = "✔OK";
+            commit.UseVisualStyleBackColor = true;
+            // 
+            // cancel
+            // 
+            cancel.Location = new Point(197, 662);
+            cancel.Name = "cancel";
+            cancel.Size = new Size(131, 46);
+            cancel.TabIndex = 2;
+            cancel.Text = "❌Zrušit";
+            cancel.UseVisualStyleBackColor = true;
+            // 
+            // name
+            // 
+            name.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            name.Location = new Point(12, 48);
+            name.Name = "name";
+            name.Size = new Size(255, 50);
+            name.TabIndex = 3;
             // 
             // MicrobeDBManager
             // 
@@ -116,5 +150,8 @@ namespace Tritium
         private ListBox listBox1;
         private GroupBox groupBox1;
         private Label real_name;
+        private Button commit;
+        private Button cancel;
+        private TextBox name;
     }
 }

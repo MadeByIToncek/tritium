@@ -24,6 +24,7 @@ namespace Tritium.Mappings
             Map(x => x.MORTFRQs).Length(10000);
             Map(x => x.StabKompAPasm).Length(10000);
             Map(x => x.Okruhy).Length(10000);
+            Map(x => x.Poznamky).Length(10000);
         }
     }
 }

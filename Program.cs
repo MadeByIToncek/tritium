@@ -42,7 +42,8 @@ namespace Tritium
             try
             {
                 JObject filecontent;
-                using (var sr = new StreamReader(Path.Combine(Environment.CurrentDirectory, "config.json")))
+                Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Tritium"));
+                using (var sr = new StreamReader(Path.Combine(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Tritium"), "config.json")))
                 {
                     filecontent = JObject.Parse(sr.ReadToEnd());
                 }
@@ -67,7 +68,7 @@ namespace Tritium
             {
                 JObject content = new JObject(
                     new JProperty("isLocal", true),
-                    new JProperty("path", Path.Combine(Environment.CurrentDirectory, "Database.db")),
+                    new JProperty("path", Path.Combine(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Tritium"), "database.db")),
                     new JProperty("mysql",  new JObject(
                         new JProperty("address", "localhost"),
                         new JProperty("port", 3306),
@@ -75,8 +76,12 @@ namespace Tritium
                         new JProperty("user", "root"),
                         new JProperty("password", "123456789")
                     )));
-
-                File.WriteAllText(Path.Combine(Environment.CurrentDirectory, "config.json"), content.ToString());
+                try
+                {
+                    File.WriteAllText(Path.Combine(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Tritium"), "config.json"), content.ToString());
+                } catch (Exception e) { 
+                    MessageBox.Show(e.Message);
+                }
                 return LoadDatabaseConfig();
             }
         }

@@ -6,6 +6,7 @@ namespace Tritium
         public LoginManager()
         {
             InitializeComponent();
+            this.Focus();
             foreach (var item in Program.db.ListClients())
             {
                 listBox1.Items.Add(item.Jmeno);

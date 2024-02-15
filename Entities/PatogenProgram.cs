@@ -14,5 +14,6 @@ namespace Tritium.Entities
         public virtual string MORTFRQs { get; set; }
         public virtual string StabKompAPasm { get; set; }
         public virtual string Okruhy { get; set; }
+        public virtual string Poznamky { get; set; }
     }
 }
