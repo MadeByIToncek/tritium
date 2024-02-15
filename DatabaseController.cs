@@ -72,5 +72,15 @@ namespace Tritium
                 }
             }
         }
+
+        internal void UpdatePatogenProgram(PatogenProgram pp)
+        {
+            using var session = _sessionFactory.OpenSession();
+            using (session.BeginTransaction())
+            {
+                session.Update(pp);
+                session.Close();
+            }
+        }
     }
 }
