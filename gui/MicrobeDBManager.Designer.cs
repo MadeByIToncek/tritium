@@ -56,6 +56,8 @@ namespace Tritium
             commit = new Button();
             real_name = new Label();
             panel1 = new Panel();
+            button2 = new Button();
+            button1 = new Button();
             listBox1 = new ListBox();
             textBox2 = new TextBox();
             tableLayoutPanel1.SuspendLayout();
@@ -78,11 +80,12 @@ namespace Tritium
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.Controls.Add(groupBox1, 1, 0);
             tableLayoutPanel1.Controls.Add(panel1, 0, 0);
-            tableLayoutPanel1.Location = new Point(12, 12);
+            tableLayoutPanel1.Location = new Point(10, 10);
+            tableLayoutPanel1.Margin = new Padding(2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Size = new Size(954, 825);
+            tableLayoutPanel1.Size = new Size(763, 660);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // groupBox1
@@ -99,9 +102,11 @@ namespace Tritium
             groupBox1.Controls.Add(commit);
             groupBox1.Controls.Add(real_name);
             groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(480, 3);
+            groupBox1.Location = new Point(383, 2);
+            groupBox1.Margin = new Padding(2);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(471, 819);
+            groupBox1.Padding = new Padding(2);
+            groupBox1.Size = new Size(377, 655);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Upravit program/mikrob";
@@ -109,77 +114,89 @@ namespace Tritium
             // groupBox9
             // 
             groupBox9.Controls.Add(poznamky);
-            groupBox9.Location = new Point(12, 581);
+            groupBox9.Location = new Point(10, 465);
+            groupBox9.Margin = new Padding(2);
             groupBox9.Name = "groupBox9";
-            groupBox9.Size = new Size(441, 168);
+            groupBox9.Padding = new Padding(2);
+            groupBox9.Size = new Size(353, 134);
             groupBox9.TabIndex = 11;
             groupBox9.TabStop = false;
             groupBox9.Text = "Poznámky";
             // 
             // poznamky
             // 
-            poznamky.Location = new Point(6, 38);
+            poznamky.Location = new Point(5, 30);
+            poznamky.Margin = new Padding(2);
             poznamky.Multiline = true;
             poznamky.Name = "poznamky";
             poznamky.ScrollBars = ScrollBars.Vertical;
-            poznamky.Size = new Size(429, 120);
+            poznamky.Size = new Size(344, 97);
             poznamky.TabIndex = 8;
             // 
             // groupBox8
             // 
             groupBox8.Controls.Add(okruhy);
-            groupBox8.Location = new Point(236, 407);
+            groupBox8.Location = new Point(189, 326);
+            groupBox8.Margin = new Padding(2);
             groupBox8.Name = "groupBox8";
-            groupBox8.Size = new Size(217, 168);
+            groupBox8.Padding = new Padding(2);
+            groupBox8.Size = new Size(174, 134);
             groupBox8.TabIndex = 11;
             groupBox8.TabStop = false;
             groupBox8.Text = "Okruh";
             // 
             // okruhy
             // 
-            okruhy.Location = new Point(6, 38);
+            okruhy.Location = new Point(5, 30);
+            okruhy.Margin = new Padding(2);
             okruhy.Multiline = true;
             okruhy.Name = "okruhy";
             okruhy.ScrollBars = ScrollBars.Vertical;
-            okruhy.Size = new Size(206, 120);
+            okruhy.Size = new Size(166, 97);
             okruhy.TabIndex = 8;
             // 
             // groupBox7
             // 
             groupBox7.Controls.Add(skPasma);
-            groupBox7.Location = new Point(12, 407);
+            groupBox7.Location = new Point(10, 326);
+            groupBox7.Margin = new Padding(2);
             groupBox7.Name = "groupBox7";
-            groupBox7.Size = new Size(217, 168);
+            groupBox7.Padding = new Padding(2);
+            groupBox7.Size = new Size(174, 134);
             groupBox7.TabIndex = 10;
             groupBox7.TabStop = false;
             groupBox7.Text = "SK a pásma";
             // 
             // skPasma
             // 
-            skPasma.Location = new Point(6, 38);
+            skPasma.Location = new Point(5, 30);
+            skPasma.Margin = new Padding(2);
             skPasma.Multiline = true;
             skPasma.Name = "skPasma";
             skPasma.ScrollBars = ScrollBars.Vertical;
-            skPasma.Size = new Size(206, 120);
+            skPasma.Size = new Size(166, 97);
             skPasma.TabIndex = 8;
             // 
             // groupBox6
             // 
             groupBox6.Controls.Add(morty);
-            groupBox6.Location = new Point(235, 233);
+            groupBox6.Location = new Point(188, 186);
+            groupBox6.Margin = new Padding(2);
             groupBox6.Name = "groupBox6";
-            groupBox6.Size = new Size(218, 168);
+            groupBox6.Padding = new Padding(2);
+            groupBox6.Size = new Size(174, 134);
             groupBox6.TabIndex = 9;
             groupBox6.TabStop = false;
             groupBox6.Text = "MORT FRQs";
             // 
             // morty
             // 
-            morty.Location = new Point(6, 38);
+            morty.Location = new Point(5, 30);
+            morty.Margin = new Padding(2);
             morty.Multiline = true;
             morty.Name = "morty";
             morty.ScrollBars = ScrollBars.Vertical;
-            morty.Size = new Size(206, 120);
+            morty.Size = new Size(166, 97);
             morty.TabIndex = 8;
             // 
             // groupBox5
@@ -187,9 +204,11 @@ namespace Tritium
             groupBox5.Controls.Add(parovy);
             groupBox5.Controls.Add(onkovir);
             groupBox5.Controls.Add(samostatne);
-            groupBox5.Location = new Point(12, 233);
+            groupBox5.Location = new Point(10, 186);
+            groupBox5.Margin = new Padding(2);
             groupBox5.Name = "groupBox5";
-            groupBox5.Size = new Size(217, 168);
+            groupBox5.Padding = new Padding(2);
+            groupBox5.Size = new Size(174, 134);
             groupBox5.TabIndex = 7;
             groupBox5.TabStop = false;
             groupBox5.Text = "Parametry";
@@ -197,9 +216,10 @@ namespace Tritium
             // parovy
             // 
             parovy.AutoSize = true;
-            parovy.Location = new Point(6, 122);
+            parovy.Location = new Point(5, 98);
+            parovy.Margin = new Padding(2);
             parovy.Name = "parovy";
-            parovy.Size = new Size(121, 36);
+            parovy.Size = new Size(102, 32);
             parovy.TabIndex = 2;
             parovy.Text = "Párový?";
             parovy.UseVisualStyleBackColor = true;
@@ -207,9 +227,10 @@ namespace Tritium
             // onkovir
             // 
             onkovir.AutoSize = true;
-            onkovir.Location = new Point(6, 80);
+            onkovir.Location = new Point(5, 64);
+            onkovir.Margin = new Padding(2);
             onkovir.Name = "onkovir";
-            onkovir.Size = new Size(135, 36);
+            onkovir.Size = new Size(113, 32);
             onkovir.TabIndex = 1;
             onkovir.Text = "Onkovir?";
             onkovir.UseVisualStyleBackColor = true;
@@ -217,9 +238,10 @@ namespace Tritium
             // samostatne
             // 
             samostatne.AutoSize = true;
-            samostatne.Location = new Point(6, 38);
+            samostatne.Location = new Point(5, 30);
+            samostatne.Margin = new Padding(2);
             samostatne.Name = "samostatne";
-            samostatne.Size = new Size(176, 36);
+            samostatne.Size = new Size(146, 32);
             samostatne.TabIndex = 0;
             samostatne.Text = "Samostatně?";
             samostatne.UseVisualStyleBackColor = true;
@@ -227,43 +249,51 @@ namespace Tritium
             // groupBox4
             // 
             groupBox4.Controls.Add(cas);
-            groupBox4.Location = new Point(235, 142);
+            groupBox4.Location = new Point(188, 114);
+            groupBox4.Margin = new Padding(2);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(218, 85);
+            groupBox4.Padding = new Padding(2);
+            groupBox4.Size = new Size(174, 68);
             groupBox4.TabIndex = 6;
             groupBox4.TabStop = false;
             groupBox4.Text = "Čas";
             // 
             // cas
             // 
-            cas.Location = new Point(6, 38);
+            cas.Location = new Point(5, 30);
+            cas.Margin = new Padding(2);
             cas.Name = "cas";
-            cas.Size = new Size(206, 39);
+            cas.Size = new Size(166, 34);
             cas.TabIndex = 0;
             // 
             // groupBox3
             // 
             groupBox3.Controls.Add(dlazdice);
-            groupBox3.Location = new Point(12, 142);
+            groupBox3.Location = new Point(10, 114);
+            groupBox3.Margin = new Padding(2);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(217, 85);
+            groupBox3.Padding = new Padding(2);
+            groupBox3.Size = new Size(174, 68);
             groupBox3.TabIndex = 5;
             groupBox3.TabStop = false;
             groupBox3.Text = "Dlaždice";
             // 
             // dlazdice
             // 
-            dlazdice.Location = new Point(6, 38);
+            dlazdice.Location = new Point(5, 30);
+            dlazdice.Margin = new Padding(2);
             dlazdice.Name = "dlazdice";
-            dlazdice.Size = new Size(205, 39);
+            dlazdice.Size = new Size(165, 34);
             dlazdice.TabIndex = 0;
             // 
             // groupBox2
             // 
             groupBox2.Controls.Add(name);
-            groupBox2.Location = new Point(12, 38);
+            groupBox2.Location = new Point(10, 30);
+            groupBox2.Margin = new Padding(2);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(441, 98);
+            groupBox2.Padding = new Padding(2);
+            groupBox2.Size = new Size(353, 78);
             groupBox2.TabIndex = 4;
             groupBox2.TabStop = false;
             groupBox2.Text = "Jméno";
@@ -271,25 +301,29 @@ namespace Tritium
             // name
             // 
             name.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            name.Location = new Point(6, 38);
+            name.Location = new Point(5, 30);
+            name.Margin = new Padding(2);
             name.Name = "name";
-            name.Size = new Size(429, 50);
+            name.Size = new Size(344, 43);
             name.TabIndex = 3;
             // 
             // cancel
             // 
-            cancel.Location = new Point(197, 767);
+            cancel.Location = new Point(158, 614);
+            cancel.Margin = new Padding(2);
             cancel.Name = "cancel";
-            cancel.Size = new Size(131, 46);
+            cancel.Size = new Size(105, 37);
             cancel.TabIndex = 2;
             cancel.Text = "❌Zrušit";
             cancel.UseVisualStyleBackColor = true;
+            cancel.Click += cancel_Click;
             // 
             // commit
             // 
-            commit.Location = new Point(334, 767);
+            commit.Location = new Point(267, 614);
+            commit.Margin = new Padding(2);
             commit.Name = "commit";
-            commit.Size = new Size(131, 46);
+            commit.Size = new Size(105, 37);
             commit.TabIndex = 1;
             commit.Text = "✔OK";
             commit.UseVisualStyleBackColor = true;
@@ -299,48 +333,75 @@ namespace Tritium
             // 
             real_name.AutoSize = true;
             real_name.Font = new Font("Segoe UI", 22F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            real_name.Location = new Point(6, 27);
+            real_name.Location = new Point(5, 22);
+            real_name.Margin = new Padding(2, 0, 2, 0);
             real_name.Name = "real_name";
-            real_name.Size = new Size(0, 60);
+            real_name.Size = new Size(0, 50);
             real_name.TabIndex = 0;
             // 
             // panel1
             // 
+            panel1.Controls.Add(button2);
+            panel1.Controls.Add(button1);
             panel1.Controls.Add(listBox1);
             panel1.Controls.Add(textBox2);
-            panel1.Location = new Point(3, 3);
+            panel1.Location = new Point(2, 2);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(471, 819);
+            panel1.Size = new Size(377, 655);
             panel1.TabIndex = 2;
+            // 
+            // button2
+            // 
+            button2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            button2.Location = new Point(280, 607);
+            button2.Name = "button2";
+            button2.Size = new Size(44, 44);
+            button2.TabIndex = 8;
+            button2.Text = "➖";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
+            // button1
+            // 
+            button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            button1.Location = new Point(330, 607);
+            button1.Name = "button1";
+            button1.Size = new Size(44, 44);
+            button1.TabIndex = 7;
+            button1.Text = "➕";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += Button1_Click;
             // 
             // listBox1
             // 
             listBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 32;
-            listBox1.Location = new Point(3, 48);
+            listBox1.ItemHeight = 28;
+            listBox1.Location = new Point(2, 38);
+            listBox1.Margin = new Padding(2);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(466, 772);
+            listBox1.Size = new Size(374, 564);
             listBox1.TabIndex = 0;
             listBox1.SelectedIndexChanged += ListBox1_SelectedIndexChanged;
             // 
             // textBox2
             // 
             textBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(3, 3);
+            textBox2.Location = new Point(2, 2);
+            textBox2.Margin = new Padding(2);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(465, 39);
+            textBox2.Size = new Size(373, 34);
             textBox2.TabIndex = 6;
             textBox2.TextChanged += TextBox2_TextChanged;
             // 
             // MicrobeDBManager
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(978, 849);
+            ClientSize = new Size(782, 679);
             Controls.Add(tableLayoutPanel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Margin = new Padding(4);
             Name = "MicrobeDBManager";
             Text = "Mikroby - Tritium";
             tableLayoutPanel1.ResumeLayout(false);
@@ -406,5 +467,7 @@ namespace Tritium
         private TextBox skPasma;
         private GroupBox groupBox9;
         private TextBox poznamky;
+        private Button button1;
+        private Button button2;
     }
 }

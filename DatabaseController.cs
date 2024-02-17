@@ -76,11 +76,28 @@ namespace Tritium
         internal void UpdatePatogenProgram(PatogenProgram pp)
         {
             using var session = _sessionFactory.OpenSession();
-            using (session.BeginTransaction())
-            {
-                session.Update(pp);
-                session.Close();
-            }
+            using var trans = session.BeginTransaction();
+            trans.Begin();
+            session.Update(pp);
+            trans.Commit();
+        }
+
+        internal void InsertPatogenProgram(PatogenProgram pp)
+        {
+            using var session = _sessionFactory.OpenSession();
+            using var trans = session.BeginTransaction();
+            trans.Begin();
+            session.Save(pp);
+            trans.Commit();
+        }
+
+        internal void DeletePatogenProgram(PatogenProgram pp)
+        {
+            using var session = _sessionFactory.OpenSession();
+            using var trans = session.BeginTransaction();
+            trans.Begin();
+            session.Delete(pp);
+            trans.Commit();
         }
     }
 }
