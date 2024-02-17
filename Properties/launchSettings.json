@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Tritium": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

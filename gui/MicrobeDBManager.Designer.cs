@@ -131,7 +131,7 @@ namespace Tritium
             poznamky.Name = "poznamky";
             poznamky.ScrollBars = ScrollBars.Vertical;
             poznamky.Size = new Size(344, 97);
-            poznamky.TabIndex = 8;
+            poznamky.TabIndex = 13;
             // 
             // groupBox8
             // 
@@ -141,7 +141,7 @@ namespace Tritium
             groupBox8.Name = "groupBox8";
             groupBox8.Padding = new Padding(2);
             groupBox8.Size = new Size(174, 134);
-            groupBox8.TabIndex = 11;
+            groupBox8.TabIndex = 10;
             groupBox8.TabStop = false;
             groupBox8.Text = "Okruh";
             // 
@@ -153,7 +153,7 @@ namespace Tritium
             okruhy.Name = "okruhy";
             okruhy.ScrollBars = ScrollBars.Vertical;
             okruhy.Size = new Size(166, 97);
-            okruhy.TabIndex = 8;
+            okruhy.TabIndex = 12;
             // 
             // groupBox7
             // 
@@ -163,7 +163,7 @@ namespace Tritium
             groupBox7.Name = "groupBox7";
             groupBox7.Padding = new Padding(2);
             groupBox7.Size = new Size(174, 134);
-            groupBox7.TabIndex = 10;
+            groupBox7.TabIndex = 9;
             groupBox7.TabStop = false;
             groupBox7.Text = "SK a pásma";
             // 
@@ -175,7 +175,7 @@ namespace Tritium
             skPasma.Name = "skPasma";
             skPasma.ScrollBars = ScrollBars.Vertical;
             skPasma.Size = new Size(166, 97);
-            skPasma.TabIndex = 8;
+            skPasma.TabIndex = 11;
             // 
             // groupBox6
             // 
@@ -185,7 +185,7 @@ namespace Tritium
             groupBox6.Name = "groupBox6";
             groupBox6.Padding = new Padding(2);
             groupBox6.Size = new Size(174, 134);
-            groupBox6.TabIndex = 9;
+            groupBox6.TabIndex = 8;
             groupBox6.TabStop = false;
             groupBox6.Text = "MORT FRQs";
             // 
@@ -197,7 +197,7 @@ namespace Tritium
             morty.Name = "morty";
             morty.ScrollBars = ScrollBars.Vertical;
             morty.Size = new Size(166, 97);
-            morty.TabIndex = 8;
+            morty.TabIndex = 10;
             // 
             // groupBox5
             // 
@@ -220,7 +220,7 @@ namespace Tritium
             parovy.Margin = new Padding(2);
             parovy.Name = "parovy";
             parovy.Size = new Size(102, 32);
-            parovy.TabIndex = 2;
+            parovy.TabIndex = 9;
             parovy.Text = "Párový?";
             parovy.UseVisualStyleBackColor = true;
             // 
@@ -231,7 +231,7 @@ namespace Tritium
             onkovir.Margin = new Padding(2);
             onkovir.Name = "onkovir";
             onkovir.Size = new Size(113, 32);
-            onkovir.TabIndex = 1;
+            onkovir.TabIndex = 8;
             onkovir.Text = "Onkovir?";
             onkovir.UseVisualStyleBackColor = true;
             // 
@@ -242,7 +242,7 @@ namespace Tritium
             samostatne.Margin = new Padding(2);
             samostatne.Name = "samostatne";
             samostatne.Size = new Size(146, 32);
-            samostatne.TabIndex = 0;
+            samostatne.TabIndex = 7;
             samostatne.Text = "Samostatně?";
             samostatne.UseVisualStyleBackColor = true;
             // 
@@ -264,7 +264,7 @@ namespace Tritium
             cas.Margin = new Padding(2);
             cas.Name = "cas";
             cas.Size = new Size(166, 34);
-            cas.TabIndex = 0;
+            cas.TabIndex = 6;
             // 
             // groupBox3
             // 
@@ -284,7 +284,7 @@ namespace Tritium
             dlazdice.Margin = new Padding(2);
             dlazdice.Name = "dlazdice";
             dlazdice.Size = new Size(165, 34);
-            dlazdice.TabIndex = 0;
+            dlazdice.TabIndex = 5;
             // 
             // groupBox2
             // 
@@ -305,7 +305,7 @@ namespace Tritium
             name.Margin = new Padding(2);
             name.Name = "name";
             name.Size = new Size(344, 43);
-            name.TabIndex = 3;
+            name.TabIndex = 4;
             // 
             // cancel
             // 
@@ -313,7 +313,7 @@ namespace Tritium
             cancel.Margin = new Padding(2);
             cancel.Name = "cancel";
             cancel.Size = new Size(105, 37);
-            cancel.TabIndex = 2;
+            cancel.TabIndex = 14;
             cancel.Text = "❌Zrušit";
             cancel.UseVisualStyleBackColor = true;
             cancel.Click += cancel_Click;
@@ -324,7 +324,7 @@ namespace Tritium
             commit.Margin = new Padding(2);
             commit.Name = "commit";
             commit.Size = new Size(105, 37);
-            commit.TabIndex = 1;
+            commit.TabIndex = 15;
             commit.Text = "✔OK";
             commit.UseVisualStyleBackColor = true;
             commit.Click += Commit_Click;
@@ -357,7 +357,7 @@ namespace Tritium
             button2.Location = new Point(280, 607);
             button2.Name = "button2";
             button2.Size = new Size(44, 44);
-            button2.TabIndex = 8;
+            button2.TabIndex = 2;
             button2.Text = "➖";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
@@ -368,7 +368,7 @@ namespace Tritium
             button1.Location = new Point(330, 607);
             button1.Name = "button1";
             button1.Size = new Size(44, 44);
-            button1.TabIndex = 7;
+            button1.TabIndex = 3;
             button1.Text = "➕";
             button1.UseVisualStyleBackColor = true;
             button1.Click += Button1_Click;
@@ -382,7 +382,7 @@ namespace Tritium
             listBox1.Margin = new Padding(2);
             listBox1.Name = "listBox1";
             listBox1.Size = new Size(374, 564);
-            listBox1.TabIndex = 0;
+            listBox1.TabIndex = 1;
             listBox1.SelectedIndexChanged += ListBox1_SelectedIndexChanged;
             // 
             // textBox2
@@ -392,7 +392,7 @@ namespace Tritium
             textBox2.Margin = new Padding(2);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(373, 34);
-            textBox2.TabIndex = 6;
+            textBox2.TabIndex = 0;
             textBox2.TextChanged += TextBox2_TextChanged;
             // 
             // MicrobeDBManager
