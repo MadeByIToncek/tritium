@@ -23,7 +23,7 @@ namespace Tritium
             var splashThread = new Thread(new ThreadStart(
                 () =>
                 {
-                    SplashScreen = new Splash();
+                    SplashScreen = new SplashInterface();
 
                     Application.Run(SplashScreen);
                 }));
@@ -106,7 +106,7 @@ namespace Tritium
             ShowInTaskbar = false;
             Visible = false;
 
-            var Login = new LoginManager();
+            var Login = new LoginInterface();
             runningWindow = Login;
             Login.Show();
         }

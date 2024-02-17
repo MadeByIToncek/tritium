@@ -62,14 +62,11 @@ namespace Tritium
 
         internal IList<PatogenProgram> ListPatogenPrograms()
         {
-            using (var session = _sessionFactory.OpenSession())
+            using var session = _sessionFactory.OpenSession();
+            using (session.BeginTransaction())
             {
-                // retreive all stores and display them
-                using (session.BeginTransaction())
-                {
-                    return session.CreateCriteria(typeof(PatogenProgram))
-                      .List<PatogenProgram>();
-                }
+                return session.CreateCriteria(typeof(PatogenProgram))
+                  .List<PatogenProgram>();
             }
         }
 

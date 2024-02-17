@@ -17,6 +17,7 @@ namespace Tritium.Entities
         public virtual string Adresa { get; set; }
         public virtual DateTime UvodniSchuzka { get; set; }
         public virtual IList<Navsteva> Navstevy { get; set; }
+        public virtual string Poznamka { get; set; }
 
         #endregion
         #region Details

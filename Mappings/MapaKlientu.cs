@@ -22,6 +22,7 @@ namespace Tritium.Mappings
             HasMany(x => x.Navstevy)
                 .Inverse()
                 .Cascade.All();
+            Map(x => x.Poznamka);
             Map(x => x.Kardiostimulator);
             Map(x => x.AktualniTehotenstvi);
             Map(x => x.OnkologickeOnemocneni)
