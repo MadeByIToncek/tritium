@@ -16,7 +16,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\migration.csv" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="plasma-ball.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\migration.csv" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,10 +50,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Resources\" />
   </ItemGroup>
 
 </Project>

@@ -25,7 +25,7 @@ namespace Tritium
                 .ExposeConfiguration(TreatConfiguration)
                 .BuildSessionFactory();
             isLocal = true;
-            MigrateIfNeeded(_sessionFactory.OpenSession());
+            //MigrateIfNeeded(_sessionFactory.OpenSession());
         }
         public DatabaseController(string server, int port, string database, string user, string password)
         {
@@ -41,7 +41,7 @@ namespace Tritium
                 .ExposeConfiguration(TreatConfiguration)
                 .BuildSessionFactory();
             isLocal = false;
-            MigrateIfNeeded(_sessionFactory.OpenSession());
+            //MigrateIfNeeded(_sessionFactory.OpenSession());
         }
 
         private void MigrateIfNeeded(ISession session)
@@ -61,6 +61,10 @@ namespace Tritium
                     foreach (var line in lines)
                     {
                         string[] parts = line.Split(",");
+                        for (int i = 0; i < parts.Length; i++)
+                        {
+                            parts[i] = parts[i].Trim().Replace("\"", "");
+                        }
                         string name = parts[0];
                         string type = parts[1];
                         int time = int.Parse(parts[2]);
