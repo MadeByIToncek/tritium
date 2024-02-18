@@ -1,4 +1,5 @@
-﻿using Tritium.Entities;
+﻿using System.Text.RegularExpressions;
+using Tritium.Entities;
 
 namespace Tritium
 {
@@ -6,6 +7,7 @@ namespace Tritium
     {
         PatogenProgram? cpp = null;
         bool insert = false;
+        readonly string pattern = @"[1-9A-Za-z]* - ";
 
         public MicrobeDBInterface()
         {
@@ -16,11 +18,11 @@ namespace Tritium
 
         private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex != -1 )
+            if (listBox1.SelectedIndex != -1)
             {
                 foreach (var item in Program.db.ListPatogenPrograms())
                 {
-                    if (item.Name.Contains(listBox1.SelectedItem.ToString(), StringComparison.InvariantCultureIgnoreCase))
+                    if (item.Name.Contains(Regex.Replace(listBox1.SelectedItem.ToString(),pattern,""), StringComparison.InvariantCultureIgnoreCase))
                     {
                         loadPP(item);
                         break;
@@ -104,6 +106,7 @@ namespace Tritium
 
         private void UpdateList()
         {
+            listBox1.SuspendLayout();
             listBox1.Items.Clear();
             listBox1.ClearSelected();
             foreach (PatogenProgram item in Program.db.ListPatogenPrograms())
@@ -112,20 +115,20 @@ namespace Tritium
                 {
                     if (item.Name.Contains(textBox2.Text, StringComparison.InvariantCultureIgnoreCase))
                     {
-                        listBox1.Items.Add(item.Name);
+                        listBox1.Items.Add(item.Type + " - " + item.Name);
                     }
                 }
                 else
                 {
-                    listBox1.Items.Add(item.Name);
+                    listBox1.Items.Add(item.Type + " - " + item.Name);
                 }
 
             }
+            listBox1.ResumeLayout();
         }
 
         private void ClearForm()
         {
-
             name.Text = "";
             dlazdice.Text = "";
             cas.Text = "";
@@ -184,7 +187,7 @@ namespace Tritium
             {
                 foreach (var item in Program.db.ListPatogenPrograms())
                 {
-                    if (item.Name.Contains(listBox1.SelectedItem.ToString(), StringComparison.InvariantCultureIgnoreCase))
+                    if (item.Name.Contains(Regex.Replace(listBox1.SelectedItem.ToString(), pattern, ""), StringComparison.InvariantCultureIgnoreCase))
                     {
                         Program.db.DeletePatogenProgram(item);
                         break;

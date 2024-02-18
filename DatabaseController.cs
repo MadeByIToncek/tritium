@@ -25,7 +25,7 @@ namespace Tritium
                 .ExposeConfiguration(TreatConfiguration)
                 .BuildSessionFactory();
             isLocal = true;
-            //MigrateIfNeeded(_sessionFactory.OpenSession());
+            MigrateIfNeeded(_sessionFactory.OpenSession());
         }
         public DatabaseController(string server, int port, string database, string user, string password)
         {
@@ -41,14 +41,14 @@ namespace Tritium
                 .ExposeConfiguration(TreatConfiguration)
                 .BuildSessionFactory();
             isLocal = false;
-            //MigrateIfNeeded(_sessionFactory.OpenSession());
+            MigrateIfNeeded(_sessionFactory.OpenSession());
         }
 
-        private void MigrateIfNeeded(ISession session)
+        private static void MigrateIfNeeded(ISession session)
         {
             ITransaction transaction = session.BeginTransaction();
             transaction.Begin();
-            if(session.Get<PatogenProgram>(1)==null)
+            if (session.CreateSQLQuery("SELECT * FROM PatogenProgram").List().Count < 1)
             {
                 var assembly = Assembly.GetExecutingAssembly();
                 string resourceName = assembly.GetManifestResourceNames().Single(str => str.EndsWith("migration.csv"));
@@ -94,6 +94,7 @@ namespace Tritium
                     }
                 }
             };
+            transaction.Commit();
         }
 
         private static void TreatConfiguration(Configuration configuration)

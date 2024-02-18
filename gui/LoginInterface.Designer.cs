@@ -42,9 +42,10 @@ namespace Tritium
             // select
             // 
             select.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            select.Location = new Point(3, 3);
+            select.Location = new Point(4, 4);
+            select.Margin = new Padding(4, 4, 4, 4);
             select.Name = "select";
-            select.Size = new Size(46, 42);
+            select.Size = new Size(58, 52);
             select.TabIndex = 1;
             select.Text = "➡";
             select.UseVisualStyleBackColor = true;
@@ -52,9 +53,10 @@ namespace Tritium
             // manageClients
             // 
             manageClients.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            manageClients.Location = new Point(3, 51);
+            manageClients.Location = new Point(4, 64);
+            manageClients.Margin = new Padding(4, 4, 4, 4);
             manageClients.Name = "manageClients";
-            manageClients.Size = new Size(46, 42);
+            manageClients.Size = new Size(58, 52);
             manageClients.TabIndex = 2;
             manageClients.Text = "👥";
             manageClients.UseVisualStyleBackColor = true;
@@ -67,17 +69,19 @@ namespace Tritium
             flowLayoutPanel1.Controls.Add(manageClients);
             flowLayoutPanel1.Controls.Add(manageMicrobeDB);
             flowLayoutPanel1.Controls.Add(exit);
-            flowLayoutPanel1.Location = new Point(517, 76);
+            flowLayoutPanel1.Location = new Point(644, 75);
+            flowLayoutPanel1.Margin = new Padding(4, 4, 4, 4);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(49, 190);
+            flowLayoutPanel1.Size = new Size(65, 243);
             flowLayoutPanel1.TabIndex = 4;
             // 
             // manageMicrobeDB
             // 
             manageMicrobeDB.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            manageMicrobeDB.Location = new Point(3, 99);
+            manageMicrobeDB.Location = new Point(4, 124);
+            manageMicrobeDB.Margin = new Padding(4, 4, 4, 4);
             manageMicrobeDB.Name = "manageMicrobeDB";
-            manageMicrobeDB.Size = new Size(46, 42);
+            manageMicrobeDB.Size = new Size(58, 52);
             manageMicrobeDB.TabIndex = 4;
             manageMicrobeDB.Text = "\U0001f9a0";
             manageMicrobeDB.UseVisualStyleBackColor = true;
@@ -87,9 +91,10 @@ namespace Tritium
             // 
             exit.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
             exit.ForeColor = Color.Red;
-            exit.Location = new Point(3, 147);
+            exit.Location = new Point(4, 184);
+            exit.Margin = new Padding(4, 4, 4, 4);
             exit.Name = "exit";
-            exit.Size = new Size(46, 42);
+            exit.Size = new Size(58, 52);
             exit.TabIndex = 5;
             exit.Text = "\U0001f6d1";
             exit.UseVisualStyleBackColor = true;
@@ -99,26 +104,23 @@ namespace Tritium
             // 
             listBox1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
             listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 31;
-            listBox1.Location = new Point(10, 10);
+            listBox1.ItemHeight = 38;
+            listBox1.Location = new Point(12, 12);
             listBox1.Margin = new Padding(2);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(502, 314);
+            listBox1.Size = new Size(626, 384);
             listBox1.TabIndex = 5;
             // 
-            // LoginManager
+            // LoginInterface
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(577, 347);
+            ClientSize = new Size(720, 408);
             Controls.Add(listBox1);
             Controls.Add(flowLayoutPanel1);
-            FormBorderStyle = FormBorderStyle.Fixed3D;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(2);
-            MaximumSize = new Size(599, 398);
-            MinimumSize = new Size(599, 398);
-            Name = "LoginManager";
+            Name = "LoginInterface";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Tritium";
             flowLayoutPanel1.ResumeLayout(false);
