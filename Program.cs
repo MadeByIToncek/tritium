@@ -1,5 +1,6 @@
 using Microsoft.VisualBasic.ApplicationServices;
 using Newtonsoft.Json.Linq;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 
 namespace Tritium
@@ -9,10 +10,9 @@ namespace Tritium
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
-
         public static DatabaseController db;
-        static Form SplashScreen;
-        static Form MainForm;
+        static Form? SplashScreen;
+        static Form? MainForm;
 
         [STAThread]
         static void Main()
@@ -31,7 +31,6 @@ namespace Tritium
             splashThread.Start();
 
             db = LoadDatabaseConfig();
-            //db = new DatabaseController("localhost", 3306, "tritium", "root", "123456789");
             MainForm = new ManagerWindow();
             MainForm.Load += MainForm_LoadCompleted;
             Application.Run(MainForm);

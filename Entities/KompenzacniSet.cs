@@ -5,8 +5,9 @@
         public virtual int Id { get; protected set; }
         public virtual IList<KompenzacniDavka> KompenzacniDavky { get; set; }
 
-        public KompenzacniSet() {
-            KompenzacniDavky  = new List<KompenzacniDavka>();
+        public KompenzacniSet()
+        {
+            KompenzacniDavky = new List<KompenzacniDavka>();
         }
 
         public virtual void PridatDavku(KompenzacniDavka davka)
@@ -19,7 +20,10 @@
             long result = 0;
             foreach (KompenzacniDavka item in KompenzacniDavky)
             {
-                result += item.Program.Time;
+                if (item.Program != null)
+                {
+                    result += item.Program.Time;
+                }
             }
             return result;
         }

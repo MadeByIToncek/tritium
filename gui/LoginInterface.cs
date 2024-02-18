@@ -8,13 +8,16 @@ namespace Tritium
             InitializeComponent();
             foreach (var item in Program.db.ListClients())
             {
-                listBox1.Items.Add(item.Jmeno);
+                if (item.Jmeno != null)
+                {
+                    listBox1.Items.Add(item.Jmeno);
+                }
             };
         }
 
         private void NaturalClosed()
         {
-            if (!isNatural) ManagerWindow.instance.Close();
+            if (!isNatural && ManagerWindow.instance != null) ManagerWindow.instance.Close();
         }
 
         private void Exit_Click(object sender, EventArgs e)

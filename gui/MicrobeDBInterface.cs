@@ -16,7 +16,7 @@ namespace Tritium
 
         private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex != -1)
+            if (listBox1.SelectedIndex != -1 )
             {
                 foreach (var item in Program.db.ListPatogenPrograms())
                 {

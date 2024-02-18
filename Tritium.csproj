@@ -12,7 +12,7 @@
     <VersionSuffix>dev</VersionSuffix>
     <ApplicationIcon>plasma-ball.ico</ApplicationIcon>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <GenerateDocumentationFile>False</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

@@ -9,13 +9,13 @@ namespace Tritium.Entities
     public class Navsteva
     {
         public virtual int Id { get; protected set; }
-        public virtual Klient Client { get; set; }
-        public virtual DateTime Date { get; set; }
-        public virtual string AktualniPotize { get; set; }
-        public virtual string CoNejviceObtezuje { get; set; }
-        public virtual string CoChceVyresit { get; set; }
-        public virtual string SkenOkr1 { get; set; }//db okruhu
-        public virtual string SkenOkr2 { get; set; }//db okruhu
+        public virtual required Klient Client { get; set; }
+        public virtual required DateTime Date { get; set; }
+        public virtual required string AktualniPotize { get; set; }
+        public virtual required string CoNejviceObtezuje { get; set; }
+        public virtual required string CoChceVyresit { get; set; }
+        public virtual required string SkenOkr1 { get; set; }//db okruhu
+        public virtual required string SkenOkr2 { get; set; }//db okruhu
         public virtual IList<Sken> Skeny { get; set; }
         public virtual IList<KompenzacniSet> KompenzacniSety { get; set; }
 

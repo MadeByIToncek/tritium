@@ -35,24 +35,10 @@ namespace Tritium
             this.cpp = cpp;
             name.Text = cpp.Name;
             dlazdice.Text = cpp.Type;
-            cas.Text = ParseTime(cpp.Time);
-            samostatne.Checked = cpp.Samostatne;
-            onkovir.Checked = cpp.Onkovir;
-            parovy.Checked = cpp.Par;
-            morty.Text = cpp.MORTFRQs;
-            skPasma.Text = cpp.StabKompAPasm;
-            okruhy.Text = cpp.Okruhy;
             poznamky.Text = cpp.Poznamky;
 
             name.Enabled = true;
             dlazdice.Enabled = true;
-            cas.Enabled = true;
-            samostatne.Enabled = true;
-            onkovir.Enabled = true;
-            parovy.Enabled = true;
-            morty.Enabled = true;
-            skPasma.Enabled = true;
-            okruhy.Enabled = true;
             poznamky.Enabled = true;
             commit.Enabled = true;
             cancel.Enabled = true;
@@ -86,13 +72,6 @@ namespace Tritium
             {
                 cpp.Name = name.Text;
                 cpp.Type = dlazdice.Text;
-                cpp.Time = UnparseTime(cas.Text);
-                cpp.Samostatne = samostatne.Checked;
-                cpp.Onkovir = onkovir.Checked;
-                cpp.Par = parovy.Checked;
-                cpp.MORTFRQs = morty.Text;
-                cpp.StabKompAPasm = skPasma.Text;
-                cpp.Okruhy = okruhy.Text;
                 cpp.Poznamky = poznamky.Text;
                 if (insert) Program.db.InsertPatogenProgram(cpp);
                 else Program.db.UpdatePatogenProgram(cpp);
@@ -128,24 +107,10 @@ namespace Tritium
 
             name.Text = "";
             dlazdice.Text = "";
-            cas.Text = "";
-            samostatne.Checked = false;
-            onkovir.Checked = false;
-            parovy.Checked = false;
-            morty.Text = "";
-            skPasma.Text = "";
-            okruhy.Text = "";
             poznamky.Text = "";
 
             name.Enabled = false;
             dlazdice.Enabled = false;
-            cas.Enabled = false;
-            samostatne.Enabled = false;
-            onkovir.Enabled = false;
-            parovy.Enabled = false;
-            morty.Enabled = false;
-            skPasma.Enabled = false;
-            okruhy.Enabled = false;
             poznamky.Enabled = false;
             commit.Enabled = false;
             cancel.Enabled = false;

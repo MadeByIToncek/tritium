@@ -316,7 +316,7 @@ namespace Tritium
             cancel.TabIndex = 14;
             cancel.Text = "❌Zrušit";
             cancel.UseVisualStyleBackColor = true;
-            cancel.Click += cancel_Click;
+            cancel.Click += Cancel_Click;
             // 
             // commit
             // 
@@ -360,7 +360,7 @@ namespace Tritium
             button2.TabIndex = 2;
             button2.Text = "➖";
             button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            button2.Click += Button2_Click;
             // 
             // button1
             // 
