@@ -45,6 +45,7 @@ namespace Tritium
             skPasma.Text = cpp.StabKompAPasm;
             okruhy.Text = cpp.Okruhy;
             poznamky.Text = cpp.Poznamky;
+            description.Text = cpp.Popis;
 
             name.Enabled = true;
             dlazdice.Enabled = true;
@@ -56,6 +57,7 @@ namespace Tritium
             skPasma.Enabled = true;
             okruhy.Enabled = true;
             poznamky.Enabled = true;
+            description.Enabled = true;
             commit.Enabled = true;
             cancel.Enabled = true;
         }
@@ -96,6 +98,7 @@ namespace Tritium
                 cpp.StabKompAPasm = skPasma.Text;
                 cpp.Okruhy = okruhy.Text;
                 cpp.Poznamky = poznamky.Text;
+                cpp.Popis = description.Text;
                 if (insert) Program.db.InsertPatogenProgram(cpp);
                 else Program.db.UpdatePatogenProgram(cpp);
                 cpp = null;
@@ -139,6 +142,7 @@ namespace Tritium
             skPasma.Text = "";
             okruhy.Text = "";
             poznamky.Text = "";
+            description.Text = "";
 
             name.Enabled = false;
             dlazdice.Enabled = false;
@@ -150,6 +154,7 @@ namespace Tritium
             skPasma.Enabled = false;
             okruhy.Enabled = false;
             poznamky.Enabled = false;
+            description.Enabled = false;
             commit.Enabled = false;
             cancel.Enabled = false;
         }
@@ -167,6 +172,7 @@ namespace Tritium
                 Onkovir = false,
                 Par = false,
                 Poznamky = "",
+                Popis = "",
                 Samostatne = false,
                 StabKompAPasm = "",
                 Time = 0,

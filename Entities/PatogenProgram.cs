@@ -15,5 +15,6 @@ namespace Tritium.Entities
         public virtual string? StabKompAPasm { get; set; }
         public virtual string? Okruhy { get; set; }
         public virtual string? Poznamky { get; set; }
+        public virtual string? Popis { get; set; }
     }
 }
