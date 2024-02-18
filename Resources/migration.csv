@@ -1,0 +1,649 @@
+﻿Acantamoeba castellanii,1PP,3360,1,0,0,,,"N1, OC",
+Ancylostoma braziliense,1PP,3360,1,0,0,401,PP1,T1,
+Ancylostoma duodenale,1PP,3360,1,0,0,383-403,"VBP2, PP1",T1,
+Angiostrongylus malaysiensis,1PP,3360,1,0,0,,,DU1,
+Ascaris lumbricoides,1PP,3360,1,0,0,"408, 580","APK, PP1, PP2",DU1,
+Babesia duncani,1PP,3360,1,0,0,"254, 344, 345, 432","PL2, VBP1, PP1",N1,
+Babesia microti,1PP,3360,1,0,0,"254, 344, 345, 432","PL2, VBP1, PP1","N1, PB",
+Balantidium coli,1PP,3360,1,0,0,460,PP2,T1,
+Blastocystis hominis ,1PP,3240,1,0,0,365,VBP2,"OS1, T1",
+Brugia malayi,1PP,3360,1,0,0,,,OB1,
+Chilomastix mesnili,1PP,3360,1,0,0,"390, 426","VBP2, PP1",OS1,
+Clonorchis sinensis,1PP,3360,1,1,0,427,"APK, PP1, PP2",JZ,
+Cryptosporidium parvum,1PP,3240,1,0,0,"220, 482","PL2, PP2",,
+Dientamoeba fragilis ,1PP,3360,1,0,0,404,PP1,"JZ, T2",
+Diphillobotrium latum ,1PP,3360,1,0,0,452-472,PP2,T2,
+Dipylidium caninum,1PP,4560,1,0,0,440-461,APK,,
+Dirofilaria immitis,1PP,3240,1,1,0,409,"APK, PP1","K2, OB2",
+Dirofilaria repens,1PP,3240,1,1,0,,APK,"K2, OB2, OC",
+Echinococcus granulosus,1PP,3360,1,1,0,441-446,PP1,JZ,
+Echinococcus multilocularis,1PP,3360,1,1,0,455-458,PP2,JZ,
+Eimeria flavescens,1PP,3600,1,0,0,,,,
+Eimeria intestinalis,1PP,3600,1,0,0,,,,
+Eimeria irresidua,1PP,3600,1,0,0,,,,
+Eimeria magna,1PP,3360,1,0,0,,,,
+Eimeria medium,1PP,3600,1,0,0,,,,
+Eimeria vejdovskyi,1PP,3600,1,0,0,,,,
+Entamoeba gingivalis,1PP,3360,1,0,0,438,PP1,DE,
+Entamoeba histolytica,1PP,3360,1,0,0,"148, 166, 308, 385, 393, 423","PL1, VBP1, VBP2, PP1","JZ, T2",
+Enterobius vermicularis,1PP,3360,1,0,0,423,"APK, PP1, PP2",T2,
+Eurytrema pancreaticum,1PP,3240,1,1,0,421,PP1,T3,
+Fasciola hepatica,1PP,3360,1,0,0,"425, 423, 427","APK, PP1",JZ,
+Fascioloides magna ,1PP,3360,1,0,0,,,OS1,
+Fasciolopsis buski,1PP,3240,1,1,0,434,"APK, PP1",T3,
+Histomonas meleagridis,1PP,3360,1,0,0,377,VBP2,JZ,
+Iodamoeba butschlii,1PP,3360,1,0,0,"402, 445",PP1,T3,
+Lamblia intestinalis,1PP,3360,1,0,0,424,"APK, PP1",T3,
+Leishmania braziliensis,1PP,3360,1,0,0,403,"APK, VBP2",OS1,
+Leismania donovani,1PP,3360,1,0,0,400,"APK, VBP2",OS1,
+Leismania mexicana,1PP,3360,1,0,0,402,"APK, VBP2",OS1,
+Loa loa,1PP,3360,1,0,0,"360, 361",VBP2,"OB2, OC",
+Metagonimus yokogawai,1PP,3360,1,0,0,,APK,,
+Necator americanus,1PP,3360,1,0,0,,,T3,
+Onchocerca volvulus ,1PP,3360,1,0,0,440,PP1,"K3, OB2, OC",
+Opisthorchis felineus,1PP,3360,1,1,0,421,PP1,JZ,
+Paragonimus westermani,1PP,2760,1,0,0,"447, 452",APK,,
+Passalurus ambiguus,1PP,3360,1,0,0,428-444,"APK, PP1",,
+Plasmodium falciparum,1PP,3360,1,0,0,373,VBP2,"N3, OB3, OS2",
+Plasmodium vivax,1PP,3360,1,0,0,"373, 420, 442","VBP2, PP1","N3, OB3, OS2",
+Schistosoma haematobium,1PP,3360,1,0,0,473,PP2,"JZ, VY",
+Schistosoma mansoni,1PP,3360,1,0,0,"353, 473","VBP2, PP2","JZ, T4",
+Strongyloides stercoralis,1PP,3360,1,0,0,"332, 400, 422","APK, VBP1, PP1","DU2, K3, T4",
+Theileria parva,1PP,3240,1,0,0,,,OS2,
+Toxocara canis,1PP,3360,1,0,0,,,"DU2, K3, T4",
+Toxocara cati,1PP,3240,1,0,0,,,,
+Toxoplasma gondii,1PP,3360,1,0,0,"358, 395, 434","VBP2, PP1","N4, OC",
+Trichinella spiralis,1PP,3360,1,1,0,404.5,PP1,"PB, T4",
+Trichocephalus trichiurus,1PP,3360,1,0,0,,,T4,
+Trichomonas vaginalis,1PP,3360,1,1,1,381,VBP2,PHL,
+Trypanosoma gambiense,1PP,3360,1,0,0,"396, 440","APK, VBP2, PP1",N4,
+Wuchereria bancrofti,1PP,3360,1,0,0,,,"K3, OB3",
+Adenovirus,2Vi,3360,1,1,0,"371, 393","PVK, VBP2","DU1, OB1, OC, SL",
+Betaherpesvirus 6A (Roseolovirus),2Vi,3360,0,0,0,,,"K1, N1, OC",
+Borna disease virus 1,2Vi,3360,0,0,0,,,"N1, SL",
+Coronavirus,2Vi,3360,1,1,0,"155, 152, 304, 309, 456, 464","PVK, PL1, VBP1, PP2","DU1, SL",
+COVID B.1.351 South Africa,2Vi,2520,1,1,0,"155, 309, 456",PVK,,
+Covid Delta,2Vi,5220,1,1,0,"155, 309, 456",PVK,,
+Covid Kappa,2Vi,3600,1,1,0,"155, 309, 456",PVK,,
+Covid Lambda C.37,2Vi,5760,1,1,0,"155, 309, 456",PVK,,
+Covid Omicron,2Vi,2700,1,1,0,"155, 309, 456",PVK,,
+COVID-19,2Vi,7380,1,1,0,"155, 309, 456",PVK,,
+COVID-19 B.1.1.7 - British variant,2Vi,1620,1,1,0,"155, 309, 456",PVK,,
+COVID-19 JANUARY 2021,2Vi,8460,1,1,0,"155, 309, 456",PVK,,
+Coxsackie - virus a22,2Vi,3360,0,0,0,"136, 232, 364, 424","PVK, VBP2","K1, OB2, OC",
+Coxsackie - virus b4,2Vi,3360,0,0,0,"353, 362.5, 421","PVK, VBP2","K2, OB2, OC",
+Cytomegalovirus,2Vi,3360,1,1,0,"126, 409","PVK, PP1","N2, OB2, OC",
+Echovirus 9,2Vi,3360,0,0,0,461,"PVK, PP2","DU1, OB2, T2",
+Enterovirus 72,2Vi,3360,0,0,0,"136, 232, 322, 380, 423, 435","PVK, PL1, PL2, VBP1, VBP2, PP1","DU1, JZ, SL, T3",
+Epstein-Barr virus (EB),2Vi,3240,1,1,0,"105, 172, 253, 274, 375, 380","PVK, VBP2","DU1, JZ, N3, OC",
+Feline immunodeficiency virus,2Vi,3360,0,0,0,,,,
+Filovirus ebola,2Vi,3360,0,0,0,,PVK,OS1,
+Hepatitis B - HBV,2Vi,3360,0,0,0,"334, 418","PVK, PP1",JZ,
+Hepatitis C - HCV,2Vi,3360,0,0,0,"95, 146, 225, 317, 444","PVK, PL1, PL2, VBP1, PP1",JZ,
+Hepatitis D - HDV,2Vi,3360,0,0,0,"413, 417","PVK, PP1",JZ,
+Hepatitis E - HEV,2Vi,3360,0,0,0,,PVK,JZ,
+Herpes simplex 2,2Vi,2940,1,1,0,"292, 345, 355, 360","PVK, PL2, VBP1, VBP2",,
+Herpesvirus,2Vi,3360,1,1,0,"141, 165, 345.5, 383, 450","PVK, PL1, VBP1, VBP2, PP1, PP2","K2, OC",
+Herpesvirus 6B (Roseolovirus),2Vi,3360,1,1,0,,PVK,"K2, N3, OC",
+HPV-16 Human papiloma virus,2Vi,3000,1,1,0,"344, 405, 408, 429","VBP1, PP1",,
+Human immunodeficiency virus HIV,2Vi,3360,1,1,0,"249, 365, 465","PVK, VBP2",,
+Human parainfluenza virus,2Vi,3360,0,0,0,,PVK,,
+Human respiratory syncytial virus,2Vi,3360,0,0,0,,PVK,,
+Influenza A,2Vi,3360,0,0,0,315,"PVK, VBP1","DU2, PB, SL",
+Influenza B,2Vi,3360,0,0,0,320,"PVK, VBP1","DU2, PB, SL",
+Influenza C,2Vi,3360,0,0,0,,PVK,"DU2, PB, SL",
+Marburgvirus,2Vi,3240,0,0,0,,,OS2,
+Measles morbillivirus,2Vi,3240,0,0,0,,,DU2,
+Molluscum contagiosum,2Vi,3240,0,0,0,,,K2,
+Mumps orthorubulavirus,2Vi,3240,0,0,0,,,N3,
+Norovirus,2Vi,1440,0,0,0,,,,
+Norovirus Gl,2Vi,3240,0,0,0,,,T4,
+Omicron BA.1,2Vi,3240,0,0,0,,,,
+Omicron BA.2,2Vi,3240,0,0,0,,,,
+Papillomavirus,2Vi,3360,1,1,0,"110, 265, 407, 466","PVK, PL1, PL2, PP1, PP2","K3, PHL",
+Parapoxvirus,2Vi,3240,0,0,0,,PVK,DE,
+Poliovirus,2Vi,3360,0,0,0,,PVK,N3,
+Powassan virus,2Vi,3360,0,0,0,,,N4,
+Reovirus,2Vi,3360,0,0,0,,,"DU2, T4",
+Rhabdoviridae,2Vi,3300,0,0,0,464,PP2,,
+Rhinovirus,2Vi,3360,0,0,0,"160, 320","PVK, PL1, VBP1","DU2, SL",
+Rotavirus,2Vi,3360,0,0,0,,PVK,T4,
+Rubella virus,2Vi,3240,0,0,0,"371, 431, 459","PVK, VBP2, PP1, PP2",OS2,
+Simian virus 40,2Vi,3240,0,0,0,,,OS2,
+Tanapoxvirus,2Vi,3240,0,0,0,,,K3,
+Tickborne encephalitis virus,2Vi,3360,0,0,0,,,N4,
+Vaccinia virus,2Vi,3240,0,0,0,,,K3,
+Varicella-zoster (herpes),2Vi,3360,0,0,0,418,"PVK, PP1","K3, N4, PHL",
+Variola virus,2Vi,3240,0,0,0,"142, 476","PL1, PP2",OS2,
+Xenotropic Murine Leukemia,2Vi,3240,1,1,0,,,"OS2, PHL",
+Yaba monkey tumor,2Vi,3240,1,1,0,,,K3,
+Actinomyces israelii,3BA,3360,0,0,0,"73, 160, 222, 262, 465, 488","ABK, PL1, PL2, PP1, PP2",OS1,
+Aggregatibacter actinomycetemcomitans,3BA,3360,0,0,0,,ABK,DE,
+Agrobacterium tumefaciens,3BA,3360,0,0,0,,ABK,OS1,
+Anaerococcus lactolyticus,3BA,3360,0,0,0,,ABK,OS1,
+Anaerococcus tetradius,3BA,3360,0,0,0,,ABK,PHL,
+Anaplasma marginale,3BA,3240,0,0,0,"387, 415-424","ABK, VBP2",N1  ,
+Anaplasma phagocytophilum,3BA,3240,0,0,0,,ABK,N1,
+Aquaspirillum serpens,3BA,3360,0,0,0,,ABK,OS1,
+Archaebacteria,3BA,2160,0,0,0,,ABK,,
+Bacillus anthracis,3BA,3360,0,0,0,"129, 224, 273, 395, 364, 368, 400, 414, 420","ABK, VBP2",,
+Bacillus anthracis spores,3BA,3360,0,0,0,388,"ABK, VBP2","DU1, K1, T1",
+Bacterium lactis aerogenes,3BA,3360,0,0,0,346-351,"ABK, VBP1, VBP2","DU1, K1, T1",
+Bacteroides fragilis,3BA,3360,0,0,1,325,"ABK, VBP1, VBP2",,
+Bartonella clarridgeiae,3BA,3240,0,0,0,,ABK,,
+Bartonella henselae,3BA,3240,0,0,0,"364, 379","ABK, VBP2",N1,
+Bartonella koehlerae,3BA,3240,0,0,0,,ABK,N1,
+Bartonella quintana,3BA,3240,0,0,0,,ABK,N1,
+Bartonella vinsonii,3BA,3240,0,0,0,,ABK,N1,
+Bordetella pertussis,3BA,3360,0,0,0,329-332,"ABK, VBP1",DU1,
+Borrelia afzelii,3BA,3360,1,0,0,387,VBP2,"N1, PB",
+Borrelia andersonii,3BA,3240,1,0,0,,,,
+Borrelia bavariensis,3BA,3240,1,0,0,,,,
+Borrelia bissetii,3BA,3240,1,0,0,,,,
+Borrelia burgdorferi,3BA,3360,1,0,0,380,VBP2,"N1, PB",
+Borrelia californiensis,3BA,3240,1,0,0,,,,
+Borrelia carolinensis,3BA,3240,1,0,0,,,,
+Borrelia caucasica,3BA,3240,1,0,0,,,,
+Borrelia crocidurae,3BA,3240,1,0,0,,,,
+Borrelia garinii,3BA,3240,1,0,0,382,VBP2,"N1, PB",
+Borrelia hermsii,3BA,3240,1,0,0,,,,
+Borrelia hispanica,3BA,3240,1,0,0,,,,
+Borrelia miyamotoi,3BA,3240,1,0,0,,,"N1, PB",
+Borrelia parkeri,3BA,3240,1,0,0,,,,
+Borrelia persica,3BA,3240,1,0,0,,,,
+Borrelia realapsing fewer,3BA,3300,1,0,0,,,,
+Borrelia spielmanii,3BA,3240,1,0,0,,,,
+Borrelia turicatae,3BA,3240,1,0,0,,,,
+Borrelie zárodky,3BA,2160,1,0,0,,,,
+Brucella abortus,3BA,3360,0,0,0,,ABK,OS1,
+Burkholderia cepacia,3BA,3360,0,0,0,,ABK,"DU1, OB1, PHL",
+Campylobacter coli,3BA,3240,0,0,0,"333, 378","ABK, VBP1, VBP2",T1,
+Campylobacter jejuni,3BA,3360,0,0,0,"333, 378","ABK, VBP1, VBP2",T1,
+Campylobacter pyloridis,3BA,1800,0,0,0,355,"ABK, VBP2",T1,
+Campylobacter rectus,3BA,3360,0,0,0,"333, 378","ABK, VBP1, VBP2",T1,
+Campylobacter showae,3BA,3360,0,0,0,"333, 378","ABK, VBP1, VBP2",T1,
+Capnocytophaga endodontalis,3BA,3360,0,0,0,,ABK,DE,
+Capnocytophaga gingivalis,3BA,3360,0,0,0,,ABK,"DE, OB1",
+Capnocytophaga haemolytica,3BA,3360,0,0,0,,ABK,DE,
+Capnocytophaga sputigena,3BA,3360,1,1,0,,ABK,DE,
+Capnocytophaga stomatis,3BA,3360,0,0,0,,ABK,DE,
+Chlamydia pneumoniae,3BA,3360,0,0,0,"430, 470","SBK, PP1, PP2","DU1, N2, OB1",
+Chlamydia trachomatis,3BA,3360,1,0,1,"381, 430","ABK, VBP2, PP1","N2, OB2, OC, PHL, PB, VY",
+Clostridium botulinum,3BA,3360,0,0,0,362,"ABK, VBP2",T2,
+Clostridium difficile,3BA,2340,0,0,0,387,"ABK, VBP2",T2,
+Clostridium perfringens,3BA,3360,0,0,0,396,ABK,T2,
+Corynebacterium diptheriae,3BA,3360,0,0,0,"316, 342, 360","ABK, VBP1, VBP2",DU1,
+Coxiella burnetii,3BA,3240,0,0,0,,ABK,OS1,
+Cutibacterium acnes,3BA,3360,0,0,0,,ABK,"K2, OC",
+Ehrlichia ruminantium,3BA,3240,0,0,0,,ABK,,
+Eikenella corrodens,3BA,3360,0,0,0,379-384,ABK,"DE, DU1, N3, OB2, VY",
+Enterobacter cloacae,3BA,3300,0,0,0,,ABK,,
+Enterococcus faecalis,3BA,3360,0,0,0,,ABK,"OB2, T2, VY",
+Enterococcus faecium,3BA,3360,0,0,0,,ABK,"OB2, OB, T2, VY",
+Escherichia coli,3BA,3360,0,0,0,"282, 318, 333, 356, 393, 417","ABK, VBP2","PHL, T3, VY",
+Escherichia coli kmen NC101,3BA,3360,0,0,0,"282, 327, 413","ABK, PL2, VBP1, PP1","PHL, T3, VY",
+Eubacterium nodatum,3BA,3360,0,0,0,,ABK,DE,
+Finegoldia magna,3BA,3360,0,0,0,,ABK,T3,
+Francisella tularensis,3BA,1080,0,0,0,,ABK,N4,
+Fusobacterium nucleatum,3BA,3240,0,0,0,,ABK,DE,
+Fusobacterium periodonticum,3BA,3360,0,0,0,,ABK,DE,
+Gardnerella vaginalis,3BA,3360,0,1,0,340,"ABK, VBP1",VY,
+Haemophilus influenzae,3BA,3360,0,0,0,336,"ABK, VBP1","OC, SL",
+Helicobacter pylori,3BA,3360,0,0,0,"355, 364","ABK, VBP2",T3,
+Kingella kingae,3BA,3360,1,0,0,,ABK,"DU2, N3, OB2",
+Klebsiella oxytoca,3BA,3360,0,0,0,"401, 418","ABK, PP1","DU2, N3, T3, VY",
+Klebsiella pneumoniae,3BA,3360,0,0,0,"401, 419","ABK, PP1",DU2,
+Lactobacillus acidophilus,3BA,3360,0,0,0,349,"ABK, VBP1",VY,
+Legionella pneumophila ,3BA,3360,0,0,0,,ABK,DU2,
+Leptospira interrogans ,3BA,3360,0,0,0,399,"ABK, VBP1",T3,
+Listeria monocytogenes,3BA,3360,0,0,0,"377, 471","ABK, VBP2, PP2","N3, T3",
+Methanobrevibacter oralis,3BA,3360,0,0,0,,ABK,DE,
+Methanobrevibacter smithii,3BA,3360,0,0,0,,ABK,T3,
+Methanothermobacter thermautotrophicus,3BA,3360,0,0,0,,ABK,T3,
+Micrococcus luteus,3BA,3360,0,0,0,,ABK,OS2,
+Moraxella catarrhalis,3BA,3360,0,0,0,,ABK,"DU2, OC, PHL, SL",
+Mycobacterium tuberculosis,3BA,3360,0,0,0,432,"ABK, PP1","DU2, OC",
+Mycoplasma fermentans,3BA,2160,1,1,1,323.5,"ABK, VBP1",N3,
+Mycoplasma hominis,3BA,3360,1,1,1,346,"ABK, VBP1",N3,
+Mycoplasma pneumoniae,3BA,3360,1,1,1,"322, 346","ABK, VBP1",N3,
+Neisseria gonorrhoeae,3BA,3360,1,0,1,334,"ABK, VBP1","OB2, PHL",
+Neisseria meningitidis,3BA,3360,1,0,1,,ABK,N3,
+Nocardia asteriodes,3BA,3360,0,0,0,"228, 231, 237, 355, 368","ABK, PL2, VBP2",DU2,
+Parvimonas micra,3BA,3360,0,0,0,,ABK,DE,
+Pasteurella multocida,3BA,3240,0,0,0,323,"ABK, VBP1",,
+PeptoStreptococcus micros,3BA,3240,0,0,0,201,"ABK, PL2",,
+Porphyromonas gingivalis,3BA,3360,0,0,0,,ABK,"DE, N4",
+Prevotella bivia,3BA,3240,0,0,0,,ABK,"OS2, PHL",
+Prevotella intermedia,3BA,3360,0,0,0,,ABK,DE,
+Prevotella melaninogenica ,3BA,2400,0,0,0,,ABK,"OS2, PHL",
+Prevotella nigrescens,3BA,3220,0,0,0,,ABK,,
+Propionibacterium acnes,3BA,3360,0,0,0,387,"ABK, VBP2","K3, PHL",
+Proteus vulgaris,3BA,3360,0,0,0,"328, 336, 413","ABK, VBP1, PP1",VY,
+Pseudomonas aeruginosa,3BA,3360,0,0,0,333,"ABK, VBP1","OB3, OC, PB",
+Rickettsia ricketsii,3BA,3240,0,0,0,129,"ABK, PL1",,
+Salmonella paratyphi,3BA,3360,0,0,0,"368, 385","ABK, VBP2","N4, T4",
+Salmonella typhimurium,3BA,3360,0,0,0,"351, 385, 386, 390","ABK, VBP2","N4, T4",
+Schigella dysenteriae,3BA,3360,0,0,0,"390, 089","ABK, PL1, VBP2","N4, T4",OaR Otrava jídlem
+Schigella flexneri,3BA,3360,0,0,0,394,"ABK, VBP2","N4, T4",OaR Otrava jídlem
+Schigella sonnei,3BA,3360,0,0,0,"318, 380, 390","ABK, VBP1, VBP2","N4, T4",OaR Otrava jídlem
+Serratia marcescens,3BA,3240,0,0,0,351,"ABK, VBP2",VY,
+Staphylococcus aureus,3BA,3360,1,0,0,"378, 381, 424, 478","ABK, VBP2, PP1, PP2","K3, OB3, OC, PB",
+Staphylococcus hominis,3BA,3240,0,0,0,,ABK,,
+Staphylococcus xylosus,3BA,3240,0,0,0,,ABK,,
+Stenotrophomonas maltophilia,3BA,3240,0,0,0,,ABK,,
+Streptococcus agalactiae (beta),3BA,3360,1,1,0,385,"ABK, VBP2","N4, OS2, PB, VY",
+Streptococcus anginosus,3BA,3600,0,0,0,,ABK,DU2,
+Streptococcus bovis,3BA,3360,0,0,0,,ABK,"OB3, T4, VY",
+Streptococcus haemolyticus A,3BA,3360,0,0,0,"134, 318, 368, 443","ABK, PL1, VBP1, VBP2, PP1","DU2, K3, OB3, VY",
+Streptococcus intermedius,3BA,3300,0,0,0,,ABK,,
+Streptococcus mitis (alfa),3BA,3360,0,0,0,"318, 380","ABK, VBP1, VBP2","DU2, OB3",
+Streptococcus mutans (alfa),3BA,3360,0,0,0,"368, 380","ABK, VBP2",DE,
+Streptococcus pneumoniae,3BA,3360,0,0,0,"231, 232, 360, 368","ABK, PL2, VBP2","DU2, N4, OB3, OC, PB, SL",
+Streptococcus pyogenes,3BA,3360,0,0,0,"368, 373, 385, 465","ABK, VBP2, PP2","DU2, K3, OB3, OC, PB, SL",
+Streptococcus salivarius,3BA,3360,0,0,0,,ABK,OS2,
+Streptococcus sanguinis (alfa),3BA,3360,0,0,0,380,"ABK, VBP2","DE, OB3",
+Streptococcus viridans,3BA,3360,0,0,0,"425, 465","ABK, PP1, PP2","OB3, VY",
+Tannerella forsythia,3BA,3360,0,0,0,,ABK,"DE, OB3",
+Treponema denticola,3BA,3360,0,0,0,,"APK, ABK","DE, OB3",
+Treponema pallidum ,3BA,3360,0,0,0,347,"APK, ABK, VBP1",PHL,
+Ureaplasma urealyticum,3BA,3360,0,1,0,,ABK,"PB, VY",
+Veillonella alcalescens,3BA,3360,0,0,0,,ABK,"N4, OB3, OS2",
+Yersinia enterocolitica,3BA,3360,0,0,0,,ABK,T4,
+Aspergillus niger,4Pl,3360,0,0,0,"188, 374, 697",PL2,"K1, OB1, OC",
+Candida albicans,4Pl,3360,0,0,0,386,VBP2,"K1, N2, OB1, PHL, T1",
+Candida auris,4Pl,3240,0,0,0,,,OS1,
+Candida glabrata,4Pl,3360,0,0,0,,,"K1, N2, OB1, PHL, T1",
+Candida haemuloni,4Pl,3360,0,0,0,,,"K1, N2, OB1, PHL, T1",
+Candida insectamens,4Pl,3360,0,0,0,,,"K1, N2, OB1, PHL, T1",
+Candida parapsilosis,4Pl,3360,0,0,0,,,"K1, N2, OB1, PHL, T2",
+Candida pinicola,4Pl,3360,0,0,0,,,"K1, N2, OB1, PHL, T3",
+Candida sinolaborantium,4Pl,3360,0,0,0,,,"K1, N2, OB1, PHL, T4",
+Candida terraborum,4Pl,3360,0,0,0,,,"K1, N2, OB1, PHL, T5",
+Candida tropicalis,4Pl,3360,0,0,0,"60, 95, 125, 225, 427, 464","PL1, PL2, PP1, PP2","K1, N2, OB1, PHL, T6",
+Cladosporium herbarum ,4Pl,3360,0,0,0,438,,K1,
+Cryptococcus neoformans,4Pl,3360,0,0,0,"367, 428, 444, 476, 478","VBP2, PP1, PP2","K2, N2, OB2, PHL",
+Epidermophyton floccosum,4Pl,3360,0,0,0,345,VBP1,K2,
+Histoplasma capsulatum,4Pl,3360,0,0,0,"298, 302, 424",VBP1,"DU1, K2",
+Microsporum canis,4Pl,3360,0,0,0,"347, 402","VBP1, PP1",K2,
+Microsporum gipseum,4Pl,3360,0,0,0,,,K2,
+Mucor fluor,4Pl,3360,0,0,0,,,K2,
+Mucor mucedo,4Pl,3360,0,0,0,"288, 488","PL2, PP2",,
+Mucor racemosus,4Pl,3360,0,0,0,"310, 474","VBP1, PP2",K2,
+Penicillium camemberti,4Pl,3360,0,0,0,,,K3,
+Penicillium chrysogenum,4Pl,3360,0,0,0,"129, 249, 344","PL1, PL2, VBP1",,
+Penicillium notatum,4Pl,3360,0,0,0,334,VBP1,OC,
+Penicillium roqueforti ,4Pl,3360,0,0,0,,,K3,
+Pichia kudriavzevii ,4Pl,3360,0,0,0,,,"K3, N3, OB3, PHL, T4",
+Pityrosporum furfur,4Pl,3360,0,0,0,,,K3,
+Pneumocytis carinii,4Pl,3360,0,0,0,"204, 240, 405, 407","PL2, PP1","DU2, K3",
+Rhodotorula mucilaginosa,4Pl,3360,0,0,0,,,"K3, N4, OB3, PHL",
+Scopulariopsis brevic,4Pl,3360,0,0,0,,,K3,
+Sporothrix schenckii,4Pl,3360,0,0,0,,,K3,
+Trichophyton cutaneum,4Pl,3360,0,0,0,,,K3,
+Trichophyton mentagrophytes,4Pl,3360,0,0,0,,,K3,
+Trichophyton rubrum,4Pl,3360,0,0,0,,,K3,
+Trichophyton terrestre,4Pl,3360,0,0,0,,,K3,
+Ceratophyllus gallinae,5Ro,3240,,,,,,,blecha
+Leptotrombidium deliense,5Ro,3360,,,,,,"K2, OS1",
+Ophionyssus natricis,5Ro,3240,,,,,,,čmelíkovec
+Sarcoptes scabiei,5Ro,7560,,,,735,,K3,
+Varroa descructor,5Ro,3360,,,,,,,kleštík
+Veš lidská,5Ro,3220,,,,,,,veš
+Intuice,DaH,900,,,,,,podpora,"ladí tělesné procesy, pro ženy, jemné frekvence čakra 1"
+Kocovina,DaH,900,,,,,,podpora,
+Komplexní detoxikace,DaH,6500,,,,,,detox ,
+"Kosti, hojení",DaH,3000,,,,,,podpora,
+"Krev, čištění",DaH,1200,,,,,,podpora,VŽDY NAKONEC
+Krevní cirkulace,DaH,900,,,,,,podpora,
+Léčivé frekvence 1,DaH,540,,,,,,podpora,"nespojovat s LF2, kočičí frekvence"
+Léčivé frekvence 2,DaH,900,,,,,,podpora,"nespojovat s LF1, kočičí frekvence"
+Metabolismus tuků,DaH,1440,,,,,,podpora,
+Methrotrexát detoxikace,DaH,900,,,,,,detox ,
+Nemoci způsobené emocemi,DaH,900,,,,,,podpora,i na noc
+"Nervy, regenerace ",DaH,6600,,,,,,podpora,pouze + KČ
+Nikotin detoxikace ,DaH,900,,,,,,detox ," + KČ + Solfeggi, kuřáci a konec kouření, závislost na drogách, absťák"
+Nogierovy frekvence,DaH,2340,,,,,,podpora,"libido, vyplńuté emoce"
+Paměť,DaH,4200,,,,,,podpora,
+Pesticidy detoxikace,DaH,720,,,,,,detox ,
+Podpora nervového systému,DaH,180,,,,,,podpora,
+Popáleniny,DaH,3060,,,,,,podpora,
+Regenerace a hojení,DaH,2160,,,,,,podpora,
+Schumannova rezonance,DaH,1260,,,,,,podpora,i na noc
+Solfeggio frekvence,DaH,1080,,,,,,podpora,"podporuje snížení vnitřního horka, na noc"
+Spalování tuků 1,DaH,5400,,,,,,podpora,
+Spalování tuků 2,DaH,1800,,,,,,podpora,
+Spalování tuků 3,DaH,2520,,,,,,podpora,
+"Svaly, uvolnění",DaH,1440,,,,,,podpora,"po sportu, na kys. Mléčnou"
+Svědění,DaH,2000,,,,,,podpora,jakékoliv svědění kůže
+Vlasy,DaH,3780,,,,,,podpora,
+Xenoestrogeny 1,DaH,2160,,,,,,detox ,"na toxické plasty, pro děti, ženy mimo ms, toxicita, autointoxikace, spouštět společně s programy, dávat k autointoxikaci"
+Xenoestrogeny 2,DaH,2160,,,,,,detox ,
+Xenoestrogeny 3,DaH,2160,,,,,,detox ,
+Xenoestrogeny 4,DaH,2160,,,,,,detox ,"na toxické plasty, pro děti, ženy mimo ms, toxicita, autointoxikace, spouštět společně s programy, nejčastěji 456, těžké kovy"
+Xenoestrogeny 5,DaH,2160,,,,,,detox ,
+Xenoestrogeny 6,DaH,2160,,,,,,detox ,
+Zklidnění,DaH,4680,,,,,,podpora,
+AstraZeneca Covid-19 Vaccine,Is,3000,,,,,,,detox
+Covid-19 mRNA spike protein,Is,1140,,,,,,,
+Imunita rovnováha 1,Is,5040,,,,,,,
+Imunita rovnováha 2,Is,1800,,,,,,,
+Imunita stabilizace,Is,2160,,,,,,,
+Imunita stimulace,Is,5040,,,,,,,
+Imunitní trénink,Is,1686,,,,,,,"až později u zdravých dětí, sportovců, kdykoliv, kde se nic neděje, na noc i na den"
+Imunitní trénink a metabolismus lipidů,Is,3360,,,,,,,regenerace
+Moderna Covid-19 Vaccine,Is,3060,,,,,,,detox
+Pfizer-BioNTech ALC-0315,Is,4629,,,,,,,detox
+Abdominální distenze,Nem,1800,,,,,,,"nafouknutí a plnost břicha, plynatost, boles a křeče v břiše"
+Acidóza,Nem,1440,,,,,,,"používat při plísních, překyselené tělo (není mi dobře, průjem zácpa) + oprava DNA, pálení žáhy, reflux"
+Adenofibrom,Nem,1800,,,,,,,nezhoubný nádor z vaziva (kůže)
+Adenom obecný,Nem,3000,,,,,,,"nezhoubný nádor (v prsu, ledvině, střevo, průdušky)"
+Adenom prostaty,Nem,3000,,,,,,,nezhoubný nádor prostaty
+Adenoviróza,Nem,5580,,,,,,,viróza způsobená Adenoviry
+Adenoviróza 2,Nem,4860,,,,,,,viróza způsobená Adenoviry
+Aftózní stomatitida,Nem,1620,,,,,,,afty v use
+Akné,Nem,2100,,,,,,,vřídky na kůži
+Alergie,Nem,5220,,,,,,,
+Alergie na pyl,Nem,750,,,,,,,
+Alergie na slunce,Nem,900,,,,,,,
+Alopecia,Nem,4680,,,,,,,"ztráta vlasů, ochlupení"
+Angina 1,Nem,7140,,,,,,,
+Angína 2,Nem,6600,,,,,,,
+Arachnoidální cysta ,Nem,1980,,,,,,,cysta v mozku zjistitelná CT
+Artritida 1,Nem,7200,,,,,,,revma
+Artritida 2,Nem,5040,,,,,,,revma
+Astma 1,Nem,7800,,,,,,,odstranit parazity a všechny 123 Nemoci
+Astma 2,Nem,9300,,,,,,,odstranit parazity a všechny 123 Nemoci
+Astma 3,Nem,5400,,,,,,,odstranit parazity a všechny 123 Nemoci
+Atletická noha 1,Nem,3960,,,,,,,plísňová infekce na chodidlech
+Atletická noha 2,Nem,2340,,,,,,,plísňová infekce na chodidlech
+Autoimunitní tyroiditida,Nem,1800,,,,,,,"Hashimotova nemoc, autoimunitní onemocnění, chronický zánět štítné žlázy."
+Bechtěrevova nemoc,Nem,3960,,,,,,,"chronické autoimunitní onemocnění, které primárně postihuje páteř"
+Bércový vřed,Nem,3000,,,,,,,ztráta kožní substance zasahující různě hluboko do podkožních tkání. Jedná se o chronickou ránu s dobou hojení delší než 6 týdnů
+Bolest akutní,Nem,1980,,,,,,,rychle uvolňuje
+Bolest zad,Nem,1980,,,,,,,
+Borelióza,Nem,5760,,,,,,,kokrétní typ B /další den Nem B /další den Nem B2 až 5x
+Borelióza 2,Nem,6120,,,,,,,kokrétní typ B /další den Nem B /další den Nem B2 až 5x
+Brachiální neuralgie,Nem,2750,,,,,,,"akutní bolesti nejčastěji v oblasti ramene, krční páteře nebo paže a posléze se rozvíjí i motorický deficit"
+Bronchitida 1,Nem,5340,,,,,,,zánět průdušek
+Bronchitida 2,Nem,8640,,,,,,,zánět průdušek
+Bronchopneumonie ,Nem,9900,,,,,,,"povrchového zápalu plic (pneumonie) bakteriálního původu, tvořící ložiskové záněty."
+Cancer (mytochondrias) 1,Nem,3360,,,,,,,rakovina
+Cancer (mytochondrias) 2,Nem,3360,,,,,,,rakovina
+Cholecystida,Nem,3060,,,,,,,akutní zánět žlučníku
+Choledochální cysta,Nem,1800,,,,,,,cysta ve žlučníku
+Cholelitiáza,Nem,1800,,,,,,,zánět žlučových cest
+Chřipka,Nem,5400,,,,,,,
+Chřipka 2021,Nem,4320,,,,,,,
+Chronický zánět,Nem,2760,,,,,,,zánět douhodobý
+Crohnova nemoc,Nem,5400,,,,,,,chronické zánětlivé střevní onemocnění
+Cysta prsu,Nem,6000,,,,,,,
+"Cysta, hydatidová ",Nem,2940,,,,,,,způsobená larvou parazita Echinococcus multilocularis 
+"Cysta, obecná",Nem,3900,,,,,,,
+"Cysta, papillomavirus",Nem,2340,,,,,,,"HPV cysta, děložní čípek"
+Cysticerkóza,Nem,1800,,,,,,,onemocnění Tasemnicí
+Cystická fibróza,Nem,6480,,,,,,,"opakovanými infekcemi dýchacích cest, postupně poškození plic"
+Cystická fibróza 2,Nem,3780,,,,,,,"opakovanými infekcemi dýchacích cest, postupně poškození plic"
+Cystitida,Nem,6300,,,,,,,zánět močového měchýře
+Dásně onemocnění,Nem,3780,,,,,,,
+Děložní myom,Nem,3960,,,,,,,nejčastější nezhoubný útvar ženského genitálního traktu
+Dermatitida,Nem,4380,,,,,,,"zánět kůže, seborea"
+"Dermatitida, Herpetiformis",Nem,3780,,,,,,,"zánět kůže, svědivé puchýřky, průjem"
+Diabetes,Nem,7980,,,,,,,cukrovka
+Diabetes 2,Nem,8100,,,,,,,cukrovka
+Diabetes 3,Nem,3360,,,,,,,cukrovka
+Diabetes Insipidus,Nem,3000,,,,,,,"cukrovka, onemocnění způsobené nedostatkem ADH (vazopresinu)."
+Diabetes Mellitus,Nem,3000,,,,,,,"cukrovka, nedostatek inzulinu"
+Dysentérie,Nem,2340,,,,,,,akutní infekční průjmovité onemocnění
+Dysmenorea,Nem,2700,,,,,,,Menstruace doprovázena silnými a křečovitými bolestmi v podbřišku
+Ekzém,Nem,7560,,,,,,,chronický svědivý kožní zánět (dermatitida)
+Endokarditida,Nem,6660,,,,,,,"zánět vnitřního povrchu srdce neboli endokardu, postihuje zejména srdeční chlopně."
+Endometrióza,Nem,3060,,,,,,,"Buňky endometria (sliznice dutiny děložní) se u nemocných žen nacházejí i mimo dutinu děložní, např. ve vejcovodech, na vaječnících či jinde v dutině břišní"
+Endometrióza 2,Nem,4320,,,,,,,"Buňky endometria (sliznice dutiny děložní) se u nemocných žen nacházejí i mimo dutinu děložní, např. ve vejcovodech, na vaječnících či jinde v dutině břišní"
+Enterokolitida,Nem,3240,,,,,,, porucha adaptace trávicího systému novorozence (většinou nedonošeného)
+Exokrinní pankreatická nedostatečnost,Nem,1800,,,,,,,"intenzivní bolest v nadbřišku, která obvykle trvá delší dobu a může vystřelovat také do zad nebo do ramene. Typické jsou však i průjmy, nechutenství a rychlé hubnutí."
+Faryngitida,Nem,4140,,,,,,,"zánět hltanu, postižení stěn hltanu"
+Fibrocystická nemoc prsu,Nem,1800,,,,,,,"nenádorové onemocnění, v prsu jsou tužší cysty nebo je postižen celý prs."
+Fibromatóza mléčné žlázy,Nem,1800,,,,,,,"cysty v prsu, uzlíky v měkkých tkáních prsu"
+Gastritida,Nem,3780,,,,,,,"zánět žaludku, bolest, zvracení, nevolnost"
+Gastritida 2,Nem,3840,,,,,,,"zánět žaludku, bolest, zvracení, nevolnost"
+Gastroenteritida,Nem,1800,,,,,,,střevní chřipka
+Gingivitida,Nem,1980,,,,,,,zánět dásní
+Glioblastom,Nem,14400,,,,,,,nejčastější a nejagresivnější primární mozkový nádor
+Hemoroidy,Nem,1800,,,,,,," svědění, popřípadě bolesti v okolí řitního otvoru při sezení a vyvíjení většího tlaku při vyprazdňování"
+Hepatitida,Nem,5580,,,,,,,zánět jater
+"Hrtan, infekce",Nem,4140,,,,,,,
+Hypertenze,Nem,7200,,,,,,,zvýšený krevní tlak nad 140/90
+Hypertenze 2,Nem,5760,,,,,,,zvýšený krevní tlak nad 140/90
+"Hypertenze, maligní",Nem,1800,,,,,,,"nejtěžší forma, spojena se změnami na očním pozadí a nedostatečností ledvin"
+"Hypertenze, portální",Nem,1800,,,,,,,zvýšený tlak krve v povodí vrátnicové žíly 
+Hypertrofie prostaty,Nem,2100,,,,,,, zvětšení prostaty a souvisí s hormonálními změnami
+Hypertyreóza,Nem,2520,,,,,,,"onemocnění štítné žlázy, bušení srdce, zrychlení jeho činnosti, nesnášenlivost tepla a nadměrné pocení, nespavost, svalová slabost, úbytek svalové hmoty, nervozita, váhový úbytek, stálý pocit hladu, případně i problémy s očima. "
+Hypotenze,Nem,3600,,,,,,,nízký krevní tlak pod 90/60
+"Hypotyreóza, kongenitální",Nem,1800,,,,,,,vrozená nedostatečnost štítné žlázy
+Juvenilní artritida,Nem,1800,,,,,,,chronické onemocnění charakterizované přetrvávajícím zánětem kloubů
+"Kandidóza, vaginální ",Nem,1800,,,,,,,plísně pohl. ústrojí
+Kašel,Nem,3000,,,,,,,
+Kašel 2,Nem,5040,,,,,,,
+Kašel chronický,Nem,1800,,,,,,,
+Kokcydynie,Nem,900,,,,,,,bolest kostrče
+Kolitida,Nem,6600,,,,,,,zánět tlustého střeva
+Konjuktivita,Nem,5220,,,,,,,zánět spojivek
+Konjuktivita 2,Nem,2520,,,,,,,zánět spojivek
+Laryngitida,Nem,2700,,,,,,,zánět hrtanu
+Laryngostenóza,Nem,1800,,,,,,,stažení nebo zúžení hrtanu
+Leukémie,Nem,25200,,,,,,,nádorová porucha krvetvorby
+Lupus Erythematosus,Nem,6300,,,,,,,"systémový lupus, záněty všude v těle"
+Lupy,Nem,1500,,,,,,,
+Makulární degenrace,Nem,5400,,,,,,,žluté skvrny na sítnici
+Mastitida,Nem,1200,,,,,,,"zánět mléčné žlázy, prsu při kojení"
+Melanom,Nem,25200,,,,,,,nádorové onemocnění kůže
+Menopauza návaly,Nem,1440,,,,,,,
+Menopauza příznaky,Nem,720,,,,,,,
+Meteorismus,Nem,3900,,,,,,,nadměrné prdění a hromadění plynu v trávicím traktu
+Mezižeberní neuralgie,Nem,2880,,,,,,,bolest a podráždění nervů v oblasti žeber
+Migréna,Nem,2880,,,,,,,dlouhodobá jednostranná bolest hlavy
+Mnohočetný myelom 1,Nem,14400,,,,,,,nádory vyrůstající či vznikající z buněk kostní dřeně
+Mnohočetný myelom 2,Nem,12600,,,,,,,nádory vyrůstající či vznikající z buněk kostní dřeně
+Mnohočetný myelom 3,Nem,14400,,,,,,,nádory vyrůstající či vznikající z buněk kostní dřeně
+Mnohočetný myelom 4,Nem,12600,,,,,,,nádory vyrůstající či vznikající z buněk kostní dřeně
+Mnohočetný myelom 5,Nem,25200,,,,,,,nádory vyrůstající či vznikající z buněk kostní dřeně
+Mnohočetný myelom 6,Nem,12600,,,,,,,nádory vyrůstající či vznikající z buněk kostní dřeně
+Mononukleóza,Nem,4380,,,,,,,onemocnění jater způsobené EB virem
+Mononukleóza 2,Nem,5220,,,,,,,onemocnění jater způsobené EB virem
+Nemalobuněčný karciom plic,Nem,7200,,,,,,,nádor plic
+Neurodegenerativní onemocnění,Nem,4140,,,,,,,"amyotrofická laterální skleróza, roztroušená skleróza, Alzheimerova choroba, Huntingtonova choroba či Parkinsonova nemoc"
+Neurodegenerativní onemocnění 2,Nem,4320,,,,,,,"amyotrofická laterální skleróza, roztroušená skleróza, Alzheimerova choroba, Huntingtonova choroba či Parkinsonova nemoc"
+Onemocnění nadledvinek,Nem,1800,,,,,,,
+Onemocnění žlučových cest,Nem,3000,,,,,,,
+Opar,Nem,5400,,,,,,,
+Orchitida,Nem,3780,,,,,,,zánět varlete
+Osteochondróza páteře,Nem,3000,,,,,,,"bolest zad která je zpravidla ostrá a vystřeluje do horní končetiny. Často je doprovázena mravenčením či brněním, někdy slabost svalů a snížení nebo ztráta citlivosti. "
+Otorhinolaryngologic Disease,Nem,1800,,,,,,,
+Ovariální cysta,Nem,2340,,,,,,,"cysta na vaječníku, hormonální nerovnováha"
+Ovariální nádor,Nem,43200,,,,,,,
+Oxyuriáza,Nem,9480,,,,,,,"Enterobióza (též oxyuriáza) je parazitární onemocnění, jehož původcem je roup dětský"
+Pálení žáhy,Nem,3780,,,,,,,
+Pankreatický nádor,Nem,43200,,,,,,,nádor jater
+Plicní fibróza,Nem,1800,,,,,,,"jizvy v plicích, problémy s dýcháním"
+Plicní hypertenze,Nem,1800,,,,,,,"onemocnění plic v důsledku vysokého tlaku, dušnost, závratě"
+Plicní infekce,Nem,4320,,,,,,,obecně
+Plicní insuficience,Nem,1800,,,,,,,"dechová nedostatečnost, dobré na astma"
+Pneumonie,Nem,5040,,,,,,,zánět plic
+Pneumonie 2,Nem,3420,,,,,,,zánět plic
+Polycystická nemoc,Nem,3600,,,,,,,tvorba cyst v ledvinách
+Polymyalgia Rheumatica,Nem,1800,,,,,,,"ztuhlá šíje, pánev, záda"
+Polyneuropatie,Nem,1800,,,,,,,postižení perfierních nervů
+Polyradikuloterapie,Nem,1800,,,,,,,
+Poporodní deprese,Nem,3000,,,,,,,
+Post-COVID syndrome,Nem,3780,,,,,,,"zrtáta chuti, čichu, horečka, kašel, dušnost, dobré po vakcínách a prodělaném covidu"
+Prostatitida,Nem,4860,,,,,,,"zánět předstojené žlázy - horečka, zimnice, sexuální poruchy"
+"Prsa, nezhoubný nádor",Nem,3960,,,,,,,
+Průjem akutní,Nem,2400,,,,,,,"všechno, co způsobuje průjmy"
+Psoriasis Alternate Program,Nem,1440,,,,,,,lupénka
+Psoriáza,Nem,3600,,,,,,,lupénka
+Rakovina inhibice mitózy 1,Nem,10800,,,,,,,
+Rakovina inhibice mitózy 2,Nem,12600,,,,,,,
+Rakovina prsu,Nem,25200,,,,,,,
+"Rakovina, mitochondriální delece 1",Nem,6800,,,,,,,
+"Rakovina, mitochondriální delece 2",Nem,7200,,,,,,,
+"Rakovina, univerzální 1",Nem,21600,,,,,,,
+"Rakovina, univerzální 2",Nem,21600,,,,,,,
+"Rakovina, univerzální 3",Nem,18000,,,,,,,
+Refluxní ezofagitida,Nem,2400,,,,,,,reflux jícnu
+Revmatizmus,Nem,2340,,,,,,,
+Revmatoidní artritida,Nem,3240,,,,,,,"chronický zánět kloubů, zarudnutí, otok, teplota, citlivost"
+Rinitida,Nem,3600,,,,,,,"rýma, zánět nosní sliznice"
+Sarkoidóza,Nem,3420,,,,,,,"dušnost, suchý kašel, bolest hrudníku, někdy krvavý kašel"
+Selhání jater,Nem,4140,,,,,,,"po zánětu jater, cirhoze, nádorech"
+Sinusitida,Nem,900,,,,,,,zánět dutin
+Škytavka,Nem,360,,,,,,,
+Srůsty,Nem,3300,,,,,,,
+Srůsty pánevní,Nem,3000,,,,,,,
+Stomatitida,Nem,5760,,,,,,,"i afty v puse, zánět v dutině ústní"
+Struma štítné žlázy,Nem,3240,,,,,,,zvětšení štítné žlázy
+Syndrom neklidných nohou,Nem,1800,,,,,,,"nutkání pohybovat nohama a nepříjemné pocity, brnění, tlak, bolest"
+Tarlovova cysta,Nem,1800,,,,,,,perineurální cysta - cysty nervových kořenů
+Tinitus,Nem,4500,,,,,,,"ušní šelesty, pískání, zvonění, lupání, hučení nebo šumění v uších"
+Tonsilitida,Nem,4860,,,,,,,"zánět hltanu, postižení mandlí"
+Ulcerózní kolitida,Nem,3000,,,,,,,"idiopatická proktokolitida = chronický autoimunitní typ zánětu trávicí trubice, vředový zánět tlustého střeva"
+Univerzání program,Nem,3780,,,,,,,
+Vaginóza,Nem,5940,,,,,,,plísně pohl. ústrojí
+Virová infekce,Nem,10260,,,,,,,virová onemocnění dýchacího a trávicího ústrojí
+Vřed dvanácterníku,Nem,3000,,,,,,,
+Zácpa,Nem,4200,,,,,,,
+Zadržování vody,Nem,1800,,,,,,,
+Žaludeční vřed,Nem,900,,,,,,,
+Zánět děložního hrdla,Nem,1200,,,,,,,
+Zánět plic,Nem,4860,,,,,,,
+Zánět plic 2,Nem,5220,,,,,,,
+Zánět středního ucha,Nem,3060,,,,,,,
+Záněty,Nem,4320,,,,,,,samostatně dávat při zánětech čehokoliv
+Závrať,Nem,2340,,,,,,,
+Závrať 2,Nem,3600,,,,,,,
+Ztuhlé rameno,Nem,720,,,,,,,
+"Ztuhlost, svalová bolest",Nem,1200,,,,,,,
+Centrální nervová soustava,OaR,180,,,,,,,
+Děložní čípek,OaR,600,,,,,,,
+"Děložní hrdlo, zánět",OaR,720,,,,,,,
+Dentální Infekce,OaR,5400,,,,,,,
+Endokrinní systém,OaR,1980,,,,,,,"libido u žen, na noc"
+"Epifýza, harmonizace",OaR,540,,,,,,,na noc
+"Epifýza, stimulace",OaR,900,,,,,,,libido u žen
+Full body regeneration 1,OaR,1080,,,,,,,na noc
+Full body regeneration 2,OaR,2160,,,,,,,na noc
+Full body regeneration 3,OaR,3240,,,,,,,na noc
+Full body regeneration 4,OaR,2460,,,,,,,na noc
+Full body regeneration sweep,OaR,2460,,,,,,,"transformace mozku, na noc"
+Hojení jizev,OaR,900,,,,,,,na noc
+"Hypofýza, dysfunkce ",OaR,1980,,,,,,,libido u žen
+"Hypofýza, hyperfunkce ",OaR,1800,,,,,,,
+"Hypofýza, hypofunkce",OaR,1980,,,,,,,
+Játra podpora ,OaR,900,,,,,,,na noc
+"Játra, cirhóza",OaR,3000,,,,,,,na noc
+"Játra, nekróza",OaR,4140,,,,,,,na noc
+"Játra, ztučnělá",OaR,1800,,,,,,,na noc
+"Játra, zvětšená",OaR,1080,,,,,,,na noc
+"Kolenní klouby, bolest",OaR,3060,,,,,,,
+Koncentrace zlepšení,OaR,900,,,,,,,
+"Kosti, regenerace",OaR,2880,,,,,,,na noc
+Kožní vředy,OaR,1800,,,,,,,
+Krevní cirkulace,OaR,180,,,,,,,
+"Kůže, infekce",OaR,1800,,,,,,,
+"Kyčel, bolest",OaR,1800,,,,,,,
+Léčení všeobecně,OaR,540,,,,,,,
+Ledvinové kameny,OaR,3600,,,,,,,
+Ledviny tonikum,OaR,1620,,,,,,,
+"Ledviny, zánět",OaR,2700,,,,,,,
+"Loket, bolest",OaR,1620,,,,,,,
+Lokomotorický systém,OaR,4320,,,,,,,
+"Lymfa, podpora",OaR,1200,,,,,,,pouze přes den
+"Lymfa, stáze",OaR,2040,,,,,,,"pouze přes den, rozproudění lymfy"
+"Lymfatické cévy, zánět",OaR,1800,,,,,,,pouze přes den
+Močový měchýř podpora,OaR,900,,,,,,,
+"Močový měchýř, infekce ",OaR,5400,,,,,,,
+"Močový trakt, infekce ",OaR,2160,,,,,,,
+"Močový trakt, infekce 2",OaR,1800,,,,,,,
+"Mozek, absces",OaR,1800,,,,,,,
+"Mozek, Beta Stimulace",OaR,540,,,,,,,
+"Mozek, hladina alfa",OaR,1800,,,,,,,
+"Mozek, hladina beta",OaR,1800,,,,,,,"stimulace, nedávat nikdy na noc"
+"Mozek, hladina delta",OaR,1800,,,,,,,na noc
+"Mozek, hladina theta",OaR,1800,,,,,,,"uvolňuje, i na noc"
+Mozkové poruchy,OaR,1620,,,,,,,
+"Nadledvinky, hyperplazie",OaR,1800,,,,,,,
+"Nadledvinky, podpora",OaR,1260,,,,,,,libido u žen
+"Nadledvinky, porucha funkce",OaR,1800,,,,,,,
+"Nadledvinky, stimulace",OaR,5400,,,,,,,
+Nehty,OaR,1800,,,,,,,
+"Nervový systém, podpora",OaR,180,,,,,,,
+Otrava jídlem,OaR,540,,,,,,,
+Paměť,OaR,3960,,,,,,,
+"Páteř bederní, bolest",OaR,600,,,,,,,
+"Plíce, podpora",OaR,1080,,,,,,,
+Pohyb střev,OaR,1200,,,,,,,
+Porucha sluchu,OaR,2520,,,,,,,
+Prostata zvětšená,OaR,1080,,,,,,,
+"Prostata, zánět",OaR,4500,,,,,,,
+Prsa,OaR,2340,,,,,,,
+Regenerace a hojení,OaR,5280,,,,,,,"na noc, i na kůži"
+Regenerace obecně ,OaR,3780,,,,,,,na noc
+Rohovka,OaR,1800,,,,,,,
+Sítnice,OaR,1800,,,,,,,
+Sítnice odchlípnutá,OaR,1800,,,,,,,
+Slezina zvětšená,OaR,3420,,,,,,,
+"Slinivka, harmonizace",OaR,5940,,,,,,,na noc
+"Srdce, podpora",OaR,3600,,,,,,,
+"Srdce, selhání",OaR,1800,,,,,,,
+Stařecká únava,OaR,1260,,,,,,,
+"Štítná žláza, dysfunkce",OaR,1800,,,,,,,souvisí se slinivkou
+"Štítná žláza, hyperfunkce",OaR,2520,,,,,,,
+"Štítná žláza, hypofunkce",OaR,4140,,,,,,,"odstranit parazity, dysfunkce ŠŽ"
+"Štítná žláza, uzlíky ",OaR,1800,,,,,,,
+"Štítná žláza, zánět",OaR,1800,,,,,,,
+Svaly ztuhlé,OaR,2520,,,,,,,
+Svědění v konečníku,OaR,5400,,,,,,,i na pokousání
+Tenké střevo,OaR,1500,,,,,,,
+"Tlusté střevo, tonikum",OaR,540,,,,,,,
+Úraz hlavy,OaR,2160,,,,,,,
+Vaginální problémy ,OaR,1800,,,,,,,
+Vaječníky,OaR,900,,,,,,,
+"Záda, bolesti",OaR,5760,,,,,,,
+"Záda, křeče",OaR,5220,,,,,,,
+Zlepšení zraku,OaR,1620,,,,,,,přes noc
+"Žlučník, chronický zánět",OaR,540,,,,,,,
+"Žlučník, podpora",OaR,900,,,,,,,
+Žlučníkový záchvat,OaR,720,,,,,,,
+Žlučové kameny,OaR,3060,,,,,,,
+Ztráta vlasů,OaR,3600,,,,,,,
+"Zuby, obecně",OaR,1980,,,,,,,
+Adaptogeny-imunomodulátory,SK,6840,,,,,,,"imunitní systém do rovnováhy, stimulace sleziny, tvorba bílých krvinek, na Ebviry"
+Antibakteriální komplexy,SK,4320,,,,,,,"ABK - různé bakteriální infekce, více druhů bakterií"
+Antioxidační komplexy,SK,2520,,,,,,,
+Antiparazitární komplexy,SK,7800,,,,,,,APK - při velkém množství parazitů
+Komplexní detoxikanty,SK,6500,,,,,,,
+Komplexy obnovující mikroflóru střev,SK,3600,,,,,,,
+Léčivé spektrum,SK,3600,,,,,,,"1h na noc, laskavost, opečování"
+Membráno-stabilizující komplexy,SK,1800,,,,,,,
+Protivirové komplexy,SK,10260,,,,,,,PVK - při širším spektru virů
+Regulátory energo-informační výměny,SK,3600,,,,,,,"HARMONIZACE, ladění orgánů dle Jin/jang dle TČM"
+Regulátory metabolismu,SK,3780,,,,,,,
+Regulátory rovnováhy vody a soli,SK,7310,,,,,,,"otoky, ostruhy (2x3-program)"
+Selektivní minerální komplexy,SK,11530,,,,,,,
+Selektivní vitamínové komplexy,SK,5400,,,,,,,
+Stabilizátory broncho-plicní soustavy ,SK,5040,,,,,,,dýchací potíže
+Stabilizátory buněčné výměny,SK,3600,,,,,,,"pomáhají k jemné detoxikaci buněk, ladit psychosomatiku, po operaci, po výměně krve, po onkologii, po narkóze, po šoku, léčivé a Solffegi frekvence"
+Stabilizátory cévní soustavy,SK,6660,,,,,,,"křečové žíly, cévní onemocnění, tlak"
+Stabilizátory hepato-biliární soustavy,SK,3300,,,,,,,játry-žlučovody-žlučník - jen podpory
+Stabilizátory kardiovaskulární soustavy,SK,5400,,,,,,,srdce harmonizace
+Stabilizátory kostní a chrupavkové tkáně,SK,3000,,,,,,,"růst a regenerace kostí a chrupavek, uvolní a rozproudí"
+Stabilizátory kůže,SK,3000,,,,,,,"podpora kůže, škrábance, infekce, akné + KČ"
+Stabilizátory lymfatické soustavy,SK,5220,,,,,,,"cirkulace, vždy samostatně bez eliminace, lepší dopoledne s pitným režimem"
+Stabilizátory močové soustavy,SK,3600,,,,,,," + KČ - podpora močových cest, trubice, eliminace 3Ba, podpora pánvičky, ledviny tonikum"
+Stabilizátory nervové soustavy,SK,5400,,,,,,,podpora mozku a jeho funkce
+Stabilizátory pohlavní soustavy,SK,4140,,,,,,,"snížené nebostatečné libido, impotence, žánět prostaty, frigidita, oba partneři"
+Stabilizátory pohybového aparátu,SK,3240,,,,,,,"hojení kostí, chrupavek, bolest kostry, pánve, kostrč, kyčle, ztuhlé svaly, záněty kloubů + Schum/ Solfeg"
+Stabilizátory sluchového analyzátoru,SK,5220,,,,,,,"stabilizace a eliminace sluchových vad (ledviny, srdce)"
+Stabilizátory zrakového analyzátoru ,SK,3420,,,,,,,"katarakta, glaukom, oční infekce, záněty, konjuktivitida, asktigmatismus, ostrost zraku - 2x + játra, obě střevo"
+Stimulátory imunologické rezistence,SK,2160,,,,,,,
+Vitamíno-minerální komplexy,SK,2700,,,,,,,
+Znecitlivující komplexy,SK,3600,,,,,,,

@@ -5,6 +5,8 @@ using NHibernate.Cfg;
 using NHibernate.Metadata;
 using NHibernate.Tool.hbm2ddl;
 using System.Collections;
+using System.Reflection;
+using System.Text;
 using Tritium.Entities;
 
 namespace Tritium
@@ -23,7 +25,7 @@ namespace Tritium
                 .ExposeConfiguration(TreatConfiguration)
                 .BuildSessionFactory();
             isLocal = true;
-
+            MigrateIfNeeded(_sessionFactory.OpenSession());
         }
         public DatabaseController(string server, int port, string database, string user, string password)
         {
@@ -39,6 +41,55 @@ namespace Tritium
                 .ExposeConfiguration(TreatConfiguration)
                 .BuildSessionFactory();
             isLocal = false;
+            MigrateIfNeeded(_sessionFactory.OpenSession());
+        }
+
+        private void MigrateIfNeeded(ISession session)
+        {
+            ITransaction transaction = session.BeginTransaction();
+            transaction.Begin();
+            if(session.Get<PatogenProgram>(1)==null)
+            {
+                var assembly = Assembly.GetExecutingAssembly();
+                string resourceName = assembly.GetManifestResourceNames().Single(str => str.EndsWith("migration.csv"));
+
+                const int BufferSize = 128;
+                using (var fileStream = assembly.GetManifestResourceStream(resourceName))
+                using (var streamReader = new StreamReader(fileStream, Encoding.UTF8, true, BufferSize))
+                {
+                    var lines = streamReader.ReadToEnd().Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                    foreach (var line in lines)
+                    {
+                        string[] parts = line.Split(",");
+                        string name = parts[0];
+                        string type = parts[1];
+                        int time = int.Parse(parts[2]);
+                        bool alone = parts[3] == "1";
+                        bool onkovir = parts[4] == "1";
+                        bool parovy = parts[5] == "1";
+                        string morty = parts[6];
+                        string SKPs = parts[7];
+                        string okruhy = parts[8];
+                        string poznamky = parts[9];
+
+                        PatogenProgram pp = new() { 
+                            Name = name,
+                            Type = type,
+                            Time = time,
+                            Samostatne = alone,
+                            Onkovir = onkovir,
+                            Par = parovy,
+                            Okruhy = okruhy,
+                            Poznamky = poznamky,
+                            MORTFRQs = morty,
+                            StabKompAPasm = SKPs,
+
+                        };
+
+                        session.Save(pp);
+                    }
+                }
+            };
         }
 
         private static void TreatConfiguration(Configuration configuration)

@@ -171,14 +171,14 @@ namespace Tritium
             });
         }
 
-        private void cancel_Click(object sender, EventArgs e)
+        private void Cancel_Click(object sender, EventArgs e)
         {
             cpp = null;
             ClearForm();
             listBox1.ClearSelected();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedIndex != -1)
             {
