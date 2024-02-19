@@ -37,28 +37,10 @@ namespace Tritium
             groupBox7 = new GroupBox();
             groupBox22 = new GroupBox();
             textBox18 = new TextBox();
-            groupBox21 = new GroupBox();
-            textBox17 = new TextBox();
-            groupBox20 = new GroupBox();
-            textBox16 = new TextBox();
-            groupBox19 = new GroupBox();
-            textBox15 = new TextBox();
-            groupBox18 = new GroupBox();
-            textBox14 = new TextBox();
-            groupBox17 = new GroupBox();
-            textBox13 = new TextBox();
-            groupBox16 = new GroupBox();
-            textBox12 = new TextBox();
             groupBox15 = new GroupBox();
             textBox11 = new TextBox();
-            groupBox14 = new GroupBox();
-            textBox10 = new TextBox();
             groupBox13 = new GroupBox();
             textBox9 = new TextBox();
-            groupBox12 = new GroupBox();
-            textBox8 = new TextBox();
-            groupBox11 = new GroupBox();
-            textBox7 = new TextBox();
             groupBox10 = new GroupBox();
             textBox6 = new TextBox();
             groupBox8 = new GroupBox();
@@ -86,21 +68,30 @@ namespace Tritium
             button1 = new Button();
             listBox1 = new ListBox();
             textBox2 = new TextBox();
+            groupBox11 = new GroupBox();
+            textBox7 = new TextBox();
+            groupBox12 = new GroupBox();
+            textBox8 = new TextBox();
+            groupBox14 = new GroupBox();
+            textBox10 = new TextBox();
+            groupBox16 = new GroupBox();
+            textBox12 = new TextBox();
+            groupBox17 = new GroupBox();
+            textBox13 = new TextBox();
+            groupBox18 = new GroupBox();
+            textBox14 = new TextBox();
+            groupBox19 = new GroupBox();
+            textBox15 = new TextBox();
+            groupBox20 = new GroupBox();
+            textBox16 = new TextBox();
+            groupBox21 = new GroupBox();
+            textBox17 = new TextBox();
             tableLayoutPanel1.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox7.SuspendLayout();
             groupBox22.SuspendLayout();
-            groupBox21.SuspendLayout();
-            groupBox20.SuspendLayout();
-            groupBox19.SuspendLayout();
-            groupBox18.SuspendLayout();
-            groupBox17.SuspendLayout();
-            groupBox16.SuspendLayout();
             groupBox15.SuspendLayout();
-            groupBox14.SuspendLayout();
             groupBox13.SuspendLayout();
-            groupBox12.SuspendLayout();
-            groupBox11.SuspendLayout();
             groupBox10.SuspendLayout();
             groupBox8.SuspendLayout();
             groupBox6.SuspendLayout();
@@ -110,6 +101,15 @@ namespace Tritium
             groupBox3.SuspendLayout();
             groupBox2.SuspendLayout();
             panel1.SuspendLayout();
+            groupBox11.SuspendLayout();
+            groupBox12.SuspendLayout();
+            groupBox14.SuspendLayout();
+            groupBox16.SuspendLayout();
+            groupBox17.SuspendLayout();
+            groupBox18.SuspendLayout();
+            groupBox19.SuspendLayout();
+            groupBox20.SuspendLayout();
+            groupBox21.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -124,7 +124,7 @@ namespace Tritium
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(2085, 1512);
+            tableLayoutPanel1.Size = new Size(2085, 1192);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // groupBox1
@@ -136,15 +136,13 @@ namespace Tritium
             groupBox1.Controls.Add(groupBox9);
             groupBox1.Controls.Add(groupBox3);
             groupBox1.Controls.Add(groupBox2);
-            groupBox1.Controls.Add(cancel);
-            groupBox1.Controls.Add(commit);
             groupBox1.Controls.Add(real_name);
             groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBox1.Location = new Point(523, 2);
             groupBox1.Margin = new Padding(2);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(2);
-            groupBox1.Size = new Size(1560, 1508);
+            groupBox1.Size = new Size(1560, 1188);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Upravit klienta";
@@ -152,18 +150,20 @@ namespace Tritium
             // 
             // groupBox7
             // 
-            groupBox7.Controls.Add(groupBox22);
             groupBox7.Controls.Add(groupBox21);
             groupBox7.Controls.Add(groupBox20);
             groupBox7.Controls.Add(groupBox19);
             groupBox7.Controls.Add(groupBox18);
             groupBox7.Controls.Add(groupBox17);
             groupBox7.Controls.Add(groupBox16);
-            groupBox7.Controls.Add(groupBox15);
             groupBox7.Controls.Add(groupBox14);
-            groupBox7.Controls.Add(groupBox13);
+            groupBox7.Controls.Add(cancel);
             groupBox7.Controls.Add(groupBox12);
+            groupBox7.Controls.Add(commit);
             groupBox7.Controls.Add(groupBox11);
+            groupBox7.Controls.Add(groupBox22);
+            groupBox7.Controls.Add(groupBox15);
+            groupBox7.Controls.Add(groupBox13);
             groupBox7.Controls.Add(groupBox10);
             groupBox7.Controls.Add(groupBox8);
             groupBox7.Controls.Add(checkBox3);
@@ -173,7 +173,7 @@ namespace Tritium
             groupBox7.Margin = new Padding(4);
             groupBox7.Name = "groupBox7";
             groupBox7.Padding = new Padding(4);
-            groupBox7.Size = new Size(1019, 1405);
+            groupBox7.Size = new Size(1019, 1147);
             groupBox7.TabIndex = 19;
             groupBox7.TabStop = false;
             groupBox7.Text = "Informace";
@@ -181,7 +181,7 @@ namespace Tritium
             // groupBox22
             // 
             groupBox22.Controls.Add(textBox18);
-            groupBox22.Location = new Point(506, 1258);
+            groupBox22.Location = new Point(506, 940);
             groupBox22.Margin = new Padding(2);
             groupBox22.Name = "groupBox22";
             groupBox22.Padding = new Padding(2);
@@ -199,129 +199,6 @@ namespace Tritium
             textBox18.ScrollBars = ScrollBars.Vertical;
             textBox18.Size = new Size(497, 99);
             textBox18.TabIndex = 5;
-            // 
-            // groupBox21
-            // 
-            groupBox21.Controls.Add(textBox17);
-            groupBox21.Location = new Point(506, 567);
-            groupBox21.Margin = new Padding(2);
-            groupBox21.Name = "groupBox21";
-            groupBox21.Padding = new Padding(2);
-            groupBox21.Size = new Size(507, 85);
-            groupBox21.TabIndex = 26;
-            groupBox21.TabStop = false;
-            groupBox21.Text = "Situace ostatní";
-            // 
-            // textBox17
-            // 
-            textBox17.Location = new Point(6, 38);
-            textBox17.Margin = new Padding(2);
-            textBox17.Multiline = true;
-            textBox17.Name = "textBox17";
-            textBox17.Size = new Size(497, 39);
-            textBox17.TabIndex = 5;
-            // 
-            // groupBox20
-            // 
-            groupBox20.Controls.Add(textBox16);
-            groupBox20.Location = new Point(506, 478);
-            groupBox20.Margin = new Padding(2);
-            groupBox20.Name = "groupBox20";
-            groupBox20.Padding = new Padding(2);
-            groupBox20.Size = new Size(507, 85);
-            groupBox20.TabIndex = 25;
-            groupBox20.TabStop = false;
-            groupBox20.Text = "Situace v rodině";
-            // 
-            // textBox16
-            // 
-            textBox16.Location = new Point(6, 38);
-            textBox16.Margin = new Padding(2);
-            textBox16.Multiline = true;
-            textBox16.Name = "textBox16";
-            textBox16.Size = new Size(497, 39);
-            textBox16.TabIndex = 5;
-            // 
-            // groupBox19
-            // 
-            groupBox19.Controls.Add(textBox15);
-            groupBox19.Location = new Point(506, 389);
-            groupBox19.Margin = new Padding(2);
-            groupBox19.Name = "groupBox19";
-            groupBox19.Padding = new Padding(2);
-            groupBox19.Size = new Size(507, 85);
-            groupBox19.TabIndex = 24;
-            groupBox19.TabStop = false;
-            groupBox19.Text = "Situace v práci";
-            // 
-            // textBox15
-            // 
-            textBox15.Location = new Point(6, 38);
-            textBox15.Margin = new Padding(2);
-            textBox15.Multiline = true;
-            textBox15.Name = "textBox15";
-            textBox15.Size = new Size(497, 39);
-            textBox15.TabIndex = 5;
-            // 
-            // groupBox18
-            // 
-            groupBox18.Controls.Add(textBox14);
-            groupBox18.Location = new Point(506, 300);
-            groupBox18.Margin = new Padding(2);
-            groupBox18.Name = "groupBox18";
-            groupBox18.Padding = new Padding(2);
-            groupBox18.Size = new Size(507, 85);
-            groupBox18.TabIndex = 23;
-            groupBox18.TabStop = false;
-            groupBox18.Text = "Trávení";
-            // 
-            // textBox14
-            // 
-            textBox14.Location = new Point(6, 38);
-            textBox14.Margin = new Padding(2);
-            textBox14.Name = "textBox14";
-            textBox14.Size = new Size(497, 39);
-            textBox14.TabIndex = 5;
-            // 
-            // groupBox17
-            // 
-            groupBox17.Controls.Add(textBox13);
-            groupBox17.Location = new Point(506, 211);
-            groupBox17.Margin = new Padding(2);
-            groupBox17.Name = "groupBox17";
-            groupBox17.Padding = new Padding(2);
-            groupBox17.Size = new Size(507, 85);
-            groupBox17.TabIndex = 20;
-            groupBox17.TabStop = false;
-            groupBox17.Text = "Strava";
-            // 
-            // textBox13
-            // 
-            textBox13.Location = new Point(6, 38);
-            textBox13.Margin = new Padding(2);
-            textBox13.Name = "textBox13";
-            textBox13.Size = new Size(497, 39);
-            textBox13.TabIndex = 5;
-            // 
-            // groupBox16
-            // 
-            groupBox16.Controls.Add(textBox12);
-            groupBox16.Location = new Point(506, 122);
-            groupBox16.Margin = new Padding(2);
-            groupBox16.Name = "groupBox16";
-            groupBox16.Padding = new Padding(2);
-            groupBox16.Size = new Size(507, 85);
-            groupBox16.TabIndex = 19;
-            groupBox16.TabStop = false;
-            groupBox16.Text = "Rodinná Anamnéza";
-            // 
-            // textBox12
-            // 
-            textBox12.Location = new Point(6, 38);
-            textBox12.Margin = new Padding(2);
-            textBox12.Name = "textBox12";
-            textBox12.Size = new Size(497, 39);
-            textBox12.TabIndex = 5;
             // 
             // groupBox15
             // 
@@ -343,30 +220,10 @@ namespace Tritium
             textBox11.Size = new Size(497, 39);
             textBox11.TabIndex = 5;
             // 
-            // groupBox14
-            // 
-            groupBox14.Controls.Add(textBox10);
-            groupBox14.Location = new Point(6, 613);
-            groupBox14.Margin = new Padding(2);
-            groupBox14.Name = "groupBox14";
-            groupBox14.Padding = new Padding(2);
-            groupBox14.Size = new Size(476, 85);
-            groupBox14.TabIndex = 22;
-            groupBox14.TabStop = false;
-            groupBox14.Text = "Předcházející nemoci";
-            // 
-            // textBox10
-            // 
-            textBox10.Location = new Point(6, 38);
-            textBox10.Margin = new Padding(2);
-            textBox10.Name = "textBox10";
-            textBox10.Size = new Size(466, 39);
-            textBox10.TabIndex = 5;
-            // 
             // groupBox13
             // 
             groupBox13.Controls.Add(textBox9);
-            groupBox13.Location = new Point(6, 524);
+            groupBox13.Location = new Point(6, 257);
             groupBox13.Margin = new Padding(2);
             groupBox13.Name = "groupBox13";
             groupBox13.Padding = new Padding(2);
@@ -383,50 +240,10 @@ namespace Tritium
             textBox9.Size = new Size(466, 39);
             textBox9.TabIndex = 5;
             // 
-            // groupBox12
-            // 
-            groupBox12.Controls.Add(textBox8);
-            groupBox12.Location = new Point(6, 435);
-            groupBox12.Margin = new Padding(2);
-            groupBox12.Name = "groupBox12";
-            groupBox12.Padding = new Padding(2);
-            groupBox12.Size = new Size(476, 85);
-            groupBox12.TabIndex = 20;
-            groupBox12.TabStop = false;
-            groupBox12.Text = "Dlouhodobé potíže";
-            // 
-            // textBox8
-            // 
-            textBox8.Location = new Point(6, 38);
-            textBox8.Margin = new Padding(2);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(466, 39);
-            textBox8.TabIndex = 5;
-            // 
-            // groupBox11
-            // 
-            groupBox11.Controls.Add(textBox7);
-            groupBox11.Location = new Point(6, 346);
-            groupBox11.Margin = new Padding(2);
-            groupBox11.Name = "groupBox11";
-            groupBox11.Padding = new Padding(2);
-            groupBox11.Size = new Size(476, 85);
-            groupBox11.TabIndex = 19;
-            groupBox11.TabStop = false;
-            groupBox11.Text = "Léky";
-            // 
-            // textBox7
-            // 
-            textBox7.Location = new Point(6, 38);
-            textBox7.Margin = new Padding(2);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(466, 39);
-            textBox7.TabIndex = 5;
-            // 
             // groupBox10
             // 
             groupBox10.Controls.Add(textBox6);
-            groupBox10.Location = new Point(6, 257);
+            groupBox10.Location = new Point(6, 168);
             groupBox10.Margin = new Padding(2);
             groupBox10.Name = "groupBox10";
             groupBox10.Padding = new Padding(2);
@@ -446,11 +263,11 @@ namespace Tritium
             // groupBox8
             // 
             groupBox8.Controls.Add(textBox5);
-            groupBox8.Location = new Point(6, 168);
+            groupBox8.Location = new Point(506, 126);
             groupBox8.Margin = new Padding(2);
             groupBox8.Name = "groupBox8";
             groupBox8.Padding = new Padding(2);
-            groupBox8.Size = new Size(476, 85);
+            groupBox8.Size = new Size(507, 85);
             groupBox8.TabIndex = 17;
             groupBox8.TabStop = false;
             groupBox8.Text = "Onkologické onemocnění";
@@ -460,7 +277,7 @@ namespace Tritium
             textBox5.Location = new Point(6, 38);
             textBox5.Margin = new Padding(2);
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(466, 39);
+            textBox5.Size = new Size(497, 39);
             textBox5.TabIndex = 5;
             // 
             // checkBox3
@@ -621,7 +438,7 @@ namespace Tritium
             // 
             // cancel
             // 
-            cancel.Location = new Point(1289, 1449);
+            cancel.Location = new Point(746, 1085);
             cancel.Margin = new Padding(2);
             cancel.Name = "cancel";
             cancel.Size = new Size(131, 55);
@@ -632,7 +449,7 @@ namespace Tritium
             // 
             // commit
             // 
-            commit.Location = new Point(1425, 1449);
+            commit.Location = new Point(882, 1085);
             commit.Margin = new Padding(2);
             commit.Name = "commit";
             commit.Size = new Size(131, 55);
@@ -660,13 +477,13 @@ namespace Tritium
             panel1.Location = new Point(2, 2);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(512, 1508);
+            panel1.Size = new Size(512, 1185);
             panel1.TabIndex = 2;
             // 
             // button2
             // 
             button2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            button2.Location = new Point(391, 1449);
+            button2.Location = new Point(395, 1123);
             button2.Margin = new Padding(4);
             button2.Name = "button2";
             button2.Size = new Size(55, 55);
@@ -678,7 +495,7 @@ namespace Tritium
             // button1
             // 
             button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            button1.Location = new Point(453, 1449);
+            button1.Location = new Point(457, 1123);
             button1.Margin = new Padding(4);
             button1.Name = "button1";
             button1.Size = new Size(55, 55);
@@ -695,7 +512,7 @@ namespace Tritium
             listBox1.Location = new Point(2, 48);
             listBox1.Margin = new Padding(2);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(508, 676);
+            listBox1.Size = new Size(508, 1060);
             listBox1.TabIndex = 1;
             listBox1.SelectedIndexChanged += ListBox1_SelectedIndexChanged;
             // 
@@ -709,11 +526,208 @@ namespace Tritium
             textBox2.TabIndex = 0;
             textBox2.TextChanged += TextBox2_TextChanged;
             // 
+            // groupBox11
+            // 
+            groupBox11.Controls.Add(textBox7);
+            groupBox11.Location = new Point(506, 215);
+            groupBox11.Margin = new Padding(2);
+            groupBox11.Name = "groupBox11";
+            groupBox11.Padding = new Padding(2);
+            groupBox11.Size = new Size(507, 141);
+            groupBox11.TabIndex = 28;
+            groupBox11.TabStop = false;
+            groupBox11.Text = "Léky";
+            // 
+            // textBox7
+            // 
+            textBox7.Location = new Point(6, 38);
+            textBox7.Margin = new Padding(2);
+            textBox7.Multiline = true;
+            textBox7.Name = "textBox7";
+            textBox7.ScrollBars = ScrollBars.Vertical;
+            textBox7.Size = new Size(497, 99);
+            textBox7.TabIndex = 5;
+            // 
+            // groupBox12
+            // 
+            groupBox12.Controls.Add(textBox8);
+            groupBox12.Location = new Point(6, 346);
+            groupBox12.Margin = new Padding(2);
+            groupBox12.Name = "groupBox12";
+            groupBox12.Padding = new Padding(2);
+            groupBox12.Size = new Size(476, 141);
+            groupBox12.TabIndex = 29;
+            groupBox12.TabStop = false;
+            groupBox12.Text = "Dlouhodobé potíže";
+            // 
+            // textBox8
+            // 
+            textBox8.Location = new Point(6, 38);
+            textBox8.Margin = new Padding(2);
+            textBox8.Multiline = true;
+            textBox8.Name = "textBox8";
+            textBox8.ScrollBars = ScrollBars.Vertical;
+            textBox8.Size = new Size(470, 99);
+            textBox8.TabIndex = 5;
+            // 
+            // groupBox14
+            // 
+            groupBox14.Controls.Add(textBox10);
+            groupBox14.Location = new Point(6, 491);
+            groupBox14.Margin = new Padding(2);
+            groupBox14.Name = "groupBox14";
+            groupBox14.Padding = new Padding(2);
+            groupBox14.Size = new Size(476, 141);
+            groupBox14.TabIndex = 30;
+            groupBox14.TabStop = false;
+            groupBox14.Text = "Předcházející nemoci";
+            // 
+            // textBox10
+            // 
+            textBox10.Location = new Point(6, 38);
+            textBox10.Margin = new Padding(2);
+            textBox10.Multiline = true;
+            textBox10.Name = "textBox10";
+            textBox10.ScrollBars = ScrollBars.Vertical;
+            textBox10.Size = new Size(470, 99);
+            textBox10.TabIndex = 5;
+            // 
+            // groupBox16
+            // 
+            groupBox16.Controls.Add(textBox12);
+            groupBox16.Location = new Point(6, 636);
+            groupBox16.Margin = new Padding(2);
+            groupBox16.Name = "groupBox16";
+            groupBox16.Padding = new Padding(2);
+            groupBox16.Size = new Size(476, 141);
+            groupBox16.TabIndex = 31;
+            groupBox16.TabStop = false;
+            groupBox16.Text = "Rodinná anamnéza";
+            // 
+            // textBox12
+            // 
+            textBox12.Location = new Point(6, 38);
+            textBox12.Margin = new Padding(2);
+            textBox12.Multiline = true;
+            textBox12.Name = "textBox12";
+            textBox12.ScrollBars = ScrollBars.Vertical;
+            textBox12.Size = new Size(470, 99);
+            textBox12.TabIndex = 5;
+            // 
+            // groupBox17
+            // 
+            groupBox17.Controls.Add(textBox13);
+            groupBox17.Location = new Point(6, 781);
+            groupBox17.Margin = new Padding(2);
+            groupBox17.Name = "groupBox17";
+            groupBox17.Padding = new Padding(2);
+            groupBox17.Size = new Size(476, 141);
+            groupBox17.TabIndex = 32;
+            groupBox17.TabStop = false;
+            groupBox17.Text = "Strava";
+            // 
+            // textBox13
+            // 
+            textBox13.Location = new Point(6, 38);
+            textBox13.Margin = new Padding(2);
+            textBox13.Multiline = true;
+            textBox13.Name = "textBox13";
+            textBox13.ScrollBars = ScrollBars.Vertical;
+            textBox13.Size = new Size(470, 99);
+            textBox13.TabIndex = 5;
+            // 
+            // groupBox18
+            // 
+            groupBox18.Controls.Add(textBox14);
+            groupBox18.Location = new Point(506, 360);
+            groupBox18.Margin = new Padding(2);
+            groupBox18.Name = "groupBox18";
+            groupBox18.Padding = new Padding(2);
+            groupBox18.Size = new Size(507, 141);
+            groupBox18.TabIndex = 28;
+            groupBox18.TabStop = false;
+            groupBox18.Text = "Trávení";
+            // 
+            // textBox14
+            // 
+            textBox14.Location = new Point(6, 38);
+            textBox14.Margin = new Padding(2);
+            textBox14.Multiline = true;
+            textBox14.Name = "textBox14";
+            textBox14.ScrollBars = ScrollBars.Vertical;
+            textBox14.Size = new Size(497, 99);
+            textBox14.TabIndex = 5;
+            // 
+            // groupBox19
+            // 
+            groupBox19.Controls.Add(textBox15);
+            groupBox19.Location = new Point(506, 505);
+            groupBox19.Margin = new Padding(2);
+            groupBox19.Name = "groupBox19";
+            groupBox19.Padding = new Padding(2);
+            groupBox19.Size = new Size(507, 141);
+            groupBox19.TabIndex = 33;
+            groupBox19.TabStop = false;
+            groupBox19.Text = "Situace - Práce";
+            // 
+            // textBox15
+            // 
+            textBox15.Location = new Point(6, 38);
+            textBox15.Margin = new Padding(2);
+            textBox15.Multiline = true;
+            textBox15.Name = "textBox15";
+            textBox15.ScrollBars = ScrollBars.Vertical;
+            textBox15.Size = new Size(497, 99);
+            textBox15.TabIndex = 5;
+            // 
+            // groupBox20
+            // 
+            groupBox20.Controls.Add(textBox16);
+            groupBox20.Location = new Point(506, 650);
+            groupBox20.Margin = new Padding(2);
+            groupBox20.Name = "groupBox20";
+            groupBox20.Padding = new Padding(2);
+            groupBox20.Size = new Size(507, 141);
+            groupBox20.TabIndex = 34;
+            groupBox20.TabStop = false;
+            groupBox20.Text = "Situace - Rodina";
+            // 
+            // textBox16
+            // 
+            textBox16.Location = new Point(6, 38);
+            textBox16.Margin = new Padding(2);
+            textBox16.Multiline = true;
+            textBox16.Name = "textBox16";
+            textBox16.ScrollBars = ScrollBars.Vertical;
+            textBox16.Size = new Size(497, 99);
+            textBox16.TabIndex = 5;
+            // 
+            // groupBox21
+            // 
+            groupBox21.Controls.Add(textBox17);
+            groupBox21.Location = new Point(506, 795);
+            groupBox21.Margin = new Padding(2);
+            groupBox21.Name = "groupBox21";
+            groupBox21.Padding = new Padding(2);
+            groupBox21.Size = new Size(507, 141);
+            groupBox21.TabIndex = 34;
+            groupBox21.TabStop = false;
+            groupBox21.Text = "Situace - Ostatní";
+            // 
+            // textBox17
+            // 
+            textBox17.Location = new Point(6, 38);
+            textBox17.Margin = new Padding(2);
+            textBox17.Multiline = true;
+            textBox17.Name = "textBox17";
+            textBox17.ScrollBars = ScrollBars.Vertical;
+            textBox17.Size = new Size(497, 99);
+            textBox17.TabIndex = 5;
+            // 
             // ClientDBInterface
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(2108, 1535);
+            AutoScaleMode = AutoScaleMode.None;
+            ClientSize = new Size(2108, 1210);
             Controls.Add(tableLayoutPanel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4);
@@ -726,28 +740,10 @@ namespace Tritium
             groupBox7.PerformLayout();
             groupBox22.ResumeLayout(false);
             groupBox22.PerformLayout();
-            groupBox21.ResumeLayout(false);
-            groupBox21.PerformLayout();
-            groupBox20.ResumeLayout(false);
-            groupBox20.PerformLayout();
-            groupBox19.ResumeLayout(false);
-            groupBox19.PerformLayout();
-            groupBox18.ResumeLayout(false);
-            groupBox18.PerformLayout();
-            groupBox17.ResumeLayout(false);
-            groupBox17.PerformLayout();
-            groupBox16.ResumeLayout(false);
-            groupBox16.PerformLayout();
             groupBox15.ResumeLayout(false);
             groupBox15.PerformLayout();
-            groupBox14.ResumeLayout(false);
-            groupBox14.PerformLayout();
             groupBox13.ResumeLayout(false);
             groupBox13.PerformLayout();
-            groupBox12.ResumeLayout(false);
-            groupBox12.PerformLayout();
-            groupBox11.ResumeLayout(false);
-            groupBox11.PerformLayout();
             groupBox10.ResumeLayout(false);
             groupBox10.PerformLayout();
             groupBox8.ResumeLayout(false);
@@ -766,6 +762,24 @@ namespace Tritium
             groupBox2.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            groupBox11.ResumeLayout(false);
+            groupBox11.PerformLayout();
+            groupBox12.ResumeLayout(false);
+            groupBox12.PerformLayout();
+            groupBox14.ResumeLayout(false);
+            groupBox14.PerformLayout();
+            groupBox16.ResumeLayout(false);
+            groupBox16.PerformLayout();
+            groupBox17.ResumeLayout(false);
+            groupBox17.PerformLayout();
+            groupBox18.ResumeLayout(false);
+            groupBox18.PerformLayout();
+            groupBox19.ResumeLayout(false);
+            groupBox19.PerformLayout();
+            groupBox20.ResumeLayout(false);
+            groupBox20.PerformLayout();
+            groupBox21.ResumeLayout(false);
+            groupBox21.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -810,22 +824,20 @@ namespace Tritium
         private CheckBox checkBox2;
         private GroupBox groupBox8;
         private TextBox textBox5;
-        private GroupBox groupBox14;
-        private TextBox textBox10;
         private GroupBox groupBox13;
         private TextBox textBox9;
-        private GroupBox groupBox12;
-        private TextBox textBox8;
-        private GroupBox groupBox11;
-        private TextBox textBox7;
         private GroupBox groupBox10;
         private TextBox textBox6;
         private GroupBox groupBox22;
         private TextBox textBox18;
-        private GroupBox groupBox21;
-        private TextBox textBox17;
-        private GroupBox groupBox20;
-        private TextBox textBox16;
+        private GroupBox groupBox15;
+        private TextBox textBox11;
+        private GroupBox groupBox11;
+        private TextBox textBox7;
+        private GroupBox groupBox12;
+        private TextBox textBox8;
+        private GroupBox groupBox14;
+        private TextBox textBox10;
         private GroupBox groupBox19;
         private TextBox textBox15;
         private GroupBox groupBox18;
@@ -834,7 +846,9 @@ namespace Tritium
         private TextBox textBox13;
         private GroupBox groupBox16;
         private TextBox textBox12;
-        private GroupBox groupBox15;
-        private TextBox textBox11;
+        private GroupBox groupBox20;
+        private GroupBox groupBox21;
+        private TextBox textBox17;
+        private TextBox textBox16;
     }
 }
