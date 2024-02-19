@@ -6,28 +6,19 @@ namespace Tritium
     {
         PatogenProgram? cpp = null;
         bool insert = false;
-
-        public ClientDBInterface()
+        readonly Klient client;
+        public ClientDBInterface(Klient client)
         {
             InitializeComponent();
             ClearForm();
             UpdateList();
+            this.client = client;
+
         }
 
-        private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void ListBox1_MouseDoubleClick(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex != -1)
-            {
-                foreach (var item in Program.db.ListPatogenPrograms())
-                {
-                    if (item.Name.Contains(listBox1.SelectedItem.ToString(), StringComparison.InvariantCultureIgnoreCase))
-                    {
-                        loadPP(item);
-                        break;
-                    }
-                }
-
-            }
+            ;
         }
 
         private void loadPP(PatogenProgram cpp)
@@ -85,20 +76,9 @@ namespace Tritium
         {
             listBox1.Items.Clear();
             listBox1.ClearSelected();
-            foreach (PatogenProgram item in Program.db.ListPatogenPrograms())
+            foreach (Navsteva item in client.Navstevy)
             {
-                if (textBox2.Text.Length > 0)
-                {
-                    if (item.Name.Contains(textBox2.Text, StringComparison.InvariantCultureIgnoreCase))
-                    {
-                        listBox1.Items.Add(item.Name);
-                    }
-                }
-                else
-                {
-                    listBox1.Items.Add(item.Name);
-                }
-
+                listBox1.Items.Add(item.Date + " - &" + item.Id);
             }
         }
 

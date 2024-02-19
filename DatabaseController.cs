@@ -4,6 +4,7 @@ using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Metadata;
 using NHibernate.Tool.hbm2ddl;
+using NHibernate.Transform;
 using System.Collections;
 using System.Reflection;
 using System.Text;
@@ -119,11 +120,8 @@ namespace Tritium
         internal IList<PatogenProgram> ListPatogenPrograms()
         {
             using var session = _sessionFactory.OpenSession();
-            using (session.BeginTransaction())
-            {
-                return session.CreateCriteria(typeof(PatogenProgram))
-                  .List<PatogenProgram>();
-            }
+            return session.CreateCriteria(typeof(PatogenProgram))
+              .List<PatogenProgram>();
         }
 
         internal void UpdatePatogenProgram(PatogenProgram pp)
@@ -151,6 +149,22 @@ namespace Tritium
             trans.Begin();
             session.Delete(pp);
             trans.Commit();
+        }
+
+        internal IList<Okruh> ListOkruhy()
+        {
+            using var session = _sessionFactory.OpenSession();
+            return session.CreateCriteria(typeof(Okruh))
+              .List<Okruh>();
+        }
+
+        internal IEnumerable<Navsteva> GetMeetingsForClient(int clientId)
+        {
+            using var session = _sessionFactory.OpenSession();
+            var query = session.QueryOver<Navsteva>()
+                .Where(i => i.Client.Id == clientId)
+                .TransformUsing(new DistinctRootEntityResultTransformer());
+            return query.List<Navsteva>();
         }
     }
 }

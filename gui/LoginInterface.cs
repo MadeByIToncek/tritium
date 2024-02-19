@@ -1,3 +1,5 @@
+using Tritium.gui;
+
 namespace Tritium
 {
     public partial class LoginInterface : Form
@@ -10,7 +12,7 @@ namespace Tritium
             {
                 if (item.Jmeno != null)
                 {
-                    listBox1.Items.Add(item.Jmeno);
+                    listBox1.Items.Add("#"+item.Id);
                 }
             };
         }
@@ -31,10 +33,17 @@ namespace Tritium
             ManagerWindow.SwitchToWindow(new MicrobeDBInterface(), this);
         }
 
-        private void ManageClients_Click(object sender, EventArgs e)
+        private void Select_Click(object sender, EventArgs e)
         {
-            isNatural = true;
-            ManagerWindow.SwitchToWindow(new ClientDBInterface(), this);
+            foreach (var item in Program.db.ListClients())
+            {
+                if (listBox1.SelectedItem != null && "#" + item.Id == (string)listBox1.SelectedItem)
+                {
+                    isNatural = true;
+                    ManagerWindow.SwitchToWindow(new ClientDBInterface(item), this);
+                    break;
+                }
+            }
         }
     }
 }
