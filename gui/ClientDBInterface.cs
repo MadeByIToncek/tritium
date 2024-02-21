@@ -1,4 +1,6 @@
-﻿using Tritium.Entities;
+﻿using System.Text.RegularExpressions;
+using Tritium.Entities;
+using Tritium.gui;
 
 namespace Tritium
 {
@@ -7,49 +9,77 @@ namespace Tritium
         PatogenProgram? cpp = null;
         bool insert = false;
         readonly Klient client;
-        public ClientDBInterface(Klient client)
+        private readonly Regex regex = new("&[0-9]+", RegexOptions.IgnoreCase);
+        public ClientDBInterface(int clientId)
         {
+            client = Program.db.GetClientById(clientId);
             InitializeComponent();
-            ClearForm();
             UpdateList();
-            this.client = client;
-
+            LoadClient(client);
         }
 
         private void ListBox1_MouseDoubleClick(object sender, EventArgs e)
         {
-            ;
+            int id = int.Parse(regex.Match(listBox1.SelectedItem.ToString()).Value[1..]);
+            closed = true;
+            ManagerWindow.SwitchToWindow(new MeetingInterface(id), this);
         }
 
-        private void loadPP(PatogenProgram cpp)
+        private void LoadClient(Klient cpp)
         {
-            this.cpp = cpp;
-            name.Text = cpp.Name;
-            dlazdice.Text = cpp.Type;
-            poznamky.Text = cpp.Poznamky;
-
-            name.Enabled = true;
-            dlazdice.Enabled = true;
-            poznamky.Enabled = true;
-            commit.Enabled = true;
-            cancel.Enabled = true;
+            ChangeState(false);
+            name.Text = cpp.Jmeno;
+            birthdate.Value = cpp.DatumNarozeni;
+            phone.Text = cpp.Telefon;
+            email.Text = cpp.Email;
+            address.Text = cpp.Adresa;
+            notes.Text = cpp.Poznamka;
+            kardiostimulator.Checked = cpp.Kardiostimulator;
+            aktualniTehotenstvi.Checked = cpp.AktualniTehotenstvi;
+            epilepsie.Checked = cpp.Epilepsie;
+            AIOnemocneni.Text = cpp.AutoimunitniOnemocneni;
+            krevniTlak.Text = cpp.KrevniTlak;
+            dlouhodobePotize.Text = cpp.DlouhodobePotize;
+            predchazejiciNemoci.Text = cpp.PredchazejiciNemoci;
+            rodinnaAnamneza.Text = cpp.RodinnaAnamneza;
+            strava.Text = cpp.Strava;
+            homeopatika.Text = cpp.Homeo;
+            onko.Text = cpp.OnkologickeOnemocneni;
+            leky.Text = cpp.Leky;
+            traveni.Text = cpp.Traveni;
+            sitPrace.Text = cpp.SituacePrace;
+            sitRodina.Text = cpp.SituaceRodina;
+            sitOstatni.Text = cpp.SituaceOstatni;
+            rozpolozeni.Text = cpp.Rozpolozeni;
         }
 
-        private static string ParseTime(long time)
+        private void ChangeState(bool state)
         {
-            TimeSpan t = TimeSpan.FromSeconds(time);
-
-            return string.Format("{0:D2}:{1:D2}:{2:D2}",
-                            t.Hours,
-                            t.Minutes,
-                            t.Seconds);
-        }
-
-
-        private long UnparseTime(string text)
-        {
-            TimeSpan t = TimeSpan.Parse(text);
-            return (long)Math.Round(t.TotalSeconds);
+            name.Enabled = state;
+            birthdate.Enabled = state;
+            phone.Enabled = state;
+            email.Enabled = state;
+            address.Enabled = state;
+            notes.Enabled = state;
+            kardiostimulator.Enabled = state;
+            aktualniTehotenstvi.Enabled = state;
+            epilepsie.Enabled = state;
+            AIOnemocneni.Enabled = state;
+            krevniTlak.Enabled = state;
+            dlouhodobePotize.Enabled = state;
+            predchazejiciNemoci.Enabled = state;
+            rodinnaAnamneza.Enabled = state;
+            strava.Enabled = state;
+            homeopatika.Enabled = state;
+            onko.Enabled = state;
+            leky.Enabled = state;
+            traveni.Enabled = state;
+            sitPrace.Enabled = state;
+            sitRodina.Enabled = state;
+            sitOstatni  .Enabled = state;
+            rozpolozeni.Enabled = state;
+            commit.Enabled = state;
+            cancel.Enabled = state;
         }
 
         private void TextBox2_TextChanged(object sender, EventArgs e)
@@ -63,11 +93,10 @@ namespace Tritium
             {
                 cpp.Name = name.Text;
                 cpp.Type = dlazdice.Text;
-                cpp.Poznamky = poznamky.Text;
+                cpp.Poznamky = notes.Text;
                 if (insert) Program.db.InsertPatogenProgram(cpp);
                 else Program.db.UpdatePatogenProgram(cpp);
                 cpp = null;
-                ClearForm();
                 UpdateList();
             }
         }
@@ -82,44 +111,14 @@ namespace Tritium
             }
         }
 
-        private void ClearForm()
-        {
-
-            name.Text = "";
-            dlazdice.Text = "";
-            poznamky.Text = "";
-
-            name.Enabled = false;
-            dlazdice.Enabled = false;
-            poznamky.Enabled = false;
-            commit.Enabled = false;
-            cancel.Enabled = false;
-        }
-
         private void Button1_Click(object sender, EventArgs e)
         {
-            ClearForm();
-            insert = true;
-            listBox1.ClearSelected();
-            loadPP(new PatogenProgram()
-            {
-                MORTFRQs = "",
-                Name = "",
-                Okruhy = "",
-                Onkovir = false,
-                Par = false,
-                Poznamky = "",
-                Samostatne = false,
-                StabKompAPasm = "",
-                Time = 0,
-                Type = ""
-            });
+            Program.db.CreateEmptyMeetingWithClient(client);
         }
 
         private void cancel_Click(object sender, EventArgs e)
         {
             cpp = null;
-            ClearForm();
             listBox1.ClearSelected();
         }
 
@@ -135,7 +134,6 @@ namespace Tritium
                         break;
                     }
                 }
-                ClearForm();
                 listBox1.ClearSelected();
                 UpdateList();
             }

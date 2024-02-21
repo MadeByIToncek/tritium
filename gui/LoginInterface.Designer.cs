@@ -35,6 +35,7 @@ namespace Tritium
             manageMicrobeDB = new Button();
             exit = new Button();
             listBox1 = new ListBox();
+            button1 = new Button();
             flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -97,12 +98,26 @@ namespace Tritium
             listBox1.Name = "listBox1";
             listBox1.Size = new Size(626, 384);
             listBox1.TabIndex = 5;
+            listBox1.MouseDoubleClick += ListBox1_MouseDoubleClick;
+            // 
+            // button1
+            // 
+            button1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            button1.Location = new Point(648, 343);
+            button1.Margin = new Padding(4);
+            button1.Name = "button1";
+            button1.Size = new Size(58, 52);
+            button1.TabIndex = 6;
+            button1.Text = "+";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += Button1_Click;
             // 
             // LoginInterface
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(720, 408);
+            Controls.Add(button1);
             Controls.Add(listBox1);
             Controls.Add(flowLayoutPanel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -126,5 +141,6 @@ namespace Tritium
         private Button manageMicrobeDB;
         private Button exit;
         private ListBox listBox1;
+        private Button button1;
     }
 }

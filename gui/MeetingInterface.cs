@@ -14,11 +14,11 @@ namespace Tritium.gui
     public partial class MeetingInterface : Form
     {
         readonly Navsteva meeting;
-        public MeetingInterface(Navsteva meeting)
+        public MeetingInterface(int meetingId)
         {
             InitializeComponent();
             LoadOkruhy();
-            this.meeting = meeting;
+            this.meeting = Program.db.GetMeetingsById(meetingId);
         }
 
         private void LoadOkruhy()

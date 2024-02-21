@@ -1,5 +1,6 @@
 ﻿using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
+using MySqlX.XDevAPI;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Metadata;
@@ -37,7 +38,7 @@ namespace Tritium
                      .Database(database)
                      .Username(user)
                      .Password(password)))
-                .Mappings(m => 
+                .Mappings(m =>
                      m.FluentMappings.AddFromAssemblyOf<Program>())
                 .ExposeConfiguration(TreatConfiguration)
                 .BuildSessionFactory();
@@ -55,44 +56,43 @@ namespace Tritium
                 string resourceName = assembly.GetManifestResourceNames().Single(str => str.EndsWith("migration.csv"));
 
                 const int BufferSize = 128;
-                using (var fileStream = assembly.GetManifestResourceStream(resourceName))
-                using (var streamReader = new StreamReader(fileStream, Encoding.UTF8, true, BufferSize))
+                using var fileStream = assembly.GetManifestResourceStream(resourceName);
+                using var streamReader = new StreamReader(fileStream, Encoding.UTF8, true, BufferSize);
+                var lines = streamReader.ReadToEnd().Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                foreach (var line in lines)
                 {
-                    var lines = streamReader.ReadToEnd().Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
-                    foreach (var line in lines)
+                    string[] parts = line.Split(",");
+                    for (int i = 0; i < parts.Length; i++)
                     {
-                        string[] parts = line.Split(",");
-                        for (int i = 0; i < parts.Length; i++)
-                        {
-                            parts[i] = parts[i].Trim().Replace("\"", "");
-                        }
-                        string name = parts[0];
-                        string type = parts[1];
-                        int time = int.Parse(parts[2]);
-                        bool alone = parts[3] == "1";
-                        bool onkovir = parts[4] == "1";
-                        bool parovy = parts[5] == "1";
-                        string morty = parts[6];
-                        string SKPs = parts[7];
-                        string okruhy = parts[8];
-                        string poznamky = parts[9];
-
-                        PatogenProgram pp = new() { 
-                            Name = name,
-                            Type = type,
-                            Time = time,
-                            Samostatne = alone,
-                            Onkovir = onkovir,
-                            Par = parovy,
-                            Okruhy = okruhy,
-                            Poznamky = poznamky,
-                            MORTFRQs = morty,
-                            StabKompAPasm = SKPs,
-
-                        };
-
-                        session.Save(pp);
+                        parts[i] = parts[i].Trim().Replace("\"", "");
                     }
+                    string name = parts[0];
+                    string type = parts[1];
+                    int time = int.Parse(parts[2]);
+                    bool alone = parts[3] == "1";
+                    bool onkovir = parts[4] == "1";
+                    bool parovy = parts[5] == "1";
+                    string morty = parts[6];
+                    string SKPs = parts[7];
+                    string okruhy = parts[8];
+                    string poznamky = parts[9];
+
+                    PatogenProgram pp = new()
+                    {
+                        Name = name,
+                        Type = type,
+                        Time = time,
+                        Samostatne = alone,
+                        Onkovir = onkovir,
+                        Par = parovy,
+                        Okruhy = okruhy,
+                        Poznamky = poznamky,
+                        MORTFRQs = morty,
+                        StabKompAPasm = SKPs,
+
+                    };
+
+                    session.Save(pp);
                 }
             };
             transaction.Commit();
@@ -106,14 +106,12 @@ namespace Tritium
 
         internal IList<Klient> ListClients()
         {
-            using (var session = _sessionFactory.OpenSession())
+            using var session = _sessionFactory.OpenSession();
+            // retreive all stores and display them
+            using (session.BeginTransaction())
             {
-                // retreive all stores and display them
-                using (session.BeginTransaction())
-                {
-                    return session.CreateCriteria(typeof(Klient))
-                      .List<Klient>();
-                }
+                return session.CreateCriteria(typeof(Klient))
+                  .List<Klient>();
             }
         }
 
@@ -165,6 +163,61 @@ namespace Tritium
                 .Where(i => i.Client.Id == clientId)
                 .TransformUsing(new DistinctRootEntityResultTransformer());
             return query.List<Navsteva>();
+        }
+
+        internal void CreateEmptyMeetingWithClient(Klient client)
+        {
+            ISession session = _sessionFactory.OpenSession();
+            ITransaction transaction = session.BeginTransaction();
+            transaction.Begin();
+            Navsteva navsteva = new()
+            {
+                Client = client,
+                Date = DateTime.Now,
+                AktualniPotize = "",
+                CoChceVyresit = "",
+                CoNejviceObtezuje = "",
+                SkenOkr1 = "",
+                SkenOkr2 = ""
+            };
+            client.PridatNavstevu(navsteva);
+
+            session.SaveOrUpdate(client);
+
+            transaction.Commit();
+        }
+
+        internal async Task CreateEmptyClient()
+        {
+            ISession session = _sessionFactory.OpenSession();
+            ITransaction transaction = session.BeginTransaction();
+            transaction.Begin();
+            Klient klient = new()
+            {
+                DatumNarozeni = DateTime.UnixEpoch
+            };
+
+            await session.SaveAsync(klient);
+
+            await transaction.CommitAsync();
+        }
+
+        internal Klient GetClientById(int id)
+        {
+            using var session = _sessionFactory.OpenSession();
+            var query = session.QueryOver<Klient>()
+                .Where(i => i.Id == id)
+                .TransformUsing(new DistinctRootEntityResultTransformer());
+            return query.SingleOrDefault<Klient>();
+        }
+
+        internal Navsteva GetMeetingsById(int id)
+        {
+            using var session = _sessionFactory.OpenSession();
+            var query = session.QueryOver<Navsteva>()
+                .Where(i => i.Id == id)
+                .TransformUsing(new DistinctRootEntityResultTransformer());
+            return query.SingleOrDefault<Navsteva>();
         }
     }
 }

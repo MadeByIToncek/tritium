@@ -20,6 +20,8 @@ namespace Tritium.Mappings
             Map(x => x.Adresa);
             Map(x => x.UvodniSchuzka);
             HasMany(x => x.Navstevy)
+                .Inverse()
+                .Not.LazyLoad()
                 .Cascade.All();
             Map(x => x.Poznamka);
             Map(x => x.Kardiostimulator);

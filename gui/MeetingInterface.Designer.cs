@@ -28,7 +28,7 @@ namespace Tritium.gui
             if (!closed)
             {
                 closed = true;
-                ManagerWindow.SwitchToWindow(new ClientDBInterface(meeting.Client), this);
+                ManagerWindow.SwitchToWindow(new ClientDBInterface(meeting.Client.Id), this);
                 base.OnClosing(e);
             }
         }

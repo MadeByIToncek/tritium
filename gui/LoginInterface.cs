@@ -1,3 +1,4 @@
+using Tritium.Entities;
 using Tritium.gui;
 
 namespace Tritium
@@ -8,12 +9,15 @@ namespace Tritium
         public LoginInterface()
         {
             InitializeComponent();
+            UpdateList();
+        }
+
+        private void UpdateList()
+        {
+            listBox1.Items.Clear();
             foreach (var item in Program.db.ListClients())
             {
-                if (item.Jmeno != null)
-                {
-                    listBox1.Items.Add("#"+item.Id);
-                }
+                listBox1.Items.Add("#" + item.Id);
             };
         }
 
@@ -35,15 +39,26 @@ namespace Tritium
 
         private void Select_Click(object sender, EventArgs e)
         {
-            foreach (var item in Program.db.ListClients())
+            foreach (Klient item in Program.db.ListClients())
             {
                 if (listBox1.SelectedItem != null && "#" + item.Id == (string)listBox1.SelectedItem)
                 {
                     isNatural = true;
-                    ManagerWindow.SwitchToWindow(new ClientDBInterface(item), this);
+                    ManagerWindow.SwitchToWindow(new ClientDBInterface(item.Id), this);
                     break;
                 }
             }
+        }
+
+        private async void Button1_Click(object sender, EventArgs e)
+        {
+            await Program.db.CreateEmptyClient();
+            UpdateList();
+        }
+
+        private void ListBox1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Select_Click(sender, e);
         }
     }
 }
