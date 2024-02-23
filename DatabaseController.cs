@@ -219,5 +219,14 @@ namespace Tritium
                 .TransformUsing(new DistinctRootEntityResultTransformer());
             return query.SingleOrDefault<Navsteva>();
         }
+
+        internal async Task UpdateClient(Klient client)
+        {
+            using var session = _sessionFactory.OpenSession();
+            using var trans = session.BeginTransaction();
+            trans.Begin();
+            await session.UpdateAsync(client);
+            await trans.CommitAsync();
+        }
     }
 }

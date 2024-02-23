@@ -1,4 +1,5 @@
 ﻿using System.Text.RegularExpressions;
+using System.Windows.Forms;
 using Tritium.Entities;
 using Tritium.gui;
 
@@ -10,12 +11,31 @@ namespace Tritium
         bool insert = false;
         readonly Klient client;
         private readonly Regex regex = new("&[0-9]+", RegexOptions.IgnoreCase);
+        static readonly System.Windows.Forms.Timer saveTimer = new();
+        static readonly System.Windows.Forms.Timer IOIndicator = new();
         public ClientDBInterface(int clientId)
         {
             client = Program.db.GetClientById(clientId);
             InitializeComponent();
+            ChangeState(false);
             UpdateList();
             LoadClient(client);
+            ChangeState(true);
+
+            saveTimer.Tick += (o, ea) =>
+            {
+                SaveClient();
+                saveTimer.Stop();
+            };
+            saveTimer.Interval = 2000; // 2 seconds
+
+            IOIndicator.Tick += (o, ea) =>
+            {
+                ioIdent.Text = "";
+                ioIdent.ForeColor = Color.Black;
+                IOIndicator.Stop();
+            };
+            IOIndicator.Interval = 2000; // 2 seconds
         }
 
         private void ListBox1_MouseDoubleClick(object sender, EventArgs e)
@@ -27,7 +47,8 @@ namespace Tritium
 
         private void LoadClient(Klient cpp)
         {
-            ChangeState(false);
+            ioIdent.Text = "🔄";
+            ioIdent.ForeColor = Color.Blue;
             name.Text = cpp.Jmeno;
             birthdate.Value = cpp.DatumNarozeni;
             phone.Text = cpp.Telefon;
@@ -51,6 +72,46 @@ namespace Tritium
             sitRodina.Text = cpp.SituaceRodina;
             sitOstatni.Text = cpp.SituaceOstatni;
             rozpolozeni.Text = cpp.Rozpolozeni;
+            ioIdent.Text = "✅";
+            ioIdent.ForeColor = Color.Green;
+            IOIndicator.Start();
+
+        }
+
+        private async void SaveClient()
+        {
+            ioIdent.Text = "🔄";
+            ioIdent.ForeColor = Color.Blue;
+
+            client.Jmeno = name.Text;
+            client.DatumNarozeni = birthdate.Value;
+            client.Telefon = phone.Text;
+            client.Email = email.Text;
+            client.Adresa = address.Text;
+            client.Poznamka = notes.Text;
+            client.Kardiostimulator = kardiostimulator.Checked;
+            client.AktualniTehotenstvi = aktualniTehotenstvi.Checked;
+            client.Epilepsie = epilepsie.Checked;
+            client.AutoimunitniOnemocneni = AIOnemocneni.Text;
+            client.KrevniTlak = krevniTlak.Text;
+            client.DlouhodobePotize = dlouhodobePotize.Text;
+            client.PredchazejiciNemoci = predchazejiciNemoci.Text;
+            client.RodinnaAnamneza = rodinnaAnamneza.Text;
+            client.Strava = strava.Text;
+            client.Homeo = homeopatika.Text;
+            client.OnkologickeOnemocneni = onko.Text;
+            client.Leky = leky.Text;
+            client.Traveni = traveni.Text;
+            client.SituacePrace = sitPrace.Text;
+            client.SituaceRodina = sitRodina.Text;
+            client.SituaceOstatni = sitOstatni.Text;
+            client.Rozpolozeni = rozpolozeni.Text;
+
+            await Program.db.UpdateClient(client);
+
+            ioIdent.Text = "✅";
+            ioIdent.ForeColor = Color.Green;
+            IOIndicator.Start();
         }
 
         private void ChangeState(bool state)
@@ -76,15 +137,8 @@ namespace Tritium
             traveni.Enabled = state;
             sitPrace.Enabled = state;
             sitRodina.Enabled = state;
-            sitOstatni  .Enabled = state;
+            sitOstatni.Enabled = state;
             rozpolozeni.Enabled = state;
-            commit.Enabled = state;
-            cancel.Enabled = state;
-        }
-
-        private void TextBox2_TextChanged(object sender, EventArgs e)
-        {
-            UpdateList();
         }
 
         private void Commit_Click(object sender, EventArgs e)
@@ -114,6 +168,7 @@ namespace Tritium
         private void Button1_Click(object sender, EventArgs e)
         {
             Program.db.CreateEmptyMeetingWithClient(client);
+            UpdateList();
         }
 
         private void cancel_Click(object sender, EventArgs e)
@@ -139,9 +194,12 @@ namespace Tritium
             }
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
 
+
+        private async void DatabaseUpdate(object sender, EventArgs e)
+        {
+            saveTimer.Stop();
+            saveTimer.Start();
         }
     }
 }

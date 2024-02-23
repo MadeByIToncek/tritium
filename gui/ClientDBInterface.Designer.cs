@@ -33,8 +33,11 @@ namespace Tritium
         {
             ComponentResourceManager resources = new ComponentResourceManager(typeof(ClientDBInterface));
             tableLayoutPanel1 = new TableLayoutPanel();
+            panel1 = new Panel();
+            button1 = new Button();
+            listBox1 = new ListBox();
             groupBox1 = new GroupBox();
-            button3 = new Button();
+            ioIdent = new Label();
             groupBox7 = new GroupBox();
             groupBox21 = new GroupBox();
             sitOstatni = new TextBox();
@@ -50,10 +53,8 @@ namespace Tritium
             rodinnaAnamneza = new TextBox();
             groupBox14 = new GroupBox();
             predchazejiciNemoci = new TextBox();
-            cancel = new Button();
             groupBox12 = new GroupBox();
             dlouhodobePotize = new TextBox();
-            commit = new Button();
             groupBox11 = new GroupBox();
             leky = new TextBox();
             groupBox22 = new GroupBox();
@@ -82,11 +83,8 @@ namespace Tritium
             groupBox2 = new GroupBox();
             name = new TextBox();
             real_name = new Label();
-            panel1 = new Panel();
-            button2 = new Button();
-            button1 = new Button();
-            listBox1 = new ListBox();
             tableLayoutPanel1.SuspendLayout();
+            panel1.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox7.SuspendLayout();
             groupBox21.SuspendLayout();
@@ -109,7 +107,6 @@ namespace Tritium
             groupBox9.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox2.SuspendLayout();
-            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -117,19 +114,54 @@ namespace Tritium
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 75F));
-            tableLayoutPanel1.Controls.Add(groupBox1, 1, 0);
             tableLayoutPanel1.Controls.Add(panel1, 0, 0);
+            tableLayoutPanel1.Controls.Add(groupBox1, 1, 0);
             tableLayoutPanel1.Location = new Point(12, 12);
             tableLayoutPanel1.Margin = new Padding(2);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(2085, 1192);
+            tableLayoutPanel1.Size = new Size(2085, 1136);
             tableLayoutPanel1.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(button1);
+            panel1.Controls.Add(listBox1);
+            panel1.Location = new Point(2, 2);
+            panel1.Margin = new Padding(2);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(512, 1126);
+            panel1.TabIndex = 2;
+            // 
+            // button1
+            // 
+            button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            button1.Location = new Point(453, 1067);
+            button1.Margin = new Padding(4);
+            button1.Name = "button1";
+            button1.Size = new Size(55, 55);
+            button1.TabIndex = 3;
+            button1.Text = "➕";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += Button1_Click;
+            // 
+            // listBox1
+            // 
+            listBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            listBox1.FormattingEnabled = true;
+            listBox1.IntegralHeight = false;
+            listBox1.ItemHeight = 32;
+            listBox1.Location = new Point(2, 2);
+            listBox1.Margin = new Padding(2);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(508, 1059);
+            listBox1.TabIndex = 1;
+            listBox1.MouseDoubleClick += ListBox1_MouseDoubleClick;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(button3);
+            groupBox1.Controls.Add(ioIdent);
             groupBox1.Controls.Add(groupBox7);
             groupBox1.Controls.Add(groupBox6);
             groupBox1.Controls.Add(groupBox5);
@@ -143,21 +175,19 @@ namespace Tritium
             groupBox1.Margin = new Padding(2);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(2);
-            groupBox1.Size = new Size(1560, 1188);
+            groupBox1.Size = new Size(1560, 1132);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Upravit klienta";
-            groupBox1.Enter += groupBox1_Enter;
             // 
-            // button3
+            // ioIdent
             // 
-            button3.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button3.Location = new Point(12, 858);
-            button3.Name = "button3";
-            button3.Size = new Size(88, 80);
-            button3.TabIndex = 20;
-            button3.Text = "✒";
-            button3.UseVisualStyleBackColor = true;
+            ioIdent.AutoSize = true;
+            ioIdent.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ioIdent.Location = new Point(12, 1050);
+            ioIdent.Name = "loadIdent";
+            ioIdent.Size = new Size(0, 65);
+            ioIdent.TabIndex = 20;
             // 
             // groupBox7
             // 
@@ -168,9 +198,7 @@ namespace Tritium
             groupBox7.Controls.Add(groupBox17);
             groupBox7.Controls.Add(groupBox16);
             groupBox7.Controls.Add(groupBox14);
-            groupBox7.Controls.Add(cancel);
             groupBox7.Controls.Add(groupBox12);
-            groupBox7.Controls.Add(commit);
             groupBox7.Controls.Add(groupBox11);
             groupBox7.Controls.Add(groupBox22);
             groupBox7.Controls.Add(groupBox15);
@@ -184,7 +212,7 @@ namespace Tritium
             groupBox7.Margin = new Padding(4);
             groupBox7.Name = "groupBox7";
             groupBox7.Padding = new Padding(4);
-            groupBox7.Size = new Size(1019, 1147);
+            groupBox7.Size = new Size(1019, 1088);
             groupBox7.TabIndex = 19;
             groupBox7.TabStop = false;
             groupBox7.Text = "Informace";
@@ -210,6 +238,7 @@ namespace Tritium
             sitOstatni.ScrollBars = ScrollBars.Vertical;
             sitOstatni.Size = new Size(497, 99);
             sitOstatni.TabIndex = 5;
+            sitOstatni.TextChanged += DatabaseUpdate;
             // 
             // groupBox20
             // 
@@ -232,6 +261,7 @@ namespace Tritium
             sitRodina.ScrollBars = ScrollBars.Vertical;
             sitRodina.Size = new Size(497, 99);
             sitRodina.TabIndex = 5;
+            sitRodina.TextChanged += DatabaseUpdate;
             // 
             // groupBox19
             // 
@@ -254,6 +284,7 @@ namespace Tritium
             sitPrace.ScrollBars = ScrollBars.Vertical;
             sitPrace.Size = new Size(497, 99);
             sitPrace.TabIndex = 5;
+            sitPrace.TextChanged += DatabaseUpdate;
             // 
             // groupBox18
             // 
@@ -276,6 +307,7 @@ namespace Tritium
             traveni.ScrollBars = ScrollBars.Vertical;
             traveni.Size = new Size(497, 99);
             traveni.TabIndex = 5;
+            traveni.TextChanged += DatabaseUpdate;
             // 
             // groupBox17
             // 
@@ -298,6 +330,7 @@ namespace Tritium
             strava.ScrollBars = ScrollBars.Vertical;
             strava.Size = new Size(470, 99);
             strava.TabIndex = 5;
+            strava.TextChanged += DatabaseUpdate;
             // 
             // groupBox16
             // 
@@ -320,6 +353,7 @@ namespace Tritium
             rodinnaAnamneza.ScrollBars = ScrollBars.Vertical;
             rodinnaAnamneza.Size = new Size(470, 99);
             rodinnaAnamneza.TabIndex = 5;
+            rodinnaAnamneza.TextChanged += DatabaseUpdate;
             // 
             // groupBox14
             // 
@@ -342,17 +376,7 @@ namespace Tritium
             predchazejiciNemoci.ScrollBars = ScrollBars.Vertical;
             predchazejiciNemoci.Size = new Size(470, 99);
             predchazejiciNemoci.TabIndex = 5;
-            // 
-            // cancel
-            // 
-            cancel.Location = new Point(746, 1085);
-            cancel.Margin = new Padding(2);
-            cancel.Name = "cancel";
-            cancel.Size = new Size(131, 55);
-            cancel.TabIndex = 14;
-            cancel.Text = "❌Zrušit";
-            cancel.UseVisualStyleBackColor = true;
-            cancel.Click += cancel_Click;
+            predchazejiciNemoci.TextChanged += DatabaseUpdate;
             // 
             // groupBox12
             // 
@@ -375,17 +399,7 @@ namespace Tritium
             dlouhodobePotize.ScrollBars = ScrollBars.Vertical;
             dlouhodobePotize.Size = new Size(470, 99);
             dlouhodobePotize.TabIndex = 5;
-            // 
-            // commit
-            // 
-            commit.Location = new Point(882, 1085);
-            commit.Margin = new Padding(2);
-            commit.Name = "commit";
-            commit.Size = new Size(131, 55);
-            commit.TabIndex = 15;
-            commit.Text = "✔OK";
-            commit.UseVisualStyleBackColor = true;
-            commit.Click += Commit_Click;
+            dlouhodobePotize.TextChanged += DatabaseUpdate;
             // 
             // groupBox11
             // 
@@ -408,6 +422,7 @@ namespace Tritium
             leky.ScrollBars = ScrollBars.Vertical;
             leky.Size = new Size(497, 99);
             leky.TabIndex = 5;
+            leky.TextChanged += DatabaseUpdate;
             // 
             // groupBox22
             // 
@@ -430,6 +445,7 @@ namespace Tritium
             rozpolozeni.ScrollBars = ScrollBars.Vertical;
             rozpolozeni.Size = new Size(497, 99);
             rozpolozeni.TabIndex = 5;
+            rozpolozeni.TextChanged += DatabaseUpdate;
             // 
             // groupBox15
             // 
@@ -450,6 +466,7 @@ namespace Tritium
             homeopatika.Name = "homeopatika";
             homeopatika.Size = new Size(497, 39);
             homeopatika.TabIndex = 5;
+            homeopatika.TextChanged += DatabaseUpdate;
             // 
             // groupBox13
             // 
@@ -470,6 +487,7 @@ namespace Tritium
             krevniTlak.Name = "krevniTlak";
             krevniTlak.Size = new Size(466, 39);
             krevniTlak.TabIndex = 5;
+            krevniTlak.TextChanged += DatabaseUpdate;
             // 
             // groupBox10
             // 
@@ -490,6 +508,7 @@ namespace Tritium
             AIOnemocneni.Name = "AIOnemocneni";
             AIOnemocneni.Size = new Size(466, 39);
             AIOnemocneni.TabIndex = 5;
+            AIOnemocneni.TextChanged += DatabaseUpdate;
             // 
             // groupBox8
             // 
@@ -510,6 +529,7 @@ namespace Tritium
             onko.Name = "onko";
             onko.Size = new Size(497, 39);
             onko.TabIndex = 5;
+            onko.TextChanged += DatabaseUpdate;
             // 
             // epilepsie
             // 
@@ -521,6 +541,7 @@ namespace Tritium
             epilepsie.TabIndex = 2;
             epilepsie.Text = "Epilepsie";
             epilepsie.UseVisualStyleBackColor = true;
+            epilepsie.CheckedChanged += DatabaseUpdate;
             // 
             // aktualniTehotenstvi
             // 
@@ -532,6 +553,7 @@ namespace Tritium
             aktualniTehotenstvi.TabIndex = 1;
             aktualniTehotenstvi.Text = "Aktualní Těhotenství";
             aktualniTehotenstvi.UseVisualStyleBackColor = true;
+            aktualniTehotenstvi.CheckedChanged += DatabaseUpdate;
             // 
             // kardiostimulator
             // 
@@ -543,6 +565,7 @@ namespace Tritium
             kardiostimulator.TabIndex = 0;
             kardiostimulator.Text = "Kardiostimulátor";
             kardiostimulator.UseVisualStyleBackColor = true;
+            kardiostimulator.CheckedChanged += DatabaseUpdate;
             // 
             // groupBox6
             // 
@@ -563,6 +586,7 @@ namespace Tritium
             address.Name = "address";
             address.Size = new Size(504, 39);
             address.TabIndex = 5;
+            address.TextChanged += DatabaseUpdate;
             // 
             // groupBox5
             // 
@@ -583,6 +607,7 @@ namespace Tritium
             email.Name = "email";
             email.Size = new Size(504, 39);
             email.TabIndex = 5;
+            email.TextChanged += DatabaseUpdate;
             // 
             // groupBox4
             // 
@@ -603,6 +628,7 @@ namespace Tritium
             phone.Name = "phone";
             phone.Size = new Size(504, 39);
             phone.TabIndex = 5;
+            phone.TextChanged += DatabaseUpdate;
             // 
             // groupBox9
             // 
@@ -625,6 +651,7 @@ namespace Tritium
             notes.ScrollBars = ScrollBars.Vertical;
             notes.Size = new Size(504, 311);
             notes.TabIndex = 13;
+            notes.TextChanged += DatabaseUpdate;
             // 
             // groupBox3
             // 
@@ -644,6 +671,7 @@ namespace Tritium
             birthdate.Name = "birthdate";
             birthdate.Size = new Size(504, 39);
             birthdate.TabIndex = 0;
+            birthdate.TextChanged += DatabaseUpdate;
             // 
             // groupBox2
             // 
@@ -665,6 +693,7 @@ namespace Tritium
             name.Name = "name";
             name.Size = new Size(504, 50);
             name.TabIndex = 4;
+            name.TextChanged += DatabaseUpdate;
             // 
             // real_name
             // 
@@ -675,65 +704,19 @@ namespace Tritium
             real_name.Name = "real_name";
             real_name.Size = new Size(0, 60);
             real_name.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            panel1.Controls.Add(button2);
-            panel1.Controls.Add(button1);
-            panel1.Controls.Add(listBox1);
-            panel1.Location = new Point(2, 2);
-            panel1.Margin = new Padding(2);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(512, 1185);
-            panel1.TabIndex = 2;
-            // 
-            // button2
-            // 
-            button2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            button2.Location = new Point(390, 1123);
-            button2.Margin = new Padding(4);
-            button2.Name = "button2";
-            button2.Size = new Size(55, 55);
-            button2.TabIndex = 2;
-            button2.Text = "➖";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
-            // 
-            // button1
-            // 
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            button1.Location = new Point(453, 1123);
-            button1.Margin = new Padding(4);
-            button1.Name = "button1";
-            button1.Size = new Size(55, 55);
-            button1.TabIndex = 3;
-            button1.Text = "➕";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += Button1_Click;
-            // 
-            // listBox1
-            // 
-            listBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            listBox1.FormattingEnabled = true;
-            listBox1.IntegralHeight = false;
-            listBox1.ItemHeight = 32;
-            listBox1.Location = new Point(2, 2);
-            listBox1.Margin = new Padding(2);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(508, 1115);
-            listBox1.TabIndex = 1;
-            listBox1.MouseDoubleClick += ListBox1_MouseDoubleClick;
+            real_name.TextChanged += DatabaseUpdate;
             // 
             // ClientDBInterface
             // 
             AutoScaleMode = AutoScaleMode.None;
-            ClientSize = new Size(2108, 1210);
+            ClientSize = new Size(2108, 1162);
             Controls.Add(tableLayoutPanel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4);
             Name = "ClientDBInterface";
             Text = "Mikroby - Tritium";
             tableLayoutPanel1.ResumeLayout(false);
+            panel1.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox7.ResumeLayout(false);
@@ -777,7 +760,6 @@ namespace Tritium
             groupBox3.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
-            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -808,7 +790,6 @@ namespace Tritium
         private GroupBox groupBox9;
         private TextBox notes;
         private Button button1;
-        private Button button2;
         private GroupBox groupBox5;
         private TextBox email;
         private GroupBox groupBox4;
@@ -848,6 +829,6 @@ namespace Tritium
         private TextBox sitOstatni;
         private TextBox sitRodina;
         private DateTimePicker birthdate;
-        private Button button3;
+        private Label ioIdent;
     }
 }
