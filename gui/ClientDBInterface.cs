@@ -10,7 +10,7 @@ namespace Tritium
         PatogenProgram? cpp = null;
         bool insert = false;
         readonly Klient client;
-        private readonly Regex regex = new("&[0-9]+", RegexOptions.IgnoreCase);
+        private readonly Regex regex = MatchMeetingId();
         static readonly System.Windows.Forms.Timer saveTimer = new();
         static readonly System.Windows.Forms.Timer IOIndicator = new();
         public ClientDBInterface(int clientId)
@@ -171,13 +171,13 @@ namespace Tritium
             UpdateList();
         }
 
-        private void cancel_Click(object sender, EventArgs e)
+        private void Cancel_Click(object sender, EventArgs e)
         {
             cpp = null;
             listBox1.ClearSelected();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedIndex != -1)
             {
@@ -196,10 +196,13 @@ namespace Tritium
 
 
 
-        private async void DatabaseUpdate(object sender, EventArgs e)
+        private void DatabaseUpdate(object sender, EventArgs e)
         {
             saveTimer.Stop();
             saveTimer.Start();
         }
+
+        [GeneratedRegex("&[0-9]+", RegexOptions.IgnoreCase, "en-GB")]
+        private static partial Regex MatchMeetingId();
     }
 }

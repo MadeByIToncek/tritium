@@ -780,8 +780,6 @@ namespace Tritium
         private ListBox listBox1;
         private GroupBox groupBox1;
         private Label real_name;
-        private Button commit;
-        private Button cancel;
         private TextBox name;
         private GroupBox groupBox2;
         private GroupBox groupBox3;

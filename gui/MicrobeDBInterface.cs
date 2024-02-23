@@ -7,7 +7,8 @@ namespace Tritium
     {
         PatogenProgram? cpp = null;
         bool insert = false;
-        readonly string pattern = @"[1-9A-Za-z]* - ";
+
+        private readonly Regex pattern = MatchMicrobeId();
 
         public MicrobeDBInterface()
         {
@@ -22,9 +23,9 @@ namespace Tritium
             {
                 foreach (var item in Program.db.ListPatogenPrograms())
                 {
-                    if (item.Name.Contains(Regex.Replace(listBox1.SelectedItem.ToString(),pattern,""), StringComparison.InvariantCultureIgnoreCase))
+                    if (item.Name.Contains(pattern.Replace(listBox1.SelectedItem.ToString(), ""), StringComparison.InvariantCultureIgnoreCase))
                     {
-                        loadPP(item);
+                        LoadPP(item);
                         break;
                     }
                 }
@@ -32,7 +33,7 @@ namespace Tritium
             }
         }
 
-        private void loadPP(PatogenProgram cpp)
+        private void LoadPP(PatogenProgram cpp)
         {
             this.cpp = cpp;
             name.Text = cpp.Name;
@@ -164,7 +165,7 @@ namespace Tritium
             ClearForm();
             insert = true;
             listBox1.ClearSelected();
-            loadPP(new PatogenProgram()
+            LoadPP(new PatogenProgram()
             {
                 MORTFRQs = "",
                 Name = "",
@@ -193,7 +194,7 @@ namespace Tritium
             {
                 foreach (var item in Program.db.ListPatogenPrograms())
                 {
-                    if (item.Name.Contains(Regex.Replace(listBox1.SelectedItem.ToString(), pattern, ""), StringComparison.InvariantCultureIgnoreCase))
+                    if (item.Name.Contains(pattern.Replace(listBox1.SelectedItem.ToString(), ""), StringComparison.InvariantCultureIgnoreCase))
                     {
                         Program.db.DeletePatogenProgram(item);
                         break;
@@ -204,5 +205,8 @@ namespace Tritium
                 UpdateList();
             }
         }
+
+        [GeneratedRegex("[1-9A-Za-z]* - ", RegexOptions.CultureInvariant, "en-GB")]
+        private static partial Regex MatchMicrobeId();
     }
 }
