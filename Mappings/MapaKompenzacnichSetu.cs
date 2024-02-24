@@ -14,6 +14,7 @@ namespace Tritium.Mappings
         {
             Id(x => x.Id);
             HasMany(x => x.KompenzacniDavky)
+                .Not.LazyLoad()
                 .Inverse()
                 .Cascade.All();
         }

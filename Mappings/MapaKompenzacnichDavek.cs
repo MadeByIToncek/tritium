@@ -14,8 +14,10 @@ namespace Tritium.Mappings
             Id(x => x.Id);
             Map(x => x.Note);
             Map(x => x.NoteContents)
+                .Not.LazyLoad()
                 .Length(10000);
             HasOne(x => x.Program)
+                .Not.LazyLoad()
                 .Cascade.All();
         }
     }

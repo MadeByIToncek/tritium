@@ -13,7 +13,11 @@ namespace Tritium.Mappings
         public MapaSkenu()
         {
             Id(x => x.Id);
+            HasOne(x => x.Navsteva)
+                .Not.LazyLoad()
+                .Cascade.All();
             References(x => x.Patogen);
+            Map(x => x.Okruh);
             Map(x => x.FRQ);
             Map(x => x.HRV);
         }

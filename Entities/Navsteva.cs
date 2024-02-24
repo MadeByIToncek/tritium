@@ -14,8 +14,8 @@ namespace Tritium.Entities
         public virtual required string AktualniPotize { get; set; }
         public virtual required string CoNejviceObtezuje { get; set; }
         public virtual required string CoChceVyresit { get; set; }
-        public virtual required string SkenOkr1 { get; set; }//db okruhu
-        public virtual required string SkenOkr2 { get; set; }//db okruhu
+        public virtual required Okruh SkenOkr1 { get; set; }//db okruhu
+        public virtual required Okruh SkenOkr2 { get; set; }//db okruhu
         public virtual IList<Sken> Skeny { get; set; }
         public virtual IList<KompenzacniSet> KompenzacniSety { get; set; }
 

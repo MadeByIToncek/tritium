@@ -22,12 +22,16 @@ namespace Tritium.Mappings
                 .Length(10000);
             Map(x => x.CoChceVyresit)
                 .Length(10000);
-            Map(x => x.SkenOkr1);
-            Map(x => x.SkenOkr2);
+            References(x => x.SkenOkr1)
+                .Not.LazyLoad();
+            References(x => x.SkenOkr2)
+                .Not.LazyLoad();
             HasMany(x => x.Skeny)
+                .Not.LazyLoad()
                 .Inverse()
                 .Cascade.All();
             HasMany(x => x.KompenzacniSety)
+                .Not.LazyLoad()
                 .Inverse()
                 .Cascade.All();
         }

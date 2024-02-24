@@ -28,36 +28,76 @@
         /// </summary>
         private void InitializeComponent()
         {
-            progressBar1 = new ProgressBar();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SplashInterface));
+            label1 = new Label();
+            pictureBox1 = new PictureBox();
+            ver = new Label();
+            logDisplay = new Label();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // progressBar1
+            // label1
             // 
-            progressBar1.Location = new Point(12, 12);
-            progressBar1.MarqueeAnimationSpeed = 20;
-            progressBar1.Maximum = 2;
-            progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(976, 137);
-            progressBar1.Step = 100;
-            progressBar1.Style = ProgressBarStyle.Marquee;
-            progressBar1.TabIndex = 0;
+            label1.AutoSize = true;
+            label1.Font = new Font("Stolzl Bold", 35.9999962F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(21, 35);
+            label1.Name = "label1";
+            label1.Size = new Size(301, 86);
+            label1.TabIndex = 0;
+            label1.Text = "Tritium";
             // 
-            // Splash
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(369, 12);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(262, 266);
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
+            // 
+            // ver
+            // 
+            ver.AutoSize = true;
+            ver.Font = new Font("Stolzl", 8.999999F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ver.Location = new Point(35, 110);
+            ver.Name = "ver";
+            ver.Size = new Size(120, 22);
+            ver.TabIndex = 2;
+            ver.Text = "Version: null";
+            // 
+            // logDisplay
+            // 
+            logDisplay.AutoSize = true;
+            logDisplay.Location = new Point(35, 210);
+            logDisplay.Name = "logDisplay";
+            logDisplay.Size = new Size(206, 25);
+            logDisplay.TabIndex = 3;
+            logDisplay.Text = "[SYSTEM] Splash created";
+            // 
+            // SplashInterface
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1000, 161);
-            Controls.Add(progressBar1);
+            ClientSize = new Size(639, 290);
+            Controls.Add(logDisplay);
+            Controls.Add(ver);
+            Controls.Add(pictureBox1);
+            Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Splash";
+            Name = "SplashInterface";
             ShowInTaskbar = false;
             Text = "Splash";
             TopMost = true;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private ProgressBar progressBar1;
+        private Label label1;
+        private PictureBox pictureBox1;
+        private Label ver;
+        private Label logDisplay;
     }
 }

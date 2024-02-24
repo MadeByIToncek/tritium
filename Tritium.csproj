@@ -16,7 +16,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\migration.csv" />
+    <None Remove="Resources\okruhy.csv" />
+    <None Remove="Resources\patogenprogramy.csv" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,14 +25,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\migration.csv" />
+    <EmbeddedResource Include="Resources\okruhy.csv" />
+    <EmbeddedResource Include="Resources\patogenprogramy.csv" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentNHibernate" Version="3.3.0" />
-    <PackageReference Include="MySql.Data" Version="8.3.0" />
+    <PackageReference Include="MySql.Data" Version="8.3.0">
+      <TreatAsUsed>true</TreatAsUsed>
+    </PackageReference>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="System.Data.SQLite" Version="1.0.118" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.118">
+      <TreatAsUsed>true</TreatAsUsed>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>

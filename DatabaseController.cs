@@ -8,6 +8,7 @@ using NHibernate.Tool.hbm2ddl;
 using NHibernate.Transform;
 using System.Collections;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 using Tritium.Entities;
 
@@ -20,17 +21,33 @@ namespace Tritium
 
         public DatabaseController(string path)
         {
+            if (Program.SplashScreen != null)
+            {
+                Program.SplashScreen.SetCurrentProgressMessage("DB", "Connecting");
+            }
+
             _sessionFactory = Fluently.Configure()
                 .Database(SQLiteConfiguration.Standard.UsingFile(path))
                 .Mappings(m =>
                      m.FluentMappings.AddFromAssemblyOf<Program>())
                 .ExposeConfiguration(TreatConfiguration)
                 .BuildSessionFactory();
-            isLocal = true;
+            isLocal = true; 
+
+            if (Program.SplashScreen != null)
+            {
+                Program.SplashScreen.SetCurrentProgressMessage("DB", "Connected");
+            }
+
             MigrateIfNeeded(_sessionFactory.OpenSession());
         }
         public DatabaseController(string server, int port, string database, string user, string password)
         {
+            if (Program.SplashScreen != null)
+            {
+                Program.SplashScreen.SetCurrentProgressMessage("DB", "Connecting");
+            }
+            
             _sessionFactory = Fluently.Configure()
                 .Database(MySQLConfiguration.Standard.ConnectionString(c =>
                     c.Server(server)
@@ -42,23 +59,40 @@ namespace Tritium
                      m.FluentMappings.AddFromAssemblyOf<Program>())
                 .ExposeConfiguration(TreatConfiguration)
                 .BuildSessionFactory();
+
             isLocal = false;
+
+            if (Program.SplashScreen != null)
+            {
+                Program.SplashScreen.SetCurrentProgressMessage("DB", "Connected");
+            }
+
             MigrateIfNeeded(_sessionFactory.OpenSession());
         }
 
         private static void MigrateIfNeeded(ISession session)
         {
+            if (Program.SplashScreen != null)
+            {
+                Program.SplashScreen.SetCurrentProgressMessage("DB Migrations", "Checking Patogens");
+            }
+
             ITransaction transaction = session.BeginTransaction();
             transaction.Begin();
             if (session.CreateSQLQuery("SELECT * FROM PatogenProgram").List().Count < 1)
             {
+                if (Program.SplashScreen != null)
+                {
+                    Program.SplashScreen.SetCurrentProgressMessage("DB Migrations", "Patogen migration started");
+                }
                 var assembly = Assembly.GetExecutingAssembly();
-                string resourceName = assembly.GetManifestResourceNames().Single(str => str.EndsWith("migration.csv"));
+                string resourceName = assembly.GetManifestResourceNames().Single(str => str.EndsWith("patogenprogramy.csv"));
 
                 const int BufferSize = 128;
                 using var fileStream = assembly.GetManifestResourceStream(resourceName);
                 using var streamReader = new StreamReader(fileStream, Encoding.UTF8, true, BufferSize);
                 var lines = streamReader.ReadToEnd().Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                int cline = 0;
                 foreach (var line in lines)
                 {
                     string[] parts = line.Split(",");
@@ -92,16 +126,100 @@ namespace Tritium
 
                     };
 
+                    if (Program.SplashScreen != null)
+                    {
+                        Program.SplashScreen.SetCurrentProgressMessage("DB Migrations", "Migrating patogens, " + cline + "/" + lines.Length + " done");
+                    }
+
                     session.Save(pp);
+                    cline++;
+                }
+
+                if (Program.SplashScreen != null)
+                {
+                    Program.SplashScreen.SetCurrentProgressMessage("DB Migrations", "Patogen migration finished");
+                }
+            } else
+            {
+                if (Program.SplashScreen != null)
+                {
+                    Program.SplashScreen.SetCurrentProgressMessage("DB Migrations", "Patogen migration not needed");
                 }
             };
+
+
+            if (Program.SplashScreen != null)
+            {
+                Program.SplashScreen.SetCurrentProgressMessage("DB Migrations", "Checking Okruhy");
+            }
+            if (session.CreateSQLQuery("SELECT * FROM Okruh").List().Count < 1)
+            {
+                if (Program.SplashScreen != null)
+                {
+                    Program.SplashScreen.SetCurrentProgressMessage("DB Migrations", "Okruhy migration started");
+                }
+                var assembly = Assembly.GetExecutingAssembly();
+                string resourceName = assembly.GetManifestResourceNames().Single(str => str.EndsWith("okruhy.csv"));
+
+                const int BufferSize = 128;
+                using var fileStream = assembly.GetManifestResourceStream(resourceName);
+                using var streamReader = new StreamReader(fileStream, Encoding.UTF8, true, BufferSize);
+                var lines = streamReader.ReadToEnd().Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                int cline = 0;
+                foreach (var line in lines)
+                {
+                    string[] parts = line.Split(",");
+                    for (int i = 0; i < parts.Length; i++)
+                    {
+                        parts[i] = parts[i].Trim().Replace("\"", "");
+                    }
+                    string zkratka = parts[0];
+                    string nazev = parts[1];
+                    int cas = int.Parse(parts[2]);
+
+                    Okruh okruh = new()
+                    {
+                        Name = nazev,
+                        Zkratka = zkratka,
+                        Delka = cas
+                    };
+
+                    if (Program.SplashScreen != null)
+                    {
+                        Program.SplashScreen.SetCurrentProgressMessage("DB Migrations", "Migrating okruhy, " + cline + "/" + lines.Length + " done");
+                    }
+                    session.Save(okruh);
+                    cline++;
+                }
+
+                if (Program.SplashScreen != null)
+                {
+                    Program.SplashScreen.SetCurrentProgressMessage("DB Migrations", "Okruhy migration finished");
+                }
+            }
+            else
+            {
+                if (Program.SplashScreen != null)
+                {
+                    Program.SplashScreen.SetCurrentProgressMessage("DB Migrations", "Okruhy migration not needed");
+                }
+            }
+
             transaction.Commit();
         }
 
         private static void TreatConfiguration(Configuration configuration)
         {
+            if (Program.SplashScreen != null)
+            {
+                Program.SplashScreen.SetCurrentProgressMessage("DB Migrations", "Migrating table layout");
+            }
             var update = new SchemaUpdate(configuration);
             update.Execute(false, true);
+            if (Program.SplashScreen != null)
+            {
+                Program.SplashScreen.SetCurrentProgressMessage("DB Migrations", "Table migration finished");
+            }
         }
 
         internal IList<Klient> ListClients()
@@ -156,7 +274,7 @@ namespace Tritium
               .List<Okruh>();
         }
 
-        internal IEnumerable<Navsteva> GetMeetingsForClient(int clientId)
+        internal IList<Navsteva> GetMeetingsForClient(int clientId)
         {
             using var session = _sessionFactory.OpenSession();
             var query = session.QueryOver<Navsteva>()
@@ -177,14 +295,19 @@ namespace Tritium
                 AktualniPotize = "",
                 CoChceVyresit = "",
                 CoNejviceObtezuje = "",
-                SkenOkr1 = "",
-                SkenOkr2 = ""
+                SkenOkr1 = Program.db.GetEmptyOkruh(),
+                SkenOkr2 = Program.db.GetEmptyOkruh()
             };
             client.PridatNavstevu(navsteva);
 
             session.SaveOrUpdate(client);
 
             transaction.Commit();
+        }
+
+        private Okruh GetEmptyOkruh()
+        {
+            throw new NotImplementedException();
         }
 
         internal async Task CreateEmptyClient()
@@ -227,6 +350,15 @@ namespace Tritium
             trans.Begin();
             await session.UpdateAsync(client);
             await trans.CommitAsync();
+        }
+
+        internal IList<Sken> GetScansForMeeting(int id)
+        {
+            using var session = _sessionFactory.OpenSession();
+            var query = session.QueryOver<Sken>()
+                .Where(i => i.Navsteva.Id == id)
+                .TransformUsing(new DistinctRootEntityResultTransformer());
+            return query.List<Sken>();
         }
     }
 }

@@ -44,6 +44,7 @@ namespace Tritium.gui
             dateTimePicker1 = new DateTimePicker();
             textBox1 = new TextBox();
             groupBox1 = new GroupBox();
+            button1 = new Button();
             okruh1 = new ComboBox();
             okruh2 = new ComboBox();
             groupBox2 = new GroupBox();
@@ -53,6 +54,12 @@ namespace Tritium.gui
             groupBox5 = new GroupBox();
             textBox3 = new TextBox();
             groupBox6 = new GroupBox();
+            listView1 = new ListView();
+            Okruh = new ColumnHeader();
+            Patogen = new ColumnHeader();
+            FRQ = new ColumnHeader();
+            HRV = new ColumnHeader();
+            groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox4.SuspendLayout();
@@ -79,12 +86,25 @@ namespace Tritium.gui
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(listView1);
+            groupBox1.Controls.Add(button1);
+            groupBox1.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBox1.Location = new Point(527, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(803, 1199);
+            groupBox1.Size = new Size(851, 792);
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
-            groupBox1.Text = "groupBox1";
+            groupBox1.Text = "Skeny";
+            // 
+            // button1
+            // 
+            button1.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.Location = new Point(782, 724);
+            button1.Name = "button1";
+            button1.Size = new Size(60, 60);
+            button1.TabIndex = 1;
+            button1.Text = "➕";
+            button1.UseVisualStyleBackColor = true;
             // 
             // okruh1
             // 
@@ -176,11 +196,42 @@ namespace Tritium.gui
             groupBox6.TabStop = false;
             groupBox6.Text = "Okruhy";
             // 
+            // listView1
+            // 
+            listView1.Columns.AddRange(new ColumnHeader[] { Okruh, Patogen, FRQ, HRV });
+            listView1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            listView1.Location = new Point(6, 49);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(836, 669);
+            listView1.TabIndex = 9;
+            listView1.UseCompatibleStateImageBehavior = false;
+            listView1.View = View.Details;
+            // 
+            // Okruh
+            // 
+            Okruh.Text = "Okruh";
+            Okruh.Width = 200;
+            // 
+            // Patogen
+            // 
+            Patogen.Text = "Patogen";
+            Patogen.Width = 280;
+            // 
+            // FRQ
+            // 
+            FRQ.Text = "FRQ";
+            FRQ.Width = 150;
+            // 
+            // HRV
+            // 
+            HRV.Text = "HRV";
+            HRV.Width = 150;
+            // 
             // MeetingInterface
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1343, 1226);
+            ClientSize = new Size(2008, 1081);
             Controls.Add(groupBox6);
             Controls.Add(groupBox5);
             Controls.Add(groupBox4);
@@ -189,6 +240,7 @@ namespace Tritium.gui
             Controls.Add(groupBox1);
             Name = "MeetingInterface";
             Text = "MeetingInterface";
+            groupBox1.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
@@ -213,5 +265,11 @@ namespace Tritium.gui
         private GroupBox groupBox5;
         private TextBox textBox3;
         private GroupBox groupBox6;
+        private Button button1;
+        private ListView listView1;
+        private ColumnHeader Okruh;
+        private ColumnHeader Patogen;
+        private ColumnHeader FRQ;
+        private ColumnHeader HRV;
     }
 }
