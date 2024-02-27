@@ -17,7 +17,7 @@ namespace Tritium
             UpdateList();
         }
 
-        private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private async void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listBox1.SelectedIndex != -1)
             {
@@ -108,7 +108,7 @@ namespace Tritium
             }
         }
 
-        private void UpdateList()
+        private async void UpdateList()
         {
             listBox1.SuspendLayout();
             listBox1.Items.Clear();
@@ -188,7 +188,7 @@ namespace Tritium
             listBox1.ClearSelected();
         }
 
-        private void Button2_Click(object sender, EventArgs e)
+        private async void Button2_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedIndex != -1)
             {

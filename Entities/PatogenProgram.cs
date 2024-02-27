@@ -1,6 +1,4 @@
-﻿using static Mysqlx.Expect.Open.Types.Condition.Types;
-
-namespace Tritium.Entities
+﻿namespace Tritium.Entities
 {
     public class PatogenProgram
     {

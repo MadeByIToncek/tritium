@@ -360,5 +360,49 @@ namespace Tritium
                 .TransformUsing(new DistinctRootEntityResultTransformer());
             return query.List<Sken>();
         }
+
+        internal Sken GetScanById(int id)
+        {
+            using var session = _sessionFactory.OpenSession();
+            var query = session.QueryOver<Sken>()
+                .Where(i => i.Id == id)
+                .TransformUsing(new DistinctRootEntityResultTransformer());
+            return query.SingleOrDefault<Sken>();
+        }
+
+        internal async Task<int> InsertSken(Navsteva navsteva)
+        {
+            using var session = _sessionFactory.OpenSession();
+            using var trans = session.BeginTransaction();
+            trans.Begin();
+            int i = (int)await session.SaveAsync(new Sken()
+            {
+                Okruh = "",
+                FRQ = 0,
+                HRV = 0,
+                Navsteva = navsteva,
+                Patogen = GetEmptyPatogen()
+            });
+            await trans.CommitAsync();
+            return i;
+        }
+
+        private PatogenProgram GetEmptyPatogen()
+        {
+            using var session = _sessionFactory.OpenSession();
+            var query = session.QueryOver<PatogenProgram>()
+                .Where(i => i.Type == "NULL")
+                .TransformUsing(new DistinctRootEntityResultTransformer());
+            return query.SingleOrDefault<PatogenProgram>();
+        }
+
+        internal async void UpdateSken(Sken s)
+        {
+            using var session = _sessionFactory.OpenSession();
+            using var trans = session.BeginTransaction();
+            trans.Begin();
+            await session.UpdateAsync(s);
+            await trans.CommitAsync();
+        }
     }
 }

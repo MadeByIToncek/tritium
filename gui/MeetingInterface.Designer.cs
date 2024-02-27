@@ -44,7 +44,12 @@ namespace Tritium.gui
             dateTimePicker1 = new DateTimePicker();
             textBox1 = new TextBox();
             groupBox1 = new GroupBox();
-            button1 = new Button();
+            listView1 = new ListView();
+            Okruh = new ColumnHeader();
+            Patogen = new ColumnHeader();
+            FRQ = new ColumnHeader();
+            HRV = new ColumnHeader();
+            ScanPlus = new Button();
             okruh1 = new ComboBox();
             okruh2 = new ComboBox();
             groupBox2 = new GroupBox();
@@ -54,11 +59,7 @@ namespace Tritium.gui
             groupBox5 = new GroupBox();
             textBox3 = new TextBox();
             groupBox6 = new GroupBox();
-            listView1 = new ListView();
-            Okruh = new ColumnHeader();
-            Patogen = new ColumnHeader();
-            FRQ = new ColumnHeader();
-            HRV = new ColumnHeader();
+            ScanMinus = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -70,7 +71,7 @@ namespace Tritium.gui
             // dateTimePicker1
             // 
             dateTimePicker1.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dateTimePicker1.Location = new Point(6, 44);
+            dateTimePicker1.Location = new Point(6, 38);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(343, 50);
             dateTimePicker1.TabIndex = 1;
@@ -86,25 +87,59 @@ namespace Tritium.gui
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(ScanMinus);
             groupBox1.Controls.Add(listView1);
-            groupBox1.Controls.Add(button1);
-            groupBox1.Font = new Font("Segoe UI", 16F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            groupBox1.Location = new Point(527, 12);
+            groupBox1.Controls.Add(ScanPlus);
+            groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            groupBox1.Location = new Point(527, 153);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(851, 792);
+            groupBox1.Size = new Size(851, 778);
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
             groupBox1.Text = "Skeny";
             // 
-            // button1
+            // listView1
             // 
-            button1.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(782, 724);
-            button1.Name = "button1";
-            button1.Size = new Size(60, 60);
-            button1.TabIndex = 1;
-            button1.Text = "➕";
-            button1.UseVisualStyleBackColor = true;
+            listView1.Columns.AddRange(new ColumnHeader[] { Okruh, Patogen, FRQ, HRV });
+            listView1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            listView1.Location = new Point(6, 38);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(836, 669);
+            listView1.TabIndex = 9;
+            listView1.UseCompatibleStateImageBehavior = false;
+            listView1.View = View.Details;
+            listView1.DoubleClick += ListView1_DoubleClick;
+            // 
+            // Okruh
+            // 
+            Okruh.Text = "Okruh";
+            Okruh.Width = 200;
+            // 
+            // Patogen
+            // 
+            Patogen.Text = "Patogen";
+            Patogen.Width = 280;
+            // 
+            // FRQ
+            // 
+            FRQ.Text = "FRQ";
+            FRQ.Width = 150;
+            // 
+            // HRV
+            // 
+            HRV.Text = "HRV";
+            HRV.Width = 150;
+            // 
+            // ScanPlus
+            // 
+            ScanPlus.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ScanPlus.Location = new Point(782, 713);
+            ScanPlus.Name = "ScanPlus";
+            ScanPlus.Size = new Size(60, 60);
+            ScanPlus.TabIndex = 1;
+            ScanPlus.Text = "➕";
+            ScanPlus.UseVisualStyleBackColor = true;
+            ScanPlus.Click += ScanPlus_Click;
             // 
             // okruh1
             // 
@@ -125,7 +160,7 @@ namespace Tritium.gui
             // groupBox2
             // 
             groupBox2.Controls.Add(dateTimePicker1);
-            groupBox2.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            groupBox2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBox2.Location = new Point(12, 12);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(358, 105);
@@ -189,49 +224,29 @@ namespace Tritium.gui
             groupBox6.Controls.Add(okruh1);
             groupBox6.Controls.Add(okruh2);
             groupBox6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            groupBox6.Location = new Point(12, 936);
+            groupBox6.Location = new Point(527, 12);
             groupBox6.Name = "groupBox6";
             groupBox6.Size = new Size(229, 135);
             groupBox6.TabIndex = 8;
             groupBox6.TabStop = false;
             groupBox6.Text = "Okruhy";
             // 
-            // listView1
+            // ScanMinus
             // 
-            listView1.Columns.AddRange(new ColumnHeader[] { Okruh, Patogen, FRQ, HRV });
-            listView1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            listView1.Location = new Point(6, 49);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(836, 669);
-            listView1.TabIndex = 9;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = View.Details;
-            // 
-            // Okruh
-            // 
-            Okruh.Text = "Okruh";
-            Okruh.Width = 200;
-            // 
-            // Patogen
-            // 
-            Patogen.Text = "Patogen";
-            Patogen.Width = 280;
-            // 
-            // FRQ
-            // 
-            FRQ.Text = "FRQ";
-            FRQ.Width = 150;
-            // 
-            // HRV
-            // 
-            HRV.Text = "HRV";
-            HRV.Width = 150;
+            ScanMinus.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ScanMinus.Location = new Point(716, 712);
+            ScanMinus.Name = "ScanMinus";
+            ScanMinus.Size = new Size(60, 60);
+            ScanMinus.TabIndex = 10;
+            ScanMinus.Text = "➖";
+            ScanMinus.UseVisualStyleBackColor = true;
+            ScanMinus.Click += ScanMinus_Click;
             // 
             // MeetingInterface
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(2008, 1081);
+            ClientSize = new Size(1387, 939);
             Controls.Add(groupBox6);
             Controls.Add(groupBox5);
             Controls.Add(groupBox4);
@@ -265,11 +280,12 @@ namespace Tritium.gui
         private GroupBox groupBox5;
         private TextBox textBox3;
         private GroupBox groupBox6;
-        private Button button1;
+        private Button ScanPlus;
         private ListView listView1;
         private ColumnHeader Okruh;
         private ColumnHeader Patogen;
         private ColumnHeader FRQ;
         private ColumnHeader HRV;
+        private Button ScanMinus;
     }
 }

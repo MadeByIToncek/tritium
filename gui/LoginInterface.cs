@@ -12,7 +12,7 @@ namespace Tritium
             UpdateList();
         }
 
-        private void UpdateList()
+        private async void UpdateList()
         {
             listBox1.Items.Clear();
             foreach (var item in Program.db.ListClients())
@@ -37,7 +37,7 @@ namespace Tritium
             ManagerWindow.SwitchToWindow(new MicrobeDBInterface(), this);
         }
 
-        private void Select_Click(object sender, EventArgs e)
+        private async void Select_Click(object sender, EventArgs e)
         {
             foreach (Klient item in Program.db.ListClients())
             {
