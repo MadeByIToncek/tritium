@@ -22,17 +22,6 @@ namespace Tritium.gui
             base.Dispose(disposing);
         }
 
-        bool closed = false;
-        protected override void OnClosing(CancelEventArgs e)
-        {
-            if (!closed)
-            {
-                closed = true;
-                ManagerWindow.SwitchToWindow(new ClientDBInterface(meeting.Client.Id), this);
-                base.OnClosing(e);
-            }
-        }
-
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -42,8 +31,9 @@ namespace Tritium.gui
         private void InitializeComponent()
         {
             dateTimePicker1 = new DateTimePicker();
-            textBox1 = new TextBox();
+            aktualniPotize = new TextBox();
             groupBox1 = new GroupBox();
+            ScanMinus = new Button();
             listView1 = new ListView();
             Okruh = new ColumnHeader();
             Patogen = new ColumnHeader();
@@ -55,11 +45,10 @@ namespace Tritium.gui
             groupBox2 = new GroupBox();
             groupBox3 = new GroupBox();
             groupBox4 = new GroupBox();
-            textBox2 = new TextBox();
+            nejviceObtezuje = new TextBox();
             groupBox5 = new GroupBox();
-            textBox3 = new TextBox();
+            coVyresit = new TextBox();
             groupBox6 = new GroupBox();
-            ScanMinus = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -76,14 +65,14 @@ namespace Tritium.gui
             dateTimePicker1.Size = new Size(343, 50);
             dateTimePicker1.TabIndex = 1;
             // 
-            // textBox1
+            // aktualniPotize
             // 
-            textBox1.Location = new Point(6, 38);
-            textBox1.Multiline = true;
-            textBox1.Name = "textBox1";
-            textBox1.ScrollBars = ScrollBars.Vertical;
-            textBox1.Size = new Size(492, 215);
-            textBox1.TabIndex = 2;
+            aktualniPotize.Location = new Point(6, 38);
+            aktualniPotize.Multiline = true;
+            aktualniPotize.Name = "aktualniPotize";
+            aktualniPotize.ScrollBars = ScrollBars.Vertical;
+            aktualniPotize.Size = new Size(492, 215);
+            aktualniPotize.TabIndex = 2;
             // 
             // groupBox1
             // 
@@ -97,6 +86,17 @@ namespace Tritium.gui
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
             groupBox1.Text = "Skeny";
+            // 
+            // ScanMinus
+            // 
+            ScanMinus.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ScanMinus.Location = new Point(716, 712);
+            ScanMinus.Name = "ScanMinus";
+            ScanMinus.Size = new Size(60, 60);
+            ScanMinus.TabIndex = 10;
+            ScanMinus.Text = "➖";
+            ScanMinus.UseVisualStyleBackColor = true;
+            ScanMinus.Click += ScanMinus_Click;
             // 
             // listView1
             // 
@@ -170,7 +170,7 @@ namespace Tritium.gui
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(textBox1);
+            groupBox3.Controls.Add(aktualniPotize);
             groupBox3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBox3.Location = new Point(12, 123);
             groupBox3.Name = "groupBox3";
@@ -181,7 +181,7 @@ namespace Tritium.gui
             // 
             // groupBox4
             // 
-            groupBox4.Controls.Add(textBox2);
+            groupBox4.Controls.Add(nejviceObtezuje);
             groupBox4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBox4.Location = new Point(12, 394);
             groupBox4.Name = "groupBox4";
@@ -190,18 +190,18 @@ namespace Tritium.gui
             groupBox4.TabStop = false;
             groupBox4.Text = "Co nejvíce obtěžuje";
             // 
-            // textBox2
+            // nejviceObtezuje
             // 
-            textBox2.Location = new Point(6, 38);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.ScrollBars = ScrollBars.Vertical;
-            textBox2.Size = new Size(492, 215);
-            textBox2.TabIndex = 2;
+            nejviceObtezuje.Location = new Point(6, 38);
+            nejviceObtezuje.Multiline = true;
+            nejviceObtezuje.Name = "nejviceObtezuje";
+            nejviceObtezuje.ScrollBars = ScrollBars.Vertical;
+            nejviceObtezuje.Size = new Size(492, 215);
+            nejviceObtezuje.TabIndex = 2;
             // 
             // groupBox5
             // 
-            groupBox5.Controls.Add(textBox3);
+            groupBox5.Controls.Add(coVyresit);
             groupBox5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBox5.Location = new Point(12, 665);
             groupBox5.Name = "groupBox5";
@@ -210,14 +210,14 @@ namespace Tritium.gui
             groupBox5.TabStop = false;
             groupBox5.Text = "Co chci vyřešit";
             // 
-            // textBox3
+            // coVyresit
             // 
-            textBox3.Location = new Point(6, 38);
-            textBox3.Multiline = true;
-            textBox3.Name = "textBox3";
-            textBox3.ScrollBars = ScrollBars.Vertical;
-            textBox3.Size = new Size(492, 215);
-            textBox3.TabIndex = 2;
+            coVyresit.Location = new Point(6, 38);
+            coVyresit.Multiline = true;
+            coVyresit.Name = "coVyresit";
+            coVyresit.ScrollBars = ScrollBars.Vertical;
+            coVyresit.Size = new Size(492, 215);
+            coVyresit.TabIndex = 2;
             // 
             // groupBox6
             // 
@@ -230,17 +230,6 @@ namespace Tritium.gui
             groupBox6.TabIndex = 8;
             groupBox6.TabStop = false;
             groupBox6.Text = "Okruhy";
-            // 
-            // ScanMinus
-            // 
-            ScanMinus.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            ScanMinus.Location = new Point(716, 712);
-            ScanMinus.Name = "ScanMinus";
-            ScanMinus.Size = new Size(60, 60);
-            ScanMinus.TabIndex = 10;
-            ScanMinus.Text = "➖";
-            ScanMinus.UseVisualStyleBackColor = true;
-            ScanMinus.Click += ScanMinus_Click;
             // 
             // MeetingInterface
             // 
@@ -269,16 +258,16 @@ namespace Tritium.gui
 
         #endregion
         private DateTimePicker dateTimePicker1;
-        private TextBox textBox1;
+        private TextBox aktualniPotize;
         private GroupBox groupBox1;
         private ComboBox okruh1;
         private ComboBox okruh2;
         private GroupBox groupBox2;
         private GroupBox groupBox3;
         private GroupBox groupBox4;
-        private TextBox textBox2;
+        private TextBox nejviceObtezuje;
         private GroupBox groupBox5;
-        private TextBox textBox3;
+        private TextBox coVyresit;
         private GroupBox groupBox6;
         private Button ScanPlus;
         private ListView listView1;

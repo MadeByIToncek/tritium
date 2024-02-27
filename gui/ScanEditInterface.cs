@@ -76,15 +76,33 @@ namespace Tritium.gui
         }
 
         bool closed = false;
-        protected override void OnClosing(CancelEventArgs e)
+        protected async override void OnClosing(CancelEventArgs e)
         {
             if (!closed)
             {
                 closed = true;
-                Program.db.UpdateSken(scan);
+
+                scan.Okruh = (string) Okruh.SelectedItem;
+                scan.FRQ = float.Parse(FRQ.Text);
+                scan.HRV = float.Parse(HRV.Text);
+                scan.Patogen = ParsePatogen((string) PatogenList.SelectedItem);
+
+                await Program.db.UpdateSken(scan);
                 ManagerWindow.SwitchToWindow(new MeetingInterface(scan.Navsteva.Id), this);
                 base.OnClosing(e);
             }
+        }
+
+        private static PatogenProgram ParsePatogen(string selectedItems)
+        {
+            foreach (var item in Program.db.ListPatogenPrograms())
+            {
+                if (item.Name == selectedItems)
+                {
+                    return item;
+                }
+            }
+            return Program.db.GetEmptyPatogen();
         }
     }
 }

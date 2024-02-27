@@ -18,12 +18,12 @@ namespace Tritium.gui
         public MeetingInterface(int meetingId)
         {
             InitializeComponent();
+            meeting = Program.db.GetMeetingsById(meetingId);
             LoadOkruhy();
             LoadSkeny();
-            this.meeting = Program.db.GetMeetingsById(meetingId);
         }
 
-        private async void LoadOkruhy()
+        private void LoadOkruhy()
         {
             okruh1.Items.Clear();
             okruh2.Items.Clear();
@@ -37,7 +37,7 @@ namespace Tritium.gui
             okruh2.Items.Add("<empty>");
         }
 
-        private async void LoadSkeny()
+        private void LoadSkeny()
         {
             listView1.SuspendLayout();
             listView1.Items.Clear();
@@ -65,5 +65,27 @@ namespace Tritium.gui
         {
             throw new NotImplementedException();
         }
+
+
+        bool closed = false;
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            if (!closed)
+            {
+                closed = true;
+
+                meeting.Date = dateTimePicker1.Value;
+                meeting.AktualniPotize = aktualniPotize.Text;
+                meeting.CoNejviceObtezuje = nejviceObtezuje.Text;
+                meeting.CoChceVyresit = coVyresit.Text;
+                meeting.SkenOkr1 = Program.db.GetOkruhByName((string)okruh1.SelectedItem);
+                meeting.SkenOkr2 = Program.db.GetOkruhByName((string)okruh2.SelectedItem);
+
+                Program.db.UpdateMeeting(meeting);
+                ManagerWindow.SwitchToWindow(new ClientDBInterface(meeting.Client.Id), this);
+                base.OnClosing(e);
+            }
+        }
+
     }
 }

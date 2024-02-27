@@ -40,9 +40,12 @@ namespace Tritium
 
         private void ListBox1_MouseDoubleClick(object sender, EventArgs e)
         {
-            int id = int.Parse(regex.Match(listBox1.SelectedItem.ToString()).Value[1..]);
-            closed = true;
-            ManagerWindow.SwitchToWindow(new MeetingInterface(id), this);
+            if (listBox1.SelectedIndex > -1)
+            {
+                int id = int.Parse(regex.Match(listBox1.SelectedItem.ToString()).Value[1..]);
+                closed = true;
+                ManagerWindow.SwitchToWindow(new MeetingInterface(id), this);
+            }
         }
 
         private void LoadClient(Klient cpp)
@@ -141,15 +144,15 @@ namespace Tritium
             rozpolozeni.Enabled = state;
         }
 
-        private void Commit_Click(object sender, EventArgs e)
+        private async void Commit_Click(object sender, EventArgs e)
         {
             if (cpp != null)
             {
                 cpp.Name = name.Text;
                 cpp.Type = dlazdice.Text;
                 cpp.Poznamky = notes.Text;
-                if (insert) Program.db.InsertPatogenProgram(cpp);
-                else Program.db.UpdatePatogenProgram(cpp);
+                if (insert) await Program.db.InsertPatogenProgram(cpp);
+                else await Program.db.UpdatePatogenProgram(cpp);
                 cpp = null;
                 UpdateList();
             }
