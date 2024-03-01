@@ -31,15 +31,21 @@ namespace Tritium.gui
         public void LoadData()
         {
             Okruh.Items.Clear();
+
             foreach (var item in GetListOfOkruhyFromNavsteva())
             {
+                if(item == null) continue;
                 Okruh.Items.Add(item.Name);
             };
+
+            Okruh.SelectedItem = scan.Okruh.Name;
 
             FRQ.Text = scan.FRQ.ToString();
             HRV.Text = scan.HRV.ToString();
 
             SearchBox_TextChanged(null, null);
+
+            PatogenList.SelectedItem = scan.Patogen.Type + " - " + scan.Patogen.Name + " - " + "~" + scan.Patogen.Id;
         }
 
         private List<Okruh> GetListOfOkruhyFromNavsteva()
@@ -63,12 +69,12 @@ namespace Tritium.gui
                 {
                     if (item.Name.Contains(SearchBox.Text, StringComparison.InvariantCultureIgnoreCase))
                     {
-                        PatogenList.Items.Add(item.Type + " - " + item.Name);
+                        PatogenList.Items.Add(item.Type + " - " + item.Name + " - " + "~" + item.Id);
                     }
                 }
                 else
                 {
-                    PatogenList.Items.Add(item.Type + " - " + item.Name);
+                    PatogenList.Items.Add(item.Type + " - " + item.Name + " - " + "~" + item.Id);
                 }
 
             }
@@ -82,27 +88,21 @@ namespace Tritium.gui
             {
                 closed = true;
 
-                scan.Okruh = (string) Okruh.SelectedItem;
+                scan.Okruh = Program.db.GetOkruhByName((string)Okruh.SelectedItem);
                 scan.FRQ = float.Parse(FRQ.Text);
                 scan.HRV = float.Parse(HRV.Text);
-                scan.Patogen = ParsePatogen((string) PatogenList.SelectedItem);
-
+                scan.Patogen = ParsePatogen(((string)PatogenList.SelectedItem));
                 await Program.db.UpdateSken(scan);
+
                 ManagerWindow.SwitchToWindow(new MeetingInterface(scan.Navsteva.Id), this);
                 base.OnClosing(e);
             }
         }
 
-        private static PatogenProgram ParsePatogen(string selectedItems)
+        private static PatogenProgram ParsePatogen(string selectedItem)
         {
-            foreach (var item in Program.db.ListPatogenPrograms())
-            {
-                if (item.Name == selectedItems)
-                {
-                    return item;
-                }
-            }
-            return Program.db.GetEmptyPatogen();
+            PatogenProgram patogenProgram = Program.db.GetPatogenById(selectedItem.Split(" - ")[2].Substring(1));
+            return patogenProgram;
         }
     }
 }

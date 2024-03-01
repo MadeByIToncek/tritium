@@ -49,6 +49,7 @@ namespace Tritium.gui
             groupBox5 = new GroupBox();
             coVyresit = new TextBox();
             groupBox6 = new GroupBox();
+            id = new ColumnHeader();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -63,7 +64,7 @@ namespace Tritium.gui
             dateTimePicker1.Location = new Point(6, 38);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(343, 50);
-            dateTimePicker1.TabIndex = 1;
+            dateTimePicker1.TabIndex = 0;
             // 
             // aktualniPotize
             // 
@@ -72,7 +73,7 @@ namespace Tritium.gui
             aktualniPotize.Name = "aktualniPotize";
             aktualniPotize.ScrollBars = ScrollBars.Vertical;
             aktualniPotize.Size = new Size(492, 215);
-            aktualniPotize.TabIndex = 2;
+            aktualniPotize.TabIndex = 1;
             // 
             // groupBox1
             // 
@@ -82,7 +83,7 @@ namespace Tritium.gui
             groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBox1.Location = new Point(527, 153);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(851, 778);
+            groupBox1.Size = new Size(1011, 778);
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
             groupBox1.Text = "Skeny";
@@ -90,22 +91,22 @@ namespace Tritium.gui
             // ScanMinus
             // 
             ScanMinus.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            ScanMinus.Location = new Point(716, 712);
+            ScanMinus.Location = new Point(879, 711);
             ScanMinus.Name = "ScanMinus";
             ScanMinus.Size = new Size(60, 60);
-            ScanMinus.TabIndex = 10;
+            ScanMinus.TabIndex = 7;
             ScanMinus.Text = "➖";
             ScanMinus.UseVisualStyleBackColor = true;
             ScanMinus.Click += ScanMinus_Click;
             // 
             // listView1
             // 
-            listView1.Columns.AddRange(new ColumnHeader[] { Okruh, Patogen, FRQ, HRV });
+            listView1.Columns.AddRange(new ColumnHeader[] { id, Okruh, Patogen, FRQ, HRV });
             listView1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             listView1.Location = new Point(6, 38);
             listView1.Name = "listView1";
-            listView1.Size = new Size(836, 669);
-            listView1.TabIndex = 9;
+            listView1.Size = new Size(999, 669);
+            listView1.TabIndex = 6;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = View.Details;
             listView1.DoubleClick += ListView1_DoubleClick;
@@ -133,10 +134,10 @@ namespace Tritium.gui
             // ScanPlus
             // 
             ScanPlus.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            ScanPlus.Location = new Point(782, 713);
+            ScanPlus.Location = new Point(945, 712);
             ScanPlus.Name = "ScanPlus";
             ScanPlus.Size = new Size(60, 60);
-            ScanPlus.TabIndex = 1;
+            ScanPlus.TabIndex = 8;
             ScanPlus.Text = "➕";
             ScanPlus.UseVisualStyleBackColor = true;
             ScanPlus.Click += ScanPlus_Click;
@@ -147,7 +148,7 @@ namespace Tritium.gui
             okruh1.Location = new Point(6, 38);
             okruh1.Name = "okruh1";
             okruh1.Size = new Size(213, 40);
-            okruh1.TabIndex = 6;
+            okruh1.TabIndex = 4;
             // 
             // okruh2
             // 
@@ -155,7 +156,7 @@ namespace Tritium.gui
             okruh2.Location = new Point(6, 84);
             okruh2.Name = "okruh2";
             okruh2.Size = new Size(213, 40);
-            okruh2.TabIndex = 7;
+            okruh2.TabIndex = 5;
             // 
             // groupBox2
             // 
@@ -164,7 +165,7 @@ namespace Tritium.gui
             groupBox2.Location = new Point(12, 12);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(358, 105);
-            groupBox2.TabIndex = 6;
+            groupBox2.TabIndex = 0;
             groupBox2.TabStop = false;
             groupBox2.Text = "Datum";
             // 
@@ -175,7 +176,7 @@ namespace Tritium.gui
             groupBox3.Location = new Point(12, 123);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(509, 265);
-            groupBox3.TabIndex = 6;
+            groupBox3.TabIndex = 1;
             groupBox3.TabStop = false;
             groupBox3.Text = "Aktuální potíže";
             // 
@@ -217,7 +218,7 @@ namespace Tritium.gui
             coVyresit.Name = "coVyresit";
             coVyresit.ScrollBars = ScrollBars.Vertical;
             coVyresit.Size = new Size(492, 215);
-            coVyresit.TabIndex = 2;
+            coVyresit.TabIndex = 3;
             // 
             // groupBox6
             // 
@@ -231,11 +232,16 @@ namespace Tritium.gui
             groupBox6.TabStop = false;
             groupBox6.Text = "Okruhy";
             // 
+            // id
+            // 
+            id.Text = "ID";
+            id.Width = 50;
+            // 
             // MeetingInterface
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1387, 939);
+            ClientSize = new Size(1550, 939);
             Controls.Add(groupBox6);
             Controls.Add(groupBox5);
             Controls.Add(groupBox4);
@@ -276,5 +282,6 @@ namespace Tritium.gui
         private ColumnHeader FRQ;
         private ColumnHeader HRV;
         private Button ScanMinus;
+        private ColumnHeader id;
     }
 }
