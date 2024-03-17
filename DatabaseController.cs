@@ -22,10 +22,7 @@ namespace Tritium
 
         public DatabaseController(string path)
         {
-            if (Program.SplashScreen != null)
-            {
-                Program.SplashScreen.SetCurrentProgressMessage("DB", "Connecting");
-            }
+            Program.SplashScreen?.SetCurrentProgressMessage("DB", "Connecting");
 
             _sessionFactory = Fluently.Configure()
                 .Database(SQLiteConfiguration.Standard.UsingFile(path))
@@ -35,19 +32,13 @@ namespace Tritium
                 .BuildSessionFactory();
             isLocal = true; 
 
-            if (Program.SplashScreen != null)
-            {
-                Program.SplashScreen.SetCurrentProgressMessage("DB", "Connected");
-            }
+            Program.SplashScreen?.SetCurrentProgressMessage("DB", "Connected");
 
             MigrateIfNeededAsync(_sessionFactory.OpenSession());
         }
         public DatabaseController(string server, int port, string database, string user, string password)
         {
-            if (Program.SplashScreen != null)
-            {
-                Program.SplashScreen.SetCurrentProgressMessage("DB", "Connecting");
-            }
+            Program.SplashScreen?.SetCurrentProgressMessage("DB", "Connecting");
             
             _sessionFactory = Fluently.Configure()
                 .Database(MySQLConfiguration.Standard.ConnectionString(c =>
@@ -63,29 +54,20 @@ namespace Tritium
 
             isLocal = false;
 
-            if (Program.SplashScreen != null)
-            {
-                Program.SplashScreen.SetCurrentProgressMessage("DB", "Connected");
-            }
+            Program.SplashScreen?.SetCurrentProgressMessage("DB", "Connected");
 
             MigrateIfNeededAsync(_sessionFactory.OpenSession());
         }
 
         private static void MigrateIfNeededAsync(ISession session)
         {
-            if (Program.SplashScreen != null)
-            {
-                Program.SplashScreen.SetCurrentProgressMessage("DB Migrations", "Checking Patogens");
-            }
+            Program.SplashScreen?.SetCurrentProgressMessage("DB Migrations", "Checking Patogens");
 
             ITransaction transaction = session.BeginTransaction();
             transaction.Begin();
             if ((session.CreateSQLQuery("SELECT * FROM PatogenProgram").List()).Count < 1)
             {
-                if (Program.SplashScreen != null)
-                {
-                    Program.SplashScreen.SetCurrentProgressMessage("DB Migrations", "Patogen migration started");
-                }
+                Program.SplashScreen?.SetCurrentProgressMessage("DB Migrations", "Patogen migration started");
                 var assembly = Assembly.GetExecutingAssembly();
                 string resourceName = assembly.GetManifestResourceNames().Single(str => str.EndsWith("patogenprogramy.csv"));
 

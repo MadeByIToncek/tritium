@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Windows.Forms;
 
 namespace Tritium.gui
 {
@@ -242,6 +243,8 @@ namespace Tritium.gui
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1550, 939);
+            MaximumSize = Program.ConvertToFullSize(ClientSize);
+            MinimumSize = Program.ConvertToFullSize(ClientSize);
             Controls.Add(groupBox6);
             Controls.Add(groupBox5);
             Controls.Add(groupBox4);

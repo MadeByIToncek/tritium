@@ -8,7 +8,7 @@ namespace Tritium
     public partial class ClientDBInterface : Form
     {
         PatogenProgram? cpp = null;
-        bool insert = false;
+        bool isLoaded = false;
         readonly Klient client;
         private readonly Regex regex = MatchMeetingId();
         static readonly System.Windows.Forms.Timer saveTimer = new();
@@ -22,9 +22,9 @@ namespace Tritium
             LoadClient(client);
             ChangeState(true);
 
-            saveTimer.Tick += (o, ea) =>
+            saveTimer.Tick += async (o, ea) =>
             {
-                SaveClient();
+                await SaveClient();
                 saveTimer.Stop();
             };
             saveTimer.Interval = 2000; // 2 seconds
@@ -38,10 +38,12 @@ namespace Tritium
             IOIndicator.Interval = 2000; // 2 seconds
         }
 
-        private void ListBox1_MouseDoubleClick(object sender, EventArgs e)
+        private async void ListBox1_MouseDoubleClick(object sender, EventArgs e)
         {
             if (listBox1.SelectedIndex > -1)
             {
+                ChangeState(false);
+                if(isLoaded) { await SaveClient(); }
                 int id = int.Parse(regex.Match(listBox1.SelectedItem.ToString()).Value[1..]);
                 closed = true;
                 ManagerWindow.SwitchToWindow(new MeetingInterface(id), this);
@@ -50,6 +52,7 @@ namespace Tritium
 
         private void LoadClient(Klient cpp)
         {
+            ChangeState(false);
             ioIdent.Text = "🔄";
             ioIdent.ForeColor = Color.Blue;
             name.Text = cpp.Jmeno;
@@ -78,43 +81,47 @@ namespace Tritium
             ioIdent.Text = "✅";
             ioIdent.ForeColor = Color.Green;
             IOIndicator.Start();
-
+            isLoaded = true;
+            ChangeState(true);
         }
 
-        private async void SaveClient()
+        private async Task SaveClient()
         {
-            ioIdent.Text = "🔄";
-            ioIdent.ForeColor = Color.Blue;
+            if (isLoaded)
+            {
+                ioIdent.Text = "🔄";
+                ioIdent.ForeColor = Color.Blue;
 
-            client.Jmeno = name.Text;
-            client.DatumNarozeni = birthdate.Value;
-            client.Telefon = phone.Text;
-            client.Email = email.Text;
-            client.Adresa = address.Text;
-            client.Poznamka = notes.Text;
-            client.Kardiostimulator = kardiostimulator.Checked;
-            client.AktualniTehotenstvi = aktualniTehotenstvi.Checked;
-            client.Epilepsie = epilepsie.Checked;
-            client.AutoimunitniOnemocneni = AIOnemocneni.Text;
-            client.KrevniTlak = krevniTlak.Text;
-            client.DlouhodobePotize = dlouhodobePotize.Text;
-            client.PredchazejiciNemoci = predchazejiciNemoci.Text;
-            client.RodinnaAnamneza = rodinnaAnamneza.Text;
-            client.Strava = strava.Text;
-            client.Homeo = homeopatika.Text;
-            client.OnkologickeOnemocneni = onko.Text;
-            client.Leky = leky.Text;
-            client.Traveni = traveni.Text;
-            client.SituacePrace = sitPrace.Text;
-            client.SituaceRodina = sitRodina.Text;
-            client.SituaceOstatni = sitOstatni.Text;
-            client.Rozpolozeni = rozpolozeni.Text;
+                client.Jmeno = name.Text;
+                client.DatumNarozeni = birthdate.Value;
+                client.Telefon = phone.Text;
+                client.Email = email.Text;
+                client.Adresa = address.Text;
+                client.Poznamka = notes.Text;
+                client.Kardiostimulator = kardiostimulator.Checked;
+                client.AktualniTehotenstvi = aktualniTehotenstvi.Checked;
+                client.Epilepsie = epilepsie.Checked;
+                client.AutoimunitniOnemocneni = AIOnemocneni.Text;
+                client.KrevniTlak = krevniTlak.Text;
+                client.DlouhodobePotize = dlouhodobePotize.Text;
+                client.PredchazejiciNemoci = predchazejiciNemoci.Text;
+                client.RodinnaAnamneza = rodinnaAnamneza.Text;
+                client.Strava = strava.Text;
+                client.Homeo = homeopatika.Text;
+                client.OnkologickeOnemocneni = onko.Text;
+                client.Leky = leky.Text;
+                client.Traveni = traveni.Text;
+                client.SituacePrace = sitPrace.Text;
+                client.SituaceRodina = sitRodina.Text;
+                client.SituaceOstatni = sitOstatni.Text;
+                client.Rozpolozeni = rozpolozeni.Text;
 
-            await Program.db.UpdateClient(client);
+                await Program.db.UpdateClient(client);
 
-            ioIdent.Text = "✅";
-            ioIdent.ForeColor = Color.Green;
-            IOIndicator.Start();
+                ioIdent.Text = "✅";
+                ioIdent.ForeColor = Color.Green;
+                IOIndicator.Start();
+            }
         }
 
         private void ChangeState(bool state)
@@ -144,20 +151,6 @@ namespace Tritium
             rozpolozeni.Enabled = state;
         }
 
-        private async void Commit_Click(object sender, EventArgs e)
-        {
-            if (cpp != null)
-            {
-                cpp.Name = name.Text;
-                cpp.Type = dlazdice.Text;
-                cpp.Poznamky = notes.Text;
-                if (insert) await Program.db.InsertPatogenProgram(cpp);
-                else await Program.db.UpdatePatogenProgram(cpp);
-                cpp = null;
-                UpdateList();
-            }
-        }
-
         private void UpdateList()
         {
             listBox1.Items.Clear();
@@ -168,19 +161,13 @@ namespace Tritium
             }
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private async void Button1_Click(object sender, EventArgs e)
         {
-            Program.db.CreateEmptyMeetingWithClient(client);
+            await Program.db.CreateEmptyMeetingWithClient(client);
             UpdateList();
         }
 
-        private void Cancel_Click(object sender, EventArgs e)
-        {
-            cpp = null;
-            listBox1.ClearSelected();
-        }
-
-        private void Button2_Click(object sender, EventArgs e)
+        private async void Button2_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedIndex != -1)
             {
@@ -188,7 +175,7 @@ namespace Tritium
                 {
                     if (item.Name.Contains(listBox1.SelectedItem.ToString(), StringComparison.InvariantCultureIgnoreCase))
                     {
-                        Program.db.DeletePatogenProgram(item);
+                        await Program.db.DeletePatogenProgram(item);
                         break;
                     }
                 }
@@ -196,8 +183,6 @@ namespace Tritium
                 UpdateList();
             }
         }
-
-
 
         private void DatabaseUpdate(object sender, EventArgs e)
         {

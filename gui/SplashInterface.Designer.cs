@@ -79,6 +79,8 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(639, 290);
+            MaximumSize = Program.ConvertToFullSize(ClientSize);
+            MinimumSize = Program.ConvertToFullSize(ClientSize);
             Controls.Add(logDisplay);
             Controls.Add(ver);
             Controls.Add(pictureBox1);

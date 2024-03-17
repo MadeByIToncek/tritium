@@ -30,15 +30,9 @@ namespace Tritium
             splashThread.SetApartmentState(ApartmentState.STA);
             splashThread.Start();
 
-            if (SplashScreen != null)
-            {
-                SplashScreen.SetCurrentProgressMessage("SYSTEM", "DB Init");
-            }
+            SplashScreen?.SetCurrentProgressMessage("SYSTEM", "DB Init");
             db = LoadDatabaseConfig();
-            if (SplashScreen != null)
-            {
-                SplashScreen.SetCurrentProgressMessage("SYSTEM", "Main form Init");
-            }
+            SplashScreen?.SetCurrentProgressMessage("SYSTEM", "Main form Init");
             MainForm = new ManagerWindow();
             MainForm.Load += MainForm_LoadCompleted;
             Application.Run(MainForm);
@@ -51,19 +45,13 @@ namespace Tritium
                 JObject filecontent;
                 Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Tritium"));
 
-                if (SplashScreen != null)
-                {
-                    SplashScreen.SetCurrentProgressMessage("DB", "Reading config");
-                }
+                SplashScreen?.SetCurrentProgressMessage("DB", "Reading config");
                 using (var sr = new StreamReader(Path.Combine(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Tritium"), "config.json")))
                 {
                     filecontent = JObject.Parse(sr.ReadToEnd());
                 }
 
-                if (SplashScreen != null)
-                {
-                    SplashScreen.SetCurrentProgressMessage("DB", "Parsing config");
-                }
+                SplashScreen?.SetCurrentProgressMessage("DB", "Parsing config");
                 bool isLocal = filecontent["isLocal"].Value<bool>();
                 if (isLocal)
                 {
@@ -83,11 +71,8 @@ namespace Tritium
             catch (FileNotFoundException)
             {
 
-                if (SplashScreen != null)
-                {
-                    SplashScreen.SetCurrentProgressMessage("DB", "Creating config");
-                }
-                JObject content = new JObject(
+                SplashScreen?.SetCurrentProgressMessage("DB", "Creating config");
+                JObject content = new(
                     new JProperty("isLocal", true),
                     new JProperty("path", Path.Combine(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Tritium"), "database.db")),
                     new JProperty("mysql",  new JObject(
@@ -99,10 +84,7 @@ namespace Tritium
                     )));
                 try
                 {
-                    if (SplashScreen != null)
-                    {
-                        SplashScreen.SetCurrentProgressMessage("DB", "Writing config");
-                    }
+                    SplashScreen?.SetCurrentProgressMessage("DB", "Writing config");
                     File.WriteAllText(Path.Combine(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Tritium"), "config.json"), content.ToString());
                 } catch (Exception e) { 
                     MessageBox.Show(e.Message);
@@ -117,6 +99,11 @@ namespace Tritium
                 SplashScreen.Invoke(new Action(() => SplashScreen.Close()));
             MainForm.TopMost = true;
             MainForm.Activate();
+        }
+
+        internal static Size ConvertToFullSize(Size clientSize)
+        {
+            return new Size(clientSize.Width+20, clientSize.Height+60);
         }
     }
 

@@ -17,7 +17,7 @@ namespace Tritium
             UpdateList();
         }
 
-        private async void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listBox1.SelectedIndex != -1)
             {
@@ -74,7 +74,7 @@ namespace Tritium
         }
 
 
-        private long UnparseTime(string text)
+        private static long UnparseTime(string text)
         {
             TimeSpan t = TimeSpan.Parse(text);
             return (long)Math.Round(t.TotalSeconds);
@@ -85,7 +85,7 @@ namespace Tritium
             UpdateList();
         }
 
-        private void Commit_Click(object sender, EventArgs e)
+        private async void Commit_Click(object sender, EventArgs e)
         {
             if (cpp != null)
             {
@@ -100,15 +100,15 @@ namespace Tritium
                 cpp.Okruhy = okruhy.Text;
                 cpp.Poznamky = poznamky.Text;
                 cpp.Popis = description.Text;
-                if (insert) Program.db.InsertPatogenProgram(cpp);
-                else Program.db.UpdatePatogenProgram(cpp);
+                if (insert) await Program.db.InsertPatogenProgram(cpp);
+                else await Program.db.UpdatePatogenProgram(cpp);
                 cpp = null;
                 ClearForm();
                 UpdateList();
             }
         }
 
-        private async void UpdateList()
+        private void UpdateList()
         {
             listBox1.SuspendLayout();
             listBox1.Items.Clear();
@@ -196,7 +196,7 @@ namespace Tritium
                 {
                     if (item.Name.Contains(pattern.Replace(listBox1.SelectedItem.ToString(), ""), StringComparison.InvariantCultureIgnoreCase))
                     {
-                        Program.db.DeletePatogenProgram(item);
+                        await Program.db.DeletePatogenProgram(item);
                         break;
                     }
                 }

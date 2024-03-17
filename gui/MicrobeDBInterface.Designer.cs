@@ -428,6 +428,8 @@ namespace Tritium
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(978, 1095);
+            MaximumSize = Program.ConvertToFullSize(ClientSize);
+            MinimumSize = Program.ConvertToFullSize(ClientSize);
             Controls.Add(tableLayoutPanel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4);

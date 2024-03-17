@@ -44,7 +44,7 @@ namespace Tritium.Entities
 
         public Klient()
         {
-            Navstevy = new List<Navsteva>();
+            Navstevy = [];
         }
 
         public virtual void PridatNavstevu(Navsteva navsteva)

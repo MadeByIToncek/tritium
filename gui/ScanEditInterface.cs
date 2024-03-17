@@ -58,7 +58,7 @@ namespace Tritium.gui
             ];
         }
 
-        private async void SearchBox_TextChanged(object? sender, EventArgs? e)
+        private void SearchBox_TextChanged(object? sender, EventArgs? e)
         {
             PatogenList.SuspendLayout();
             PatogenList.Items.Clear();
@@ -101,7 +101,7 @@ namespace Tritium.gui
 
         private static PatogenProgram ParsePatogen(string selectedItem)
         {
-            PatogenProgram patogenProgram = Program.db.GetPatogenById(selectedItem.Split(" - ")[2].Substring(1));
+            PatogenProgram patogenProgram = Program.db.GetPatogenById(selectedItem.Split(" - ")[2][1..]);
             return patogenProgram;
         }
     }

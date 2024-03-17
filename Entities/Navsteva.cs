@@ -21,8 +21,8 @@ namespace Tritium.Entities
 
         public Navsteva()
         {
-            Skeny = new List<Sken>();
-            KompenzacniSety = new List<KompenzacniSet>();
+            Skeny = [];
+            KompenzacniSety = [];
         }
 
         public virtual void PridatSken(Sken sken)

@@ -1,4 +1,6 @@
 ﻿
+using System.Windows.Forms;
+
 namespace Tritium
 {
     partial class LoginInterface
@@ -46,6 +48,7 @@ namespace Tritium
             select.Margin = new Padding(4);
             select.Name = "select";
             select.Size = new Size(58, 52);
+            select.MaximumSize = select.Size;
             select.TabIndex = 1;
             select.Text = "➡";
             select.UseVisualStyleBackColor = true;
@@ -117,6 +120,8 @@ namespace Tritium
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(720, 408);
+            MaximumSize = Program.ConvertToFullSize(ClientSize);
+            MinimumSize = Program.ConvertToFullSize(ClientSize);
             Controls.Add(button1);
             Controls.Add(listBox1);
             Controls.Add(flowLayoutPanel1);

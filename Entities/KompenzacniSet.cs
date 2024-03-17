@@ -7,7 +7,7 @@
 
         public KompenzacniSet()
         {
-            KompenzacniDavky = new List<KompenzacniDavka>();
+            KompenzacniDavky = [];
         }
 
         public virtual void PridatDavku(KompenzacniDavka davka)
