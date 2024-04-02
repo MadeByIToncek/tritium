@@ -396,6 +396,17 @@ namespace Tritium
             session.Close();
         }
 
+
+        internal async Task DeleteClient(int id)
+        {
+            using var session = _sessionFactory.OpenSession();
+            using var trans = session.BeginTransaction();
+            trans.Begin();
+            await session.DeleteAsync(GetClientById(id));
+            await trans.CommitAsync();
+            session.Close();
+        }
+
         internal PatogenProgram GetPatogenById(string v)
         {
             using var session = _sessionFactory.OpenSession();

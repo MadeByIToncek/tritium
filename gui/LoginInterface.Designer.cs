@@ -38,6 +38,7 @@ namespace Tritium
             exit = new Button();
             listBox1 = new ListBox();
             button1 = new Button();
+            button2 = new Button();
             flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -46,9 +47,9 @@ namespace Tritium
             select.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
             select.Location = new Point(4, 4);
             select.Margin = new Padding(4);
+            select.MaximumSize = new Size(58, 52);
             select.Name = "select";
             select.Size = new Size(58, 52);
-            select.MaximumSize = select.Size;
             select.TabIndex = 1;
             select.Text = "➡";
             select.UseVisualStyleBackColor = true;
@@ -60,10 +61,12 @@ namespace Tritium
             flowLayoutPanel1.Controls.Add(select);
             flowLayoutPanel1.Controls.Add(manageMicrobeDB);
             flowLayoutPanel1.Controls.Add(exit);
-            flowLayoutPanel1.Location = new Point(644, 104);
+            flowLayoutPanel1.Controls.Add(button1);
+            flowLayoutPanel1.Controls.Add(button2);
+            flowLayoutPanel1.Location = new Point(644, 54);
             flowLayoutPanel1.Margin = new Padding(4);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(65, 186);
+            flowLayoutPanel1.Size = new Size(65, 302);
             flowLayoutPanel1.TabIndex = 4;
             // 
             // manageMicrobeDB
@@ -105,24 +108,33 @@ namespace Tritium
             // 
             // button1
             // 
-            button1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            button1.Location = new Point(648, 343);
+            button1.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            button1.Location = new Point(4, 184);
             button1.Margin = new Padding(4);
             button1.Name = "button1";
             button1.Size = new Size(58, 52);
             button1.TabIndex = 6;
-            button1.Text = "+";
+            button1.Text = "➕";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += Button1_Click;
+            button1.Click += plus_click;
+            // 
+            // button2
+            // 
+            button2.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            button2.Location = new Point(4, 244);
+            button2.Margin = new Padding(4);
+            button2.Name = "button2";
+            button2.Size = new Size(58, 52);
+            button2.TabIndex = 7;
+            button2.Text = "➖";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += minus_click;
             // 
             // LoginInterface
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(720, 408);
-            MaximumSize = Program.ConvertToFullSize(ClientSize);
-            MinimumSize = Program.ConvertToFullSize(ClientSize);
-            Controls.Add(button1);
             Controls.Add(listBox1);
             Controls.Add(flowLayoutPanel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -147,5 +159,6 @@ namespace Tritium
         private Button exit;
         private ListBox listBox1;
         private Button button1;
+        private Button button2;
     }
 }

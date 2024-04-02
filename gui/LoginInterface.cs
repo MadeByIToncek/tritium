@@ -50,7 +50,7 @@ namespace Tritium
             }
         }
 
-        private async void Button1_Click(object sender, EventArgs e)
+        private async void plus_click(object sender, EventArgs e)
         {
             await Program.db.CreateEmptyClient();
             UpdateList();
@@ -59,6 +59,19 @@ namespace Tritium
         private void ListBox1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             Select_Click(sender, e);
+        }
+
+        private void minus_click(object sender, EventArgs e)
+        {
+            foreach (Klient item in Program.db.ListClients())
+            {
+                if (listBox1.SelectedItem != null && "#" + item.Id == (string)listBox1.SelectedItem)
+                {
+                    isNatural = true;
+                    ManagerWindow.SwitchToWindow(new DeleteProtection(item.Id), this);
+                    break;
+                }
+            }
         }
     }
 }
