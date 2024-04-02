@@ -73,5 +73,11 @@ namespace Tritium
                 }
             }
         }
+
+        private void about_Click(object sender, EventArgs e)
+        {
+            isNatural = true;
+            ManagerWindow.SwitchToWindow(new AboutBox1(), this);
+        }
     }
 }

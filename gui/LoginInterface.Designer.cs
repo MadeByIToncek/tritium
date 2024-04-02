@@ -36,9 +36,10 @@ namespace Tritium
             flowLayoutPanel1 = new FlowLayoutPanel();
             manageMicrobeDB = new Button();
             exit = new Button();
-            listBox1 = new ListBox();
             button1 = new Button();
             button2 = new Button();
+            listBox1 = new ListBox();
+            about = new Button();
             flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -63,10 +64,11 @@ namespace Tritium
             flowLayoutPanel1.Controls.Add(exit);
             flowLayoutPanel1.Controls.Add(button1);
             flowLayoutPanel1.Controls.Add(button2);
-            flowLayoutPanel1.Location = new Point(644, 54);
+            flowLayoutPanel1.Controls.Add(about);
+            flowLayoutPanel1.Location = new Point(644, 13);
             flowLayoutPanel1.Margin = new Padding(4);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(65, 302);
+            flowLayoutPanel1.Size = new Size(65, 364);
             flowLayoutPanel1.TabIndex = 4;
             // 
             // manageMicrobeDB
@@ -94,18 +96,6 @@ namespace Tritium
             exit.UseVisualStyleBackColor = true;
             exit.Click += Exit_Click;
             // 
-            // listBox1
-            // 
-            listBox1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 38;
-            listBox1.Location = new Point(12, 12);
-            listBox1.Margin = new Padding(2);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(626, 384);
-            listBox1.TabIndex = 5;
-            listBox1.MouseDoubleClick += ListBox1_MouseDoubleClick;
-            // 
             // button1
             // 
             button1.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 238);
@@ -129,6 +119,30 @@ namespace Tritium
             button2.Text = "➖";
             button2.UseVisualStyleBackColor = true;
             button2.Click += minus_click;
+            // 
+            // listBox1
+            // 
+            listBox1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            listBox1.FormattingEnabled = true;
+            listBox1.ItemHeight = 38;
+            listBox1.Location = new Point(12, 12);
+            listBox1.Margin = new Padding(2);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(626, 384);
+            listBox1.TabIndex = 5;
+            listBox1.MouseDoubleClick += ListBox1_MouseDoubleClick;
+            // 
+            // about
+            // 
+            about.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 238);
+            about.Location = new Point(4, 304);
+            about.Margin = new Padding(4);
+            about.Name = "about";
+            about.Size = new Size(58, 52);
+            about.TabIndex = 8;
+            about.Text = "❓";
+            about.UseVisualStyleBackColor = true;
+            about.Click += about_Click;
             // 
             // LoginInterface
             // 
@@ -160,5 +174,6 @@ namespace Tritium
         private ListBox listBox1;
         private Button button1;
         private Button button2;
+        private Button about;
     }
 }
