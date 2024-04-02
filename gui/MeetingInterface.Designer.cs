@@ -36,6 +36,7 @@ namespace Tritium.gui
             groupBox1 = new GroupBox();
             ScanMinus = new Button();
             listView1 = new ListView();
+            id = new ColumnHeader();
             Okruh = new ColumnHeader();
             Patogen = new ColumnHeader();
             FRQ = new ColumnHeader();
@@ -50,7 +51,6 @@ namespace Tritium.gui
             groupBox5 = new GroupBox();
             coVyresit = new TextBox();
             groupBox6 = new GroupBox();
-            id = new ColumnHeader();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -104,13 +104,21 @@ namespace Tritium.gui
             // 
             listView1.Columns.AddRange(new ColumnHeader[] { id, Okruh, Patogen, FRQ, HRV });
             listView1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            listView1.HeaderStyle = ColumnHeaderStyle.Nonclickable;
+            listView1.ImeMode = ImeMode.Disable;
             listView1.Location = new Point(6, 38);
+            listView1.MultiSelect = false;
             listView1.Name = "listView1";
             listView1.Size = new Size(999, 669);
             listView1.TabIndex = 6;
             listView1.UseCompatibleStateImageBehavior = false;
             listView1.View = View.Details;
             listView1.DoubleClick += ListView1_DoubleClick;
+            // 
+            // id
+            // 
+            id.Text = "ID";
+            id.Width = 50;
             // 
             // Okruh
             // 
@@ -233,18 +241,11 @@ namespace Tritium.gui
             groupBox6.TabStop = false;
             groupBox6.Text = "Okruhy";
             // 
-            // id
-            // 
-            id.Text = "ID";
-            id.Width = 50;
-            // 
             // MeetingInterface
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1550, 939);
-            MaximumSize = Program.ConvertToFullSize(ClientSize);
-            MinimumSize = Program.ConvertToFullSize(ClientSize);
             Controls.Add(groupBox6);
             Controls.Add(groupBox5);
             Controls.Add(groupBox4);

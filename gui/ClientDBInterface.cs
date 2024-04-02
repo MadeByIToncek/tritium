@@ -22,6 +22,7 @@ namespace Tritium
             LoadClient(client);
             ChangeState(true);
 
+            saveTimer.Stop();
             saveTimer.Tick += async (o, ea) =>
             {
                 await SaveClient();
