@@ -14,6 +14,7 @@ namespace Tritium.Mappings
         {
             Id(x => x.Id);
             Map(x => x.Poradi);
+            Map(x => x.Done);
             Map(x => x.Note);
             Map(x => x.NoteContents)
                 .Length(10000)

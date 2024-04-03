@@ -4,6 +4,7 @@
     {
         public virtual int Id { get; protected set; }
         public virtual int Poradi { get; set; }
+        public virtual bool Done { get; set; }
         public virtual bool Note { get; set; }
         public virtual string? NoteContents { get; set; }
         public virtual long? NoteDuration { get; set; }

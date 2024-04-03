@@ -22,6 +22,7 @@ namespace Tritium.gui
             LoadTexts();
             LoadOkruhy();
             LoadSkeny();
+            LoadPlany();
         }
 
         private void LoadTexts()
@@ -48,8 +49,8 @@ namespace Tritium.gui
 
         private void LoadSkeny()
         {
-            listView1.SuspendLayout();
-            listView1.Items.Clear();
+            skeny.SuspendLayout();
+            skeny.Items.Clear();
 
             foreach (Sken item in Program.db.GetScansForMeeting(meeting.Id))
             {
@@ -58,10 +59,51 @@ namespace Tritium.gui
                 vitem.SubItems.Add(new ListViewItem.ListViewSubItem(vitem, item.Patogen.Name));
                 vitem.SubItems.Add(new ListViewItem.ListViewSubItem(vitem, item.FRQ + ""));
                 vitem.SubItems.Add(new ListViewItem.ListViewSubItem(vitem, item.HRV + ""));
-                listView1.Items.Add(vitem);
+                skeny.Items.Add(vitem);
             }
 
-            listView1.ResumeLayout();
+            skeny.ResumeLayout();
+        }
+
+        private void LoadPlany()
+        {
+            plany.SuspendLayout();
+            plany.Items.Clear();
+
+            foreach (Plan item in Program.db.GetPlansForMeeting(meeting.Id))
+            {
+                ListViewItem vitem = new("€" + item.Id);
+                vitem.SubItems.Add(new ListViewItem.ListViewSubItem(vitem, item.Poradi + ""));
+                vitem.SubItems.Add(new ListViewItem.ListViewSubItem(vitem, item.Note?"N":"P"));
+                vitem.SubItems.Add(new ListViewItem.ListViewSubItem(vitem, GenerateNoteFromNormalPlan(item)));
+
+                ListViewItem.ListViewSubItem done = new ListViewItem.ListViewSubItem(vitem, item.Done ? "✅" : "❌");
+                done.ForeColor = item.Done ? Color.Lime : Color.Red;
+                vitem.SubItems.Add(done);
+
+                plany.Items.Add(vitem);
+            }
+
+            plany.ResumeLayout();
+            plany.PerformLayout();
+        }
+
+        private string GenerateNoteFromNormalPlan(Plan item)
+        {
+            if (item.Note && item.NoteContents != null)
+            {
+                return item.NoteContents;
+            }
+            else if (item.Programy != null && !item.Note)
+            {
+                StringBuilder sb = new();
+                foreach (var prg in item.Programy)
+                {
+                    sb.Append(prg.Name);
+                }
+                return sb.ToString();
+            }
+            else return "";
         }
 
         private async void ScanPlus_Click(object sender, EventArgs e)
@@ -72,10 +114,10 @@ namespace Tritium.gui
 
         private async void ScanMinus_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Opravdu chcete smazat scan " + listView1.SelectedItems[0].Text + "?", "Opravdu?", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Opravdu chcete smazat scan " + skeny.SelectedItems[0].Text + "?", "Opravdu?", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                await Program.db.DeleteSken(int.Parse(listView1.SelectedItems[0].Text[1..]));
+                await Program.db.DeleteSken(int.Parse(skeny.SelectedItems[0].Text[1..]));
                 LoadSkeny();
             }
         }
@@ -92,7 +134,7 @@ namespace Tritium.gui
             else
             {
                 closed = true;
-                ManagerWindow.SwitchToWindow(new ScanEditInterface(int.Parse(listView1.SelectedItems[0].Text[1..])), this);
+                ManagerWindow.SwitchToWindow(new ScanEditInterface(int.Parse(skeny.SelectedItems[0].Text[1..])), this);
             }
         }
 

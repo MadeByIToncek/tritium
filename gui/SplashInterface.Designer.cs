@@ -33,7 +33,10 @@
             pictureBox1 = new PictureBox();
             ver = new Label();
             logDisplay = new Label();
+            pictureBox2 = new PictureBox();
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -74,13 +77,32 @@
             logDisplay.TabIndex = 3;
             logDisplay.Text = "[SYSTEM] Splash created";
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.profilovka;
+            pictureBox2.Location = new Point(35, 135);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(26, 25);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 7;
+            pictureBox2.TabStop = false;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(67, 135);
+            label2.Name = "label2";
+            label2.Size = new Size(145, 25);
+            label2.TabIndex = 6;
+            label2.Text = "#madebyitoncek";
+            // 
             // SplashInterface
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(639, 290);
-            MaximumSize = Program.ConvertToFullSize(ClientSize);
-            MinimumSize = Program.ConvertToFullSize(ClientSize);
+            Controls.Add(pictureBox2);
+            Controls.Add(label2);
             Controls.Add(logDisplay);
             Controls.Add(ver);
             Controls.Add(pictureBox1);
@@ -91,6 +113,7 @@
             Text = "Splash";
             TopMost = true;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -101,5 +124,7 @@
         private PictureBox pictureBox1;
         private Label ver;
         private Label logDisplay;
+        private PictureBox pictureBox2;
+        private Label label2;
     }
 }

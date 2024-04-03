@@ -415,5 +415,10 @@ namespace Tritium
                 .TransformUsing(new DistinctRootEntityResultTransformer());
             return query.SingleOrDefault<PatogenProgram>() ?? GetEmptyPatogen();
         }
+
+        internal IEnumerable<Plan> GetPlansForMeeting(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

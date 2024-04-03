@@ -35,7 +35,7 @@ namespace Tritium.gui
             aktualniPotize = new TextBox();
             groupBox1 = new GroupBox();
             ScanMinus = new Button();
-            listView1 = new ListView();
+            skeny = new ListView();
             id = new ColumnHeader();
             Okruh = new ColumnHeader();
             Patogen = new ColumnHeader();
@@ -53,7 +53,7 @@ namespace Tritium.gui
             groupBox6 = new GroupBox();
             groupBox7 = new GroupBox();
             button1 = new Button();
-            listView2 = new ListView();
+            plany = new ListView();
             columnHeader1 = new ColumnHeader();
             columnHeader2 = new ColumnHeader();
             columnHeader3 = new ColumnHeader();
@@ -89,7 +89,7 @@ namespace Tritium.gui
             // groupBox1
             // 
             groupBox1.Controls.Add(ScanMinus);
-            groupBox1.Controls.Add(listView1);
+            groupBox1.Controls.Add(skeny);
             groupBox1.Controls.Add(ScanPlus);
             groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBox1.Location = new Point(527, 153);
@@ -110,20 +110,20 @@ namespace Tritium.gui
             ScanMinus.UseVisualStyleBackColor = true;
             ScanMinus.Click += ScanMinus_Click;
             // 
-            // listView1
+            // skeny
             // 
-            listView1.Columns.AddRange(new ColumnHeader[] { id, Okruh, Patogen, FRQ, HRV });
-            listView1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            listView1.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-            listView1.ImeMode = ImeMode.Disable;
-            listView1.Location = new Point(6, 38);
-            listView1.MultiSelect = false;
-            listView1.Name = "listView1";
-            listView1.Size = new Size(999, 669);
-            listView1.TabIndex = 6;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = View.Details;
-            listView1.DoubleClick += ListView1_DoubleClick;
+            skeny.Columns.AddRange(new ColumnHeader[] { id, Okruh, Patogen, FRQ, HRV });
+            skeny.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            skeny.HeaderStyle = ColumnHeaderStyle.Nonclickable;
+            skeny.ImeMode = ImeMode.Disable;
+            skeny.Location = new Point(6, 38);
+            skeny.MultiSelect = false;
+            skeny.Name = "skeny";
+            skeny.Size = new Size(999, 669);
+            skeny.TabIndex = 6;
+            skeny.UseCompatibleStateImageBehavior = false;
+            skeny.View = View.Details;
+            skeny.DoubleClick += ListView1_DoubleClick;
             // 
             // id
             // 
@@ -254,7 +254,7 @@ namespace Tritium.gui
             // groupBox7
             // 
             groupBox7.Controls.Add(button1);
-            groupBox7.Controls.Add(listView2);
+            groupBox7.Controls.Add(plany);
             groupBox7.Controls.Add(button2);
             groupBox7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBox7.Location = new Point(1544, 12);
@@ -274,19 +274,19 @@ namespace Tritium.gui
             button1.Text = "➖";
             button1.UseVisualStyleBackColor = true;
             // 
-            // listView2
+            // plany
             // 
-            listView2.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5 });
-            listView2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            listView2.HeaderStyle = ColumnHeaderStyle.Nonclickable;
-            listView2.ImeMode = ImeMode.Disable;
-            listView2.Location = new Point(6, 38);
-            listView2.MultiSelect = false;
-            listView2.Name = "listView2";
-            listView2.Size = new Size(619, 810);
-            listView2.TabIndex = 6;
-            listView2.UseCompatibleStateImageBehavior = false;
-            listView2.View = View.Details;
+            plany.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5 });
+            plany.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            plany.HeaderStyle = ColumnHeaderStyle.Nonclickable;
+            plany.ImeMode = ImeMode.Disable;
+            plany.Location = new Point(6, 38);
+            plany.MultiSelect = false;
+            plany.Name = "plany";
+            plany.Size = new Size(619, 810);
+            plany.TabIndex = 6;
+            plany.UseCompatibleStateImageBehavior = false;
+            plany.View = View.Details;
             // 
             // columnHeader1
             // 
@@ -364,7 +364,7 @@ namespace Tritium.gui
         private TextBox coVyresit;
         private GroupBox groupBox6;
         private Button ScanPlus;
-        private ListView listView1;
+        private ListView skeny;
         private ColumnHeader Okruh;
         private ColumnHeader Patogen;
         private ColumnHeader FRQ;
@@ -373,7 +373,7 @@ namespace Tritium.gui
         private ColumnHeader id;
         private GroupBox groupBox7;
         private Button button1;
-        private ListView listView2;
+        private ListView plany;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
         private ColumnHeader columnHeader3;
