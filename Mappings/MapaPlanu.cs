@@ -16,10 +16,11 @@ namespace Tritium.Mappings
             Map(x => x.Poradi);
             Map(x => x.Note);
             Map(x => x.NoteContents)
+                .Length(10000)
                 .Nullable();
             Map(x => x.NoteDuration)
                 .Nullable();
-            HasMany(x => x.Programy)
+            HasManyToMany(x => x.Programy)
                 .Not.LazyLoad()
                 .Inverse()
                 .Cascade.All();
