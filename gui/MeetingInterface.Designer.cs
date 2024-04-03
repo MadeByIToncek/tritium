@@ -51,12 +51,22 @@ namespace Tritium.gui
             groupBox5 = new GroupBox();
             coVyresit = new TextBox();
             groupBox6 = new GroupBox();
+            groupBox7 = new GroupBox();
+            button1 = new Button();
+            listView2 = new ListView();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
+            columnHeader3 = new ColumnHeader();
+            columnHeader4 = new ColumnHeader();
+            columnHeader5 = new ColumnHeader();
+            button2 = new Button();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox4.SuspendLayout();
             groupBox5.SuspendLayout();
             groupBox6.SuspendLayout();
+            groupBox7.SuspendLayout();
             SuspendLayout();
             // 
             // dateTimePicker1
@@ -241,11 +251,84 @@ namespace Tritium.gui
             groupBox6.TabStop = false;
             groupBox6.Text = "Okruhy";
             // 
+            // groupBox7
+            // 
+            groupBox7.Controls.Add(button1);
+            groupBox7.Controls.Add(listView2);
+            groupBox7.Controls.Add(button2);
+            groupBox7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            groupBox7.Location = new Point(1544, 12);
+            groupBox7.Name = "groupBox7";
+            groupBox7.Size = new Size(631, 919);
+            groupBox7.TabIndex = 9;
+            groupBox7.TabStop = false;
+            groupBox7.Text = "Plány";
+            // 
+            // button1
+            // 
+            button1.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.Location = new Point(499, 852);
+            button1.Name = "button1";
+            button1.Size = new Size(60, 60);
+            button1.TabIndex = 7;
+            button1.Text = "➖";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // listView2
+            // 
+            listView2.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5 });
+            listView2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            listView2.HeaderStyle = ColumnHeaderStyle.Nonclickable;
+            listView2.ImeMode = ImeMode.Disable;
+            listView2.Location = new Point(6, 38);
+            listView2.MultiSelect = false;
+            listView2.Name = "listView2";
+            listView2.Size = new Size(619, 810);
+            listView2.TabIndex = 6;
+            listView2.UseCompatibleStateImageBehavior = false;
+            listView2.View = View.Details;
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "ID";
+            columnHeader1.Width = 50;
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "#";
+            columnHeader2.Width = 50;
+            // 
+            // columnHeader3
+            // 
+            columnHeader3.Text = "Typ";
+            columnHeader3.Width = 50;
+            // 
+            // columnHeader4
+            // 
+            columnHeader4.Text = "Note";
+            columnHeader4.Width = 350;
+            // 
+            // columnHeader5
+            // 
+            columnHeader5.Text = "Hotovo";
+            columnHeader5.Width = 100;
+            // 
+            // button2
+            // 
+            button2.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button2.Location = new Point(565, 853);
+            button2.Name = "button2";
+            button2.Size = new Size(60, 60);
+            button2.TabIndex = 8;
+            button2.Text = "➕";
+            button2.UseVisualStyleBackColor = true;
+            // 
             // MeetingInterface
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1550, 939);
+            ClientSize = new Size(2187, 939);
+            Controls.Add(groupBox7);
             Controls.Add(groupBox6);
             Controls.Add(groupBox5);
             Controls.Add(groupBox4);
@@ -263,6 +346,7 @@ namespace Tritium.gui
             groupBox5.ResumeLayout(false);
             groupBox5.PerformLayout();
             groupBox6.ResumeLayout(false);
+            groupBox7.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -287,5 +371,14 @@ namespace Tritium.gui
         private ColumnHeader HRV;
         private Button ScanMinus;
         private ColumnHeader id;
+        private GroupBox groupBox7;
+        private Button button1;
+        private ListView listView2;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
+        private ColumnHeader columnHeader3;
+        private ColumnHeader columnHeader4;
+        private ColumnHeader columnHeader5;
+        private Button button2;
     }
 }

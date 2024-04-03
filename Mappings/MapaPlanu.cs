@@ -8,16 +8,20 @@ using Tritium.Entities;
 
 namespace Tritium.Mappings
 {
-    public class MapaKompenzacnichDavek :ClassMap<KompenzacniDavka>
+    public class MapaPlanu : ClassMap<Plan>
     {
-        public MapaKompenzacnichDavek() {
+        public MapaPlanu()
+        {
             Id(x => x.Id);
+            Map(x => x.Poradi);
             Map(x => x.Note);
             Map(x => x.NoteContents)
+                .Nullable();
+            Map(x => x.NoteDuration)
+                .Nullable();
+            HasMany(x => x.Programy)
                 .Not.LazyLoad()
-                .Length(10000);
-            HasOne(x => x.Program)
-                .Not.LazyLoad()
+                .Inverse()
                 .Cascade.All();
         }
     }

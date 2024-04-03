@@ -17,7 +17,7 @@ namespace Tritium.Entities
         public virtual required Okruh SkenOkr1 { get; set; }//db okruhu
         public virtual required Okruh SkenOkr2 { get; set; }//db okruhu
         public virtual IList<Sken> Skeny { get; set; }
-        public virtual IList<KompenzacniSet> KompenzacniSety { get; set; }
+        public virtual IList<Plan> KompenzacniSety { get; set; }
 
         public Navsteva()
         {
@@ -30,9 +30,9 @@ namespace Tritium.Entities
             Skeny.Add(sken);
         }
 
-        public virtual void PridatKompenzacniDavku(KompenzacniSet SetDavek)
+        public virtual void PridatKompenzacniDavku(Plan Davka)
         {
-            KompenzacniSety.Add(SetDavek);
+            KompenzacniSety.Add(Davka);
         }
         //prirazene patogeny + frq (int, > 2 budou cervene) + hrv (int, > 3 budou cervene)
         //sort nejdrive podle typu (1pp), frq (max>min), hrv (max>min)
