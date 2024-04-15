@@ -139,6 +139,7 @@
             Controls.Add(fullname);
             Controls.Add(label1);
             Name = "DeleteProtection";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "DeleteProtection";
             ResumeLayout(false);
             PerformLayout();

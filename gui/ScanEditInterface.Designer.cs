@@ -124,14 +124,13 @@ namespace Tritium.gui
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 288);
-            MaximumSize = Program.ConvertToFullSize(ClientSize);
-            MinimumSize = Program.ConvertToFullSize(ClientSize);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(SearchBox);
             Controls.Add(PatogenList);
             Controls.Add(groupBox1);
             Name = "ScanEditInterface";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "ScanEditInterface";
             groupBox1.ResumeLayout(false);
             groupBox2.ResumeLayout(false);

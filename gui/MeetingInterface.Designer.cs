@@ -336,6 +336,7 @@ namespace Tritium.gui
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Name = "MeetingInterface";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "MeetingInterface";
             groupBox1.ResumeLayout(false);
             groupBox2.ResumeLayout(false);

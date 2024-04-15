@@ -1,3 +1,4 @@
+using System.Linq;
 using Tritium.Entities;
 using Tritium.gui;
 
@@ -15,9 +16,11 @@ namespace Tritium
         private void UpdateList()
         {
             listBox1.Items.Clear();
-            foreach (var item in Program.db.ListClients())
+            Klient[] klients = Program.db.ListClients().ToArray();
+            Array.Sort(klients, (x1, x2) => x1.Jmeno.CompareTo(x2.Jmeno));
+            foreach (var item in klients)
             {
-                listBox1.Items.Add("#" + item.Id);
+                listBox1.Items.Add("#" + item.Id + " - " + item.Jmeno);
             };
         }
 
@@ -41,7 +44,7 @@ namespace Tritium
         {
             foreach (Klient item in Program.db.ListClients())
             {
-                if (listBox1.SelectedItem != null && "#" + item.Id == (string)listBox1.SelectedItem)
+                if (listBox1.SelectedItem != null && ((string)listBox1.SelectedItem).StartsWith("#" + item.Id))
                 {
                     isNatural = true;
                     ManagerWindow.SwitchToWindow(new ClientDBInterface(item.Id), this);
@@ -65,7 +68,7 @@ namespace Tritium
         {
             foreach (Klient item in Program.db.ListClients())
             {
-                if (listBox1.SelectedItem != null && "#" + item.Id == (string)listBox1.SelectedItem)
+                if (listBox1.SelectedItem != null && ((string)listBox1.SelectedItem).StartsWith("#" + item.Id))
                 {
                     isNatural = true;
                     ManagerWindow.SwitchToWindow(new DeleteProtection(item.Id), this);

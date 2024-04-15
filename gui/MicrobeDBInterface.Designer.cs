@@ -428,12 +428,11 @@ namespace Tritium
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(978, 1095);
-            MaximumSize = Program.ConvertToFullSize(ClientSize);
-            MinimumSize = Program.ConvertToFullSize(ClientSize);
             Controls.Add(tableLayoutPanel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4);
             Name = "MicrobeDBInterface";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Mikroby - Tritium";
             tableLayoutPanel1.ResumeLayout(false);
             groupBox1.ResumeLayout(false);

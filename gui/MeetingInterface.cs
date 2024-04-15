@@ -22,7 +22,7 @@ namespace Tritium.gui
             LoadTexts();
             LoadOkruhy();
             LoadSkeny();
-            //LoadPlany();
+            LoadPlany();
         }
 
         private void LoadTexts()
@@ -74,7 +74,7 @@ namespace Tritium.gui
             {
                 ListViewItem vitem = new("€" + item.Id);
                 vitem.SubItems.Add(new ListViewItem.ListViewSubItem(vitem, item.Poradi + ""));
-                vitem.SubItems.Add(new ListViewItem.ListViewSubItem(vitem, item.Note?"N":"P"));
+                vitem.SubItems.Add(new ListViewItem.ListViewSubItem(vitem, item.Note?"📝":""));
                 vitem.SubItems.Add(new ListViewItem.ListViewSubItem(vitem, GenerateNoteFromNormalPlan(item)));
 
                 ListViewItem.ListViewSubItem done = new ListViewItem.ListViewSubItem(vitem, item.Done ? "✅" : "❌");
@@ -92,7 +92,7 @@ namespace Tritium.gui
         {
             if (item.Note && item.NoteContents != null)
             {
-                return item.NoteContents;
+                return item.NoteContents + " (" + item.NoteDuration/8400 + " d)";
             }
             else if (item.Programy != null && !item.Note)
             {

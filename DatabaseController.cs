@@ -276,6 +276,7 @@ namespace Tritium
 
             Klient klient = new()
             {
+                Jmeno = "",
                 DatumNarozeni = DateTime.UnixEpoch
             };
 
@@ -418,7 +419,11 @@ namespace Tritium
 
         internal IEnumerable<Plan> GetPlansForMeeting(int id)
         {
-            throw new NotImplementedException();
+            using var session = _sessionFactory.OpenSession();
+            var query = session.QueryOver<Plan>()
+                .Where(i => i.Navsteva.Id == id)
+                .TransformUsing(new DistinctRootEntityResultTransformer());
+            return query.List<Plan>();
         }
     }
 }

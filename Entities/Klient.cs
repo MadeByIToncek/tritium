@@ -10,7 +10,7 @@ namespace Tritium.Entities
     {
         #region Important
         public virtual int Id { get; protected set; }
-        public virtual string? Jmeno { get; set; }
+        public virtual string Jmeno { get; set; }
         public virtual DateTime DatumNarozeni { get; set; }
         public virtual string? Telefon { get; set; }
         public virtual string? Email { get; set; }

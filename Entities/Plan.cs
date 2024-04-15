@@ -3,6 +3,7 @@
     public class Plan
     {
         public virtual int Id { get; protected set; }
+        public virtual required Navsteva Navsteva { get; set; }
         public virtual int Poradi { get; set; }
         public virtual bool Done { get; set; }
         public virtual bool Note { get; set; }

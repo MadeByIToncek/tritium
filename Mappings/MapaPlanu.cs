@@ -13,6 +13,7 @@ namespace Tritium.Mappings
         public MapaPlanu()
         {
             Id(x => x.Id);
+            References(x => x.Navsteva);
             Map(x => x.Poradi);
             Map(x => x.Done);
             Map(x => x.Note);

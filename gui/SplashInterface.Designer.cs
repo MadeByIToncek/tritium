@@ -110,6 +110,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "SplashInterface";
             ShowInTaskbar = false;
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Splash";
             TopMost = true;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

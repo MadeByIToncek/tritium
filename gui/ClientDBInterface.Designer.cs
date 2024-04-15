@@ -118,11 +118,11 @@ namespace Tritium
             tableLayoutPanel1.Controls.Add(groupBox1, 1, 0);
             tableLayoutPanel1.Location = new Point(12, 12);
             tableLayoutPanel1.Margin = new Padding(2);
+            tableLayoutPanel1.MaximumSize = new Size(2085, 1136);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Size = new Size(2085, 1136);
-            tableLayoutPanel1.MaximumSize = tableLayoutPanel1.Size;
             tableLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -711,63 +711,57 @@ namespace Tritium
             // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(2108, 1162);
-            MaximumSize = Program.ConvertToFullSize(ClientSize);
-            MinimumSize = Program.ConvertToFullSize(ClientSize);
             Controls.Add(tableLayoutPanel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4);
             Name = "ClientDBInterface";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Mikroby - Tritium";
-
-            tableLayoutPanel1.PerformLayout();
-            panel1.PerformLayout();
-            groupBox7.PerformLayout();
-            groupBox21.PerformLayout();
-            groupBox20.PerformLayout();
-            groupBox19.PerformLayout();
-            groupBox18.PerformLayout();
-            groupBox17.PerformLayout();
-            groupBox16.PerformLayout();
-            groupBox14.PerformLayout();
-            groupBox12.PerformLayout();
-            groupBox11.PerformLayout();
-            groupBox22.PerformLayout();
-            groupBox15.PerformLayout();
-            groupBox13.PerformLayout();
-            groupBox10.PerformLayout();
-            groupBox8.PerformLayout();
-            groupBox6.PerformLayout();
-            groupBox5.PerformLayout();
-            groupBox4.PerformLayout();
-            groupBox9.PerformLayout();
-            groupBox1.PerformLayout();
-            groupBox2.PerformLayout();
-            PerformLayout();
-
             tableLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             groupBox7.ResumeLayout(false);
+            groupBox7.PerformLayout();
             groupBox21.ResumeLayout(false);
+            groupBox21.PerformLayout();
             groupBox20.ResumeLayout(false);
+            groupBox20.PerformLayout();
             groupBox19.ResumeLayout(false);
+            groupBox19.PerformLayout();
             groupBox18.ResumeLayout(false);
+            groupBox18.PerformLayout();
             groupBox17.ResumeLayout(false);
+            groupBox17.PerformLayout();
             groupBox16.ResumeLayout(false);
+            groupBox16.PerformLayout();
             groupBox14.ResumeLayout(false);
+            groupBox14.PerformLayout();
             groupBox12.ResumeLayout(false);
+            groupBox12.PerformLayout();
             groupBox11.ResumeLayout(false);
+            groupBox11.PerformLayout();
             groupBox22.ResumeLayout(false);
+            groupBox22.PerformLayout();
             groupBox15.ResumeLayout(false);
+            groupBox15.PerformLayout();
             groupBox13.ResumeLayout(false);
+            groupBox13.PerformLayout();
             groupBox10.ResumeLayout(false);
+            groupBox10.PerformLayout();
             groupBox8.ResumeLayout(false);
+            groupBox8.PerformLayout();
             groupBox6.ResumeLayout(false);
+            groupBox6.PerformLayout();
             groupBox5.ResumeLayout(false);
+            groupBox5.PerformLayout();
             groupBox4.ResumeLayout(false);
+            groupBox4.PerformLayout();
             groupBox9.ResumeLayout(false);
+            groupBox9.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
             ResumeLayout(false);
         }
 
