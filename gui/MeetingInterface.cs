@@ -22,7 +22,7 @@ namespace Tritium.gui
             LoadTexts();
             LoadOkruhy();
             LoadSkeny();
-            LoadPlany();
+            //LoadPlany();
         }
 
         private void LoadTexts()
