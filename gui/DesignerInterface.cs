@@ -40,10 +40,13 @@ namespace Tritium.gui
             int entries = meeting.Plany.Count;
             if (entries > 0)
             {
-                masterGrid.RowCount = entries+1;
+                masterGrid.RowCount = entries;
                 for (int i = 0; i < entries; i++)
                 {
-                    masterGrid.RowStyles.Add(new RowStyle(SizeType.Absolute, 500F));
+                    DesignerDesigner designer = new();
+                    //TableLayoutPanel subLayout = DesignerDesigner.GenerateSubLayout();
+                    masterGrid.RowStyles.Add(new RowStyle(SizeType.Absolute, 600F));
+                    masterGrid.Controls.Add(designer.subLayout);
                 }
             }
             else
@@ -63,7 +66,6 @@ namespace Tritium.gui
 
         private void GenerateProgramLists()
         {
-
         }
 
         public static List<TemporaryScan> GenerateTScanList(IList<Sken> skeny)
