@@ -1,5 +1,6 @@
 ﻿using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
+using FluentNHibernate.Utils;
 using MySqlX.XDevAPI;
 using NHibernate;
 using NHibernate.Cfg;
@@ -198,6 +199,7 @@ namespace Tritium
             using var session = _sessionFactory.OpenSession();
             using var trans = session.BeginTransaction();
             trans.Begin();
+            await session.EvictAsync(pp);
             await session.UpdateAsync(pp);
             await trans.CommitAsync();
             session.Close();
@@ -255,6 +257,7 @@ namespace Tritium
                 SkenOkr2 = Program.db.GetEmptyOkruh()
             };
             client.PridatNavstevu(navsteva);
+            await session.EvictAsync(client);
             await session.SaveOrUpdateAsync(client);
             await transaction.CommitAsync();
             session.Close();
@@ -309,6 +312,7 @@ namespace Tritium
             using var session = _sessionFactory.OpenSession();
             using var trans = session.BeginTransaction();
             trans.Begin();
+            await session.EvictAsync(client);
             await session.UpdateAsync(client);
             await trans.CommitAsync();
             session.Close();
@@ -363,6 +367,7 @@ namespace Tritium
             using var session = _sessionFactory.OpenSession();
             using var trans = session.BeginTransaction();
             trans.Begin();
+            await session.EvictAsync(s);
             await session.UpdateAsync(s);
             await trans.CommitAsync();
             session.Close();
@@ -373,6 +378,7 @@ namespace Tritium
             using var session = _sessionFactory.OpenSession();
             using var trans = session.BeginTransaction();
             trans.Begin();
+            await session.EvictAsync(meeting);
             await session.UpdateAsync(meeting);
             await trans.CommitAsync();
             session.Close();

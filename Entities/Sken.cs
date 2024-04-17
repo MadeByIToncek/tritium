@@ -1,4 +1,5 @@
-﻿namespace Tritium.Entities
+﻿
+namespace Tritium.Entities
 {
     public class Sken
     {
@@ -8,6 +9,5 @@
         public virtual required Okruh Okruh { get; set; }//db okruhu
         public virtual required float FRQ { get; set; }
         public virtual required float HRV { get; set; }
-
     }
 }

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tritium.Entities;
+using static Mysqlx.Expect.Open.Types.Condition.Types;
 
 namespace Tritium.gui
 {
@@ -22,7 +23,6 @@ namespace Tritium.gui
             LoadTexts();
             LoadOkruhy();
             LoadSkeny();
-            LoadPlany();
         }
 
         private void LoadTexts()
@@ -50,61 +50,34 @@ namespace Tritium.gui
         private void LoadSkeny()
         {
             skeny.SuspendLayout();
-            skeny.Items.Clear();
+            skeny.DataSource = DesignerInterface.GenerateTScanList(Program.db.GetScansForMeeting(meeting.Id));
 
-            foreach (Sken item in Program.db.GetScansForMeeting(meeting.Id))
+            foreach (DataGridViewColumn col in skeny.Columns)
             {
-                ListViewItem vitem = new("$"+item.Id);
-                vitem.SubItems.Add(new ListViewItem.ListViewSubItem(vitem, item.Okruh.Name));
-                vitem.SubItems.Add(new ListViewItem.ListViewSubItem(vitem, item.Patogen.Name));
-                vitem.SubItems.Add(new ListViewItem.ListViewSubItem(vitem, item.FRQ + ""));
-                vitem.SubItems.Add(new ListViewItem.ListViewSubItem(vitem, item.HRV + ""));
-                skeny.Items.Add(vitem);
+                col.SortMode = DataGridViewColumnSortMode.NotSortable;
+                col.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             }
 
-            skeny.ResumeLayout();
+            skeny.ResumeLayout(true);
         }
 
-        private void LoadPlany()
-        {
-            plany.SuspendLayout();
-            plany.Items.Clear();
-
-            foreach (Plan item in Program.db.GetPlansForMeeting(meeting.Id))
-            {
-                ListViewItem vitem = new("€" + item.Id);
-                vitem.SubItems.Add(new ListViewItem.ListViewSubItem(vitem, item.Poradi + ""));
-                vitem.SubItems.Add(new ListViewItem.ListViewSubItem(vitem, item.Note?"📝":""));
-                vitem.SubItems.Add(new ListViewItem.ListViewSubItem(vitem, GenerateNoteFromNormalPlan(item)));
-
-                ListViewItem.ListViewSubItem done = new ListViewItem.ListViewSubItem(vitem, item.Done ? "✅" : "❌");
-                done.ForeColor = item.Done ? Color.Lime : Color.Red;
-                vitem.SubItems.Add(done);
-
-                plany.Items.Add(vitem);
-            }
-
-            plany.ResumeLayout();
-            plany.PerformLayout();
-        }
-
-        private string GenerateNoteFromNormalPlan(Plan item)
-        {
-            if (item.Note && item.NoteContents != null)
-            {
-                return item.NoteContents + " (" + item.NoteDuration/8400 + " d)";
-            }
-            else if (item.Programy != null && !item.Note)
-            {
-                StringBuilder sb = new();
-                foreach (var prg in item.Programy)
-                {
-                    sb.Append(prg.Name);
-                }
-                return sb.ToString();
-            }
-            else return "";
-        }
+        //private string GenerateNoteFromNormalPlan(Plan item)
+        //{
+        //    if (item.Note && item.NoteContents != null)
+        //    {
+        //        return item.NoteContents + " (" + item.NoteDuration / 8400 + " d)";
+        //    }
+        //    else if (item.Programy != null && !item.Note)
+        //    {
+        //        StringBuilder sb = new();
+        //        foreach (var prg in item.Programy)
+        //        {
+        //            sb.Append(prg.Name);
+        //        }
+        //        return sb.ToString();
+        //    }
+        //    else return "";
+        //}
 
         private async void ScanPlus_Click(object sender, EventArgs e)
         {
@@ -114,29 +87,25 @@ namespace Tritium.gui
 
         private async void ScanMinus_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Opravdu chcete smazat scan " + skeny.SelectedItems[0].Text + "?", "Opravdu?", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Opravdu chcete smazat scan " + GetCurrentSelection().Id + "?", "Opravdu?", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                await Program.db.DeleteSken(int.Parse(skeny.SelectedItems[0].Text[1..]));
+                await Program.db.DeleteSken(GetCurrentSelection().Id);
                 LoadSkeny();
             }
         }
 
-        private async void ListView1_DoubleClick(object sender, EventArgs e)
+        private TemporaryScan GetCurrentSelection()
         {
-            await SaveAll();
-
-            if (meeting.SkenOkr1 == null || meeting.SkenOkr2 == null)
-            {
-                MessageBox.Show("Vyplňte prosím okruhy měřené na této návštěvě.");
-                return;
-            }
-            else
-            {
-                closed = true;
-                ManagerWindow.SwitchToWindow(new ScanEditInterface(int.Parse(skeny.SelectedItems[0].Text[1..])), this);
-            }
+            IEnumerable<DataGridViewRow> selectedRows = skeny.SelectedCells.Cast<DataGridViewCell>()
+                                           .Select(cell => cell.OwningRow)
+                                           .Distinct();
+            return (TemporaryScan)selectedRows.First().DataBoundItem;
         }
+
+        //private async void ListView1_DoubleClick(object sender, EventArgs e)
+        //{
+        //}
 
         private async Task SaveAll()
         {
@@ -155,14 +124,31 @@ namespace Tritium.gui
         {
             if (!closed)
             {
-                closed = true;
-
                 await SaveAll();
-
-                ManagerWindow.SwitchToWindow(new ClientDBInterface(meeting.Client.Id), this);
-                base.OnClosing(e);
+                SaveAndClose(new ClientDBInterface(meeting.Client.Id));
             }
         }
 
+        private async void SaveAndClose(Form target)
+        {
+            closed = true;
+            await SaveAll();
+            ManagerWindow.SwitchToWindow(target, this);
+        }
+
+        private async void DesignerButton_Click(object sender, EventArgs e)
+        {
+            await SaveAll();
+            SaveAndClose(new DesignerInterface(meeting.Id));
+        }
+
+        private async void Skeny_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                await SaveAll();
+                SaveAndClose(new ScanEditInterface(GetCurrentSelection().Id));
+            }
+        }
     }
 }

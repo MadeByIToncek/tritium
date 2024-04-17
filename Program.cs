@@ -111,6 +111,7 @@ namespace Tritium
     {
         public static ManagerWindow? instance;
         public static Form? runningWindow;
+
         public ManagerWindow()
         {
             instance = this;
@@ -126,10 +127,18 @@ namespace Tritium
         public static void SwitchToWindow(Form target, Form source)
         {
             source.Hide();
-            runningWindow = target;
             target.Show();
+            runningWindow = target;
             source.Close();
         }
+
+        public void Exit()
+        {
+            //Program.db
+            runningWindow.Close();
+            instance.Close();
+        }
+
     }
 
     [Serializable]

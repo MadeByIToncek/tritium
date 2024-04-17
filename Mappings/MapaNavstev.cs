@@ -30,7 +30,7 @@ namespace Tritium.Mappings
                 .Not.LazyLoad()
                 .Inverse()
                 .Cascade.All();
-            HasMany(x => x.KompenzacniSety)
+            HasMany(x => x.Plany)
                 .Not.LazyLoad()
                 .Inverse()
                 .Cascade.All();
