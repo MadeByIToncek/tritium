@@ -19,7 +19,7 @@ namespace Tritium.gui
         public MeetingInterface(int meetingId)
         {
             InitializeComponent();
-            meeting = Program.db.GetMeetingsById(meetingId);
+            meeting = Program.db.GetMeetingById(meetingId);
             LoadTexts();
             LoadOkruhy();
             LoadSkeny();

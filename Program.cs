@@ -132,9 +132,9 @@ namespace Tritium
             source.Close();
         }
 
-        public void Exit()
+        public static void Exit()
         {
-            //Program.db
+            Program.db.Shutdown();
             runningWindow.Close();
             instance.Close();
         }

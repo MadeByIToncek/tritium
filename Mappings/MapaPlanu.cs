@@ -22,7 +22,7 @@ namespace Tritium.Mappings
                 .Nullable();
             Map(x => x.NoteDuration)
                 .Nullable();
-            HasManyToMany(x => x.Programy)
+            HasMany(x => x.Programy)
                 .Not.LazyLoad()
                 .Inverse()
                 .Cascade.All();

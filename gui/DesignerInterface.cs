@@ -1,24 +1,27 @@
 ﻿using System.ComponentModel;
 using Tritium.Entities;
+using Tritium.utils;
 
 namespace Tritium.gui
 {
     public partial class DesignerInterface : Form
     {
-        readonly Navsteva meeting;
+        Navsteva meeting;
+        private readonly List<DesignerDesigner> activeRows = [];
+        private readonly List<Control> planningLayout = [];
         public DesignerInterface(int meetingId)
         {
-            meeting = Program.db.GetMeetingsById(meetingId);
+            meeting = Program.db.GetMeetingById(meetingId);
             InitializeComponent();
             LoadSkeny();
-            LoadLayout();
+            GenerateMasterTablePanels();
         }
 
 
         private void LoadSkeny()
         {
             skeny.SuspendLayout();
-            skeny.DataSource = DesignerInterface.GenerateTScanList(Program.db.GetScansForMeeting(meeting.Id));
+            skeny.DataSource = GenerateTScanList(Program.db.GetScansForMeeting(meeting.Id));
 
             foreach (DataGridViewColumn col in skeny.Columns)
             {
@@ -29,49 +32,37 @@ namespace Tritium.gui
             skeny.ResumeLayout(true);
         }
 
-        private void LoadLayout()
+        private async void GenerateMasterTablePanels()
         {
-            GenerateMasterTablePanels();
-            GenerateProgramLists();
-        }
-
-        private void GenerateMasterTablePanels()
-        {
+            DrawingControl.SuspendDrawing(this);
             int entries = meeting.Plany.Count;
             if (entries > 0)
             {
                 masterGrid.RowCount = entries;
+                masterGrid.RowStyles.Clear();
                 for (int i = 0; i < entries; i++)
                 {
-                    DesignerDesigner designer = new();
+                    DesignerDesigner designer = new(meeting.Plany[i], SaveAndRefreshLayout, planningLayout);
                     //TableLayoutPanel subLayout = DesignerDesigner.GenerateSubLayout();
-                    masterGrid.RowStyles.Add(new RowStyle(SizeType.Absolute, 600F));
+                    masterGrid.RowStyles.Add(new RowStyle(SizeType.Absolute, 500F));
                     masterGrid.Controls.Add(designer.subLayout);
+                    activeRows.Add(designer);
                 }
+                masterGrid.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             }
             else
             {
-                meeting.PridatPlan(new Plan()
-                {
-                    Navsteva = meeting,
-                    Poradi = 1,
-                    Done = false,
-                    Note = false,
-                    NoteContents = null,
-                    NoteDuration = 0,
-                });
-                GenerateMasterTablePanels();
+                CreateNewPlan_Click(null,null);
             }
-        }
-
-        private void GenerateProgramLists()
-        {
+            DrawingControl.ResumeDrawing(this);
         }
 
         public static List<TemporaryScan> GenerateTScanList(IList<Sken> skeny)
         {
             List<TemporaryScan> list = [];
-            foreach (var item in skeny)
+            foreach (var item in skeny.OrderBy(x => x.FRQ)
+                .ThenBy(x => x.HRV)
+                .ThenBy(x => x.Patogen.Name))
             {
                 TemporaryScan scan = new()
                 {
@@ -85,6 +76,9 @@ namespace Tritium.gui
                 };
                 list.Add(scan);
             };
+
+            list;
+
 
             return list;
         }
@@ -118,9 +112,31 @@ namespace Tritium.gui
             ManagerWindow.SwitchToWindow(target, this);
         }
 
-        private void SaveAndRefreshLayout(object sender, EventArgs e)
+        private void SaveAndRefreshLayout(object? sender, EventArgs? e)
         {
+            activeRows.ForEach(row => {
+                masterGrid.Controls.Remove(row.subLayout);
+            });
 
+            meeting = Program.db.GetMeetingById(meeting.Id);
+
+            GenerateMasterTablePanels();
+        }
+
+        private async void CreateNewPlan_Click(object? sender, EventArgs? e)
+        {
+            meeting.PridatPlan(new Plan()
+            {
+                Navsteva = meeting,
+                Poradi = Program.db.GetNextOrderForPlan(meeting),
+                Done = false,
+                Note = false,
+                NoteContents = null,
+                NoteDuration = 0,
+            });
+            await Program.db.UpdateMeeting(meeting);
+
+            SaveAndRefreshLayout(sender,e);
         }
     }
 

@@ -9,14 +9,14 @@
         public virtual bool Note { get; set; }
         public virtual string? NoteContents { get; set; }
         public virtual long? NoteDuration { get; set; }
-        public virtual IList<PatogenProgram>? Programy { get; set; }
+        public virtual IList<PlanEntry>? Programy { get; set; }
 
         public Plan()
         {
             Programy = [];
         }
 
-        public virtual void PridatDavku(PatogenProgram davka)
+        public virtual void PridatDavku(PlanEntry davka)
         {
             if (Programy != null)
             {
@@ -32,11 +32,11 @@
             long result = 0;
             if (Programy != null)
             {
-                foreach (PatogenProgram item in Programy)
+                foreach (PlanEntry item in Programy)
                 {
                     if (item != null)
                     {
-                        result += item.Time;
+                        result += item.Program.Time;
                     }
                 }
                 return result;

@@ -52,6 +52,8 @@ namespace Tritium.gui
             tableLayoutPanel3 = new TableLayoutPanel();
             panel2 = new Panel();
             tableLayoutPanel2 = new TableLayoutPanel();
+            tableLayoutPanel4 = new TableLayoutPanel();
+            panel3 = new Panel();
             groupBox1.SuspendLayout();
             ((ISupportInitialize)skeny).BeginInit();
             groupBox2.SuspendLayout();
@@ -64,6 +66,8 @@ namespace Tritium.gui
             tableLayoutPanel3.SuspendLayout();
             panel2.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
+            tableLayoutPanel4.SuspendLayout();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // dateTimePicker1
@@ -81,19 +85,17 @@ namespace Tritium.gui
             aktualniPotize.Multiline = true;
             aktualniPotize.Name = "aktualniPotize";
             aktualniPotize.ScrollBars = ScrollBars.Vertical;
-            aktualniPotize.Size = new Size(664, 187);
+            aktualniPotize.Size = new Size(678, 225);
             aktualniPotize.TabIndex = 1;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(skeny);
-            groupBox1.Controls.Add(ScanMinus);
-            groupBox1.Controls.Add(ScanPlus);
+            groupBox1.Controls.Add(tableLayoutPanel4);
             groupBox1.Dock = DockStyle.Fill;
             groupBox1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBox1.Location = new Point(3, 73);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1013, 869);
+            groupBox1.Size = new Size(1032, 984);
             groupBox1.TabIndex = 5;
             groupBox1.TabStop = false;
             groupBox1.Text = "Skeny";
@@ -106,18 +108,19 @@ namespace Tritium.gui
             skeny.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             skeny.Dock = DockStyle.Fill;
             skeny.GridColor = SystemColors.Control;
-            skeny.Location = new Point(3, 35);
+            skeny.Location = new Point(3, 3);
             skeny.Name = "skeny";
             skeny.ReadOnly = true;
             skeny.RowHeadersWidth = 62;
-            skeny.Size = new Size(1007, 831);
+            skeny.Size = new Size(1020, 868);
             skeny.TabIndex = 9;
             skeny.CellDoubleClick += Skeny_CellDoubleClick;
             // 
             // ScanMinus
             // 
+            ScanMinus.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             ScanMinus.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            ScanMinus.Location = new Point(879, 711);
+            ScanMinus.Location = new Point(891, 3);
             ScanMinus.Name = "ScanMinus";
             ScanMinus.Size = new Size(60, 60);
             ScanMinus.TabIndex = 7;
@@ -127,8 +130,9 @@ namespace Tritium.gui
             // 
             // ScanPlus
             // 
+            ScanPlus.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             ScanPlus.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            ScanPlus.Location = new Point(945, 712);
+            ScanPlus.Location = new Point(957, 3);
             ScanPlus.Name = "ScanPlus";
             ScanPlus.Size = new Size(60, 60);
             ScanPlus.TabIndex = 8;
@@ -170,7 +174,7 @@ namespace Tritium.gui
             groupBox3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             groupBox3.Location = new Point(3, 255);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(670, 225);
+            groupBox3.Size = new Size(684, 263);
             groupBox3.TabIndex = 1;
             groupBox3.TabStop = false;
             groupBox3.Text = "Aktuální potíže";
@@ -180,9 +184,9 @@ namespace Tritium.gui
             groupBox4.Controls.Add(nejviceObtezuje);
             groupBox4.Dock = DockStyle.Fill;
             groupBox4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            groupBox4.Location = new Point(3, 486);
+            groupBox4.Location = new Point(3, 524);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(670, 224);
+            groupBox4.Size = new Size(684, 263);
             groupBox4.TabIndex = 7;
             groupBox4.TabStop = false;
             groupBox4.Text = "Co nejvíce obtěžuje";
@@ -194,7 +198,7 @@ namespace Tritium.gui
             nejviceObtezuje.Multiline = true;
             nejviceObtezuje.Name = "nejviceObtezuje";
             nejviceObtezuje.ScrollBars = ScrollBars.Vertical;
-            nejviceObtezuje.Size = new Size(664, 186);
+            nejviceObtezuje.Size = new Size(678, 225);
             nejviceObtezuje.TabIndex = 2;
             // 
             // groupBox5
@@ -202,9 +206,9 @@ namespace Tritium.gui
             groupBox5.Controls.Add(coVyresit);
             groupBox5.Dock = DockStyle.Fill;
             groupBox5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            groupBox5.Location = new Point(3, 716);
+            groupBox5.Location = new Point(3, 793);
             groupBox5.Name = "groupBox5";
-            groupBox5.Size = new Size(670, 226);
+            groupBox5.Size = new Size(684, 264);
             groupBox5.TabIndex = 7;
             groupBox5.TabStop = false;
             groupBox5.Text = "Co chci vyřešit";
@@ -216,7 +220,7 @@ namespace Tritium.gui
             coVyresit.Multiline = true;
             coVyresit.Name = "coVyresit";
             coVyresit.ScrollBars = ScrollBars.Vertical;
-            coVyresit.Size = new Size(664, 188);
+            coVyresit.Size = new Size(678, 226);
             coVyresit.TabIndex = 3;
             // 
             // groupBox6
@@ -235,7 +239,7 @@ namespace Tritium.gui
             // 
             DesignerButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             DesignerButton.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            DesignerButton.Location = new Point(766, 3);
+            DesignerButton.Location = new Point(785, 3);
             DesignerButton.Name = "DesignerButton";
             DesignerButton.Size = new Size(250, 64);
             DesignerButton.TabIndex = 9;
@@ -255,16 +259,16 @@ namespace Tritium.gui
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1707, 951);
+            tableLayoutPanel1.Size = new Size(1740, 1066);
             tableLayoutPanel1.TabIndex = 10;
             // 
             // panel1
             // 
             panel1.Controls.Add(tableLayoutPanel3);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(685, 3);
+            panel1.Location = new Point(699, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1019, 945);
+            panel1.Size = new Size(1038, 1060);
             panel1.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -279,7 +283,7 @@ namespace Tritium.gui
             tableLayoutPanel3.RowCount = 2;
             tableLayoutPanel3.RowStyles.Add(new RowStyle());
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.Size = new Size(1019, 945);
+            tableLayoutPanel3.Size = new Size(1038, 1060);
             tableLayoutPanel3.TabIndex = 10;
             // 
             // panel2
@@ -288,7 +292,7 @@ namespace Tritium.gui
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(3, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(676, 945);
+            panel2.Size = new Size(690, 1060);
             panel2.TabIndex = 1;
             // 
             // tableLayoutPanel2
@@ -309,14 +313,39 @@ namespace Tritium.gui
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3355522F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 33.332222F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 33.332222F));
-            tableLayoutPanel2.Size = new Size(676, 945);
+            tableLayoutPanel2.Size = new Size(690, 1060);
             tableLayoutPanel2.TabIndex = 9;
+            // 
+            // tableLayoutPanel4
+            // 
+            tableLayoutPanel4.ColumnCount = 1;
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel4.Controls.Add(skeny, 0, 0);
+            tableLayoutPanel4.Controls.Add(panel3, 0, 1);
+            tableLayoutPanel4.Dock = DockStyle.Fill;
+            tableLayoutPanel4.Location = new Point(3, 35);
+            tableLayoutPanel4.Name = "tableLayoutPanel4";
+            tableLayoutPanel4.RowCount = 2;
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 72F));
+            tableLayoutPanel4.Size = new Size(1026, 946);
+            tableLayoutPanel4.TabIndex = 10;
+            // 
+            // panel3
+            // 
+            panel3.Controls.Add(ScanMinus);
+            panel3.Controls.Add(ScanPlus);
+            panel3.Dock = DockStyle.Fill;
+            panel3.Location = new Point(3, 877);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1020, 66);
+            panel3.TabIndex = 10;
             // 
             // MeetingInterface
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1707, 951);
+            ClientSize = new Size(1740, 1066);
             Controls.Add(tableLayoutPanel1);
             Name = "MeetingInterface";
             StartPosition = FormStartPosition.CenterParent;
@@ -336,6 +365,8 @@ namespace Tritium.gui
             tableLayoutPanel3.ResumeLayout(false);
             panel2.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel4.ResumeLayout(false);
+            panel3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -361,5 +392,7 @@ namespace Tritium.gui
         private Panel panel2;
         private TableLayoutPanel tableLayoutPanel2;
         private TableLayoutPanel tableLayoutPanel3;
+        private TableLayoutPanel tableLayoutPanel4;
+        private Panel panel3;
     }
 }

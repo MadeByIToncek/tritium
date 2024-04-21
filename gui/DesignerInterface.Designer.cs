@@ -42,13 +42,13 @@
             indexPlusMinus = new TableLayoutPanel();
             plus = new Button();
             minus = new Button();
-            tableLayoutPanel6 = new TableLayoutPanel();
+            SwitchPanel = new TableLayoutPanel();
             note = new CheckBox();
             done = new CheckBox();
-            tableLayoutPanel5 = new TableLayoutPanel();
-            tableLayoutPanel7 = new TableLayoutPanel();
-            button7 = new Button();
-            button6 = new Button();
+            subLayoutBController = new TableLayoutPanel();
+            row = new TableLayoutPanel();
+            reset = new Button();
+            edit = new Button();
             time = new Label();
             typ = new Label();
             program = new Label();
@@ -65,25 +65,33 @@
             checkBox2 = new CheckBox();
             tableLayoutPanel14 = new TableLayoutPanel();
             tableLayoutPanel13 = new TableLayoutPanel();
+            panel2 = new Panel();
+            username = new Label();
+            Date = new Label();
+            MeetingNumberAndDate = new Label();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            CreateNewPlan = new Button();
+            PrintEveryting = new Button();
             tableLayoutPanel1.SuspendLayout();
             groupBox1.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)skeny).BeginInit();
             panel1.SuspendLayout();
-            masterGrid.SuspendLayout();
             subLayout.SuspendLayout();
             subLayoutAController.SuspendLayout();
             indexController.SuspendLayout();
             indexPlusMinus.SuspendLayout();
-            tableLayoutPanel6.SuspendLayout();
-            tableLayoutPanel5.SuspendLayout();
-            tableLayoutPanel7.SuspendLayout();
+            SwitchPanel.SuspendLayout();
+            subLayoutBController.SuspendLayout();
+            row.SuspendLayout();
             tableLayoutPanel8.SuspendLayout();
             tableLayoutPanel9.SuspendLayout();
             tableLayoutPanel10.SuspendLayout();
             tableLayoutPanel11.SuspendLayout();
             tableLayoutPanel12.SuspendLayout();
             tableLayoutPanel13.SuspendLayout();
+            panel2.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -100,7 +108,7 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1933, 1155);
+            tableLayoutPanel1.Size = new Size(1976, 1155);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // groupBox1
@@ -113,7 +121,7 @@
             groupBox1.Location = new Point(10, 10);
             groupBox1.Margin = new Padding(10);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(559, 1135);
+            groupBox1.Size = new Size(572, 1135);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Info";
@@ -123,15 +131,18 @@
             tableLayoutPanel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tableLayoutPanel4.AutoSize = true;
             tableLayoutPanel4.ColumnCount = 1;
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel4.Controls.Add(skeny, 0, 1);
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel4.Controls.Add(skeny, 0, 2);
+            tableLayoutPanel4.Controls.Add(panel2, 0, 0);
+            tableLayoutPanel4.Controls.Add(flowLayoutPanel1, 0, 1);
             tableLayoutPanel4.Location = new Point(13, 38);
             tableLayoutPanel4.Margin = new Padding(10);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
-            tableLayoutPanel4.RowCount = 2;
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel4.Size = new Size(538, 1084);
+            tableLayoutPanel4.RowCount = 3;
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 6.088561F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 73.98524F));
+            tableLayoutPanel4.Size = new Size(551, 1084);
             tableLayoutPanel4.TabIndex = 0;
             // 
             // skeny
@@ -140,11 +151,11 @@
             skeny.AllowUserToDeleteRows = false;
             skeny.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             skeny.Dock = DockStyle.Fill;
-            skeny.Location = new Point(3, 545);
+            skeny.Location = new Point(3, 284);
             skeny.Name = "skeny";
             skeny.ReadOnly = true;
             skeny.RowHeadersWidth = 62;
-            skeny.Size = new Size(532, 536);
+            skeny.Size = new Size(545, 797);
             skeny.TabIndex = 0;
             // 
             // panel1
@@ -152,25 +163,23 @@
             panel1.AutoScroll = true;
             panel1.Controls.Add(masterGrid);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(582, 3);
+            panel1.Location = new Point(595, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1348, 1149);
+            panel1.Size = new Size(1378, 1149);
             panel1.TabIndex = 1;
             // 
             // masterGrid
             // 
             masterGrid.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             masterGrid.AutoSize = true;
-            masterGrid.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             masterGrid.ColumnCount = 1;
             masterGrid.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            //masterGrid.Controls.Add(subLayout, 0, 0);
             masterGrid.Location = new Point(3, 3);
             masterGrid.Name = "masterGrid";
             masterGrid.RowCount = 2;
-            masterGrid.RowStyles.Add(new RowStyle(SizeType.Absolute, 600F));
-            masterGrid.RowStyles.Add(new RowStyle(SizeType.Absolute, 21F));
-            masterGrid.Size = new Size(1342, 1142);
+            masterGrid.RowStyles.Add(new RowStyle(SizeType.Absolute, 500F));
+            masterGrid.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            masterGrid.Size = new Size(1372, 1142);
             masterGrid.TabIndex = 0;
             // 
             // subLayout
@@ -179,13 +188,13 @@
             subLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 11F));
             subLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 89F));
             subLayout.Controls.Add(subLayoutAController, 0, 0);
-            subLayout.Controls.Add(tableLayoutPanel5, 1, 0);
+            subLayout.Controls.Add(subLayoutBController, 1, 0);
             subLayout.Dock = DockStyle.Fill;
-            subLayout.Location = new Point(4, 4);
+            subLayout.Location = new Point(3, 3);
             subLayout.Name = "subLayout";
             subLayout.RowCount = 1;
             subLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            subLayout.Size = new Size(1334, 594);
+            subLayout.Size = new Size(1366, 507);
             subLayout.TabIndex = 0;
             // 
             // subLayoutAController
@@ -195,7 +204,7 @@
             subLayoutAController.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             subLayoutAController.Controls.Add(recycle, 0, 2);
             subLayoutAController.Controls.Add(indexController, 0, 0);
-            subLayoutAController.Controls.Add(tableLayoutPanel6, 0, 1);
+            subLayoutAController.Controls.Add(SwitchPanel, 0, 1);
             subLayoutAController.Dock = DockStyle.Fill;
             subLayoutAController.Location = new Point(3, 3);
             subLayoutAController.Name = "subLayoutAController";
@@ -204,7 +213,7 @@
             subLayoutAController.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             subLayoutAController.RowStyles.Add(new RowStyle(SizeType.Percent, 33.3333321F));
             subLayoutAController.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            subLayoutAController.Size = new Size(140, 588);
+            subLayoutAController.Size = new Size(144, 501);
             subLayoutAController.TabIndex = 0;
             // 
             // recycle
@@ -212,9 +221,9 @@
             recycle.Dock = DockStyle.Fill;
             recycle.Font = new Font("Segoe UI", 26F, FontStyle.Bold, GraphicsUnit.Point, 0);
             recycle.ForeColor = Color.ForestGreen;
-            recycle.Location = new Point(4, 394);
+            recycle.Location = new Point(4, 336);
             recycle.Name = "recycle";
-            recycle.Size = new Size(132, 190);
+            recycle.Size = new Size(136, 161);
             recycle.TabIndex = 1;
             recycle.Text = "♻";
             recycle.UseVisualStyleBackColor = true;
@@ -232,7 +241,7 @@
             indexController.RowCount = 2;
             indexController.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             indexController.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            indexController.Size = new Size(132, 188);
+            indexController.Size = new Size(136, 159);
             indexController.TabIndex = 4;
             // 
             // poradi
@@ -241,7 +250,7 @@
             poradi.Font = new Font("Segoe UI", 22F, FontStyle.Bold, GraphicsUnit.Point, 0);
             poradi.Location = new Point(3, 0);
             poradi.Name = "poradi";
-            poradi.Size = new Size(126, 94);
+            poradi.Size = new Size(130, 79);
             poradi.TabIndex = 0;
             poradi.Text = "#10";
             poradi.TextAlign = ContentAlignment.MiddleCenter;
@@ -254,19 +263,19 @@
             indexPlusMinus.Controls.Add(plus, 1, 0);
             indexPlusMinus.Controls.Add(minus, 0, 0);
             indexPlusMinus.Dock = DockStyle.Fill;
-            indexPlusMinus.Location = new Point(3, 97);
+            indexPlusMinus.Location = new Point(3, 82);
             indexPlusMinus.Name = "indexPlusMinus";
             indexPlusMinus.RowCount = 1;
             indexPlusMinus.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            indexPlusMinus.Size = new Size(126, 88);
+            indexPlusMinus.Size = new Size(130, 74);
             indexPlusMinus.TabIndex = 1;
             // 
             // plus
             // 
             plus.Dock = DockStyle.Fill;
-            plus.Location = new Point(66, 3);
+            plus.Location = new Point(68, 3);
             plus.Name = "plus";
-            plus.Size = new Size(57, 82);
+            plus.Size = new Size(59, 68);
             plus.TabIndex = 1;
             plus.Text = "➕";
             plus.UseVisualStyleBackColor = true;
@@ -276,32 +285,32 @@
             minus.Dock = DockStyle.Fill;
             minus.Location = new Point(3, 3);
             minus.Name = "minus";
-            minus.Size = new Size(57, 82);
+            minus.Size = new Size(59, 68);
             minus.TabIndex = 0;
             minus.Text = "➖";
             minus.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel6
+            // SwitchPanel
             // 
-            tableLayoutPanel6.ColumnCount = 1;
-            tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel6.Controls.Add(note, 0, 0);
-            tableLayoutPanel6.Controls.Add(done, 0, 1);
-            tableLayoutPanel6.Dock = DockStyle.Fill;
-            tableLayoutPanel6.Location = new Point(4, 199);
-            tableLayoutPanel6.Name = "tableLayoutPanel6";
-            tableLayoutPanel6.RowCount = 2;
-            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel6.Size = new Size(132, 188);
-            tableLayoutPanel6.TabIndex = 5;
+            SwitchPanel.ColumnCount = 1;
+            SwitchPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            SwitchPanel.Controls.Add(note, 0, 0);
+            SwitchPanel.Controls.Add(done, 0, 1);
+            SwitchPanel.Dock = DockStyle.Fill;
+            SwitchPanel.Location = new Point(4, 170);
+            SwitchPanel.Name = "SwitchPanel";
+            SwitchPanel.RowCount = 2;
+            SwitchPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            SwitchPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            SwitchPanel.Size = new Size(136, 159);
+            SwitchPanel.TabIndex = 5;
             // 
             // note
             // 
             note.Dock = DockStyle.Fill;
             note.Location = new Point(3, 3);
             note.Name = "note";
-            note.Size = new Size(126, 88);
+            note.Size = new Size(130, 73);
             note.TabIndex = 2;
             note.Text = "Poznámka";
             note.TextAlign = ContentAlignment.MiddleRight;
@@ -311,82 +320,82 @@
             // done
             // 
             done.Dock = DockStyle.Fill;
-            done.Location = new Point(3, 97);
+            done.Location = new Point(3, 82);
             done.Name = "done";
-            done.Size = new Size(126, 88);
+            done.Size = new Size(130, 74);
             done.TabIndex = 3;
             done.Text = "Hotovo";
             done.TextAlign = ContentAlignment.MiddleRight;
             done.UseVisualStyleBackColor = true;
             done.CheckedChanged += SaveAndRefreshLayout;
             // 
-            // tableLayoutPanel5
+            // subLayoutBController
             // 
-            tableLayoutPanel5.ColumnCount = 1;
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel5.Controls.Add(tableLayoutPanel7, 0, 0);
-            tableLayoutPanel5.Dock = DockStyle.Fill;
-            tableLayoutPanel5.Location = new Point(149, 3);
-            tableLayoutPanel5.Name = "tableLayoutPanel5";
-            tableLayoutPanel5.RowCount = 10;
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            tableLayoutPanel5.Size = new Size(1182, 588);
-            tableLayoutPanel5.TabIndex = 1;
+            subLayoutBController.ColumnCount = 1;
+            subLayoutBController.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            subLayoutBController.Controls.Add(row, 0, 0);
+            subLayoutBController.Dock = DockStyle.Fill;
+            subLayoutBController.Location = new Point(153, 3);
+            subLayoutBController.Name = "subLayoutBController";
+            subLayoutBController.RowCount = 10;
+            subLayoutBController.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            subLayoutBController.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            subLayoutBController.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            subLayoutBController.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            subLayoutBController.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            subLayoutBController.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            subLayoutBController.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            subLayoutBController.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            subLayoutBController.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            subLayoutBController.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            subLayoutBController.Size = new Size(1210, 501);
+            subLayoutBController.TabIndex = 1;
             // 
-            // tableLayoutPanel7
+            // row
             // 
-            tableLayoutPanel7.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
-            tableLayoutPanel7.ColumnCount = 6;
-            tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 500F));
-            tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 150F));
-            tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 400F));
-            tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
-            tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
-            tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
-            tableLayoutPanel7.Controls.Add(button7, 4, 0);
-            tableLayoutPanel7.Controls.Add(button6, 3, 0);
-            tableLayoutPanel7.Controls.Add(time, 2, 0);
-            tableLayoutPanel7.Controls.Add(typ, 1, 0);
-            tableLayoutPanel7.Controls.Add(program, 0, 0);
-            tableLayoutPanel7.Dock = DockStyle.Fill;
-            tableLayoutPanel7.Location = new Point(3, 3);
-            tableLayoutPanel7.Name = "tableLayoutPanel7";
-            tableLayoutPanel7.RowCount = 1;
-            tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel7.Size = new Size(1176, 52);
-            tableLayoutPanel7.TabIndex = 0;
+            row.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
+            row.ColumnCount = 6;
+            row.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 500F));
+            row.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 150F));
+            row.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 400F));
+            row.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
+            row.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
+            row.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
+            row.Controls.Add(reset, 4, 0);
+            row.Controls.Add(edit, 3, 0);
+            row.Controls.Add(time, 2, 0);
+            row.Controls.Add(typ, 1, 0);
+            row.Controls.Add(program, 0, 0);
+            row.Dock = DockStyle.Fill;
+            row.Location = new Point(3, 3);
+            row.Name = "row";
+            row.RowCount = 1;
+            row.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            row.Size = new Size(1204, 44);
+            row.TabIndex = 0;
             // 
-            // button7
+            // reset
             // 
-            button7.Dock = DockStyle.Fill;
-            button7.Font = new Font("Microsoft Sans Serif", 14F);
-            button7.ForeColor = Color.Green;
-            button7.Location = new Point(1118, 4);
-            button7.Name = "button7";
-            button7.Size = new Size(54, 44);
-            button7.TabIndex = 6;
-            button7.Text = "♻";
-            button7.UseVisualStyleBackColor = true;
+            reset.Dock = DockStyle.Fill;
+            reset.Font = new Font("Microsoft Sans Serif", 12F);
+            reset.ForeColor = Color.Green;
+            reset.Location = new Point(1118, 4);
+            reset.Name = "reset";
+            reset.Size = new Size(54, 36);
+            reset.TabIndex = 6;
+            reset.Text = "♻";
+            reset.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // edit
             // 
-            button6.Dock = DockStyle.Fill;
-            button6.Font = new Font("Microsoft Sans Serif", 14F);
-            button6.Location = new Point(1057, 4);
-            button6.Name = "button6";
-            button6.Size = new Size(54, 44);
-            button6.TabIndex = 5;
-            button6.Text = "📝";
-            button6.UseVisualStyleBackColor = true;
+            edit.Dock = DockStyle.Fill;
+            edit.Font = new Font("Microsoft Sans Serif", 12F);
+            edit.Location = new Point(1057, 4);
+            edit.Name = "edit";
+            edit.Size = new Size(54, 36);
+            edit.TabIndex = 5;
+            edit.Text = "📝";
+            edit.UseVisualStyleBackColor = true;
             // 
             // time
             // 
@@ -395,7 +404,7 @@
             time.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             time.Location = new Point(656, 1);
             time.Name = "time";
-            time.Size = new Size(394, 50);
+            time.Size = new Size(394, 42);
             time.TabIndex = 2;
             time.Text = "Čas";
             time.TextAlign = ContentAlignment.MiddleLeft;
@@ -407,7 +416,7 @@
             typ.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             typ.Location = new Point(505, 1);
             typ.Name = "typ";
-            typ.Size = new Size(144, 50);
+            typ.Size = new Size(144, 42);
             typ.TabIndex = 1;
             typ.Text = "Typ";
             typ.TextAlign = ContentAlignment.MiddleLeft;
@@ -419,7 +428,7 @@
             program.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             program.Location = new Point(4, 1);
             program.Name = "program";
-            program.Size = new Size(494, 50);
+            program.Size = new Size(494, 42);
             program.TabIndex = 0;
             program.Text = "Program";
             program.TextAlign = ContentAlignment.MiddleLeft;
@@ -603,11 +612,82 @@
             tableLayoutPanel13.Size = new Size(174, 588);
             tableLayoutPanel13.TabIndex = 1;
             // 
+            // panel2
+            // 
+            panel2.Controls.Add(MeetingNumberAndDate);
+            panel2.Controls.Add(Date);
+            panel2.Controls.Add(username);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(3, 3);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(545, 210);
+            panel2.TabIndex = 1;
+            // 
+            // username
+            // 
+            username.AutoSize = true;
+            username.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            username.Location = new Point(19, 22);
+            username.Name = "username";
+            username.Size = new Size(168, 45);
+            username.TabIndex = 0;
+            username.Text = "Loading...";
+            // 
+            // Date
+            // 
+            Date.AutoSize = true;
+            Date.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Date.Location = new Point(19, 67);
+            Date.Name = "Date";
+            Date.Size = new Size(114, 32);
+            Date.TabIndex = 1;
+            Date.Text = "Loading...";
+            // 
+            // MeetingNumberAndDate
+            // 
+            MeetingNumberAndDate.AutoSize = true;
+            MeetingNumberAndDate.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            MeetingNumberAndDate.Location = new Point(19, 99);
+            MeetingNumberAndDate.Name = "MeetingNumberAndDate";
+            MeetingNumberAndDate.Size = new Size(223, 32);
+            MeetingNumberAndDate.TabIndex = 2;
+            MeetingNumberAndDate.Text = "Návštěva: Loading...";
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Controls.Add(CreateNewPlan);
+            flowLayoutPanel1.Controls.Add(PrintEveryting);
+            flowLayoutPanel1.Dock = DockStyle.Fill;
+            flowLayoutPanel1.FlowDirection = FlowDirection.RightToLeft;
+            flowLayoutPanel1.Location = new Point(3, 219);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(545, 59);
+            flowLayoutPanel1.TabIndex = 2;
+            // 
+            // CreateNewPlan
+            // 
+            CreateNewPlan.Location = new Point(482, 3);
+            CreateNewPlan.Name = "CreateNewPlan";
+            CreateNewPlan.Size = new Size(60, 52);
+            CreateNewPlan.TabIndex = 0;
+            CreateNewPlan.Text = "➕";
+            CreateNewPlan.UseVisualStyleBackColor = true;
+            CreateNewPlan.Click += CreateNewPlan_Click;
+            // 
+            // PrintEveryting
+            // 
+            PrintEveryting.Location = new Point(416, 3);
+            PrintEveryting.Name = "PrintEveryting";
+            PrintEveryting.Size = new Size(60, 52);
+            PrintEveryting.TabIndex = 2;
+            PrintEveryting.Text = "🖨";
+            PrintEveryting.UseVisualStyleBackColor = true;
+            // 
             // DesignerInterface
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1968, 1179);
+            ClientSize = new Size(2015, 1179);
             Controls.Add(tableLayoutPanel1);
             MinimumSize = new Size(1990, 1235);
             Name = "DesignerInterface";
@@ -620,21 +700,23 @@
             ((System.ComponentModel.ISupportInitialize)skeny).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            masterGrid.ResumeLayout(false);
             subLayout.ResumeLayout(false);
             subLayoutAController.ResumeLayout(false);
             indexController.ResumeLayout(false);
             indexPlusMinus.ResumeLayout(false);
-            tableLayoutPanel6.ResumeLayout(false);
-            tableLayoutPanel5.ResumeLayout(false);
-            tableLayoutPanel7.ResumeLayout(false);
-            tableLayoutPanel7.PerformLayout();
+            SwitchPanel.ResumeLayout(false);
+            subLayoutBController.ResumeLayout(false);
+            row.ResumeLayout(false);
+            row.PerformLayout();
             tableLayoutPanel8.ResumeLayout(false);
             tableLayoutPanel9.ResumeLayout(false);
             tableLayoutPanel10.ResumeLayout(false);
             tableLayoutPanel11.ResumeLayout(false);
             tableLayoutPanel12.ResumeLayout(false);
             tableLayoutPanel13.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -657,7 +739,7 @@
         private TableLayoutPanel indexPlusMinus;
         private Button plus;
         private Button minus;
-        private TableLayoutPanel tableLayoutPanel6;
+        private TableLayoutPanel SwitchPanel;
         private TableLayoutPanel tableLayoutPanel8;
         private TableLayoutPanel tableLayoutPanel9;
         private Button button1;
@@ -671,12 +753,19 @@
         private CheckBox checkBox2;
         private TableLayoutPanel tableLayoutPanel14;
         private TableLayoutPanel tableLayoutPanel13;
-        private TableLayoutPanel tableLayoutPanel5;
-        private TableLayoutPanel tableLayoutPanel7;
+        private TableLayoutPanel subLayoutBController;
+        private TableLayoutPanel row;
         private Label typ;
         private Label program;
         private Label time;
-        private Button button7;
-        private Button button6;
+        private Button reset;
+        private Button edit;
+        private Panel panel2;
+        private Label username;
+        private Label Date;
+        private Label MeetingNumberAndDate;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Button CreateNewPlan;
+        private Button PrintEveryting;
     }
 }

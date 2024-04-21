@@ -16,7 +16,7 @@ namespace Tritium
         private void UpdateList()
         {
             listBox1.Items.Clear();
-            Klient[] klients = Program.db.ListClients().ToArray();
+            Klient[] klients = [.. Program.db.ListClients()];
             Array.Sort(klients, (x1, x2) => x1.Jmeno.CompareTo(x2.Jmeno));
             foreach (var item in klients)
             {
@@ -53,7 +53,7 @@ namespace Tritium
             }
         }
 
-        private async void plus_click(object sender, EventArgs e)
+        private async void Plus_click(object sender, EventArgs e)
         {
             await Program.db.CreateEmptyClient();
             UpdateList();
@@ -64,7 +64,7 @@ namespace Tritium
             Select_Click(sender, e);
         }
 
-        private void minus_click(object sender, EventArgs e)
+        private void Minus_click(object sender, EventArgs e)
         {
             foreach (Klient item in Program.db.ListClients())
             {
@@ -77,7 +77,7 @@ namespace Tritium
             }
         }
 
-        private void about_Click(object sender, EventArgs e)
+        private void About_Click(object sender, EventArgs e)
         {
             isNatural = true;
             ManagerWindow.SwitchToWindow(new AboutBox1(), this);

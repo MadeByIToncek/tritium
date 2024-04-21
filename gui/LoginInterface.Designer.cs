@@ -106,7 +106,7 @@ namespace Tritium
             button1.TabIndex = 6;
             button1.Text = "➕";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += plus_click;
+            button1.Click += Plus_click;
             // 
             // button2
             // 
@@ -118,7 +118,7 @@ namespace Tritium
             button2.TabIndex = 7;
             button2.Text = "➖";
             button2.UseVisualStyleBackColor = true;
-            button2.Click += minus_click;
+            button2.Click += Minus_click;
             // 
             // listBox1
             // 
@@ -142,7 +142,7 @@ namespace Tritium
             about.TabIndex = 8;
             about.Text = "❓";
             about.UseVisualStyleBackColor = true;
-            about.Click += about_Click;
+            about.Click += About_Click;
             // 
             // LoginInterface
             // 
