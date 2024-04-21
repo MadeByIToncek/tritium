@@ -77,9 +77,6 @@ namespace Tritium.gui
                 list.Add(scan);
             };
 
-            list;
-
-
             return list;
         }
 
