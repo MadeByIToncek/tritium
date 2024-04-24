@@ -2,6 +2,7 @@ using Microsoft.VisualBasic.ApplicationServices;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
+using Tritium.print;
 
 namespace Tritium
 {
@@ -120,6 +121,7 @@ namespace Tritium
             Visible = false;
 
             var Login = new LoginInterface();
+            //var Login = new Form1();
             runningWindow = Login;
             Login.Show();
         }

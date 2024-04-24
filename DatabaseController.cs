@@ -375,14 +375,14 @@ namespace Tritium
             session.Close();
         }
 
-        internal async Task UpdateMeeting(Navsteva meeting)
+        internal void UpdateMeeting(Navsteva meeting)
         {
             using var session = sf.OpenSession();
             using var trans = session.BeginTransaction();
             trans.Begin();
-            await session.EvictAsync(meeting);
-            await session.UpdateAsync(meeting);
-            await trans.CommitAsync();
+            session.Evict(meeting);
+            session.Update(meeting);
+            trans.Commit();
             session.Close();
         }
 

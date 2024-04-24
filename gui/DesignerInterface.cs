@@ -85,11 +85,11 @@ namespace Tritium.gui
             return boolean ? "✅" : "❌";
         }
 
-        private async Task SaveAll()
+        private void SaveAll()
         {
             //TODO: Fill in all the saving parameters
 
-            await Program.db.UpdateMeeting(meeting);
+            Program.db.UpdateMeeting(meeting);
         }
 
         bool closed = false;
@@ -97,7 +97,7 @@ namespace Tritium.gui
         {
             if (!closed)
             {
-                await SaveAll();
+                SaveAll();
                 SaveAndClose(new MeetingInterface(meeting.Id));
             }
         }
@@ -105,7 +105,7 @@ namespace Tritium.gui
         private async void SaveAndClose(Form target)
         {
             closed = true;
-            await SaveAll();
+            SaveAll();
             ManagerWindow.SwitchToWindow(target, this);
         }
 
@@ -131,7 +131,7 @@ namespace Tritium.gui
                 NoteContents = null,
                 NoteDuration = 0,
             });
-            await Program.db.UpdateMeeting(meeting);
+            Program.db.UpdateMeeting(meeting);
 
             SaveAndRefreshLayout(sender,e);
         }

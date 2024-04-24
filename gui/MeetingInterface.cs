@@ -107,7 +107,7 @@ namespace Tritium.gui
         //{
         //}
 
-        private async Task SaveAll()
+        private void SaveAll()
         {
             meeting.Date = dateTimePicker1.Value;
             meeting.AktualniPotize = aktualniPotize.Text;
@@ -116,37 +116,37 @@ namespace Tritium.gui
             meeting.SkenOkr1 = Program.db.GetOkruhByName((string)okruh1.SelectedItem);
             meeting.SkenOkr2 = Program.db.GetOkruhByName((string)okruh2.SelectedItem);
 
-            await Program.db.UpdateMeeting(meeting);
+            Program.db.UpdateMeeting(meeting);
         }
 
         bool closed = false;
-        protected override async void OnClosing(CancelEventArgs e)
+        protected override void OnClosing(CancelEventArgs e)
         {
             if (!closed)
             {
-                await SaveAll();
+                SaveAll();
                 SaveAndClose(new ClientDBInterface(meeting.Client.Id));
             }
         }
 
-        private async void SaveAndClose(Form target)
+        private void SaveAndClose(Form target)
         {
             closed = true;
-            await SaveAll();
+            SaveAll();
             ManagerWindow.SwitchToWindow(target, this);
         }
 
-        private async void DesignerButton_Click(object sender, EventArgs e)
+        private void DesignerButton_Click(object sender, EventArgs e)
         {
-            await SaveAll();
+            SaveAll();
             SaveAndClose(new DesignerInterface(meeting.Id));
         }
 
-        private async void Skeny_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void Skeny_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
             {
-                await SaveAll();
+                SaveAll();
                 SaveAndClose(new ScanEditInterface(GetCurrentSelection().Id));
             }
         }
