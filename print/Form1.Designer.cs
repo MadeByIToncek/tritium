@@ -1,4 +1,6 @@
-﻿namespace Tritium.print
+﻿using System.Drawing.Printing;
+
+namespace Tritium.print
 {
     partial class Form1
     {
@@ -29,7 +31,7 @@
         private void InitializeComponent()
         {
             button1 = new Button();
-            printDocument1 = new System.Drawing.Printing.PrintDocument();
+            printDocument1 = new PrintDocument();
             printDialog1 = new PrintDialog();
             SuspendLayout();
             // 
@@ -45,7 +47,8 @@
             // 
             // printDocument1
             // 
-            printDocument1.PrintPage += document_PrintPage;
+            printDocument1.PrintPage += Document_PrintPage;
+            printDocument1.EndPrint += Document_EndPrint;
             // 
             // printDialog1
             // 
@@ -62,9 +65,10 @@
             ResumeLayout(false);
         }
 
+
         #endregion
         private Button button1;
-        private System.Drawing.Printing.PrintDocument printDocument1;
+        private PrintDocument printDocument1;
         private PrintDialog printDialog1;
     }
 }

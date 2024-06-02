@@ -94,7 +94,7 @@ namespace Tritium
             }
         }
 
-        private static void MainForm_LoadCompleted(object sender, EventArgs e)
+        private static void MainForm_LoadCompleted(object? sender, EventArgs? e)
         {
             if (SplashScreen != null && !SplashScreen.Disposing && !SplashScreen.IsDisposed)
                 SplashScreen.Invoke(new Action(() => SplashScreen.Close()));

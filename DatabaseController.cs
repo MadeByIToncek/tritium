@@ -1,5 +1,6 @@
 ﻿using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
+using FluentNHibernate.Data;
 using FluentNHibernate.Utils;
 using MySqlX.XDevAPI;
 using NHibernate;
@@ -9,6 +10,7 @@ using NHibernate.Metadata;
 using NHibernate.Tool.hbm2ddl;
 using NHibernate.Transform;
 using System.Collections;
+using System.Numerics;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -474,6 +476,57 @@ namespace Tritium
             int query = session.QueryOver<Plan>()
                 .Select(Projections.Max<Plan>(x => x.Poradi)).SingleOrDefault<int>();
                 return query + 1;
+        }
+
+        internal async void ClearPlanEntry(PlanEntry entry)
+        {
+            using var session = sf.OpenSession();
+            using var trans = session.BeginTransaction();
+            trans.Begin();
+            await session.EvictAsync(entry);
+            entry.Program = GetEmptyPatogen();
+            await session.UpdateAsync(entry);
+            await trans.CommitAsync();
+            session.Close();
+        }
+
+        internal PlanEntry GetPlanEntry(int planEntryID)
+        {
+            using var session = sf.OpenSession();
+            var query = session.QueryOver<PlanEntry>()
+                .Where(i => i.Id == planEntryID)
+                .TransformUsing(new DistinctRootEntityResultTransformer());
+            return query.SingleOrDefault<PlanEntry>();
+        }
+
+        internal async void UpdatePlanEntry(PlanEntry entry)
+        {
+            using var session = sf.OpenSession();
+            using var trans = session.BeginTransaction();
+            trans.Begin();
+            await session.EvictAsync(entry);
+            await session.UpdateAsync(entry);
+            await trans.CommitAsync();
+            session.Close();
+        }
+
+        internal int CreateNewEmptyPlanEntry(Plan plan, int order)
+        {
+            ISession session = sf.OpenSession();
+            ITransaction transaction = session.BeginTransaction();
+            transaction.Begin();
+            PlanEntry entry = new()
+            {
+                Plan = plan,
+                Program = GetEmptyPatogen(),
+                Poradi = order
+            };
+            plan.PridatDavku(entry);
+            session.Evict(entry);
+            int v = (int)session.Save(entry);
+            transaction.Commit();
+            session.Close();
+            return v;
         }
     }
 }

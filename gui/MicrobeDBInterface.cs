@@ -1,5 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 using Tritium.Entities;
+using Tritium.utils;
 
 namespace Tritium
 {
@@ -110,7 +111,7 @@ namespace Tritium
 
         private void UpdateList()
         {
-            listBox1.SuspendLayout();
+            DrawingControl.SuspendDrawing(this);
             listBox1.Items.Clear();
             listBox1.ClearSelected();
             foreach (PatogenProgram item in Program.db.ListPatogenPrograms())
@@ -128,7 +129,7 @@ namespace Tritium
                 }
 
             }
-            listBox1.ResumeLayout();
+            DrawingControl.ResumeDrawing(this);
         }
 
         private void ClearForm()

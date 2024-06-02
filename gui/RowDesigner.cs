@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Org.BouncyCastle.Asn1.X509;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,20 +10,28 @@ namespace Tritium.gui
 {
     internal class RowDesigner
     {
-        private readonly PlanEntry? entry;
-        private readonly int idx;
+        private PlanEntry? entry;
+        private readonly Plan plan;
+        private readonly int order;
+        private readonly Form rootWindow;
+        private Button? reset;
+        private Button? edit;
 
-        public RowDesigner(PlanEntry? entry, int idx)
+        public RowDesigner(PlanEntry? entry, Plan plan, int order, Form rootWindow)
         {
             this.entry = entry;
-            this.idx = idx;
+            this.plan = plan;
+            this.order = order;
+            this.rootWindow = rootWindow;
         }
 
         public TableLayoutPanel GenerateLayout()
         {
+            entry ??= Program.db.GetPlanEntry(Program.db.CreateNewEmptyPlanEntry(plan, order));
+
             TableLayoutPanel row = new();
-            Button reset = new();
-            Button edit = new();
+            reset = new();
+            edit = new();
             Label time = new();
             Label type = new();
             Label program = new();
@@ -87,7 +96,7 @@ namespace Tritium.gui
 
             if(entry != null)
             {
-                time.Text = entry.Program.Time + "s";
+                time.Text = ParseTime(entry.Program.Time);
             }
 
             // 
@@ -127,7 +136,28 @@ namespace Tritium.gui
                 program.Text = entry.Program.Name;
             }
 
+
+
+            reset.Click += (sender, args) =>
+            {
+                Program.db.ClearPlanEntry(entry);
+            };
+
+            edit.Click += (sender, args) =>
+            {
+                ManagerWindow.SwitchToWindow(new DesignerEditorInterface(entry.Plan.Navsteva.Id, entry.Id), rootWindow);
+            };
+
             return row;
+        }
+        private static string ParseTime(long time)
+        {
+            TimeSpan t = TimeSpan.FromSeconds(time);
+
+            return string.Format("{0:D2}:{1:D2}:{2:D2}",
+                            t.Hours,
+                            t.Minutes,
+                            t.Seconds);
         }
     }
 }

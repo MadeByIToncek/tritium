@@ -11,41 +11,24 @@ namespace Tritium.gui
         public readonly TableLayoutPanel subLayout;
         public readonly Plan plan;
         public Button? recycle;
-        public Button? plus;
-        public Button? minus;
         public CheckBox? note;
         public CheckBox? done;
 
         private readonly Dictionary<int, RowDesigner> rows = [];
         private readonly Action<object?, EventArgs> saveAndRefreshLayout;
+        private readonly Form rootWindow;
 
-        public DesignerDesigner(Plan plan, Action<object?, EventArgs> saveAndRefreshLayout, List<Control> planningLayout)
+        public DesignerDesigner(Plan plan, Action<object?, EventArgs> saveAndRefreshLayout, List<Control> planningLayout, Form rootWindow)
         {
             this.plan = plan;
             this.saveAndRefreshLayout = saveAndRefreshLayout;
+            this.rootWindow = rootWindow;
             subLayout = GenerateSubLayout();
 
             recycle.Click += (o, e) =>
             {
                 Program.db.DeletePlan(plan);
                 saveAndRefreshLayout(o,e);
-            };
-            plus.Click += (o, e) =>
-            {
-                FixIndicies(plan.Poradi + 1, -1);
-                plan.Poradi++;
-                Program.db.UpdatePlan(plan);
-                saveAndRefreshLayout(o, e);
-            };
-            minus.Click += (o, e) =>
-            {
-                if (plan.Poradi > 1)
-                {
-                    FixIndicies(plan.Poradi - 1, 1);
-                    plan.Poradi--;
-                    Program.db.UpdatePlan(plan);
-                }
-                saveAndRefreshLayout(o, e);
             };
             note.Click += (o, e) =>
             {
@@ -131,7 +114,7 @@ namespace Tritium.gui
 
         private TableLayoutPanel GenerateRow(int i)
         {
-            RowDesigner designer = new(FindPlanEntry(i, plan.Programy),i);
+            RowDesigner designer = new(FindPlanEntry(i, plan.Programy),plan,i, rootWindow);
             rows.Add(i,designer);
             return designer.GenerateLayout();
         }
@@ -165,7 +148,7 @@ namespace Tritium.gui
             subLayoutAController.ColumnCount = 1;
             subLayoutAController.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             subLayoutAController.Controls.Add(GenerateRecycleButton(), 0, 2);
-            subLayoutAController.Controls.Add(GenerateIndexController(), 0, 0);
+            subLayoutAController.Controls.Add(GenerateIndex(), 0, 0);
             subLayoutAController.Controls.Add(GenerateSwitchPanel(), 0, 1);
             subLayoutAController.Dock = DockStyle.Fill;
             subLayoutAController.Location = new Point(3, 3);
@@ -228,69 +211,6 @@ namespace Tritium.gui
             done.Checked = plan.Done;
 
             return SwitchPanel;
-        }
-
-        private TableLayoutPanel GenerateIndexController()
-        {
-            TableLayoutPanel indexController = new();
-            indexController.ColumnCount = 1;
-            indexController.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            indexController.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            indexController.Controls.Add(GenerateIndex(), 0, 0);
-            indexController.Controls.Add(GenerateIndexPlusMinus(), 0, 1);
-            indexController.Dock = DockStyle.Fill;
-            indexController.Location = new Point(4, 4);
-            indexController.Name = "indexController";
-            indexController.RowCount = 2;
-            indexController.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            indexController.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            indexController.Size = new Size(132, 188);
-            indexController.TabIndex = 4;
-            return indexController;
-        }
-
-        private TableLayoutPanel GenerateIndexPlusMinus()
-        {
-            TableLayoutPanel indexPlusMinus = new();
-            plus = new Button();
-            minus = new Button();
-            // 
-            // indexPlusMinus
-            // 
-            indexPlusMinus.ColumnCount = 2;
-            indexPlusMinus.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            indexPlusMinus.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            indexPlusMinus.Controls.Add(plus, 1, 0);
-            indexPlusMinus.Controls.Add(minus, 0, 0);
-            indexPlusMinus.Dock = DockStyle.Fill;
-            indexPlusMinus.Location = new Point(3, 97);
-            indexPlusMinus.Name = "indexPlusMinus";
-            indexPlusMinus.RowCount = 1;
-            indexPlusMinus.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            indexPlusMinus.Size = new Size(126, 88);
-            indexPlusMinus.TabIndex = 1;
-            // 
-            // plus
-            // 
-            plus.Dock = DockStyle.Fill;
-            plus.Location = new Point(66, 3);
-            plus.Name = "plus";
-            plus.Size = new Size(57, 82);
-            plus.TabIndex = 1;
-            plus.Text = "➕";
-            plus.UseVisualStyleBackColor = true;
-            // 
-            // minus
-            // 
-            minus.Dock = DockStyle.Fill;
-            minus.Location = new Point(3, 3);
-            minus.Name = "minus";
-            minus.Size = new Size(57, 82);
-            minus.TabIndex = 0;
-            minus.Text = "➖";
-            minus.UseVisualStyleBackColor = true;
-
-            return indexPlusMinus;
         }
 
         private Label GenerateIndex()

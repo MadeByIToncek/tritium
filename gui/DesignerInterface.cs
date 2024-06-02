@@ -42,7 +42,7 @@ namespace Tritium.gui
                 masterGrid.RowStyles.Clear();
                 for (int i = 0; i < entries; i++)
                 {
-                    DesignerDesigner designer = new(meeting.Plany[i], SaveAndRefreshLayout, planningLayout);
+                    DesignerDesigner designer = new(meeting.Plany[i], SaveAndRefreshLayout, planningLayout,this);
                     //TableLayoutPanel subLayout = DesignerDesigner.GenerateSubLayout();
                     masterGrid.RowStyles.Add(new RowStyle(SizeType.Absolute, 500F));
                     masterGrid.Controls.Add(designer.subLayout);
