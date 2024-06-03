@@ -13,10 +13,17 @@ namespace Tritium.gui
         {
             meeting = Program.db.GetMeetingById(meetingId);
             InitializeComponent();
+            LoadInfo();
             LoadSkeny();
             GenerateMasterTablePanels();
         }
 
+        private void LoadInfo()
+        {
+            username.Text = meeting.Client.Jmeno;
+            Date.Text = meeting.Client.DatumNarozeni.ToString("dd. mm. yyyy");
+            MeetingNumberAndDate.Text = meeting.Id + " (" + meeting.Date.ToString("dd. mm. yyyy") + ")";
+        }
 
         private void LoadSkeny()
         {
@@ -42,7 +49,7 @@ namespace Tritium.gui
                 masterGrid.RowStyles.Clear();
                 for (int i = 0; i < entries; i++)
                 {
-                    DesignerDesigner designer = new(meeting.Plany[i], SaveAndRefreshLayout, planningLayout,this);
+                    DesignerDesigner designer = new(meeting.Plany[i], SaveAndRefreshLayout, planningLayout, SaveAndClose);
                     //TableLayoutPanel subLayout = DesignerDesigner.GenerateSubLayout();
                     masterGrid.RowStyles.Add(new RowStyle(SizeType.Absolute, 500F));
                     masterGrid.Controls.Add(designer.subLayout);

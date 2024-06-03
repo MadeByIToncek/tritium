@@ -13,7 +13,8 @@ namespace Tritium.Mappings
         public MapaPlanu()
         {
             Id(x => x.Id);
-            References(x => x.Navsteva);
+            References(x => x.Navsteva)
+                .Cascade.All(); 
             Map(x => x.Poradi);
             Map(x => x.Done);
             Map(x => x.Note);

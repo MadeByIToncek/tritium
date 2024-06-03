@@ -1,22 +1,13 @@
 ﻿using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
-using FluentNHibernate.Data;
-using FluentNHibernate.Utils;
-using MySqlX.XDevAPI;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
-using NHibernate.Metadata;
 using NHibernate.Tool.hbm2ddl;
 using NHibernate.Transform;
-using System.Collections;
-using System.Numerics;
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Text;
-using System.Xml.Linq;
 using Tritium.Entities;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Tritium
 {
@@ -383,7 +374,7 @@ namespace Tritium
             using var trans = session.BeginTransaction();
             trans.Begin();
             session.Evict(meeting);
-            session.Update(meeting);
+            session.SaveOrUpdate(meeting);
             trans.Commit();
             session.Close();
         }
@@ -436,7 +427,7 @@ namespace Tritium
             return query.List<Plan>();
         }
 
-        internal async void DeletePlan(Plan plan)
+        internal async Task DeletePlan(Plan plan)
         {
             using var session = sf.OpenSession();
             using var trans = session.BeginTransaction();
@@ -447,7 +438,9 @@ namespace Tritium
             session.Close();
         }
 
-        internal async void UpdatePlan(Plan plan)
+        internal async 
+        Task
+UpdatePlan(Plan plan)
         {
             using var session = sf.OpenSession();
             using var trans = session.BeginTransaction();
@@ -515,10 +508,12 @@ namespace Tritium
             ISession session = sf.OpenSession();
             ITransaction transaction = session.BeginTransaction();
             transaction.Begin();
+            PatogenProgram patogen = GetEmptyPatogen();
+            session.Evict(patogen);
             PlanEntry entry = new()
             {
                 Plan = plan,
-                Program = GetEmptyPatogen(),
+                Program = patogen,
                 Poradi = order
             };
             plan.PridatDavku(entry);

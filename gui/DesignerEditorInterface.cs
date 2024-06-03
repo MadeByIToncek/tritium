@@ -24,7 +24,8 @@ namespace Tritium.gui
         {
             InitializeComponent();
             this.MeetingId = MeetingId;
-            this.PlanEntry = Program.db.GetPlanEntry(PlanEntryID);
+            PlanEntry = Program.db.GetPlanEntry(PlanEntryID);
+            UpdateList();
             listBox1.SelectedItem = PlanEntry.Program.Type + " - " + PlanEntry.Program.Name;
         }
 

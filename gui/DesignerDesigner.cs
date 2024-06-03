@@ -8,7 +8,7 @@ namespace Tritium.gui
     internal class DesignerDesigner
     {
 
-        public readonly TableLayoutPanel subLayout;
+        public TableLayoutPanel subLayout;
         public readonly Plan plan;
         public Button? recycle;
         public CheckBox? note;
@@ -16,44 +16,32 @@ namespace Tritium.gui
 
         private readonly Dictionary<int, RowDesigner> rows = [];
         private readonly Action<object?, EventArgs> saveAndRefreshLayout;
-        private readonly Form rootWindow;
+        private readonly Action<Form> SaveAndClose;
 
-        public DesignerDesigner(Plan plan, Action<object?, EventArgs> saveAndRefreshLayout, List<Control> planningLayout, Form rootWindow)
+        public DesignerDesigner(Plan plan, Action<object?, EventArgs> saveAndRefreshLayout, List<Control> planningLayout, Action<Form> rootWindow)
         {
             this.plan = plan;
             this.saveAndRefreshLayout = saveAndRefreshLayout;
-            this.rootWindow = rootWindow;
+            this.SaveAndClose = rootWindow; 
             subLayout = GenerateSubLayout();
 
-            recycle.Click += (o, e) =>
+            recycle.Click += async (o, e) =>
             {
-                Program.db.DeletePlan(plan);
+                await Program.db.DeletePlan(plan);
                 saveAndRefreshLayout(o,e);
             };
-            note.Click += (o, e) =>
+            note.Click += async (o, e) =>
             {
                 plan.Note = note.Checked;
-                Program.db.UpdatePlan(plan);
+                await Program.db.UpdatePlan(plan);
                 saveAndRefreshLayout(o, e);
             };
-            done.Click += (o, e) =>
+            done.Click += async (o, e) =>
             {
                 plan.Done = done.Checked;
-                Program.db.UpdatePlan(plan);
+                await Program.db.UpdatePlan(plan);
                 saveAndRefreshLayout(o, e);
             };
-        }
-
-        private void FixIndicies(int poradi, int shift)
-        {
-            foreach (var item in Program.db.GetPlansForMeeting(plan.Navsteva.Id))
-            {
-                if(item.Poradi == poradi)
-                {
-                    item.Poradi += shift;
-                    Program.db.UpdatePlan(item);
-                };
-            }
         }
 
         public TableLayoutPanel GenerateSubLayout()
@@ -114,7 +102,7 @@ namespace Tritium.gui
 
         private TableLayoutPanel GenerateRow(int i)
         {
-            RowDesigner designer = new(FindPlanEntry(i, plan.Programy),plan,i, rootWindow);
+            RowDesigner designer = new(FindPlanEntry(i, plan.Programy),plan,i, SaveAndClose);
             rows.Add(i,designer);
             return designer.GenerateLayout();
         }

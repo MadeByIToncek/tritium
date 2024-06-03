@@ -32,6 +32,13 @@
             groupBox1 = new GroupBox();
             tableLayoutPanel4 = new TableLayoutPanel();
             skeny = new DataGridView();
+            panel2 = new Panel();
+            MeetingNumberAndDate = new Label();
+            Date = new Label();
+            username = new Label();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            CreateNewPlan = new Button();
+            PrintEveryting = new Button();
             panel1 = new Panel();
             masterGrid = new TableLayoutPanel();
             subLayout = new TableLayoutPanel();
@@ -65,17 +72,12 @@
             checkBox2 = new CheckBox();
             tableLayoutPanel14 = new TableLayoutPanel();
             tableLayoutPanel13 = new TableLayoutPanel();
-            panel2 = new Panel();
-            username = new Label();
-            Date = new Label();
-            MeetingNumberAndDate = new Label();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            CreateNewPlan = new Button();
-            PrintEveryting = new Button();
             tableLayoutPanel1.SuspendLayout();
             groupBox1.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)skeny).BeginInit();
+            panel2.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
             panel1.SuspendLayout();
             subLayout.SuspendLayout();
             subLayoutAController.SuspendLayout();
@@ -90,8 +92,6 @@
             tableLayoutPanel11.SuspendLayout();
             tableLayoutPanel12.SuspendLayout();
             tableLayoutPanel13.SuspendLayout();
-            panel2.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -108,7 +108,7 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1976, 1155);
+            tableLayoutPanel1.Size = new Size(1975, 1155);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // groupBox1
@@ -139,9 +139,9 @@
             tableLayoutPanel4.Margin = new Padding(10);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 3;
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 6.088561F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 73.98524F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 150F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 7.603687F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 92.39632F));
             tableLayoutPanel4.Size = new Size(551, 1084);
             tableLayoutPanel4.TabIndex = 0;
             // 
@@ -151,12 +151,83 @@
             skeny.AllowUserToDeleteRows = false;
             skeny.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             skeny.Dock = DockStyle.Fill;
-            skeny.Location = new Point(3, 284);
+            skeny.Location = new Point(3, 224);
             skeny.Name = "skeny";
             skeny.ReadOnly = true;
             skeny.RowHeadersWidth = 62;
-            skeny.Size = new Size(545, 797);
+            skeny.Size = new Size(545, 857);
             skeny.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            panel2.Controls.Add(MeetingNumberAndDate);
+            panel2.Controls.Add(Date);
+            panel2.Controls.Add(username);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(3, 3);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(545, 144);
+            panel2.TabIndex = 1;
+            // 
+            // MeetingNumberAndDate
+            // 
+            MeetingNumberAndDate.AutoSize = true;
+            MeetingNumberAndDate.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            MeetingNumberAndDate.Location = new Point(17, 88);
+            MeetingNumberAndDate.Name = "MeetingNumberAndDate";
+            MeetingNumberAndDate.Size = new Size(223, 32);
+            MeetingNumberAndDate.TabIndex = 2;
+            MeetingNumberAndDate.Text = "Návštěva: Loading...";
+            // 
+            // Date
+            // 
+            Date.AutoSize = true;
+            Date.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Date.Location = new Point(17, 56);
+            Date.Name = "Date";
+            Date.Size = new Size(114, 32);
+            Date.TabIndex = 1;
+            Date.Text = "Loading...";
+            // 
+            // username
+            // 
+            username.AutoSize = true;
+            username.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            username.Location = new Point(12, 12);
+            username.Name = "username";
+            username.Size = new Size(168, 45);
+            username.TabIndex = 0;
+            username.Text = "Loading...";
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Controls.Add(CreateNewPlan);
+            flowLayoutPanel1.Controls.Add(PrintEveryting);
+            flowLayoutPanel1.Dock = DockStyle.Fill;
+            flowLayoutPanel1.FlowDirection = FlowDirection.RightToLeft;
+            flowLayoutPanel1.Location = new Point(3, 153);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(545, 65);
+            flowLayoutPanel1.TabIndex = 2;
+            // 
+            // CreateNewPlan
+            // 
+            CreateNewPlan.Location = new Point(482, 3);
+            CreateNewPlan.Name = "CreateNewPlan";
+            CreateNewPlan.Size = new Size(60, 52);
+            CreateNewPlan.TabIndex = 0;
+            CreateNewPlan.Text = "➕";
+            CreateNewPlan.UseVisualStyleBackColor = true;
+            CreateNewPlan.Click += CreateNewPlan_Click;
+            // 
+            // PrintEveryting
+            // 
+            PrintEveryting.Location = new Point(416, 3);
+            PrintEveryting.Name = "PrintEveryting";
+            PrintEveryting.Size = new Size(60, 52);
+            PrintEveryting.TabIndex = 2;
+            PrintEveryting.Text = "🖨";
+            PrintEveryting.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -165,7 +236,7 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(595, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1378, 1149);
+            panel1.Size = new Size(1377, 1149);
             panel1.TabIndex = 1;
             // 
             // masterGrid
@@ -179,7 +250,7 @@
             masterGrid.RowCount = 2;
             masterGrid.RowStyles.Add(new RowStyle(SizeType.Absolute, 500F));
             masterGrid.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            masterGrid.Size = new Size(1372, 1142);
+            masterGrid.Size = new Size(1371, 1142);
             masterGrid.TabIndex = 0;
             // 
             // subLayout
@@ -612,77 +683,6 @@
             tableLayoutPanel13.Size = new Size(174, 588);
             tableLayoutPanel13.TabIndex = 1;
             // 
-            // panel2
-            // 
-            panel2.Controls.Add(MeetingNumberAndDate);
-            panel2.Controls.Add(Date);
-            panel2.Controls.Add(username);
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(3, 3);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(545, 210);
-            panel2.TabIndex = 1;
-            // 
-            // username
-            // 
-            username.AutoSize = true;
-            username.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            username.Location = new Point(19, 22);
-            username.Name = "username";
-            username.Size = new Size(168, 45);
-            username.TabIndex = 0;
-            username.Text = "Loading...";
-            // 
-            // Date
-            // 
-            Date.AutoSize = true;
-            Date.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Date.Location = new Point(19, 67);
-            Date.Name = "Date";
-            Date.Size = new Size(114, 32);
-            Date.TabIndex = 1;
-            Date.Text = "Loading...";
-            // 
-            // MeetingNumberAndDate
-            // 
-            MeetingNumberAndDate.AutoSize = true;
-            MeetingNumberAndDate.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            MeetingNumberAndDate.Location = new Point(19, 99);
-            MeetingNumberAndDate.Name = "MeetingNumberAndDate";
-            MeetingNumberAndDate.Size = new Size(223, 32);
-            MeetingNumberAndDate.TabIndex = 2;
-            MeetingNumberAndDate.Text = "Návštěva: Loading...";
-            // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.Controls.Add(CreateNewPlan);
-            flowLayoutPanel1.Controls.Add(PrintEveryting);
-            flowLayoutPanel1.Dock = DockStyle.Fill;
-            flowLayoutPanel1.FlowDirection = FlowDirection.RightToLeft;
-            flowLayoutPanel1.Location = new Point(3, 219);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(545, 59);
-            flowLayoutPanel1.TabIndex = 2;
-            // 
-            // CreateNewPlan
-            // 
-            CreateNewPlan.Location = new Point(482, 3);
-            CreateNewPlan.Name = "CreateNewPlan";
-            CreateNewPlan.Size = new Size(60, 52);
-            CreateNewPlan.TabIndex = 0;
-            CreateNewPlan.Text = "➕";
-            CreateNewPlan.UseVisualStyleBackColor = true;
-            CreateNewPlan.Click += CreateNewPlan_Click;
-            // 
-            // PrintEveryting
-            // 
-            PrintEveryting.Location = new Point(416, 3);
-            PrintEveryting.Name = "PrintEveryting";
-            PrintEveryting.Size = new Size(60, 52);
-            PrintEveryting.TabIndex = 2;
-            PrintEveryting.Text = "🖨";
-            PrintEveryting.UseVisualStyleBackColor = true;
-            // 
             // DesignerInterface
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -698,6 +698,9 @@
             groupBox1.PerformLayout();
             tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)skeny).EndInit();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            flowLayoutPanel1.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             subLayout.ResumeLayout(false);
@@ -714,9 +717,6 @@
             tableLayoutPanel11.ResumeLayout(false);
             tableLayoutPanel12.ResumeLayout(false);
             tableLayoutPanel13.ResumeLayout(false);
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
-            flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }

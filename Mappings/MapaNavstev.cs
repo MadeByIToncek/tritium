@@ -14,7 +14,9 @@ namespace Tritium.Mappings
         {
 
             Id(x => x.Id);
-            References(x => x.Client);
+            References(x => x.Client)
+                .Not.LazyLoad()
+                .Cascade.All();
             Map(x => x.Date);
             Map(x => x.AktualniPotize)
                 .Length(10000);

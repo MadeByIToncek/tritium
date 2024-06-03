@@ -31,7 +31,7 @@
 
   <ItemGroup>
     <PackageReference Include="FluentNHibernate" Version="3.3.0" />
-    <PackageReference Include="MySql.Data" Version="8.3.0">
+    <PackageReference Include="MySql.Data" Version="8.4.0">
       <TreatAsUsed>true</TreatAsUsed>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />

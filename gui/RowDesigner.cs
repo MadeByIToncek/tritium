@@ -13,16 +13,16 @@ namespace Tritium.gui
         private PlanEntry? entry;
         private readonly Plan plan;
         private readonly int order;
-        private readonly Form rootWindow;
+        private readonly Action<Form> SaveAndClose;
         private Button? reset;
         private Button? edit;
 
-        public RowDesigner(PlanEntry? entry, Plan plan, int order, Form rootWindow)
+        public RowDesigner(PlanEntry? entry, Plan plan, int order, Action<Form> SaveAndClose)
         {
             this.entry = entry;
             this.plan = plan;
             this.order = order;
-            this.rootWindow = rootWindow;
+            this.SaveAndClose = SaveAndClose;
         }
 
         public TableLayoutPanel GenerateLayout()
@@ -145,7 +145,7 @@ namespace Tritium.gui
 
             edit.Click += (sender, args) =>
             {
-                ManagerWindow.SwitchToWindow(new DesignerEditorInterface(entry.Plan.Navsteva.Id, entry.Id), rootWindow);
+                SaveAndClose(new DesignerEditorInterface(entry.Plan.Navsteva.Id, entry.Id));
             };
 
             return row;
