@@ -1,9 +1,4 @@
 ﻿using FluentNHibernate.Mapping;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Tritium.Entities;
 
 namespace Tritium.Mappings
@@ -14,14 +9,11 @@ namespace Tritium.Mappings
         {
             Id(x => x.Id);
             References(x => x.Navsteva)
-                .Not.LazyLoad()
-                .Cascade.All();
+                .Not.LazyLoad();
             References(x => x.Patogen)
-                .Not.LazyLoad()
-                .Cascade.All();
+                .Not.LazyLoad();
             References(x => x.Okruh)
-                .Not.LazyLoad()
-                .Cascade.All();
+                .Not.LazyLoad();
             Map(x => x.FRQ);
             Map(x => x.HRV);
         }

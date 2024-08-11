@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Iesi.Collections.Generic;
+using System.ComponentModel;
 using Tritium.Entities;
 using Tritium.utils;
 
@@ -6,12 +7,12 @@ namespace Tritium.gui
 {
     public partial class DesignerInterface : Form
     {
-        Navsteva meeting;
+		private readonly int meetingId;
         private readonly List<DesignerDesigner> activeRows = [];
         private readonly List<Control> planningLayout = [];
         public DesignerInterface(int meetingId)
         {
-            meeting = Program.db.GetMeetingById(meetingId);
+			this.meetingId = meetingId;
             InitializeComponent();
             LoadInfo();
             LoadSkeny();
@@ -20,6 +21,7 @@ namespace Tritium.gui
 
         private void LoadInfo()
         {
+            Navsteva meeting = Program.db.GetMeetingById(meetingId);
             username.Text = meeting.Client.Jmeno;
             Date.Text = meeting.Client.DatumNarozeni.ToString("dd. mm. yyyy");
             MeetingNumberAndDate.Text = meeting.Id + " (" + meeting.Date.ToString("dd. mm. yyyy") + ")";
@@ -28,7 +30,8 @@ namespace Tritium.gui
         private void LoadSkeny()
         {
             skeny.SuspendLayout();
-            skeny.DataSource = GenerateTScanList(Program.db.GetScansForMeeting(meeting.Id));
+			Navsteva meeting = Program.db.GetMeetingById(meetingId);
+			skeny.DataSource = GenerateTScanList(Program.db.GetScansForMeeting(meeting.Id));
 
             foreach (DataGridViewColumn col in skeny.Columns)
             {
@@ -39,9 +42,9 @@ namespace Tritium.gui
             skeny.ResumeLayout(true);
         }
 
-        private async void GenerateMasterTablePanels()
-        {
-            DrawingControl.SuspendDrawing(this);
+        private void GenerateMasterTablePanels() {
+			Navsteva meeting = Program.db.GetMeetingById(meetingId);
+			DrawingControl.SuspendDrawing(this);
             int entries = meeting.Plany.Count;
             if (entries > 0)
             {
@@ -67,9 +70,9 @@ namespace Tritium.gui
         public static List<TemporaryScan> GenerateTScanList(IList<Sken> skeny)
         {
             List<TemporaryScan> list = [];
-            foreach (var item in skeny.OrderBy(x => x.FRQ)
-                .ThenBy(x => x.HRV)
-                .ThenBy(x => x.Patogen.Name))
+            foreach (var item in skeny.OrderByDescending(x => x.FRQ)
+                .ThenByDescending(x => x.HRV)
+                .ThenByDescending(x => x.Patogen.Name))
             {
                 TemporaryScan scan = new()
                 {
@@ -94,22 +97,24 @@ namespace Tritium.gui
 
         private void SaveAll()
         {
-            //TODO: Fill in all the saving parameters
+			//TODO: Fill in all the saving parameters
 
-            Program.db.UpdateMeeting(meeting);
+			Navsteva meeting = Program.db.GetMeetingById(meetingId);
+			Program.db.UpdateMeeting(meeting);
         }
 
         bool closed = false;
-        protected override async void OnClosing(CancelEventArgs e)
+        protected override void OnClosing(CancelEventArgs e)
         {
             if (!closed)
             {
                 SaveAll();
-                SaveAndClose(new MeetingInterface(meeting.Id));
+				Navsteva meeting = Program.db.GetMeetingById(meetingId);
+				SaveAndClose(new MeetingInterface(meeting.Id));
             }
         }
 
-        private async void SaveAndClose(Form target)
+        private void SaveAndClose(Form target)
         {
             closed = true;
             SaveAll();
@@ -122,14 +127,15 @@ namespace Tritium.gui
                 masterGrid.Controls.Remove(row.subLayout);
             });
 
-            meeting = Program.db.GetMeetingById(meeting.Id);
+			Navsteva meeting = Program.db.GetMeetingById(meetingId);
+			meeting = Program.db.GetMeetingById(meeting.Id);
 
             GenerateMasterTablePanels();
         }
 
-        private async void CreateNewPlan_Click(object? sender, EventArgs? e)
-        {
-            meeting.PridatPlan(new Plan()
+        private void CreateNewPlan_Click(object? sender, EventArgs? e) {
+			Navsteva meeting = Program.db.GetMeetingById(meetingId);
+			meeting.PridatPlan(new Plan()
             {
                 Navsteva = meeting,
                 Poradi = Program.db.GetNextOrderForPlan(meeting),

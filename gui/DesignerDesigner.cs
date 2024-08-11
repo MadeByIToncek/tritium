@@ -14,14 +14,11 @@ namespace Tritium.gui
         public CheckBox? note;
         public CheckBox? done;
 
-        private readonly Dictionary<int, RowDesigner> rows = [];
-        private readonly Action<object?, EventArgs> saveAndRefreshLayout;
         private readonly Action<Form> SaveAndClose;
 
         public DesignerDesigner(Plan plan, Action<object?, EventArgs> saveAndRefreshLayout, List<Control> planningLayout, Action<Form> rootWindow)
         {
             this.plan = plan;
-            this.saveAndRefreshLayout = saveAndRefreshLayout;
             this.SaveAndClose = rootWindow; 
             subLayout = GenerateSubLayout();
 
@@ -92,18 +89,23 @@ namespace Tritium.gui
             subLayoutBController.Size = new Size(1180, 588);
             subLayoutBController.TabIndex = 1;
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 9; i++)
             {
                 subLayoutBController.Controls.Add(GenerateRow(i), 0, i);
-            }
+			}
+			subLayoutBController.Controls.Add(GenerateSumRow(), 0, 9);
 
-            return subLayoutBController;
+			return subLayoutBController;
         }
 
-        private TableLayoutPanel GenerateRow(int i)
+		private TableLayoutPanel GenerateSumRow() {
+			SumRowDesigner designer = new(plan, SaveAndClose);
+			return designer.GenerateLayout();
+		}
+
+		private TableLayoutPanel GenerateRow(int i)
         {
             RowDesigner designer = new(FindPlanEntry(i, plan.Programy),plan,i, SaveAndClose);
-            rows.Add(i,designer);
             return designer.GenerateLayout();
         }
 

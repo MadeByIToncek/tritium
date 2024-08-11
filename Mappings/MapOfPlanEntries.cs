@@ -14,9 +14,9 @@ namespace Tritium.Mappings
         {
             Id(x => x.Id);
             References(x => x.Plan)
-                .Not.LazyLoad();
+				.Not.LazyLoad();
             References(x => x.Program)
-                .Not.LazyLoad();
+				.Not.LazyLoad();
             Map(x => x.Poradi);
         }
     }

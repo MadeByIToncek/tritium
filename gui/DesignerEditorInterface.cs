@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Org.BouncyCastle.Asn1.X509;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,8 +27,10 @@ namespace Tritium.gui
             this.MeetingId = MeetingId;
             PlanEntry = Program.db.GetPlanEntry(PlanEntryID);
             UpdateList();
-            listBox1.SelectedItem = PlanEntry.Program.Type + " - " + PlanEntry.Program.Name;
-        }
+            listBox1.SelectedItem = PlanEntry.Program.Id + "# " + PlanEntry.Program.Type + " - " + PlanEntry.Program.Name;
+
+			listBox1.MouseDoubleClick += (n, nn) => Close();
+		}
 
 
         private void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -39,7 +42,8 @@ namespace Tritium.gui
                     if (item.Name.Contains(pattern.Replace(listBox1.SelectedItem.ToString(), ""), StringComparison.InvariantCultureIgnoreCase))
                     {
                         LoadPP(item);
-                        break;
+
+						break;
                     }
                 }
 
@@ -64,12 +68,12 @@ namespace Tritium.gui
                 {
                     if (item.Name.Contains(textBox2.Text, StringComparison.InvariantCultureIgnoreCase))
                     {
-                        listBox1.Items.Add(item.Type + " - " + item.Name);
+                        listBox1.Items.Add(item.Id + "# " + item.Type + " - " + item.Name);
                     }
                 }
                 else
                 {
-                    listBox1.Items.Add(item.Type + " - " + item.Name);
+                    listBox1.Items.Add(item.Id + "# " + item.Type + " - " + item.Name);
                 }
 
             }
@@ -94,23 +98,16 @@ namespace Tritium.gui
         private void SaveAll()
         {
             //TODO: Fill in all the saving parameters
-            Program.db.UpdatePlanEntry(PlanEntry);
+            Program.db.SetPlanEntryPlan(PlanEntry.Id, int.Parse(listBox1.SelectedItem.ToString().Split("#")[0]));
         }
 
-        protected override async void OnClosing(CancelEventArgs e)
+        protected override void OnClosing(CancelEventArgs e)
         {
-            if (!closed)
-            {
-                SaveAll();
-                SaveAndClose(new DesignerInterface(MeetingId));
+            if (!closed) {
+				closed = true;
+				SaveAll();
+				ManagerWindow.SwitchToWindow(new DesignerInterface(MeetingId), this);
             }
-        }
-
-        private async void SaveAndClose(Form target)
-        {
-            closed = true;
-            SaveAll();
-            ManagerWindow.SwitchToWindow(target, this);
         }
 
         private static string ParseTime(long time)

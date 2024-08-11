@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.ComponentModel;
 using Tritium.Entities;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Tritium.gui
 {
@@ -26,7 +17,24 @@ namespace Tritium.gui
 
             ResumeLayout();
             PerformLayout();
+
+            PatogenList.MouseDoubleClick += (n,nn) => SubmitAndClose();
+            HRV.KeyPress += CheckEnterKeyPress;
+            FRQ.KeyPress += CheckEnterKeyPress;
         }
+
+        private void CheckEnterKeyPress(object? sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Return)
+            {
+                SubmitAndClose();
+            }
+        }
+
+        private void SubmitAndClose()
+        {
+            OnClosing(null);
+		}
 
         public void LoadData()
         {
@@ -50,7 +58,6 @@ namespace Tritium.gui
 
         private List<Okruh> GetListOfOkruhyFromNavsteva()
         {
-
             return
             [
                 scan.Navsteva.SkenOkr1,
@@ -95,7 +102,6 @@ namespace Tritium.gui
                 await Program.db.UpdateSken(scan);
 
                 ManagerWindow.SwitchToWindow(new MeetingInterface(scan.Navsteva.Id), this);
-                base.OnClosing(e);
             }
         }
 

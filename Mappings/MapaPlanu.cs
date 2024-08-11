@@ -13,8 +13,7 @@ namespace Tritium.Mappings
         public MapaPlanu()
         {
             Id(x => x.Id);
-            References(x => x.Navsteva)
-                .Cascade.All(); 
+            References(x => x.Navsteva); 
             Map(x => x.Poradi);
             Map(x => x.Done);
             Map(x => x.Note);
@@ -25,8 +24,8 @@ namespace Tritium.Mappings
                 .Nullable();
             HasMany(x => x.Programy)
                 .Not.LazyLoad()
-                .Inverse()
-                .Cascade.All();
+				.Cascade.All()
+				.Inverse();
         }
     }
 }

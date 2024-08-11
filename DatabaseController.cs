@@ -1,5 +1,6 @@
 ﻿using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
+using FluentNHibernate.Data;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Criterion;
@@ -9,15 +10,12 @@ using System.Reflection;
 using System.Text;
 using Tritium.Entities;
 
-namespace Tritium
-{
-    public class DatabaseController
-    {
+namespace Tritium {
+    public class DatabaseController {
         private readonly ISessionFactory sf;
         readonly internal bool isLocal;
 
-        public DatabaseController(string path)
-        {
+        public DatabaseController(string path) {
             Program.SplashScreen?.SetCurrentProgressMessage("DB", "Connecting");
 
             sf = Fluently.Configure()
@@ -26,16 +24,15 @@ namespace Tritium
                      m.FluentMappings.AddFromAssemblyOf<Program>())
                 .ExposeConfiguration(TreatConfiguration)
                 .BuildSessionFactory();
-            isLocal = true; 
+            isLocal = true;
 
             Program.SplashScreen?.SetCurrentProgressMessage("DB", "Connected");
 
             MigrateIfNeededAsync(sf.OpenSession());
         }
-        public DatabaseController(string server, int port, string database, string user, string password)
-        {
+        public DatabaseController(string server, int port, string database, string user, string password) {
             Program.SplashScreen?.SetCurrentProgressMessage("DB", "Connecting");
-            
+
             sf = Fluently.Configure()
                 .Database(MySQLConfiguration.Standard.ConnectionString(c =>
                     c.Server(server)
@@ -55,14 +52,12 @@ namespace Tritium
             MigrateIfNeededAsync(sf.OpenSession());
         }
 
-        private static void MigrateIfNeededAsync(ISession session)
-        {
+        private static void MigrateIfNeededAsync(ISession session) {
             Program.SplashScreen?.SetCurrentProgressMessage("DB Migrations", "Checking Patogens");
 
             ITransaction transaction = session.BeginTransaction();
             transaction.Begin();
-            if ((session.CreateSQLQuery("SELECT * FROM PatogenProgram").List()).Count < 1)
-            {
+            if ((session.CreateSQLQuery("SELECT * FROM PatogenProgram").List()).Count < 1) {
                 Program.SplashScreen?.SetCurrentProgressMessage("DB Migrations", "Patogen migration started");
                 var assembly = Assembly.GetExecutingAssembly();
                 string resourceName = assembly.GetManifestResourceNames().Single(str => str.EndsWith("patogenprogramy.csv"));
@@ -72,11 +67,9 @@ namespace Tritium
                 using var streamReader = new StreamReader(fileStream, Encoding.UTF8, true, BufferSize);
                 var lines = (streamReader.ReadToEnd()).Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
                 int cline = 0;
-                foreach (var line in lines)
-                {
+                foreach (var line in lines) {
                     string[] parts = line.Split(",");
-                    for (int i = 0; i < parts.Length; i++)
-                    {
+                    for (int i = 0; i < parts.Length; i++) {
                         parts[i] = parts[i].Trim().Replace("\"", "");
                     }
                     string name = parts[0];
@@ -90,8 +83,7 @@ namespace Tritium
                     string okruhy = parts[8];
                     string poznamky = parts[9];
 
-                    PatogenProgram pp = new()
-                    {
+                    PatogenProgram pp = new() {
                         Name = name,
                         Type = type,
                         Time = time,
@@ -112,15 +104,13 @@ namespace Tritium
                 }
 
                 Program.SplashScreen?.SetCurrentProgressMessage("DB Migrations", "Patogen migration finished");
-            } else
-            {
+            } else {
                 Program.SplashScreen?.SetCurrentProgressMessage("DB Migrations", "Patogen migration not needed");
             };
 
 
             Program.SplashScreen?.SetCurrentProgressMessage("DB Migrations", "Checking Okruhy");
-            if (session.CreateSQLQuery("SELECT * FROM Okruh").List().Count < 1)
-            {
+            if (session.CreateSQLQuery("SELECT * FROM Okruh").List().Count < 1) {
                 Program.SplashScreen?.SetCurrentProgressMessage("DB Migrations", "Okruhy migration started");
                 var assembly = Assembly.GetExecutingAssembly();
                 string resourceName = assembly.GetManifestResourceNames().Single(str => str.EndsWith("okruhy.csv"));
@@ -130,19 +120,16 @@ namespace Tritium
                 using var streamReader = new StreamReader(fileStream, Encoding.UTF8, true, BufferSize);
                 var lines = (streamReader.ReadToEnd()).Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
                 int cline = 0;
-                foreach (var line in lines)
-                {
+                foreach (var line in lines) {
                     string[] parts = line.Split(",");
-                    for (int i = 0; i < parts.Length; i++)
-                    {
+                    for (int i = 0; i < parts.Length; i++) {
                         parts[i] = parts[i].Trim().Replace("\"", "");
                     }
                     string zkratka = parts[0];
                     string nazev = parts[1];
                     int cas = int.Parse(parts[2]);
 
-                    Okruh okruh = new()
-                    {
+                    Okruh okruh = new() {
                         Name = nazev,
                         Zkratka = zkratka,
                         Delka = cas
@@ -154,43 +141,36 @@ namespace Tritium
                 }
 
                 Program.SplashScreen?.SetCurrentProgressMessage("DB Migrations", "Okruhy migration finished");
-            }
-            else
-            {
+            } else {
                 Program.SplashScreen?.SetCurrentProgressMessage("DB Migrations", "Okruhy migration not needed");
             }
 
             transaction.Commit();
         }
 
-        private static void TreatConfiguration(Configuration configuration)
-        {
+        private static void TreatConfiguration(Configuration configuration) {
             Program.SplashScreen?.SetCurrentProgressMessage("DB Migrations", "Migrating table layout");
             var update = new SchemaUpdate(configuration);
             update.Execute(false, true);
             Program.SplashScreen?.SetCurrentProgressMessage("DB Migrations", "Table migration finished");
         }
 
-        internal IList<Klient> ListClients()
-        {
+        internal IList<Klient> ListClients() {
             using var session = sf.OpenSession();
             // retreive all stores and display them
-            using (session.BeginTransaction())
-            {
+            using (session.BeginTransaction()) {
                 return session.CreateCriteria(typeof(Klient))
                   .List<Klient>();
             }
         }
 
-        internal IList<PatogenProgram> ListPatogenPrograms()
-        {
+        internal IList<PatogenProgram> ListPatogenPrograms() {
             using var session = sf.OpenSession();
             return session.CreateCriteria(typeof(PatogenProgram))
               .List<PatogenProgram>();
         }
 
-        internal async Task UpdatePatogenProgram(PatogenProgram pp)
-        {
+        internal async Task UpdatePatogenProgram(PatogenProgram pp) {
             using var session = sf.OpenSession();
             using var trans = session.BeginTransaction();
             trans.Begin();
@@ -200,8 +180,7 @@ namespace Tritium
             session.Close();
         }
 
-        internal async Task InsertPatogenProgram(PatogenProgram pp)
-        {
+        internal async Task InsertPatogenProgram(PatogenProgram pp) {
             using var session = sf.OpenSession();
             using var trans = session.BeginTransaction();
             trans.Begin();
@@ -210,8 +189,7 @@ namespace Tritium
             session.Close();
         }
 
-        internal async Task DeletePatogenProgram(PatogenProgram pp)
-        {
+        internal async Task DeletePatogenProgram(PatogenProgram pp) {
             using var session = sf.OpenSession();
             using var trans = session.BeginTransaction();
             trans.Begin();
@@ -220,15 +198,13 @@ namespace Tritium
             session.Close();
         }
 
-        internal IList<Okruh> ListOkruhy()
-        {
+        internal IList<Okruh> ListOkruhy() {
             using var session = sf.OpenSession();
             return session.CreateCriteria(typeof(Okruh))
               .List<Okruh>();
         }
 
-        internal IList<Navsteva> GetMeetingsForClient(int clientId)
-        {
+        internal IList<Navsteva> GetMeetingsForClient(int clientId) {
             using var session = sf.OpenSession();
             var query = session.QueryOver<Navsteva>()
                 .Where(i => i.Client.Id == clientId)
@@ -236,13 +212,11 @@ namespace Tritium
             return query.List<Navsteva>();
         }
 
-        internal async Task CreateEmptyMeetingWithClient(Klient client)
-        {
+        internal async Task CreateEmptyMeetingWithClient(Klient client) {
             ISession session = sf.OpenSession();
             ITransaction transaction = session.BeginTransaction();
             transaction.Begin();
-            Navsteva navsteva = new()
-            {
+            Navsteva navsteva = new() {
                 Client = client,
                 Date = DateTime.Now,
                 AktualniPotize = "",
@@ -258,8 +232,7 @@ namespace Tritium
             session.Close();
         }
 
-        private Okruh GetEmptyOkruh()
-        {
+        private Okruh GetEmptyOkruh() {
             using var session = sf.OpenSession();
             var query = session.QueryOver<Okruh>()
                 .Where(i => i.Zkratka == "NULL")
@@ -267,13 +240,11 @@ namespace Tritium
             return query.SingleOrDefault<Okruh>();
         }
 
-        internal async Task CreateEmptyClient()
-        {
+        internal async Task CreateEmptyClient() {
             ISession session = sf.OpenSession();
             ITransaction transaction = session.BeginTransaction();
 
-            Klient klient = new()
-            {
+            Klient klient = new() {
                 Jmeno = "",
                 DatumNarozeni = DateTime.UnixEpoch
             };
@@ -284,8 +255,7 @@ namespace Tritium
             session.Close();
         }
 
-        internal Klient GetClientById(int id)
-        {
+        internal Klient GetClientById(int id) {
             using var session = sf.OpenSession();
             var query = session.QueryOver<Klient>()
                 .Where(i => i.Id == id)
@@ -293,8 +263,7 @@ namespace Tritium
             return query.SingleOrDefault<Klient>();
         }
 
-        internal Navsteva GetMeetingById(int id)
-        {
+        internal Navsteva GetMeetingById(int id) {
             using var session = sf.OpenSession();
             var query = session.QueryOver<Navsteva>()
                 .Where(i => i.Id == id)
@@ -302,8 +271,7 @@ namespace Tritium
             return query.SingleOrDefault<Navsteva>();
         }
 
-        internal async Task UpdateClient(Klient client)
-        {
+        internal async Task UpdateClient(Klient client) {
             using var session = sf.OpenSession();
             using var trans = session.BeginTransaction();
             trans.Begin();
@@ -313,8 +281,7 @@ namespace Tritium
             session.Close();
         }
 
-        internal IList<Sken> GetScansForMeeting(int id)
-        {
+        internal IList<Sken> GetScansForMeeting(int id) {
             using var session = sf.OpenSession();
             var query = session.QueryOver<Sken>()
                 .Where(i => i.Navsteva.Id == id)
@@ -322,8 +289,7 @@ namespace Tritium
             return query.List<Sken>();
         }
 
-        internal Sken GetScanById(int id)
-        {
+        internal Sken GetScanById(int id) {
             using var session = sf.OpenSession();
             var query = session.QueryOver<Sken>()
                 .Where(i => i.Id == id)
@@ -331,25 +297,22 @@ namespace Tritium
             return query.SingleOrDefault<Sken>();
         }
 
-        internal async Task<int> InsertSken(Navsteva navsteva)
-        {
+        internal async Task<int> InsertSken(Navsteva navsteva) {
             using var session = sf.OpenSession();
             using var trans = session.BeginTransaction();
             trans.Begin();
-            int i = (int)await session.SaveAsync(new Sken()
-            {
+            int i = (int)await session.SaveAsync(new Sken() {
                 Okruh = GetEmptyOkruh(),
                 FRQ = 0,
                 HRV = 0,
                 Navsteva = navsteva,
                 Patogen = GetEmptyPatogen()
-            }) ;
+            });
             await trans.CommitAsync();
             return i;
         }
 
-        internal PatogenProgram GetEmptyPatogen()
-        {
+        internal PatogenProgram GetEmptyPatogen() {
             using var session = sf.OpenSession();
             var query = session.QueryOver<PatogenProgram>()
                 .Where(i => i.Type == "NULL")
@@ -357,8 +320,7 @@ namespace Tritium
             return query.SingleOrDefault<PatogenProgram>();
         }
 
-        internal async Task UpdateSken(Sken s)
-        {
+        internal async Task UpdateSken(Sken s) {
             using var session = sf.OpenSession();
             using var trans = session.BeginTransaction();
             trans.Begin();
@@ -368,8 +330,7 @@ namespace Tritium
             session.Close();
         }
 
-        internal void UpdateMeeting(Navsteva meeting)
-        {
+        internal void UpdateMeeting(Navsteva meeting) {
             using var session = sf.OpenSession();
             using var trans = session.BeginTransaction();
             trans.Begin();
@@ -379,8 +340,7 @@ namespace Tritium
             session.Close();
         }
 
-        internal Okruh GetOkruhByName(string name)
-        {
+        internal Okruh GetOkruhByName(string name) {
             using var session = sf.OpenSession();
             var query = session.QueryOver<Okruh>()
                 .Where(i => i.Name == name)
@@ -388,8 +348,7 @@ namespace Tritium
             return query.SingleOrDefault<Okruh>();
         }
 
-        internal async Task DeleteSken(int id)
-        {
+        internal async Task DeleteSken(int id) {
             using var session = sf.OpenSession();
             using var trans = session.BeginTransaction();
             trans.Begin();
@@ -399,8 +358,7 @@ namespace Tritium
         }
 
 
-        internal async Task DeleteClient(int id)
-        {
+        internal async Task DeleteClient(int id) {
             using var session = sf.OpenSession();
             using var trans = session.BeginTransaction();
             trans.Begin();
@@ -409,8 +367,7 @@ namespace Tritium
             session.Close();
         }
 
-        internal PatogenProgram GetPatogenById(string v)
-        {
+        internal PatogenProgram GetPatogenById(string v) {
             using var session = sf.OpenSession();
             var query = session.QueryOver<PatogenProgram>()
                 .Where(i => i.Id == int.Parse(v))
@@ -418,8 +375,7 @@ namespace Tritium
             return query.SingleOrDefault<PatogenProgram>() ?? GetEmptyPatogen();
         }
 
-        internal IEnumerable<Plan> GetPlansForMeeting(int id)
-        {
+        internal IEnumerable<Plan> GetPlansForMeeting(int id) {
             using var session = sf.OpenSession();
             var query = session.QueryOver<Plan>()
                 .Where(i => i.Navsteva.Id == id)
@@ -427,8 +383,7 @@ namespace Tritium
             return query.List<Plan>();
         }
 
-        internal async Task DeletePlan(Plan plan)
-        {
+        internal async Task DeletePlan(Plan plan) {
             using var session = sf.OpenSession();
             using var trans = session.BeginTransaction();
             trans.Begin();
@@ -438,10 +393,9 @@ namespace Tritium
             session.Close();
         }
 
-        internal async 
+        internal async
         Task
-UpdatePlan(Plan plan)
-        {
+UpdatePlan(Plan plan) {
             using var session = sf.OpenSession();
             using var trans = session.BeginTransaction();
             trans.Begin();
@@ -451,8 +405,7 @@ UpdatePlan(Plan plan)
             session.Close();
         }
 
-        internal void Shutdown()
-        {
+        internal void Shutdown() {
             sf.EvictQueries();
             foreach (var collectionMetadata in sf.GetAllCollectionMetadata())
                 sf.EvictCollection(collectionMetadata.Key);
@@ -463,16 +416,14 @@ UpdatePlan(Plan plan)
             sf.Dispose();
         }
 
-        internal int GetNextOrderForPlan(Navsteva meeting)
-        {
+        internal int GetNextOrderForPlan(Navsteva meeting) {
             using var session = sf.OpenSession();
             int query = session.QueryOver<Plan>()
                 .Select(Projections.Max<Plan>(x => x.Poradi)).SingleOrDefault<int>();
-                return query + 1;
+            return query + 1;
         }
 
-        internal async void ClearPlanEntry(PlanEntry entry)
-        {
+        internal async void ClearPlanEntry(PlanEntry entry) {
             using var session = sf.OpenSession();
             using var trans = session.BeginTransaction();
             trans.Begin();
@@ -483,8 +434,7 @@ UpdatePlan(Plan plan)
             session.Close();
         }
 
-        internal PlanEntry GetPlanEntry(int planEntryID)
-        {
+        internal PlanEntry GetPlanEntry(int planEntryID) {
             using var session = sf.OpenSession();
             var query = session.QueryOver<PlanEntry>()
                 .Where(i => i.Id == planEntryID)
@@ -492,8 +442,7 @@ UpdatePlan(Plan plan)
             return query.SingleOrDefault<PlanEntry>();
         }
 
-        internal async void UpdatePlanEntry(PlanEntry entry)
-        {
+        internal async void UpdatePlanEntry(PlanEntry entry) {
             using var session = sf.OpenSession();
             using var trans = session.BeginTransaction();
             trans.Begin();
@@ -503,15 +452,13 @@ UpdatePlan(Plan plan)
             session.Close();
         }
 
-        internal int CreateNewEmptyPlanEntry(Plan plan, int order)
-        {
+        internal int CreateNewEmptyPlanEntry(Plan plan, int order) {
             ISession session = sf.OpenSession();
             ITransaction transaction = session.BeginTransaction();
             transaction.Begin();
             PatogenProgram patogen = GetEmptyPatogen();
             session.Evict(patogen);
-            PlanEntry entry = new()
-            {
+            PlanEntry entry = new() {
                 Plan = plan,
                 Program = patogen,
                 Poradi = order
@@ -522,6 +469,21 @@ UpdatePlan(Plan plan)
             transaction.Commit();
             session.Close();
             return v;
+        }
+
+        internal void SetPlanEntryPlan(int planEntryId, int v) {
+            using var session = sf.OpenSession();
+            using var trans = session.BeginTransaction();
+            trans.Begin();
+            PlanEntry entry = session.QueryOver<PlanEntry>()
+                .Where(i => i.Id == planEntryId).SingleOrDefault();
+            PatogenProgram program = session.QueryOver<PatogenProgram>()
+                .Where(i => i.Id == v).SingleOrDefault();
+
+            entry.Program = program;
+            session.Update(entry);
+            trans.Commit();
+            session.Close();
         }
     }
 }
